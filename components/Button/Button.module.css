@@ -1,0 +1,81 @@
+@import url(http://fonts.googleapis.com/earlyaccess/notosanshebrew.css);
+
+.tertiary {
+    border: 1px solid;
+    width: 100px;
+    height: 30px;
+    background-color: var(--background-general);
+    border-color: var(--main-color);
+    color: var(--main-color);
+    border-radius: 15px;
+    font-family: 'Noto Sans Hebrew';
+}
+
+.tertiary:disabled {
+    border-color: #A1BFBD;
+    color: #A1BFBD;
+    cursor: not-allowed ! important;
+}
+
+.tertiary:hover {
+    filter: drop-shadow(1px 1px 1px #9cf3ec)
+}
+
+.tertiary:active {
+    border-color: #3BBBB0;
+    color: #3BBBB0;
+}
+
+.primary {
+    border: 2px solid;
+    width: 150px;
+    height: 35px;
+    background-color: var(--main-color);
+    border-color: var(--main-color);
+    border-radius: 15px;
+    color: white;
+    font-family: 'Noto Sans Hebrew';
+    text-align: center;
+}
+
+.primary:disabled {
+    border-color: #A1BFBD;
+    background-color: #A1BFBD;
+    cursor: not-allowed ! important;
+}
+
+.primary:hover {
+    filter: drop-shadow(1px 1px 1px var(--main-color))
+}
+
+.primary:active {
+    background-color: #3BBBB0;
+    color: white;
+}
+
+
+.secondary {
+    border: 2px solid;
+    width: 130px;
+    height: 30px;
+    border-color: var(--main-color);
+    color: var(--main-color);
+    border-radius: 15px;
+    font-family: 'Noto Sans Hebrew';
+    background-color: white;
+}
+
+.secondary:disabled {
+    border-color: #A1BFBD;
+    color: #A1BFBD;
+    cursor: not-allowed ! important;
+}
+
+.secondary:hover {
+    filter: drop-shadow(1px 1px 1px #9cf3ec)
+}
+
+.secondary:active {
+    border-color: #3BBBB0;
+    color: #3BBBB0;
+}

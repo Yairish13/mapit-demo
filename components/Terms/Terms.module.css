@@ -1,0 +1,33 @@
+@font-face {
+    font-family: 'gveretLevin';
+    src: url("../../styles/fonts/gveretLevin.ttf") format('truetype');
+  }
+  @font-face {
+    font-family: 'kalam';
+    src: url("../../styles/fonts/kalam.ttf") format('truetype');
+  }
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 7%;
+    height: 40vh;
+    justify-content: space-around;
+}
+.header {
+    font-family: 'gveretLevin', 'kalam';
+    font-size: 28px;
+    line-height: 39.2px;
+    color: var(--orange-basic);
+    text-align: center;
+}
+
+.text {
+    text-decoration: underline;
+    font-size: 16px;
+    line-height: 22.4px;
+    cursor: pointer;
+    font-family: 'Noto Sans Hebrew';
+    text-align: center;
+    color: black;
+}

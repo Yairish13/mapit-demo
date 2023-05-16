@@ -1,0 +1,32 @@
+@import url(http://fonts.googleapis.com/earlyaccess/notosanshebrew.css);
+
+input:focus {
+  border-color: inherit;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
+input {
+  width: 100%;
+  outline: none;
+  border-width: 0 0 2px;
+  border-color: #B1BEC5;
+  background-color: rgb(var(--background-general));
+}
+
+input:focus {
+  border-color: #B1BEC5;
+  outline: 1px dotted #000
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 30vw;
+}
+
+.bottomText {
+  text-align: start;
+  font-size: 12px;
+  font-family: 'Noto Sans Hebrew';
+}

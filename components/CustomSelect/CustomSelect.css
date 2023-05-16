@@ -1,0 +1,83 @@
+@import url(http://fonts.googleapis.com/earlyaccess/notosanshebrew.css);
+
+/* width */
+::-webkit-scrollbar {
+  direction: rtl;
+  width: 5px;
+  height: 25px;
+}
+
+/* Handle */
+.options::-webkit-scrollbar-thumb {
+  background: var(--main-color);
+
+  border-radius: 10px;
+  height: 5px;
+}
+
+.arrow-up {
+  transform: rotate(180deg);
+  transition: transform 0.1s linear;
+}
+
+.arrow-down {
+  transform: rotate(360deg);
+  transition: transform 0.1s linear;
+}
+
+.custom-select {
+  display: inline-block;
+}
+
+.selected-options {
+  display: flex;
+  flex-direction: row;
+  border: 1px solid #B1BEC5;
+  border-radius: 4px;
+  cursor: pointer;
+  background-color: white;
+  width: 150px;
+  font-family: 'Noto Sans Hebrew';
+  align-items: center;
+  justify-content: space-between;
+  padding: 5px;
+  color: var(--main-color);
+}
+
+.open {
+  border: 1px solid var(--main-color);
+}
+
+.selected-option {
+  margin: 2px;
+  padding: 2px 8px;
+  border-radius: 4px;
+  background-color: #eaeaea;
+}
+
+.options {
+  background-color: white;
+  border-radius: 5px;
+  border: 2px solid #B1BEC5;
+  height: 190px;
+  display: flex;
+  flex-direction: column;
+  margin-top: 5px;
+  overflow-y: overlay;
+}
+
+.option {
+  display: flex;
+  flex-direction: row-reverse;
+  width: 100%;
+  font-family: 'Noto Sans Hebrew';
+  align-items: center;
+  justify-content: flex-end;
+  border-bottom: 1px solid #B1BEC5;
+  padding: 7px 0;
+  font-size: 12px
+}
+
+.selected {
+  background-color: #E1EFFF;
+}

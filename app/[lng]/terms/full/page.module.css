@@ -1,0 +1,23 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin: 0% 15%;
+    font-size: 16px;
+    overflow-y: hidden;
+    margin-bottom: 5%;
+}
+.termsHeader{
+    font-family: 'gveretLevin';
+    text-decoration: underline;
+    color: var(--orange-basic);
+}
+.row{
+    display: flex;
+    flex-direction: row;
+}   
+.subRow{
+    display: flex;
+    flex-direction: row;
+    padding-inline-start: 25px;
+}   
