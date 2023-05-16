@@ -58,7 +58,7 @@
   width: 250px;
   background-image: url('../../../public/assets/images/circle.svg');
   background-size: contain;
-  border: 1px solid rgb(var(--main-color));
+  border: 1px solid rgb(var(--color-primary));
   border-radius: 121px;
 }
 
@@ -69,7 +69,7 @@
 
 .loginHeader {
   font-family: 'gveretLevin';
-  color: var(--orange-basic);
+  color: var(--color-secondary);
 }
 
 .takanon {
