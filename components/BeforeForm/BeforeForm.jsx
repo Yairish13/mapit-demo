@@ -1,3 +1,4 @@
+"use client"
 import Button from '@components/Button/Button'
 import TextInput from '@components/TextInput/TextInput'
 import styles from './BeforeForm.module.css'
