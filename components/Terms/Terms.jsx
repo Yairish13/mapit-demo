@@ -6,9 +6,9 @@ import Link from 'next/link';
 import { useTranslation } from '@app/i18n/client';
 
 const Terms = ({ lng }) => {
-    const { t } = useTranslation(lng, 'terms-page')
+    const { t } = useTranslation(lng)
     return (
-        <div style={{ height: '62vh' }}>
+        <div className="container-content">
             <div className={styles.container}>
                 <div>
                     <span className={styles.header}>

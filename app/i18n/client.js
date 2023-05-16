@@ -10,7 +10,7 @@ import { getOptions } from './settings'
 i18next
   .use(initReactI18next)
   .use(LanguageDetector)
-  .use(resourcesToBackend((language, namespace) => import(`./locales/${language}/${namespace}.json`)))
+  .use(resourcesToBackend((language) => import(`./locales/${language}.json`)))
   .init({
     ...getOptions(),
     lng: undefined, // let detect the language on client side
