@@ -32,6 +32,8 @@ const CustomSelect = ({
     // options,
     onClick,
     placeholder,
+    withArrow,
+    withNoHeader = false,
 }) => {
     const [isOpen, setIsOpen] = useState(false);
     const [selectedOptions, setSelectedOptions] = useState([]);
@@ -57,15 +59,31 @@ const CustomSelect = ({
         setIsOpen(prev => !prev)
     }
     return (
-        <div className="custom-select">
-            <div className={isOpen ? "selected-options open" : "selected-options"} onClick={handleClick}>
-                <span>
-                    {placeholder}
-                </span>
-                <Image className={isOpen ? 'arrow-up' : 'arrow-down'} src={arrowDown.src} alt="" width="15" height="15" />
-            </div>
-            {isOpen &&
-                <div className="options">
+        <>
+            {!withNoHeader ? <div className="custom-select">
+                <div className={isOpen ? "selected-options open" : "selected-options"} onClick={handleClick}>
+                    <div className={!withArrow ? 'headerDivNoArrow' : 'headerDivArrow'}>
+                        <div>
+                            {placeholder}
+                        </div>
+                        {withArrow && <Image className={isOpen ? 'arrow-up' : 'arrow-down'} src={arrowDown.src} alt="" width="15" height="15" />}
+                    </div>
+                </div>
+                {isOpen &&
+                    <div className={!withArrow ? 'options smallWindow' : "options"}>
+                        {options.map((option, index) => (
+                            <div key={option.id} className={isSelected(option.id) ? "option selected" : 'option'}>
+                                {option.value}
+                                <Checkbox
+                                    onClick={() => handleOptionClick(option)}
+                                    checked={isSelected(option.id)}
+                                />
+                            </div>
+                        ))}
+                    </div>
+                }
+            </div> :
+                <div className={"options noHeader"}>
                     {options.map((option, index) => (
                         <div key={option.id} className={isSelected(option.id) ? "option selected" : 'option'}>
                             {option.value}
@@ -76,7 +94,7 @@ const CustomSelect = ({
                         </div>
                     ))}
                 </div>}
-        </div>
+        </>
     );
 };
 

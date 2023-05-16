@@ -30,16 +30,12 @@
 }
 
 .selected-options {
-  display: flex;
-  flex-direction: row;
   border: 1px solid #B1BEC5;
   border-radius: 4px;
   cursor: pointer;
   background-color: white;
   width: 150px;
   font-family: 'Noto Sans Hebrew';
-  align-items: center;
-  justify-content: space-between;
   padding: 5px;
   color: var(--color-primary);
 }
@@ -66,10 +62,19 @@
   overflow-y: overlay;
 }
 
+.smallWindow {
+  height: 94px;
+}
+
+.noHeader {
+  height: 94px;
+  width: 150px;
+}
+
 .option {
   display: flex;
   flex-direction: row-reverse;
-  width: 100%;
+  /* width: 100%; */
   font-family: 'Noto Sans Hebrew';
   align-items: center;
   justify-content: flex-end;
@@ -80,4 +85,17 @@
 
 .selected {
   background-color: #E1EFFF;
+}
+
+.headerDivNoArrow {
+  width: 100%;
+  text-align: center;
+}
+
+.headerDivArrow {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+  justify-content: space-between
 }

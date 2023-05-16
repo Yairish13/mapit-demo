@@ -39,7 +39,7 @@ const Login = ({ lng }) => {
                     <span>0508855300</span>
                     {' '}|{' '}
                     <span>
-                        {/* {t('gilboaName')} */}
+                        {t('gilboaName')}
                     </span>
                     {' '}|{' '}
                     <span>
