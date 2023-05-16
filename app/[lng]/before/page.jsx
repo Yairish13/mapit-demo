@@ -1,32 +1,42 @@
-import Image from 'next/image';
-import styles from './page.module.css';
-import mapitLogo from '@public/assets/images/mapitLogo.svg';
-import groupCircle from '@public/assets/images/groupCircle.svg';
-import BeforeForm from '@components/BeforeForm/BeforeForm';
+import Button from '@components/Button/Button';
+import styles from './page.module.scss';
 import { useTranslation } from '@app/i18n';
-
+import clsx from 'clsx';
 
 const Page = async({ params: { lng } }) => {
-    const { t } = await useTranslation(lng, 'before-page')
+    const { t } = await useTranslation(lng);
+
+    const titleClasses = clsx(styles.header, 'title');
 
     return (
-        <>
-            <div className={lng === 'he' ? `${styles.split} ${styles.left}` : `${styles.split} ${styles.rightEn}`}>
-                <Image className={lng === 'he' ? styles.logoLeft : styles.logoRight} src={mapitLogo.src} alt="" width="100" height="100" />
-                <BeforeForm
-                    lng={lng}
-                />
+        <div className="container">
+            <h2 className={titleClasses}>{t('hello')}</h2>
+            <div className={styles.info}>
+                <p>{t('pages.before.paragraph_first')}</p>
+                <p>{t('pages.before.paragraph_second')}</p>
+                <p>{t('pages.before.paragraph_three')}</p>
             </div>
 
-            <div className={ lng === 'he' ? `${styles.split} ${styles.right}`: `${styles.split} ${styles.leftEn}`}>
-                <div className={styles.rightScreen}>
-                    <Image className={styles.groupLogo} src={groupCircle.src} alt="" width="450" height="450" />
-                    <div className={styles.rightText}>
-                        {t('beforeStart')}
-                    </div>
-                </div>
+            <div className={styles.list}>
+                <p>{t('pages.before.paragraph_four')}</p>
+                <ul>
+                    <li>{t('ulOne')}</li>
+                    <li>{t('ulTwo')}</li>
+                    <li>{t('ulThree')}</li>
+                    <li>{t('ulFour')}</li>
+                </ul>
             </div>
-        </>
+
+            <div className={styles.end}>
+                <p>{t('textFive')}</p>
+                <p>{t('textSix')}</p>
+                <p>{t('textEight')}</p>
+            </div>
+
+            <div className={styles.manager}>
+                <Button mode="tertiary">{t('global.start')}</Button>
+            </div>
+        </div>
     )
 }
 

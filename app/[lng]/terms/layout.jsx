@@ -1,4 +1,4 @@
-import DefaultLayout from '@components/layouts/DefaultLayout.jsx'
+import DefaultLayout from '@components/Layouts/Default/index.jsx'
 
 
 const layout = ({ children, params: {

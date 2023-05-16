@@ -1,4 +1,8 @@
-import '@styles/globals.css';
+import '@styles/variables.css';
+import '@styles/fonts.css';
+import '@styles/globals.scss';
+import '@styles/normalize.css';
+
 import { dir } from 'i18next'
 import { languages } from '../i18n/settings'
 

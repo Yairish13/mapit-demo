@@ -1,0 +1,21 @@
+.layout {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding: var(--padding-normal) 0;
+}
+
+.header {
+  flex: 0 0 auto;
+  text-align: var(--start-direction);
+}
+
+.main {
+  flex: 1 1 auto;
+}
+
+.footer {
+  flex: 0 0 auto;
+  text-align: center;
+  font-size: 0.8rem;
+}

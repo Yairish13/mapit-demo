@@ -5,8 +5,8 @@
     width: 100px;
     height: 30px;
     background-color: var(--background-general);
-    border-color: var(--main-color);
-    color: var(--main-color);
+    border-color: var(--color-primary);
+    color: var(--color-primary);
     border-radius: 15px;
     font-family: 'Noto Sans Hebrew';
 }
@@ -30,8 +30,8 @@
     border: 2px solid;
     width: 150px;
     height: 35px;
-    background-color: var(--main-color);
-    border-color: var(--main-color);
+    background-color: var(--color-primary);
+    border-color: var(--color-primary);
     border-radius: 15px;
     color: white;
     font-family: 'Noto Sans Hebrew';
@@ -45,7 +45,7 @@
 }
 
 .primary:hover {
-    filter: drop-shadow(1px 1px 1px var(--main-color))
+    filter: drop-shadow(1px 1px 1px var(--color-primary))
 }
 
 .primary:active {
@@ -58,8 +58,8 @@
     border: 2px solid;
     width: 130px;
     height: 30px;
-    border-color: var(--main-color);
-    color: var(--main-color);
+    border-color: var(--color-primary);
+    color: var(--color-primary);
     border-radius: 15px;
     font-family: 'Noto Sans Hebrew';
     background-color: white;

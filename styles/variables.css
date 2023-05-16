@@ -1,0 +1,34 @@
+:root {
+  /* direction */
+  --transform-direction: 1;
+  --start-direction: left;
+  --end-direction: right;
+
+  /* colors */
+  --color-secondary: rgb(224, 147, 76);
+  --color-bg: rgb(255, 255, 255);
+  --color-primary: rgb(94, 158, 153);
+  --color-text: #333;
+
+  /* font */
+  --font-size: 16px;
+  --font-family: 'notoSansHebrew', Arial;
+  --font-family-levin: 'gveretLevin', Arial;
+  --font-family-kalam: 'kalam', Arial;
+
+  /* layout */
+  --max-width: 1440px;
+  --max-width-small: 800px;
+  --border-radius: 0.5rem;
+
+  /* spacing */
+  --padding-small: 0.5rem;
+  --padding-normal: 1rem;
+  --padding-large: 2rem;
+}
+
+:root[dir="rtl"] {
+  --transform-direction: -1;
+  --start-direction: right;
+  --end-direction: left;
+}

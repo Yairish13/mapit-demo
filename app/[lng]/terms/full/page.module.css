@@ -10,7 +10,7 @@
 .termsHeader{
     font-family: 'gveretLevin';
     text-decoration: underline;
-    color: var(--orange-basic);
+    color: var(--color-secondary);
 }
 .row{
     display: flex;
