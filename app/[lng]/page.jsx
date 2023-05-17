@@ -3,7 +3,6 @@ import Terms from '@components/Terms/Terms';
 import CustomSelect from '@components/CustomSelect/CustomSelect'
 import { useTranslation } from '@app/i18n';
 import Login from '@components/Login/Login';
-import TwoRadio from '@components/TwoRadio/TwoRadio';
 
 export default async function Home({ params: { lng } }) {
   const { t } = await useTranslation(lng, 'translation')
@@ -34,10 +33,6 @@ export default async function Home({ params: { lng } }) {
         withArrow={true}
       // options={options}
       /></div> */}
-
-       <Login
-      lng={lng}
-       /> 
     </div>
   )
 }

@@ -1,8 +1,9 @@
 "use client"
 import styles from './Button.module.css';
 
-const Button = ({ mode, id, onClick, disabled,type, children }) => {
-    const handleClick = () => {
+const Button = ({ mode, id, onClick, disabled, type, children }) => {
+    const handleClick = (e) => {
+        console.log('aaa')
         if (onClick) {
             onClick(id);
         }
@@ -15,7 +16,7 @@ const Button = ({ mode, id, onClick, disabled,type, children }) => {
             type={type}
             className={buttonClass}
             disabled={disabled}
-            onClick={handleClick}
+            onClick={(e) => handleClick(e)}
         >
             {children}
         </button >

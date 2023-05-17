@@ -1,0 +1,26 @@
+{
+    "global.start":"Start",
+    "global.regulations": "All rights reserved to Meirav Gilboa. It is prohibited to reproduce, copy, photocopy, store in databases, broadcast or record in any manner or using any electronic, optical, digital, mechanical or other means, any part of this document. This document and its contents or parts of it are intended for the personal use alone of the participant asked to answer the questionnaire",
+
+
+
+    "pages.before.paragraph_first": "The following questionnaire - MapIt, is intended to help learn about the working interfaces in the organization: What are the existing working relations and how do the interactions among you materialize in the work processes?",
+    "pages.before.paragraph_second": "The questionnaire contains a number of short questions. In each one, you will be asked to select one or more answers from several options. Please note that there are no “correct” or “incorrect” answers, but rather - what is your opinion? how do you experience the relationship or the working interface? The results of the questionnaire will enable us to identify advantages and opportunities for improvement, so it is vital that you give sincere answers.",
+    "pages.before.paragraph_three": "The questionnaire should take about 10 minutes to fill in.",
+    "pages.before.paragraph_four": "Following are a few tips before you start:",
+    "pages.before.hello": "Hi David",
+    "pages.before.ulOne": "Some of the questions are mandatory (required), in other words, you will only be able to move on to the next question after selecting an answer to that question.",
+    "pages.before.ulTwo": "In some of the questions, you will be asked to respond to a number of interfaces in parallel. Please make sure that you have responded to all of them.",
+    "pages.before.ulThree": "It is not possible to return to previous questions and change the answers.",
+    "pages.before.ulFour": "If you have not completed the questionnaire, the answers will be saved and the next time you enter it, you will be able to continue from where you left off.",
+    "pages.before.textFive": "The instructions are written in the masculine purely for the purpose of convenience but are intended for both women and men.",
+    "pages.before.textSix": "Your privacy is guaranteed. We are committed to safeguarding the confidentiality of your responses.",
+    "pages.before.textSeven": "Any information and data presented to the relevant persons / authorities will be such that does not enable personal identification.",
+    "pages.before.textEight": "Thank you for your cooperation.",
+    "pages.before.name": "Name",
+    "pages.before.position": "Position",
+    "pages.before.start": "Start",
+    "pages.before.positionExp": "Example Manager",
+    "pages.before.nameExp": "Example John Smith",
+    "pages.before.beforeStart": "Before you start!"
+}

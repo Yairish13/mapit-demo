@@ -77,3 +77,12 @@ p {
 html[dir="rtl"] .title {
   font-family: var(--font-family-levin);
 }
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+input[type=radio]{
+  accent-color: var(--color-primary);
+  width: 1rem;
+}

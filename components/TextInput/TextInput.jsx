@@ -6,7 +6,7 @@ import { useEffect } from 'react';
 
 const TextInput = ({ id, type, onChange, disabled, placeholder, value, bottomText, maxLength,register }) => {
     return (
-        <div className='container'>
+        <div className='inputContainer'>
             <input
                 id={id}
                 type={type ? type : 'search'}
@@ -15,6 +15,7 @@ const TextInput = ({ id, type, onChange, disabled, placeholder, value, bottomTex
                 disabled={disabled}
                 maxLength={maxLength}
                 ref={register && register(id, { required:true})}
+                value={value}
             />
             {bottomText && <div className='bottomText'>
                 {bottomText}

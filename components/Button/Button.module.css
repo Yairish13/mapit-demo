@@ -1,4 +1,3 @@
-@import url(http://fonts.googleapis.com/earlyaccess/notosanshebrew.css);
 
 .tertiary {
     border: 1px solid;
@@ -8,20 +7,22 @@
     border-color: var(--color-primary);
     color: var(--color-primary);
     border-radius: 15px;
-    font-family: 'Noto Sans Hebrew';
+    font-family: var(--font-family);
+}
+
+
+.tertiary:hover {
+    filter: drop-shadow(1px 1px 1px #9cf3ec)
 }
 
 .tertiary:disabled {
     border-color: #A1BFBD;
     color: #A1BFBD;
     cursor: not-allowed ! important;
+    filter: none;
 }
 
-.tertiary:hover {
-    filter: drop-shadow(1px 1px 1px #9cf3ec)
-}
-
-.tertiary:active {
+.tertiary:active:enabled {
     border-color: #3BBBB0;
     color: #3BBBB0;
 }
@@ -34,21 +35,23 @@
     border-color: var(--color-primary);
     border-radius: 15px;
     color: white;
-    font-family: 'Noto Sans Hebrew';
+    font-family: var(--font-family);
     text-align: center;
+}
+
+
+.primary:hover {
+    filter: drop-shadow(1px 1px 1px var(--color-primary))
 }
 
 .primary:disabled {
     border-color: #A1BFBD;
     background-color: #A1BFBD;
     cursor: not-allowed ! important;
+    filter: none;
 }
 
-.primary:hover {
-    filter: drop-shadow(1px 1px 1px var(--color-primary))
-}
-
-.primary:active {
+.primary:active:enabled {
     background-color: #3BBBB0;
     color: white;
 }
@@ -61,21 +64,24 @@
     border-color: var(--color-primary);
     color: var(--color-primary);
     border-radius: 15px;
-    font-family: 'Noto Sans Hebrew';
+    font-family: var(--font-family);
     background-color: white;
+}
+
+
+.secondary:hover {
+    filter: drop-shadow(1px 1px 1px #9cf3ec)
+}
+
+
+.secondary:active:enabled {
+    border-color: #3BBBB0;
+    color: #3BBBB0;
 }
 
 .secondary:disabled {
     border-color: #A1BFBD;
     color: #A1BFBD;
     cursor: not-allowed ! important;
-}
-
-.secondary:hover {
-    filter: drop-shadow(1px 1px 1px #9cf3ec)
-}
-
-.secondary:active {
-    border-color: #3BBBB0;
-    color: #3BBBB0;
+    filter: none;
 }

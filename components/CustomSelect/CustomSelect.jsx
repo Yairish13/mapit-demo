@@ -2,7 +2,7 @@
 import './CustomSelect.css';
 import React, { useState } from 'react';
 import Checkbox from '@components/Checkbox/Checkbox';
-import arrowDown from '@public/assets/icons/arrowDown.svg'
+import ArrowDown from '../../public/assets/icons/arrowDown.svg'
 import Image from 'next/image';
 
 const options = [
@@ -66,7 +66,7 @@ const CustomSelect = ({
                         <div>
                             {placeholder}
                         </div>
-                        {withArrow && <Image className={isOpen ? 'arrow-up' : 'arrow-down'} src={arrowDown.src} alt="" width="15" height="15" />}
+                        {withArrow && <ArrowDown className={isOpen ? 'arrow-up' : 'arrow-down'} />}
                     </div>
                 </div>
                 {isOpen &&
