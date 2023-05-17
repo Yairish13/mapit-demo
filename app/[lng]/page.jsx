@@ -13,14 +13,4 @@ export default async function Home({ params: { lng } }) {
       <Stepper />
   )
 }
-//   return (
-//     <main className={styles.main}>
-//       <Terms />
-//       <CustomSelect
-//         lng={lng}
-//         placeholder={t('select')}
-//         options={options}
-//       />
-//     </main>
-//   )
-// }
+
