@@ -1,5 +1,3 @@
-@import url(http://fonts.googleapis.com/earlyaccess/notosanshebrew.css);
-
 /* width */
 ::-webkit-scrollbar {
   direction: rtl;
@@ -35,7 +33,7 @@
   cursor: pointer;
   background-color: white;
   width: 150px;
-  font-family: 'Noto Sans Hebrew';
+  font-family: var(--font-family);
   padding: 5px;
   color: var(--color-primary);
 }
@@ -75,7 +73,7 @@
   display: flex;
   flex-direction: row-reverse;
   /* width: 100%; */
-  font-family: 'Noto Sans Hebrew';
+  font-family: var(--font-family);
   align-items: center;
   justify-content: flex-end;
   border-bottom: 1px solid #B1BEC5;
@@ -98,4 +96,11 @@
   align-items: center;
   width: 100%;
   justify-content: space-between
+}
+.custom-select {
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }

@@ -1,14 +1,14 @@
 "use client"
 import Terms from '@components/Terms/Terms'
+import { Trans } from 'react-i18next/TransWithoutContext'
 import styles from './page.module.css'
-import { Trans } from 'react-i18next'
 import Checkbox from '@components/Checkbox/Checkbox';
 import Button from '@components/Button/Button';
 import { useTranslation } from '@app/i18n/client';
 
 
-const Page =  ({ params: { lng } }) => {
-    const { t } =  useTranslation(lng, 'terms-page')
+const Page = ({ params: { lng } }) => {
+    const { t } = useTranslation(lng, 'terms-page')
 
     return (
         <div className={styles.container}>
@@ -16,7 +16,9 @@ const Page =  ({ params: { lng } }) => {
                 {t('fullHeader')}
             </h2>
             <div>
-                {t("textOne")}
+                <Trans i18nKey="pages.terms.textOne" t={t}>
+                     Switch from <strong>{{lng}}</strong> to {''}
+                </Trans>
             </div>
             <br />
             <div>

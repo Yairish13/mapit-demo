@@ -67,7 +67,7 @@ const Login = ({ lng }) => {
 
             <Button
                 mode="secondary"
-                onClick={handleBefore}
+                // onClick={handleBefore}
             >
                 {t('approve')}
             </Button>

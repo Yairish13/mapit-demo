@@ -1,9 +1,6 @@
 {
-    "global.start":"Start",
+    "global.start": "Start",
     "global.regulations": "All rights reserved to Meirav Gilboa. It is prohibited to reproduce, copy, photocopy, store in databases, broadcast or record in any manner or using any electronic, optical, digital, mechanical or other means, any part of this document. This document and its contents or parts of it are intended for the personal use alone of the participant asked to answer the questionnaire",
-
-
-
     "pages.before.paragraph_first": "The following questionnaire - MapIt, is intended to help learn about the working interfaces in the organization: What are the existing working relations and how do the interactions among you materialize in the work processes?",
     "pages.before.paragraph_second": "The questionnaire contains a number of short questions. In each one, you will be asked to select one or more answers from several options. Please note that there are no “correct” or “incorrect” answers, but rather - what is your opinion? how do you experience the relationship or the working interface? The results of the questionnaire will enable us to identify advantages and opportunities for improvement, so it is vital that you give sincere answers.",
     "pages.before.paragraph_three": "The questionnaire should take about 10 minutes to fill in.",
@@ -22,5 +19,7 @@
     "pages.before.start": "Start",
     "pages.before.positionExp": "Example Manager",
     "pages.before.nameExp": "Example John Smith",
-    "pages.before.beforeStart": "Before you start!"
+    "pages.before.beforeStart": "Before you start!",
+
+    "pages.terms.textOne": "<1>Meirav Gilboa </1> thanks you for choosing to use the website operated at the address: www.gilboam.co.il(the “Site”)."
 }
