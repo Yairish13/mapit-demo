@@ -4,73 +4,95 @@ import styles from './Login.module.css';
 import Button from '@components/Button/Button';
 import Checkbox from '@components/Checkbox/Checkbox';
 import TextInput from '@components/TextInput/TextInput'
-import { cellphonePattern } from '@utils';
-import { useTranslation } from '@app/i18n/client';
+import { cellphonePattern, otpPattern } from '@utils';
 import { useForm } from 'react-hook-form';
+import { useTranslation } from '@app/i18n/client';
 import { useRouter } from "next/navigation";
 
 const Login = ({ lng }) => {
     const { t } = useTranslation(lng);
     const router = useRouter();
-    const [isDetailsError, setsIsDetailsError] = useState(false);
-    const [isCodeError, setIsCodeError] = useState(false);
-    // const { register, handleSubmit, watch, formState: { errors } } = useForm({
-        //     mode: 'any,'
-        // });
-        const handleClick = (aa) => {
-            console.log(aa, 'aa')
-        setsIsDetailsError((prev) => !prev)
+    const [otpIsOn, setOtpIsOn] = useState(true)
+    const { register,setValue, handleSubmit, formState: { errors } } = useForm({
+        mode: 'any',
+    });
+
+    const onSubmitPhone = (aa) => {
+        setOtpIsOn(true)
     }
-    
+
     const handleChange = (e) => {
-        console.log(e, 'FFFFFFFFFF')
+        console.log(e.target.id)
+        setValue(e.target.id, e.target.value || e.target.checked);
     }
-    const handleBefore = () =>{
+    const handleBefore = () => {
         router.push('/terms')
     }
-    
+    useEffect(() => {
+        console.log(errors)
+    }, [errors])
+    console.log(lng)
     return (
         <div className={styles.centeredLogin}>
             <h2 className={styles.loginHeader}>
-                {t('phoneValidation')}
+                {t('pages.login.phoneValidation')}
             </h2>
+{!otpIsOn && <>   
             <div className={styles.textField}>
                 <TextInput
                     id="phoneLoginInput"
+                    name="phoneLoginInput"
                     type='number'
-                    bottomText={t('smsWillBeSent')}
+                    bottomText={t('pages.login.smsWillBeSent')}
+                    {...register(`phoneLoginInput`, {
+                        required: true,
+                        pattern: cellphonePattern,
+                    })}
+                    error={errors.phoneLoginInput ? errors.phoneLoginInput : false}
+                    errorText={errors.phoneLoginInput ? t('pages.login.loginErr') :'' }
                     onChange={handleChange}
                     maxLength="12"
-                // {...register("phoneLoginInput", { required: true })}
                 />
-                {isDetailsError && <div className={styles.loginErr}>{t('loginErr')}</div>}
             </div>
             <Checkbox
-                label={t('rememberTheNumber')}
+            id="rememberMeCheckbox"
+                label={t('pages.login.rememberTheNumber')}
+                {...register(`rememberMeCheckbox`)}
+                onClick={handleChange}
             />
             <Button
                 mode="primary"
                 type="submit"
                 id='submitPhone'
-                onClick={handleClick}
+                onClick={handleSubmit(onSubmitPhone)}
             >
-                {t('send')}
+                {t('pages.login.send')}
             </Button>
-            <div className={styles.textField}>
-                <TextInput
-                    id="otpInput"
-                    type='password'
-                    bottomText={t('enterTheCode')}
-                />
-                {isCodeError && <div className={styles.loginErr}>{t('codeErr')}</div>}
-            </div>
+            </>}
+            {otpIsOn &&
+                <>
+                    <div className={styles.textField}>
+                        <TextInput
+                            id="otpInput"
+                            type='password'
+                            bottomText={t('pages.login.enterTheCode')}
+                            {...register(`otpInput`, {
+                                required: true,
+                                pattern: otpPattern,
+                            })}
+                            onChange={handleChange}
+                            lng={lng}
+                        />
+                    </div>
 
-            <Button
-                mode="secondary"
-                // onClick={handleBefore}
-            >
-                {t('approve')}
-            </Button>
+                    <Button
+                        mode="secondary"
+                    onClick={handleSubmit(handleBefore)}
+                    >
+                        {t('pages.login.approve')}
+                    </Button>
+                </>
+            }
         </div>
     )
 }

@@ -1,25 +1,47 @@
 "use client"
-import { cellphonePattern } from '@utils';
 import './TextInput.css'
-import { useForm } from 'react-hook-form';
-import { useEffect } from 'react';
+import Eye from '../../public/assets/icons/eye.svg'
+import { useEffect, useState } from 'react'
 
-const TextInput = ({ id, type, onChange, disabled, placeholder, value, bottomText, maxLength,register }) => {
+const TextInput = ({ id, type, onChange, disabled, placeholder, value, bottomText, maxLength, register, error, errorText, lng }) => {
+    const handleChange = (e) => {
+        if (onChange) {
+            onChange(e)
+        }
+    }
+    const [passwordType, setPasswordType] = useState("");
+
+    const handleShowPassword = () => {
+        if (passwordType === "password") {
+            setPasswordType("text")
+            return;
+        }
+        setPasswordType("password")
+    }
+    useEffect(() => {
+        if (type == 'password') {
+            setPasswordType('password')
+        }
+    }, [])
     return (
         <div className='inputContainer'>
-            <input
-                id={id}
-                type={type ? type : 'search'}
-                onChange={onChange}
-                placeholder={placeholder || 'דוגמא +972 (XX) XXX XX XX'}
-                disabled={disabled}
-                maxLength={maxLength}
-                ref={register && register(id, { required:true})}
-                value={value}
-            />
+            <div>
+                <input
+                    id={id}
+                    type={passwordType ? passwordType : 'search'}
+                    onChange={handleChange}
+                    placeholder={placeholder || 'דוגמא +972 (XX) XXX XX XX'}
+                    disabled={disabled}
+                    maxLength={maxLength}
+                    register={register}
+                    value={value}
+                />
+                {type == 'password' && <Eye className={passwordType == 'password' ? `eyeSvg ${lng}` : `eyeSvg ${lng} visible`} onClick={handleShowPassword} />}
+            </div>
             {bottomText && <div className='bottomText'>
                 {bottomText}
             </div>}
+            {error && <div className='errDiv'>{errorText}</div>}
         </div>
     )
 }

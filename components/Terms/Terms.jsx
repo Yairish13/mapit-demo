@@ -18,22 +18,22 @@ const Terms = ({ lng }) => {
             <div className={styles.container}>
                 <div>
                     <span className={styles.header}>
-                        {t('header')}
+                        {t('pages.terms.header')}
                     </span>
                 </div>
-                <div>
-                    <Link className={styles.text} href={`/${lng}/terms/full`}>
+                <div className={styles.termsCheckbox}>
+                    <Link target='_blank' className={styles.text} href={`/${lng}/terms/full`}>
                         <span className={styles.text}>
-                            {t('readTakanon')}
+                            {t('pages.terms.readTakanon')}
                         </span>
                     </Link>
+                    <Checkbox
+                        
+                    />
                 </div>
-                <Checkbox
-                    label={t('get')}
-                />
                 <div>
                     <Button mode="tertiary" onClick={handleRoute}>
-                        {t('continue')}
+                        {t('pages.terms.continue')}
                     </Button>
                 </div>
             </div>

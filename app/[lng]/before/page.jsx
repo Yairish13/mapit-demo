@@ -3,6 +3,7 @@ import styles from './page.module.scss';
 import { useTranslation } from '@app/i18n';
 import clsx from 'clsx';
 import TextInput from '@components/TextInput/TextInput';
+import { Trans } from 'react-i18next/TransWithoutContext'
 
 const Page = async ({ params: { lng } }) => {
     const { t } = await useTranslation(lng);
@@ -14,7 +15,11 @@ const Page = async ({ params: { lng } }) => {
         <div className={conatainerClasses}>
             <h2 className={titleClasses}>{t('pages.before.hello')}</h2>
             <div className={styles.info}>
-                <p>{t('pages.before.paragraph_first')}</p>
+                <p>
+                    <Trans i18nKey="pages.before.paragraph_first" t={t}>
+                        Switch from <strong>{{ lng }}</strong> to {''}
+                    </Trans>
+                </p>
                 <p>{t('pages.before.paragraph_second')}</p>
                 <p>{t('pages.before.paragraph_three')}</p>
             </div>
@@ -40,10 +45,12 @@ const Page = async ({ params: { lng } }) => {
                     <TextInput
                         placeholder="כמו ג'ון סמית'"
                         bottomText='שם'
+                        disabled
                     />
                     <TextInput
                         placeholder="מנהל לדוגמה"
                         bottomText='עמדה'
+                        disabled
                     />
                 </div>
                 <Button mode="tertiary">{t('global.start')}</Button>

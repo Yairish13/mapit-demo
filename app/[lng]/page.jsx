@@ -11,13 +11,13 @@ export default async function Home({ params: { lng } }) {
 
 
   return (
-    <div className={styles.aaa}>
+    <>
+      <Stepper />
       <CircleProgress
-      // percentage={35}
-      circleWidth="200"
-       />
-
-    </div>
+        // percentage={35}
+        circleWidth="200"
+      />
+    </>
   )
 }
 

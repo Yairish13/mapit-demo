@@ -23,3 +23,9 @@
     text-align: center;
     color: black;
 }
+.termsCheckbox{
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    justify-content: center;
+}

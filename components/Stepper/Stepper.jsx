@@ -34,11 +34,11 @@ const Stepper = () => {
     const [activeStep, setActiveStep] = useState(1)
 
     const nextStep = () => {
-        setActiveStep(activeStep + 1)
+        if (activeStep <= steps.length ) setActiveStep(activeStep + 1)
     }
 
     const prevStep = () => {
-        setActiveStep(activeStep - 1)
+        if (activeStep > 1) setActiveStep(activeStep - 1)
     }
 
     const totalSteps = steps.length

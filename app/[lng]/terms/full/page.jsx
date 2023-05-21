@@ -13,501 +13,506 @@ const Page = ({ params: { lng } }) => {
     return (
         <div className={styles.container}>
             <h2 className={styles.termsHeader}>
-                {t('fullHeader')}
+                {t('pages.terms.fullHeader')}
             </h2>
             <div>
                 <Trans i18nKey="pages.terms.textOne" t={t}>
-                     Switch from <strong>{{lng}}</strong> to {''}
+                    Switch from <strong>{{ lng }}</strong> to {''}
                 </Trans>
             </div>
             <br />
             <div>
-                {t("textTwo")}
+                <Trans i18nKey="pages.terms.textTwo" t={t}>
+                    Switch from <strong>{{ lng }}</strong> to {''}
+                </Trans>
             </div>
             <br />
             <div style={{ textDecoration: 'underline', fontWeight: 'bold' }}>
-                1.{t("general")}
+                1.{t("pages.terms.general")}
             </div>
             <br />
             <div className={styles.row}>
                 <div>1.1.</div>
                 &nbsp;
-                <div>{t("oneOne")}</div>
+                <div>
+                    <Trans i18nKey="pages.terms.oneOne" t={t}>
+                        Switch from <strong>{{ lng }}</strong> to {''}
+                    </Trans></div>
             </div>
             <br />
             <div className={styles.row}>
                 <div>1.2.</div>
                 &nbsp;
                 <div>
-                    {t("oneTwo")}
+                    {t("pages.terms.oneTwo")}
                 </div>
             </div>
             <br />
             <div className={styles.row}>
                 <div>1.3.</div>&nbsp;<div>
-                    {t("oneThree")}
+                    {t("pages.terms.oneThree")}
                 </div>
             </div>
             <br />
             <div className={styles.row}>
                 <div>1.4.</div>&nbsp;<div>
-                    {t("oneFour")}
+                    {t("pages.terms.oneFour")}
                 </div>
             </div>
             <br />
             <div style={{ textDecoration: 'underline', fontWeight: 'bold' }}>
-                2. {t("two")}
+                2. {t("pages.terms.two")}
             </div>
             <br />
             <div className={styles.row}>
                 <div>2.1.</div>&nbsp;<div>
-                    {t("twoOne")}
+                    {t("pages.terms.twoOne")}
                 </div>
             </div>
             <br />
             <div className={styles.row}>
                 <div>2.2.</div>&nbsp;<div>
-                    {t('twoTwo')}
+                    {t('pages.terms.twoTwo')}
                 </div>
             </div>
             <br />
             <div className={styles.subRow}>
                 <div>2.2.1.</div>&nbsp;<div>
-                    {t('twoTwoOne')}
+                    {t('pages.terms.twoTwoOne')}
                 </div>
             </div>
             <br />
             <div className={styles.subRow}>
                 <div>2.2.2.</div>&nbsp;<div>
-                    {t('twoTwoTwo')}
+                    {t('pages.terms.twoTwoTwo')}
                 </div>
             </div>
             <br />
             <div className={styles.subRow}>
                 <div>2.2.3.</div>&nbsp;<div>
-                    {t('twoTwoThree')}                </div>
+                    {t('pages.terms.twoTwoThree')}                </div>
             </div>
             <br />
             <div className={styles.subRow}>
                 <div>2.2.4.</div>&nbsp;<div>
-                    {t('twoTwoFour')}                </div>
+                    {t('pages.terms.twoTwoFour')}                </div>
             </div>
             <br />
             <div className={styles.subRow}>
                 <div>2.2.5.</div>&nbsp;<div>
-                    {t('twoTwoFive')}                    </div>
+                    {t('pages.terms.twoTwoFive')}                    </div>
             </div>
             <br />
             <div style={{ textDecoration: 'underline', fontWeight: 'bold' }}>
-                3. {t('three')}
+                3. {t('pages.terms.three')}
             </div>
             <br />
             <div className={styles.row}>
                 <div>3.1.</div>&nbsp;<div>
-                    {t('threeOne')}
+                    {t('pages.terms.threeOne')}
                 </div>
             </div>
             <br />
             <div className={styles.row}>
                 <div>3.2.</div>&nbsp;<div>
-                    {t('threeTwo')}
+                    {t('pages.terms.threeTwo')}
                 </div>
             </div>
             <br />
             <div className={styles.row}>
                 <div>3.3.</div>&nbsp;<div>
-                    {t('threeThree')}
+                    {t('pages.terms.threeThree')}
                 </div>
             </div>
             <br />
             <div className={styles.row}>
                 <div>3.4.</div>&nbsp;<div>
-                    {t('threeFour')}
+                    {t('pages.terms.threeFour')}
                 </div>
             </div>
             <br />
             <div className={styles.row}>
                 <div>3.5.</div>&nbsp;<div>
-                    {t('threeFive')}
+                    {t('pages.terms.threeFive')}
                 </div>
             </div>
             <br />
             <div style={{ textDecoration: 'underline', fontWeight: 'bold' }}>
-                4. {t('four')}
+                4. {t('pages.terms.four')}
             </div>
             <br />
             <div className={styles.row}>
                 <div>4.1.</div>&nbsp;<div>
-                    {t('fourOne')}
+                    {t('pages.terms.fourOne')}
                 </div>
             </div>
             <br />
             <div className={styles.row}>
                 <div>4.2.</div>&nbsp;<div>
-                    {t('fourTwo')}
+                    {t('pages.terms.fourTwo')}
                 </div>
             </div>
             <br />
             <div className={styles.row}>
                 <div>4.3.</div>&nbsp;<div>
-                    {t('fourThree')}
+                    {t('pages.terms.fourThree')}
                 </div>
             </div>
             <br />
             <div className={styles.row}>
                 <div>4.4.</div>&nbsp;<div>
-                    {t('fourFour')}
+                    {t('pages.terms.fourFour')}
                 </div>
             </div>
             <br />
             <div style={{ textDecoration: 'underline', fontWeight: 'bold' }}>
-                5. {t('five')}
+                5. {t('pages.terms.five')}
             </div>
             <br />
             <div className={styles.row}>
                 <div>5.1.</div>&nbsp;<div>
-                    {t('fiveOne')}
+                    {t('pages.terms.fiveOne')}
                 </div>
             </div>
             <br />
             <div className={styles.row}>
                 <div>5.2.</div>&nbsp;<div>
-                    {t('fiveTwo')}
+                    {t('pages.terms.fiveTwo')}
                 </div>
             </div>
             <br />
             <div className={styles.row}>
                 <div>5.3.</div>&nbsp;<div>
-                    {t('fiveThree')}
+                    {t('pages.terms.fiveThree')}
                 </div>
             </div>
             <br />
             <div className={styles.row}>
                 <div>5.4.</div>&nbsp;<div>
-                    {t('fiveFour')}
+                    {t('pages.terms.fiveFour')}
                 </div>
             </div>
             <br />
             <div className={styles.row}>
                 <div>5.5.</div>&nbsp;<div>
-                    {t('fiveFive')}
+                    {t('pages.terms.fiveFive')}
                 </div>
             </div>
             <br />
             <div className={styles.row}>
                 <div>5.6.</div>&nbsp;<div>
-                    {t('fiveSix')}
+                    {t('pages.terms.fiveSix')}
                 </div>
             </div>
             <br />
             <div className={styles.row}>
                 <div>5.7.</div>&nbsp;<div>
-                    {t('fiveSeven')}
+                    {t('pages.terms.fiveSeven')}
                 </div>
             </div>
             <br />
             <div className={styles.row}>
                 <div>5.8.</div>&nbsp;<div>
-                    {t('fiveEight')}
+                    {t('pages.terms.fiveEight')}
                 </div>
             </div>
             <br />
             <div style={{ textDecoration: 'underline', fontWeight: 'bold' }}>
-                6. {t('six')}
+                6. {t('pages.terms.six')}
             </div>
             <br />
             <div className={styles.row}>
                 <div>6.1.</div>&nbsp;<div>
-                    {t('sixOne')}
+                    {t('pages.terms.sixOne')}
                 </div>
             </div>
             <br />
             <div className={styles.row}>
                 <div>6.2.</div>&nbsp;<div>
-                    {t('sixTwo')}
+                    {t('pages.terms.sixTwo')}
                 </div>
             </div>
             <br />
             <div className={styles.row}>
                 <div>6.3.</div>&nbsp;<div>
-                    {t('sixThree')}
+                    {t('pages.terms.sixThree')}
                 </div>
             </div>
             <br />
             <div className={styles.row}>
                 <div>6.4.</div>&nbsp;<div>
-                    {t('sixFour')}
+                    {t('pages.terms.sixFour')}
                 </div>
             </div>
             <br />
             <div style={{ textDecoration: 'underline', fontWeight: 'bold' }}>
-                7. {t('seven')}
+                7. {t('pages.terms.seven')}
             </div>
             <br />
             <div className={styles.row}>
                 <div>7.1.</div>&nbsp;<div>
-                    {t('sevenOne')}
+                    {t('pages.terms.sevenOne')}
                 </div>
             </div>
             <br />
             <div className={styles.row}>
                 <div>7.2.</div>&nbsp;<div>
-                    {t('sevenTwo')}
+                    {t('pages.terms.sevenTwo')}
                 </div>
             </div>
             <br />
             <div className={styles.row}>
                 <div>7.3.</div>&nbsp;<div>
-                    {t('sevenThree')}
+                    {t('pages.terms.sevenThree')}
                 </div>
             </div>
             <br />
             <div className={styles.row}>
                 <div>7.4.</div>&nbsp;<div>
-                    {t('sevenFour')}
+                    {t('pages.terms.sevenFour')}
                 </div>
             </div>
             <br />
             <div style={{ textDecoration: 'underline', fontWeight: 'bold' }}>
-                8. {t('eight')}
+                8. {t('pages.terms.eight')}
             </div>
             <br />
             <div className={styles.row}>
                 <div>8.1.</div>&nbsp;<div>
-                    {t('eightOne')}
+                    {t('pages.terms.eightOne')}
                 </div>
             </div>
             <br />
             <div className={styles.row}>
                 <div>8.2.</div>&nbsp;<div>
-                    {t('eightTwo')}
+                    {t('pages.terms.eightTwo')}
                 </div>
             </div>
             <br />
             <div style={{ textDecoration: 'underline', fontWeight: 'bold' }}>
-                9. {t('nine')}
+                9. {t('pages.terms.nine')}
             </div>
             <br />
             <div className={styles.row}>
                 <div>9.1.</div>&nbsp;<div>
-                    {t('nineOne')}
+                    {t('pages.terms.nineOne')}
                 </div>
             </div>
             <br />
             <div className={styles.row}>
                 <div>9.2.</div>&nbsp;<div>
-                    {t('nineTwo')}
+                    {t('pages.terms.nineTwo')}
                 </div>
             </div>
             <br />
             <div className={styles.row}>
                 <div>9.3.</div>&nbsp;<div>
-                    {t('nineThree')}
+                    {t('pages.terms.nineThree')}
                 </div>
             </div>
             <br />
             <div className={styles.row}>
                 <div>9.4.</div>&nbsp;<div>
-                    {t('nineFour')}
+                    {t('pages.terms.nineFour')}
                 </div>
             </div>
             <br />
             <div className={styles.row}>
                 <div>9.5.</div>&nbsp;<div>
-                    {t('nineFive')}
+                    {t('pages.terms.nineFive')}
                 </div>
             </div>
             <br />
             <div className={styles.subRow}>
                 <div>9.5.1.</div>&nbsp;<div>
-                    {t('nineFiveOne')}
+                    {t('pages.terms.nineFiveOne')}
                 </div>
             </div>
             <br />
             <div className={styles.subRow}>
                 <div>9.5.2.</div>&nbsp;<div>
-                    {t('nineFiveTwo')}
+                    {t('pages.terms.nineFiveTwo')}
                 </div>
             </div>
             <br />
             <div className={styles.subRow}>
                 <div>9.5.3.</div>&nbsp;<div>
-                    {t('nineFiveThree')}
+                    {t('pages.terms.nineFiveThree')}
                 </div>
             </div>
             <br />
             <div className={styles.subRow}>
                 <div>9.5.4.</div>&nbsp;<div>
-                    {t('nineFiveFour')}
+                    {t('pages.terms.nineFiveFour')}
                 </div>
             </div>
             <br />
             <div className={styles.subRow}>
                 <div>9.5.5.</div>&nbsp;<div>
-                    {t('nineFiveFive')}
+                    {t('pages.terms.nineFiveFive')}
                 </div>
             </div>
             <br />
             <div className={styles.subRow}>
                 <div>9.5.6.</div>&nbsp;<div>
-                    {t('nineFiveSix')}
+                    {t('pages.terms.nineFiveSix')}
                 </div>
             </div>
             <br />
             <div className={styles.row}>
                 <div>9.6.</div>&nbsp;<div>
-                    {t('nineSix')}
+                    {t('pages.terms.nineSix')}
                 </div>
             </div>
             <br />
             <div className={styles.subRow}>
                 <div>9.6.1.</div>&nbsp;<div>
-                    {t('nineSixOne')}
+                    {t('pages.terms.nineSixOne')}
                 </div>
             </div>
             <br />
             <div className={styles.subRow}>
                 <div>9.6.2.</div>&nbsp;<div>
-                    {t('nineSixTwo')}
+                    {t('pages.terms.nineSixTwo')}
                 </div>
             </div>
             <br />
             <div className={styles.subRow}>
                 <div>9.6.3.</div>&nbsp;<div>
-                    {t('nineSixThree')}
+                    {t('pages.terms.nineSixThree')}
                 </div>
             </div>
             <br />
             <div className={styles.subRow}>
                 <div>9.6.4.</div>&nbsp;<div>
-                    {t('nineSixFour')}
+                    {t('pages.terms.nineSixFour')}
                 </div>
             </div>
             <br />
             <div className={styles.subRow}>
                 <div>9.6.5.</div>&nbsp;<div>
-                    {t('nineSixFive')}
+                    {t('pages.terms.nineSixFive')}
                 </div>
             </div>
             <br />
             <div className={styles.subRow}>
                 <div>9.6.6.</div>&nbsp;<div>
-                    {t('nineSixSix')}
+                    {t('pages.terms.nineSixSix')}
                 </div>
             </div>
             <br />
             <div className={styles.subRow}>
                 <div>9.6.7.</div>&nbsp;<div>
-                    {t('nineSixSeven')}
+                    {t('pages.terms.nineSixSeven')}
                 </div>
             </div>
             <br />
             <div className={styles.subRow}>
                 <div>9.6.8.</div>&nbsp;<div>
-                    {t('nineSixEight')}
+                    {t('pages.terms.nineSixEight')}
                 </div>
             </div>
             <br />
             <div className={styles.subRow}>
                 <div>9.6.9.</div>&nbsp;<div>
-                    {t('nineSixNine')}
+                    {t('pages.terms.nineSixNine')}
                 </div>
             </div>
             <br />
             <div className={styles.subRow}>
                 <div>9.6.10.</div>&nbsp;<div>
-                    {t('nineSixTen')}
+                    {t('pages.terms.nineSixTen')}
                 </div>
             </div>
             <br />
             <div style={{ textDecoration: 'underline', fontWeight: 'bold' }}>
-                10. {t('ten')}
+                10. {t('pages.terms.ten')}
             </div>
             <br />
             <div className={styles.row}>
                 <div>10.1.</div>&nbsp;<div>
-                    {t('tenOne')}
+                    {t('pages.terms.tenOne')}
                 </div>
             </div>
             <br />
             <div style={{ textDecoration: 'underline', fontWeight: 'bold' }}>
-                11. {t('eleven')}
+                11. {t('pages.terms.eleven')}
             </div>
             <br />
             <div className={styles.row}>
                 <div>11.1.</div>&nbsp;<div>
-                    {t('elevenOne')}
+                    {t('pages.terms.elevenOne')}
                 </div>
             </div>
             <br />
             <div style={{ textDecoration: 'underline', fontWeight: 'bold' }}>
-                12. {t('twelve')}
+                12. {t('pages.terms.twelve')}
             </div>
             <br />
             <div className={styles.row}>
                 <div>12.1.</div>&nbsp;<div>
-                    {t('twelveOne')}
+                    {t('pages.terms.twelveOne')}
                 </div>
             </div>
             <br />
             <div style={{ textDecoration: 'underline', fontWeight: 'bold' }}>
-                13. {t('thirteen')}
+                13. {t('pages.terms.thirteen')}
             </div>
             <br />
             <div className={styles.row}>
                 <div>13.1.</div>&nbsp;<div>
-                    {t('thirteenOne')}
+                    {t('pages.terms.thirteenOne')}
                 </div>
             </div>
             <br />
             <div className={styles.row}>
                 <div>13.2.</div>&nbsp;<div>
-                    {t('thirteenTwo')}
+                    {t('pages.terms.thirteenTwo')}
                 </div>
             </div>
             <br />
             <div style={{ textDecoration: 'underline', fontWeight: 'bold' }}>
-                14. {t('fourteen')}
+                14. {t('pages.terms.fourteen')}
             </div>
             <br />
             <div className={styles.row}>
                 <div>14.1.</div>&nbsp;<div>
-                    {t('fourteenOne')}
+                    {t('pages.terms.fourteenOne')}
                 </div>
             </div>
             <br />
             <div className={styles.row}>
                 <div>
-                    {t('address')}
+                    {t('pages.terms.address')}
                 </div>
             </div>
             <br />
             <div className={styles.row}>
                 <div>
-                    {t('tel')}
+                    {t('pages.terms.tel')}
                 </div>
             </div>
             <br />
             <div className={styles.row}>
                 <div>
-                    {t('email')}
+                    {t('pages.terms.email')}
                 </div>
             </div>
             <br />
             <div className={styles.row}>
                 <div>
-                    {t('rightsLaywer')}
+                    {t('pages.terms.rightsLaywer')}
                 </div>
             </div>
             <br />
             <div className={styles.row}>
                 <div>
-                    {t('lastUpdate')}
+                    {t('pages.terms.lastUpdate')}
                 </div>
             </div>
             <br />
             <Checkbox
-                label={t('get')}
+                label={t('pages.terms.get')}
             />
             <br />
             <br />

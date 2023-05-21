@@ -20,7 +20,7 @@ export default async function DefaultLayout({
         </main>
         
         <footer className={styles.footer}>
-          {t('takanon')}
+          {t("global.regulations")}
         </footer>
       </div>
     </div>
