@@ -12,7 +12,7 @@ import { useRouter } from "next/navigation";
 const Login = ({ lng }) => {
     const { t } = useTranslation(lng);
     const router = useRouter();
-    const [otpIsOn, setOtpIsOn] = useState(true)
+    const [otpIsOn, setOtpIsOn] = useState(false);
     const { register,setValue, handleSubmit, formState: { errors } } = useForm({
         mode: 'any',
     });
@@ -31,7 +31,6 @@ const Login = ({ lng }) => {
     useEffect(() => {
         console.log(errors)
     }, [errors])
-    console.log(lng)
     return (
         <div className={styles.centeredLogin}>
             <h2 className={styles.loginHeader}>

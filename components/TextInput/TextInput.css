@@ -34,7 +34,7 @@ input:focus {
 .errDiv {
   color: #D93025;
   font-size: 12px;
-  font-family: 'Noto Sans Hebrew';
+  font-family: var(--font-family);
   /* margin-top: 10px; */
 }
 .eyeSvg{

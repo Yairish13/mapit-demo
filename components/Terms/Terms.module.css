@@ -29,3 +29,9 @@
     align-items: center;
     justify-content: center;
 }
+.errDiv {
+    color: #D93025;
+    font-size: 12px;
+    font-family: var(--font-family);
+    /* margin-top: 10px; */
+  }

@@ -35,6 +35,7 @@
     "pages.login.loginErr": "The system does not recognize your data. Please contact Meirav Gilboa by email - meirav@gilboam.co.il and state your full name, company and department name, mobile phone and email and we will contact you as soon as possible",
     "pages.login.codeErr": "You entered an incorrect code, please try again.",
 
+    "pages.terms.checkboxErr":"Please read and accept the terms.",
     "pages.terms.header": "MapIt - regulations, terms of use and privacy policy for the site",
     "pages.terms.readTakanon": "I have read and understood the regulations, terms of use and privacy policy for the website",
     "pages.terms.get": "Get",

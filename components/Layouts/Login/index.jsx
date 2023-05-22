@@ -30,7 +30,7 @@ const LoginLayout = async({ children, lng }) => {
                     </div>
                 </div>
                 <div className={styles.bgImage}>
-                    <p>{t('gilboaMail')} | {t('gilboaName')} | 050-8855300</p>
+                    <p>{t('pages.login.gilboaMail')} | {t('pages.login.gilboaName')} | 050-8855300</p>
                 </div>
             </div>
 
