@@ -1,6 +1,7 @@
 import Terms from '@components/Terms/Terms'
 
-const Page = ({ params: { lng } }) => {
+const Page = async({ params: { lng } }) => {
+
     return (
         <>
             <Terms

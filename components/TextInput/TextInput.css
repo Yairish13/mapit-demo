@@ -17,10 +17,9 @@ input {
 
 input:focus {
   border-color: #B1BEC5;
-  outline: 1px dotted #000
 }
 
-.container {
+.inputContainer {
   display: flex;
   flex-direction: column;
   width: 30vw;
@@ -31,4 +30,25 @@ input:focus {
   font-size: 12px;
   font-family: 'Noto Sans Hebrew';
   padding-top: 5px;
+}
+.errDiv {
+  color: #D93025;
+  font-size: 12px;
+  font-family: var(--font-family);
+  /* margin-top: 10px; */
+}
+.eyeSvg{
+  cursor: pointer;
+  margin-top: -25px;
+  position: relative;
+  z-index: 2;
+}
+.he{
+  float: left;
+}
+.en{
+  float: right;
+}
+.visible{
+  filter: drop-shadow(2px 4px 6px var(--color-primary))
 }

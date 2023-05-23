@@ -4,30 +4,54 @@ import styles from './Terms.module.css'
 import Button from '@components/Button/Button'
 import Link from 'next/link';
 import { useTranslation } from '@app/i18n/client';
+import { useRouter } from 'next/navigation';
+import { useForm } from 'react-hook-form';
+import { useEffect } from 'react';
 
 const Terms = ({ lng }) => {
-    const { t } = useTranslation(lng, 'terms-page')
+    const router = useRouter()
+    const { t } = useTranslation(lng)
+    const { register, setValue, handleSubmit, formState: { errors } } = useForm({
+        mode: 'onChange',
+    });
+    const handleRoute = () => {
+        router.push('/before')
+    }
+    const handleChange = (e) => {
+        console.log(e)
+        setValue(e.target.id, e.target.checked);
+    }
+    useEffect(() => {
+        console.log(errors)
+    }, [errors])
     return (
-        <div style={{ height: '62vh' }}>
+        <div className="container-content">
             <div className={styles.container}>
                 <div>
                     <span className={styles.header}>
-                        {t('header')}
+                        {t('pages.terms.header')}
                     </span>
                 </div>
-                <div>
-                    <Link className={styles.text} href={`/${lng}/terms/full`}>
+                <div className={styles.termsCheckbox}>
+                    <Link target='_blank' className={styles.text} href={`/${lng}/terms/full`}>
                         <span className={styles.text}>
-                            {t('readTakanon')}
+                            {t('pages.terms.readTakanon')}
                         </span>
                     </Link>
+                    <Checkbox
+                        id='readAndAcceptedTakanon'
+                        {...register(`readAndAcceptedTakanon`, {
+                            required: true,
+                        })}
+                        onChange={handleChange}
+                        // error={errors.readAndAcceptedTakanon ? errors.readAndAcceptedTakanon : false}
+                        // errorText={errors.readAndAcceptedTakanon ?  : ''}
+                    />
                 </div>
-                <Checkbox
-                    label={t('get')}
-                />
+                {errors && errors.readAndAcceptedTakanon && <div className={styles.errDiv}>{t('pages.terms.checkboxErr')}</div>}
                 <div>
-                    <Button mode="tertiary">
-                        {t('continue')}
+                    <Button mode="tertiary" onClick={handleSubmit(handleRoute)}>
+                        {t('pages.terms.continue')}
                     </Button>
                 </div>
             </div>

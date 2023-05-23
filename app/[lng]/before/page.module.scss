@@ -1,0 +1,13 @@
+.header {
+    margin-bottom: var(--padding-normal);
+}
+.container{
+    margin-bottom: var(--padding-large);
+    padding-bottom: var(--padding-large);
+}
+.textInput{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}

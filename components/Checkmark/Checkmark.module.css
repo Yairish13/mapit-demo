@@ -1,0 +1,9 @@
+.vector {
+    width: 6.5rem;
+    height: 6.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    box-shadow: 0 2px 4px -1px var(--color-secondary);
+}

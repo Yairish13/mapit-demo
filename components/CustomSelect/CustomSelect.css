@@ -1,16 +1,11 @@
-@import url(http://fonts.googleapis.com/earlyaccess/notosanshebrew.css);
-
-/* width */
 ::-webkit-scrollbar {
   direction: rtl;
   width: 5px;
   height: 25px;
 }
 
-/* Handle */
 .options::-webkit-scrollbar-thumb {
-  background: var(--main-color);
-
+  background: var(--color-primary);
   border-radius: 10px;
   height: 5px;
 }
@@ -35,13 +30,13 @@
   cursor: pointer;
   background-color: white;
   width: 150px;
-  font-family: 'Noto Sans Hebrew';
+  font-family: var(--font-family);
   padding: 5px;
-  color: var(--main-color);
+  color: var(--color-primary);
 }
 
 .open {
-  border: 1px solid var(--main-color);
+  border: 1px solid var(--color-primary);
 }
 
 .selected-option {
@@ -63,11 +58,11 @@
 }
 
 .smallWindow {
-  height: 94px;
+  height: 6.3rem;
 }
 
 .noHeader {
-  height: 94px;
+  height: 6.3rem;
   width: 150px;
 }
 
@@ -75,7 +70,7 @@
   display: flex;
   flex-direction: row-reverse;
   /* width: 100%; */
-  font-family: 'Noto Sans Hebrew';
+  font-family: var(--font-family);
   align-items: center;
   justify-content: flex-end;
   border-bottom: 1px solid #B1BEC5;
@@ -98,4 +93,11 @@
   align-items: center;
   width: 100%;
   justify-content: space-between
+}
+.custom-select {
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
