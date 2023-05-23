@@ -15,9 +15,9 @@ const FirstPart = ({ members }) => {
     dispatch(setNextStep())
     dispatch(setPercentage())
   }
-  const departmentA = members[0].departments[0].workers;
-  const departmentB = members[0].departments[1].workers;
-  const departmentC = members[0].departments[2].workers;
+  const handleCheck = (option) =>{
+    console.log(option)
+  }
   return (
     <>
       <div className={styles.container}>
@@ -28,9 +28,9 @@ const FirstPart = ({ members }) => {
         <div className={styles.answerContainer}>
           <div className={styles.question}>1. בחר את העובדים והמנהלים בארגון</div>
           <div className={styles.answer}>
-            <CustomSelect placeholder='מחלקה' withArrow={true} options={departmentA} />
-            <CustomSelect placeholder='מחלקה' withArrow={true} options={departmentB} />
-            <CustomSelect placeholder='מחלקה' withArrow={true} options={departmentC} />
+            {members[0].departments.map((department,index) => (
+            <CustomSelect key={index} onClick={handleCheck} placeholder='מחלקה' withArrow={true} options={department.workers} />
+            ))}
           </div>
         </div>
       </div>

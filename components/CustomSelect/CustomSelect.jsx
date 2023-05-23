@@ -11,10 +11,12 @@ const CustomSelect = ({
     withArrow,
     withNoHeader = false,
 }) => {
+    console.log(options);
     const [isOpen, setIsOpen] = useState(false);
     const [selectedOptions, setSelectedOptions] = useState([]);
 
-    const handleOptionClick = (option) => {
+    const handleOptionClick = (option,e) => {
+        onClick(option,e)
         const index = selectedOptions.findIndex((item) => item.id === option.id);
 
         if (index > -1) {
@@ -57,7 +59,7 @@ const CustomSelect = ({
                             <div key={option.id} className={isSelected(option.id) ? "option selected" : 'option'}>
                                 {option.value}
                                 <Checkbox
-                                    onChange={() => handleOptionClick(option)}
+                                    onChange={(e) => handleOptionClick(option,e)}
                                     checked={isSelected(option.id)}
                                 />
                             </div>
