@@ -1,5 +1,4 @@
 import FirstPart from '@components/FirstPart/FirstPart'
-import { store } from '@store';
 import React from 'react'
 
 const page = async() => {

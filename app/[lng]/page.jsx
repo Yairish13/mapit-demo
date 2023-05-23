@@ -8,7 +8,6 @@ export default async function Home({ params: { lng } }) {
   const { t } = await useTranslation(lng, 'translation');
   const req = await fetch('http://localhost:3000/api/company/1');
   const data = await req.json();
-  console.log(data);
   return (
     <>
       <Preloader members={data} />

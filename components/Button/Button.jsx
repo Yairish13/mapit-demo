@@ -3,7 +3,6 @@ import styles from './Button.module.css';
 
 const Button = ({ mode, id, onClick, disabled, type, children }) => {
     const handleClick = (e) => {
-        console.log('aaa')
         if (onClick) {
             onClick(id);
         }

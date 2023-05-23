@@ -13,6 +13,7 @@ const Login = ({ lng }) => {
     const { t } = useTranslation(lng);
     const router = useRouter();
     const [otpIsOn, setOtpIsOn] = useState(false);
+
     const { register,setValue, handleSubmit, formState: { errors } } = useForm({
         mode: 'any',
     });
@@ -22,7 +23,6 @@ const Login = ({ lng }) => {
     }
 
     const handleChange = (e) => {
-        console.log(e.target.id)
         setValue(e.target.id, e.target.value || e.target.checked);
     }
     const handleBefore = () => {
