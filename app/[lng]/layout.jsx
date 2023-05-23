@@ -2,7 +2,7 @@ import '@styles/variables.css';
 import '@styles/fonts.css';
 import '@styles/globals.scss';
 import '@styles/normalize.css';
-
+import Providers from '@store/Providers';
 import { dir } from 'i18next'
 import { languages } from '../i18n/settings'
 
@@ -20,7 +20,9 @@ export default function RootLayout({
     <html lang={lng} dir={dir(lng)}>
       <head />
       <body>
-        {children}
+        <Providers>
+          {children}
+        </Providers>
       </body>
     </html>
   )

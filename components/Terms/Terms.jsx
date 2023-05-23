@@ -14,7 +14,6 @@ const Terms = ({ lng }) => {
     const { register, setValue, handleSubmit, formState: { errors } } = useForm({
         mode: 'onChange',
     });
-
     const handleRoute = () => {
         router.push('/before')
     }

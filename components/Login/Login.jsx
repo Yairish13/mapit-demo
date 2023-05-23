@@ -86,7 +86,7 @@ const Login = ({ lng }) => {
 
                     <Button
                         mode="secondary"
-                    onClick={handleSubmit(handleBefore)}
+                    onClick={handleBefore}
                     >
                         {t('pages.login.approve')}
                     </Button>

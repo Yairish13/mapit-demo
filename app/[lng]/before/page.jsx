@@ -1,16 +1,23 @@
+"use client"
 import Button from '@components/Button/Button';
 import styles from './page.module.scss';
 import { useTranslation } from '@app/i18n';
 import clsx from 'clsx';
 import TextInput from '@components/TextInput/TextInput';
 import { Trans } from 'react-i18next/TransWithoutContext'
+import { useRouter } from 'next/navigation';
 
 const Page = async ({ params: { lng } }) => {
+    const router = useRouter()
+
+
     const { t } = await useTranslation(lng);
 
     const titleClasses = clsx(styles.header, 'title');
     const conatainerClasses = clsx(styles.container, 'container');
-
+    const handleRoute = () => {
+        router.push('/partOne')
+    }
     return (
         <div className={conatainerClasses}>
             <h2 className={titleClasses}>{t('pages.before.hello')}</h2>
@@ -53,7 +60,7 @@ const Page = async ({ params: { lng } }) => {
                         disabled
                     />
                 </div>
-                <Button mode="tertiary">{t('global.start')}</Button>
+                <Button mode="tertiary" onClick={handleRoute}>{t('global.start')}</Button>
             </div>
         </div>
     )

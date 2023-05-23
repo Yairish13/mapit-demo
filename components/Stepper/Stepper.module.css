@@ -1,15 +1,16 @@
 .mainContainer {
     width: 100%;
     max-width: 600px;
-    margin: 0 auto;
-    padding: 0 16px;
+    /* margin: 0 auto; */
+    /* padding: 0 16px; */
 }
 
 .stepContainer {
     display: flex;
     justify-content: space-between;
-    margin-top: 70px;
+    margin-top: 15px;
     position: relative;
+    flex-direction: row-reverse;
 }
 
 .stepContainer::before {

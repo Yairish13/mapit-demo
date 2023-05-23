@@ -1,11 +1,12 @@
 "use client"
 import { useState, useEffect } from 'react';
 import styles from './CircleProgress.module.css';
+import { useSelector } from 'react-redux';
 
-const CircleProgress = ({ circleWidth }) => {
-  const [percentage, setpercentage] = useState(0);
+const CircleProgress = ({  }) => {
+  const percentage = useSelector((state) => state.general.percentage);
   const [currentPercentage, setCurrentPercentage] = useState(0);
-
+  const circleWidth = 200;
   const radius = 85;
   const dashArray = radius * Math.PI * 2;
   const dashOffset = dashArray - (dashArray * currentPercentage) / 100;
@@ -70,9 +71,9 @@ const CircleProgress = ({ circleWidth }) => {
             </text>
           </div>
         </div>
-        <div>
-                <button onClick={(e)=> setpercentage(prev => prev+5)}  />
-            </div>
+        {/* <div>
+          <button onClick={(e) => setpercentage(prev => prev + 5)} />
+        </div> */}
       </div>
     </>
   );
