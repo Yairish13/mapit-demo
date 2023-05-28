@@ -10,24 +10,25 @@ const CustomSelect = ({
     placeholder,
     withArrow,
     withNoHeader = false,
+    selectedOptions,
 }) => {
     console.log(options);
     const [isOpen, setIsOpen] = useState(false);
-    const [selectedOptions, setSelectedOptions] = useState([]);
+    // const [selectedOptions, setSelectedOptions] = useState([]);
 
     const handleOptionClick = (option,e) => {
         onClick(option,e)
-        const index = selectedOptions.findIndex((item) => item.id === option.id);
+        // const index = selectedOptions.findIndex((item) => item.id === option.id);
 
-        if (index > -1) {
-            setSelectedOptions((prevOptions) => {
-                const updatedOptions = [...prevOptions];
-                updatedOptions.splice(index, 1);
-                return updatedOptions;
-            });
-        } else {
-            setSelectedOptions((prevOptions) => [...prevOptions, option]);
-        }
+        // if (index > -1) {
+        //     setSelectedOptions((prevOptions) => {
+        //         const updatedOptions = [...prevOptions];
+        //         updatedOptions.splice(index, 1);
+        //         return updatedOptions;
+        //     });
+        // } else {
+        //     setSelectedOptions((prevOptions) => [...prevOptions, option]);
+        // }
     };
     const isSelected = (id) => {
         return selectedOptions.find((option) => option.id === id)

@@ -8,8 +8,8 @@ const Checkbox = ({ id, label, checked, onChange, error, errorText }) => {
                     className={styles.input}
                     type="checkbox"
                     id={id}
-                    checked={checked}
-                    onClick={onChange}
+                    checked={checked ? checked : false}
+                    onChange={onChange}
                 />
                 {label && <label>
                     {label}

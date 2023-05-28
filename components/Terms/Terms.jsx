@@ -6,9 +6,10 @@ import Link from 'next/link';
 import { useTranslation } from '@app/i18n/client';
 import { useRouter } from 'next/navigation';
 import { useForm } from 'react-hook-form';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 const Terms = ({ lng }) => {
+    const [isChecked,setIsChecked] = useState(false);
     const router = useRouter()
     const { t } = useTranslation(lng)
     const { register, setValue, handleSubmit, formState: { errors } } = useForm({
@@ -18,8 +19,8 @@ const Terms = ({ lng }) => {
         router.push('/before')
     }
     const handleChange = (e) => {
-        console.log(e)
-        setValue(e.target.id, e.target.checked);
+        setValue(e.target.id, !isChecked);
+        setIsChecked((prev) => !prev)
     }
     useEffect(() => {
         console.log(errors)
@@ -46,8 +47,7 @@ const Terms = ({ lng }) => {
                             })
                         }}
                         onChange={handleChange}
-                    // error={errors.readAndAcceptedTakanon ? errors.readAndAcceptedTakanon : false}
-                    // errorText={errors.readAndAcceptedTakanon ?  : ''}
+                        checked={isChecked}
                     />
                 </div>
                 {errors && errors.readAndAcceptedTakanon && <div className={styles.errDiv}>{t('pages.terms.checkboxErr')}</div>}

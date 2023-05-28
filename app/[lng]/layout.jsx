@@ -21,7 +21,9 @@ export default function RootLayout({
       <head />
       <body suppressHydrationWarning={true}>
         <Providers>
+          <main>
           {children}
+          </main>
         </Providers>
       </body>
     </html>

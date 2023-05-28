@@ -9,8 +9,6 @@ import { useRouter } from 'next/navigation';
 
 const Page = async ({ params: { lng } }) => {
     const router = useRouter()
-
-
     const { t } = await useTranslation(lng);
 
     const titleClasses = clsx(styles.header, 'title');

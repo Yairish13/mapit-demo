@@ -3,6 +3,7 @@ import { PayloadAction } from "@reduxjs/toolkit";
 
 const initialState = {
     members: {},
+    selectedMembers: [],
     steps: [{
         step: 1,
     }, {
@@ -47,7 +48,11 @@ const generalSlice = createSlice({
         },
         setPercentage: (state, action) => {
             state.percentage += 4;
+        },
+        setSelectedMembers:(state,action) =>{
+            state.selectedMembers = action.payload;
         }
+        
     },
     // extraReducers: {
     //     [counter.actions.increment]: (
@@ -58,6 +63,6 @@ const generalSlice = createSlice({
     //     },
     //   },
 })
-export const { setMembers, setNextStep, setPercentage } = generalSlice.actions;
+export const { setMembers, setNextStep, setPercentage, setSelectedMembers } = generalSlice.actions;
 
 export default generalSlice.reducer;

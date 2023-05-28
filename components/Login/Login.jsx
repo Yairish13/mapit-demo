@@ -13,6 +13,7 @@ const Login = ({ lng }) => {
     const { t } = useTranslation(lng);
     const router = useRouter();
     const [otpIsOn, setOtpIsOn] = useState(false);
+    const [isChecked, setIsChecked] = useState(false);
 
     const { register, setValue, handleSubmit, formState: { errors } } = useForm({
         mode: 'any',
@@ -23,7 +24,11 @@ const Login = ({ lng }) => {
     }
 
     const handleChange = (e) => {
-        setValue(e.target.id, e.target.value || e.target.checked);
+        if (e.target.id === 'rememberMeCheckbox') {
+            setValue('rememberMeCheckbox', e.target.checked);
+            setIsChecked((prev) => !prev)
+        }
+        else setValue(e.target.id, e.target.value);
     }
     const handleBefore = () => {
         router.push(`${lng}/terms`);
@@ -60,8 +65,9 @@ const Login = ({ lng }) => {
                 <Checkbox
                     id="rememberMeCheckbox"
                     label={t('pages.login.rememberTheNumber')}
-                    refs={{...register(`rememberMeCheckbox`)}}
-                    onClick={handleChange}
+                    refs={{ ...register(`rememberMeCheckbox`) }}
+                    onChange={handleChange}
+                    checked={isChecked}
                 />
                 <Button
                     mode="primary"
@@ -79,10 +85,12 @@ const Login = ({ lng }) => {
                             id="otpInput"
                             type='password'
                             bottomText={t('pages.login.enterTheCode')}
-                            refs={{...register(`otpInput`, {
-                                required: true,
-                                pattern: otpPattern,
-                            })}}
+                            refs={{
+                                ...register(`otpInput`, {
+                                    required: true,
+                                    pattern: otpPattern,
+                                })
+                            }}
                             onChange={handleChange}
                             lng={lng}
                             placeholder={t('pages.login.otpExample')}

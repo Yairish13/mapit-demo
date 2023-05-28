@@ -66,9 +66,9 @@ const CircleProgress = ({  }) => {
             ></circle>
           </svg>
           <div className={styles.percentageWrapper}>
-            <text x="50%" y="50%" dy="0.3em" textAnchor="middle" className={styles.circleText}>
+            <div x="50%" y="50%" dy="0.3em" textAnchor="middle" className={styles.circleText}>
               {Math.round(currentPercentage)}%
-            </text>
+            </div>
           </div>
         </div>
         {/* <div>
