@@ -5,7 +5,9 @@ const layout = ({ children, params: {
     lng
 } }) => {
     return (
-        <DefaultLayout lng={lng}>{children}</DefaultLayout>
+        <body suppressHydrationWarning={true}>
+            <DefaultLayout lng={lng}>
+                {children}</DefaultLayout></body>
     )
 }
 

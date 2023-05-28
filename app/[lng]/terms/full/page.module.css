@@ -6,18 +6,30 @@
     font-size: 16px;
     overflow-y: hidden;
     margin-bottom: 5%;
+    gap: 10px;
 }
-.termsHeader{
+
+.termsHeader {
     font-family: 'gveretLevin';
     text-decoration: underline;
     color: var(--color-secondary);
 }
-.row{
+
+.headers {
+    text-decoration: underline;
+    font-weight: bold;
+    margin-top: 15px;
+}
+
+.row {
     display: flex;
     flex-direction: row;
-}   
-.subRow{
+    gap: 10px;
+}
+
+.subRow {
     display: flex;
     flex-direction: row;
     padding-inline-start: 25px;
-}   
+    gap: 10px;
+}

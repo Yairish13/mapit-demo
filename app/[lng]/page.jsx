@@ -1,7 +1,14 @@
+import dynamic from 'next/dynamic';
 import { useTranslation } from '@app/i18n';
 import Preloader from '@store/Preloader';
-import Login from '@components/Login/Login';
-import LoginLayout from '@components/Layouts/Login/index.jsx'
+const Login = dynamic(
+  () => import('../../components/Login/Login'),
+  { ssr: false }
+)
+const LoginLayout = dynamic(
+  () => import('../../components/Layouts/Login'),
+  { ssr: false }
+)
 
 
 export default async function Home({ params: { lng } }) {
@@ -10,10 +17,10 @@ export default async function Home({ params: { lng } }) {
   const data = await req.json();
   return (
     <>
-      <Preloader members={data} />
-      <LoginLayout>
-        <Login lng={lng} />
-      </LoginLayout>
+        <Preloader members={data} />
+        <LoginLayout>
+          <Login lng={lng} />
+        </LoginLayout>
     </>
   )
 }

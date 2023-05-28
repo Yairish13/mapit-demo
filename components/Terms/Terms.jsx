@@ -28,9 +28,9 @@ const Terms = ({ lng }) => {
         <div className="container-content">
             <div className={styles.container}>
                 <div>
-                    <span className={styles.header}>
+                    <h2 className={`${styles.header} title`}>
                         {t('pages.terms.header')}
-                    </span>
+                    </h2>
                 </div>
                 <div className={styles.termsCheckbox}>
                     <Link target='_blank' className={styles.text} href={`/${lng}/terms/full`}>
@@ -40,12 +40,14 @@ const Terms = ({ lng }) => {
                     </Link>
                     <Checkbox
                         id='readAndAcceptedTakanon'
-                        {...register(`readAndAcceptedTakanon`, {
-                            required: true,
-                        })}
+                        refs={{
+                            ...register(`readAndAcceptedTakanon`, {
+                                required: true,
+                            })
+                        }}
                         onChange={handleChange}
-                        // error={errors.readAndAcceptedTakanon ? errors.readAndAcceptedTakanon : false}
-                        // errorText={errors.readAndAcceptedTakanon ?  : ''}
+                    // error={errors.readAndAcceptedTakanon ? errors.readAndAcceptedTakanon : false}
+                    // errorText={errors.readAndAcceptedTakanon ?  : ''}
                     />
                 </div>
                 {errors && errors.readAndAcceptedTakanon && <div className={styles.errDiv}>{t('pages.terms.checkboxErr')}</div>}

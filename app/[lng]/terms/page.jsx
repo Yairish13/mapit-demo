@@ -1,12 +1,16 @@
 import Terms from '@components/Terms/Terms'
+import { Suspense } from 'react'
+import Loading from './loading'
 
-const Page = async({ params: { lng } }) => {
+const Page = ({ params: { lng } }) => {
 
     return (
         <>
-            <Terms
-                lng={lng}
-            />
+            <Suspense fallback={<p>Loading...</p>}>
+                <Terms
+                    lng={lng}
+                />
+            </Suspense>
         </>
     )
 }

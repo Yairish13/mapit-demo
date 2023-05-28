@@ -1,7 +1,6 @@
 import styles from './Side.module.scss';
 import { useTranslation } from '@app/i18n';
 import Logo from '@components/Logo';
-import groupCircle from '@public/assets/images/groupCircle.png';
 
 export default async function DefaultLayout({
   children,
@@ -12,7 +11,7 @@ export default async function DefaultLayout({
   return (
     <div className={styles.content}>
       <div className={styles.side}>
-        <div className={styles.side__hero} style={{backgroundImage: `url(${groupCircle.src})`}}>
+        <div className={styles.side__hero}>
           <p>{t('global.before_you_begin')}</p>
         </div>
       </div>
