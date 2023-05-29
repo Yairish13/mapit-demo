@@ -9,9 +9,11 @@ import CircleProgress from "@components/CircleProgress/CircleProgress";
 import { useForm } from "react-hook-form";
 import Checkbox from "@components/Checkbox/Checkbox";
 import RadiosAnswer from "@components/RadiosAnswer/RadiosAnswer";
+import { useTranslation } from "@app/i18n/client";
 
 
-const SecondPart = ({ members }) => {
+const SecondPart = ({ members, lng }) => {
+    const { t } = useTranslation(lng);
     const { register, setValue, handleSubmit, formState: { errors } } = useForm({
         mode: 'any',
     });

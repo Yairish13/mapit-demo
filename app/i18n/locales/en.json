@@ -43,6 +43,7 @@
     "pages.questionaireOne.footerText": "The following questions in front of you (2-8) refer to the names you chose in question 1.",
     "pages.questionaireOne.nonFormal": "non-formal",
     "pages.questionaireOne.questionOne": "Select the workers and managers in the organization with whom you have some kind of relationship at work, and as part of which you either give and/or receive: knowhow and information / professional support / instructions or reporting / problem-solving advice / help in promoting an idea or task / personal support.",
+    "pages.questionaireOne.questionOneSubText":"Comment - if you do not work with all the departments, please select those relevant for you and select those people in them with whom you are in contact.",
     "pages.questionaireOne.questionTwo": "What is the average frequency of your interaction?",
     "pages.questionaireOne.questionThree": "Which of them is a non-formal working interface?",
     "pages.questionaireOne.questionThreeSubText": "A non-formal interface” - is a person in a department or in the organization with whom you are in contact and/or turn to for help on your initiative, but he/she is not necessarily part of the working process in question or there is no structured and/or direct working interface between you, according to the organization's formal definitions.",

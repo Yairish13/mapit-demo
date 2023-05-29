@@ -1,6 +1,6 @@
 .container {
     margin: 0 8%;
-    min-height: 50vh;
+    min-height: 60vh;
     border-bottom: 1px solid #B1BEC5;
 }
 
@@ -24,7 +24,10 @@
     align-items: flex-start;
     justify-content: space-between;
 }
-
+.question{
+    width: 50%;
+    margin-inline-end: 1rem;
+}
 .answer {
     box-sizing: border-box;
     padding: 15px 15px;
@@ -32,12 +35,14 @@
     border: 1px solid #B1BEC5;
     border-radius: 4px;
     display: flex;
-    flex-wrap: wrap;
     gap: 10px;
     width: 520px;
     justify-content: center;
 }
-
+.subTextQuestion {
+    margin-top: 1rem;
+    color: #969696;
+}
 .footer {
     margin: 25px 8%;
     color: var(--color-secondary);

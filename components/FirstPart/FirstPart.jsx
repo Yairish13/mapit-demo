@@ -10,7 +10,7 @@ import { useState } from "react";
 import { useTranslation } from "@app/i18n/client";
 
 
-const FirstPart = ({ members,lng }) => {
+const FirstPart = ({ members, lng }) => {
   const { t } = useTranslation(lng);
   const [selectedOptions, setSelectedOptions] = useState([]);
   const dispatch = useDispatch()
@@ -43,7 +43,13 @@ const FirstPart = ({ members,lng }) => {
           <CircleProgress />
         </div>
         <div className={styles.answerContainer}>
-          <div className={styles.question}>1.{t('pages.questionaireOne.questionOne')}</div>
+          1.
+          <div className={styles.question}>
+            {t('pages.questionaireOne.questionOne')}
+            <div className={styles.subTextQuestion}>
+              {t('pages.questionaireOne.questionOneSubText')}
+            </div>
+          </div>
           <div className={styles.answer}>
             {members && members[0] && members[0].departments && members[0].departments.map((department, index) => (
               <CustomSelect
