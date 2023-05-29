@@ -7,12 +7,12 @@ import { setNextStep, setPercentage, setSelectedMembers } from "../../store/gene
 import CustomSelect from "@components/CustomSelect/CustomSelect";
 import CircleProgress from "@components/CircleProgress/CircleProgress";
 import { useState } from "react";
+import { useTranslation } from "@app/i18n/client";
 
 
-const FirstPart = ({ }) => {
+const FirstPart = ({ members,lng }) => {
+  const { t } = useTranslation(lng);
   const [selectedOptions, setSelectedOptions] = useState([]);
-  const members = useSelector((state) => state.general.members);
-  console.log(members, 'members');
   const dispatch = useDispatch()
   const handleNext = () => {
     dispatch(setSelectedMembers(selectedOptions))
@@ -37,17 +37,19 @@ const FirstPart = ({ }) => {
     <>
       <div className={styles.container}>
         <div className={styles.headerDiv}>
-          <h3 className="title">חלק א</h3>
+          <h3 className="title">
+            {t('pages.questionaireOne.firstPart')}
+          </h3>
           <CircleProgress />
         </div>
         <div className={styles.answerContainer}>
-          <div className={styles.question}>1. בחר את העובדים והמנהלים בארגון</div>
+          <div className={styles.question}>1.{t('pages.questionaireOne.questionOne')}</div>
           <div className={styles.answer}>
             {members && members[0] && members[0].departments && members[0].departments.map((department, index) => (
               <CustomSelect
                 key={index}
                 onClick={handleCheck}
-                placeholder='מחלקה'
+                placeholder={t('global.department')}
                 withArrow={true}
                 options={department.workers}
                 selectedOptions={selectedOptions}
@@ -57,9 +59,9 @@ const FirstPart = ({ }) => {
         </div>
       </div>
       <div className={styles.footer} >
-        השאלות הבאות שלפניך (2-8) מתייחסות לשמות שבחרת בשאלה 1
+        {t('pages.questionaireOne.footerText')}
         <div className={styles.stepper}><Stepper /></div>
-        <Button mode="primary" onClick={handleNext}>הבא</Button>
+        <Button mode="primary" onClick={handleNext}>{t('global.next')}</Button>
       </div>
     </>
   )

@@ -3,6 +3,8 @@ import { useTranslation } from '@app/i18n';
 import Preloader from '@store/Preloader';
 import { store } from '@store';
 import { setMembers } from '@store/generalSlice';
+import Providers from '@store/Providers';
+
 const Login = dynamic(
   () => import('../../components/Login/Login'),
   { ssr: false }
@@ -21,9 +23,11 @@ export default async function Home({ params: { lng } }) {
   return (
     <>
       <Preloader members={data} />
-      <LoginLayout>
-        <Login lng={lng} />
-      </LoginLayout>
+      <Providers>
+        <LoginLayout>
+          <Login lng={lng} />
+        </LoginLayout>
+      </Providers>
     </>
   )
 }

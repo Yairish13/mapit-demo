@@ -16,8 +16,8 @@ const CustomSelect = ({
     const [isOpen, setIsOpen] = useState(false);
     // const [selectedOptions, setSelectedOptions] = useState([]);
 
-    const handleOptionClick = (option,e) => {
-        onClick(option,e)
+    const handleOptionClick = (option, e) => {
+        onClick(option, e)
         // const index = selectedOptions.findIndex((item) => item.id === option.id);
 
         // if (index > -1) {
@@ -37,12 +37,11 @@ const CustomSelect = ({
         setIsOpen(prev => !prev)
     }
     useEffect(() => {
-    
-      return () => {
-        
-      }
+
+        return () => {
+
+        }
     }, [])
-    
     return (
         <>
             {!withNoHeader ? <div className="custom-select">
@@ -60,7 +59,7 @@ const CustomSelect = ({
                             <div key={option.id} className={isSelected(option.id) ? "option selected" : 'option'}>
                                 {option.value}
                                 <Checkbox
-                                    onChange={(e) => handleOptionClick(option,e)}
+                                    onChange={(e) => handleOptionClick(option, e)}
                                     checked={isSelected(option.id)}
                                 />
                             </div>

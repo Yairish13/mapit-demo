@@ -7,7 +7,7 @@ const layout = ({ children, params: {
     return (
         <>
             <DefaultLayout lng={lng}>
-                {children}
+                    {children}
             </DefaultLayout>
         </>
     )
