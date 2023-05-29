@@ -47,7 +47,18 @@ p {
   margin-right: auto;
   margin-left: auto;
 }
+.question{
+  width: 50%;
+  margin-inline-end: 1rem;
+}
 
+.answer {
+  margin-bottom: 1rem;
+  box-sizing: border-box;
+  padding: 1rem 1rem;
+  border: 1px solid #B1BEC5;
+  width: 32.5rem;
+}
 .container-content {
   max-width: var(--max-width-small);
   margin-right: auto;
@@ -118,4 +129,10 @@ input:focus {
 
 table {
   width: 100%;
+}
+td{
+  white-space: nowrap;
+}
+th{
+  font-size: 0.75rem;
 }

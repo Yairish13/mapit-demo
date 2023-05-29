@@ -18,7 +18,6 @@ const FirstPart = ({ members, lng }) => {
     dispatch(setSelectedMembers(selectedOptions))
     dispatch(setNextStep())
     dispatch(setPercentage())
-    console.log(selectedOptions);
   }
   const handleCheck = (option) => {
     const index = selectedOptions.findIndex((item) => item.id === option.id);
@@ -44,13 +43,13 @@ const FirstPart = ({ members, lng }) => {
         </div>
         <div className={styles.answerContainer}>
           1.
-          <div className={styles.question}>
+          <div className='question'>
             {t('pages.questionaireOne.questionOne')}
             <div className={styles.subTextQuestion}>
               {t('pages.questionaireOne.questionOneSubText')}
             </div>
           </div>
-          <div className={styles.answer}>
+          <div className={`${styles.selectDiv} answer`}>
             {members && members[0] && members[0].departments && members[0].departments.map((department, index) => (
               <CustomSelect
                 key={index}

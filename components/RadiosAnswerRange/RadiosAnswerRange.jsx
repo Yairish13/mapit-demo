@@ -1,8 +1,8 @@
 import RadioButton from '@components/RadioButton/RadioButton'
-import styles from './RadiosAnswer.module.css'
+import styles from './RadiosAnswerRange.module.css'
 import React from 'react'
 
-const RadiosAnswer = ({handleCheck, selectedMembers,register}) => {
+const RadiosAnswerRange = ({handleCheck, selectedMembers,register}) => {
     const arr = [...selectedMembers]
 
     return (
@@ -10,9 +10,19 @@ const RadiosAnswer = ({handleCheck, selectedMembers,register}) => {
             <thead>
                 <tr>
                     <th scope="col"></th>
-                    <th scope="col">חודשית</th>
-                    <th scope="col">שבועית</th>
-                    <th scope="col">יומית</th>
+                    <th scope="col">לא רלוונטי</th>
+                    <th scope="col">בכלל לא</th>
+                    <th scope="col">במידה מועטה</th>
+                    <th scope="col">במידה רבה</th>
+                    <th scope="col">במידה רבה מאוד</th>
+                </tr>
+                <tr>
+                    <th scope="col"></th>
+                    <th className={styles.tableHeader} scope="col">0</th>
+                    <th className={styles.tableHeader} scope="col">1</th>
+                    <th className={styles.tableHeader} scope="col">2</th>
+                    <th className={styles.tableHeader} scope="col">3</th>
+                    <th className={styles.tableHeader} scope="col">4</th>
                 </tr>
             </thead>
             <tbody>
@@ -62,6 +72,34 @@ const RadiosAnswer = ({handleCheck, selectedMembers,register}) => {
                                     checked={arr[index].questionNumberTwo}
                                 />
                             </td>
+                            <td className={styles.radioBtn}>
+                                <RadioButton
+                                    id='יומית'
+                                    name='questionNumberTwo'
+                                    index={index}
+                                    onChange={handleCheck}
+                                    refs={{
+                                        ...register(`questionNumberTwo`, {
+                                            required: true,
+                                        })
+                                    }}
+                                    checked={arr[index].questionNumberTwo}
+                                />
+                            </td>
+                            <td className={styles.radioBtn}>
+                                <RadioButton
+                                    id='יומית'
+                                    name='questionNumberTwo'
+                                    index={index}
+                                    onChange={handleCheck}
+                                    refs={{
+                                        ...register(`questionNumberTwo`, {
+                                            required: true,
+                                        })
+                                    }}
+                                    checked={arr[index].questionNumberTwo}
+                                />
+                            </td>
                         </tr>
                     </>
                 ))}
@@ -70,4 +108,4 @@ const RadiosAnswer = ({handleCheck, selectedMembers,register}) => {
     )
 }
 
-export default RadiosAnswer
+export default RadiosAnswerRange

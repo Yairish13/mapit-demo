@@ -38,7 +38,7 @@ const SecondPart = ({ members, lng }) => {
                     <CircleProgress />
                 </div>
                 <div className={styles.answerContainer}>
-                    <div className={styles.question}>
+                    <div className='question'>
                         <div><span>2. {' '}</span>
                             {t('pages.questionaireOne.questionTwo')}
 
@@ -47,7 +47,7 @@ const SecondPart = ({ members, lng }) => {
                             {t('pages.questionaireOne.noRelevant')}
                         </div>
                     </div>
-                    <div className={styles.answer}>
+                    <div className='answer'>
                         <RadiosAnswer
                             handleCheck={handleCheck}
                             selectedMembers={selectedMembers}
@@ -56,7 +56,7 @@ const SecondPart = ({ members, lng }) => {
                     </div>
                 </div>
                 <div className={styles.answerContainer}>
-                    <div className={styles.question}>
+                    <div className='question'>
                         <div><span>3. {' '} </span>
                             {t('pages.questionaireOne.questionThree')}
                         </div>
@@ -64,7 +64,7 @@ const SecondPart = ({ members, lng }) => {
                             {t("pages.questionaireOne.noRelevant")}
                         </div>
                     </div>
-                    <div className={`${styles.answer} ${styles.aformalDiv}`}>
+                    <div className={`answer ${styles.aformalDiv}`}>
                         {t("pages.questionaireOne.nonFormal")}
                         {selectedMembers.map((worker, index) => (
                             <div key={index}>

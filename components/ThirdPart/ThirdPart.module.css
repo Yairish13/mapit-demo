@@ -30,6 +30,7 @@
     margin: 25px 8%;
     color: var(--color-secondary);
 }
+
 .stepper {
     display: flex;
     flex-direction: row;
