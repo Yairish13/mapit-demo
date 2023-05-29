@@ -1,0 +1,55 @@
+.container {
+    margin: 0 8%;
+    min-height: 55vh;
+}
+
+.headerDiv {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: space-between;
+}
+
+.questionContainer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.answerContainer {
+    margin-top: 50px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    border-bottom: 1px solid #B1BEC5;
+    min-height: 20vh;
+}
+
+.footer {
+    margin: 25px 8%;
+    color: var(--color-secondary);
+}
+
+.stepper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+    margin-bottom: 13px;
+}
+
+.subTextQuestion {
+    margin-top: 10%;
+    color: #969696;
+    margin-inline-start: 10px;
+}
+.radioBtn{
+    text-align: center;
+}
+.aformalDiv{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+}

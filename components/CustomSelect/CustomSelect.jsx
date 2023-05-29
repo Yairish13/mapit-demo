@@ -14,34 +14,16 @@ const CustomSelect = ({
 }) => {
     console.log(options);
     const [isOpen, setIsOpen] = useState(false);
-    // const [selectedOptions, setSelectedOptions] = useState([]);
 
     const handleOptionClick = (option, e) => {
         onClick(option, e)
-        // const index = selectedOptions.findIndex((item) => item.id === option.id);
-
-        // if (index > -1) {
-        //     setSelectedOptions((prevOptions) => {
-        //         const updatedOptions = [...prevOptions];
-        //         updatedOptions.splice(index, 1);
-        //         return updatedOptions;
-        //     });
-        // } else {
-        //     setSelectedOptions((prevOptions) => [...prevOptions, option]);
-        // }
     };
     const isSelected = (id) => {
-        return selectedOptions.find((option) => option.id === id)
+        if (selectedOptions) return selectedOptions.find((option) => option.id === id)
     }
     const handleClick = () => {
         setIsOpen(prev => !prev)
     }
-    useEffect(() => {
-
-        return () => {
-
-        }
-    }, [])
     return (
         <>
             {!withNoHeader ? <div className="custom-select">
@@ -53,7 +35,7 @@ const CustomSelect = ({
                         {withArrow && <ArrowDown className={isOpen ? 'arrow-up' : 'arrow-down'} />}
                     </div>
                 </div>
-                {isOpen &&
+                {(isOpen || !withArrow)  &&
                     <div className={!withArrow ? 'options smallWindow' : "options"}>
                         {options.map((option, index) => (
                             <div key={option.id} className={isSelected(option.id) ? "option selected" : 'option'}>
