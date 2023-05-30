@@ -19,9 +19,12 @@ const initialState = {
         step: 5,
     },
     {
-        label: 'Summary',
         step: 6,
-    },],
+    },
+    {
+        step: 7,
+    },
+],
     activeStep: 1,
     percentage:0,
 }

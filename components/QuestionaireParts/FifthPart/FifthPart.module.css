@@ -53,3 +53,14 @@
     align-items: flex-start;
     justify-content: center;
 }
+.optionsContainer{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+.selectsContainer{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+}
