@@ -5,12 +5,18 @@ import { useTranslation } from '@app/i18n/client';
 import RadiosAnswerSurvey from '@components/RadiosAnswerSurvey/RadiosAnswerSurvey';
 import Button from '@components/Button/Button';
 import Stepper from '@components/Stepper/Stepper';
+import { useDispatch } from 'react-redux';
+import { setNextStep, setPercentage } from '@store/generalSlice';
 
 const SixthPart = ({
     lng
 }) => {
     const { t } = useTranslation(lng);
-
+    const dispatch = useDispatch()
+    const handleNext = () => {
+        dispatch(setNextStep())
+        dispatch(setPercentage())
+    }
     return (
         <div className={styles.containerPartB}>
             <div>
@@ -116,7 +122,7 @@ const SixthPart = ({
                 <div className={styles.footer} >
                     <Button
                         mode="primary"
-                    //  onClick={handleNext}
+                        onClick={handleNext}
                     >
                         {t('global.next')}
                     </Button>
