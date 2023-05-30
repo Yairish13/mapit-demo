@@ -5,6 +5,7 @@ import { useTranslation } from '@app/i18n/client';
 import RadiosAnswerRange from '@components/RadiosAnswerRange/RadiosAnswerRange';
 import Button from '@components/Button/Button';
 import Stepper from '@components/Stepper/Stepper';
+import RadioRange from '@components/RadioRange/RadioRange';
 
 const SeventhPart = ({ params: {
     lng
@@ -25,17 +26,17 @@ const SeventhPart = ({ params: {
                 </div>
                 <div className={styles.answerContainer}>
                     <div className='question'>
-                        <div>10.<span> {' '}</span>
-                            {t('pages.questionaire.questionTen')}
+                        <div>16.<span> {' '}</span>
+                            {t('pages.questionaire.thirdPart.believe')}
                         </div>
-
+                        <div className={styles.subTextQuestion}>
+                            {t("pages.questionaire.thirdPart.rangeText")}
+                        </div>
                     </div>
                     <div className='answer'>
-                        <RadiosAnswerRange
-                        // handleCheck={handleCheck}
-                        // selectedMembers={selectedMembers}
-                        // register={register}
-                        />
+                            {t("pages.questionaire.questionSixteenOne")}
+                            <RadioRange />
+                            {t("pages.questionaire.questionSixteenTwo")}
                     </div>
                 </div>
                 <div className={styles.answerContainer}>
