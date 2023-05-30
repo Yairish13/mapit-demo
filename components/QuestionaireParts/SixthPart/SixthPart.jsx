@@ -1,6 +1,6 @@
 "use client"
 import CircleProgress from '@components/CircleProgress/CircleProgress'
-import styles from './page.module.css'
+import styles from './SixthPart.module.css'
 import { useTranslation } from '@app/i18n/client';
 import RadiosAnswerRange from '@components/RadiosAnswerRange/RadiosAnswerRange';
 import Button from '@components/Button/Button';
