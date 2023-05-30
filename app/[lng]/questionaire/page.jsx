@@ -1,4 +1,4 @@
-import QuestionairePartOne from '@components/QuestionairePartOne/QuestionairePartOne';
+import QuestionaireFull from '@components/QuestionaireFull/QuestionaireFull';
 
 const Page = async ({ params: {
   lng
@@ -8,7 +8,7 @@ const Page = async ({ params: {
   console.log(data);
   return (
     <div>
-      <QuestionairePartOne members={data} lng={lng} />
+      <QuestionaireFull members={data} lng={lng} />
     </div>
   )
 }

@@ -2,17 +2,17 @@
 "use client";
 import Stepper from "@components/Stepper/Stepper";
 import { useDispatch, useSelector } from "react-redux";
-import styles from './SecondPart.module.css';
+import styles from './FifthPart.module.css';
 import Button from "@components/Button/Button";
-import { setNextStep, setPercentage } from "../../store/generalSlice";
+import { setNextStep, setPercentage } from "../../../store/generalSlice";
 import CircleProgress from "@components/CircleProgress/CircleProgress";
 import { useForm } from "react-hook-form";
-import Checkbox from "@components/Checkbox/Checkbox";
-import RadiosAnswer from "@components/RadiosAnswer/RadiosAnswer";
 import { useTranslation } from "@app/i18n/client";
+import RadiosAnswerRange from "@components/RadiosAnswerRange/RadiosAnswerRange";
+import CustomSelect from "@components/CustomSelect/CustomSelect";
 
 
-const SecondPart = ({ members, lng }) => {
+const FifthPart = ({ members, lng }) => {
     const { t } = useTranslation(lng);
     const { register, setValue, handleSubmit, formState: { errors } } = useForm({
         mode: 'any',
@@ -25,60 +25,59 @@ const SecondPart = ({ members, lng }) => {
         dispatch(setPercentage())
     }
     const handleCheck = (option, index, name) => {
-        if (name === 'questionNumberThree') arr[index] = { ...arr[index], [name]: option.target.checked };
-        else arr[index] = { ...arr[index], [name]: option.target.id };
+        arr[index] = { ...arr[index], [name]: option.target.id };
     }
     return (
         <>
             <div className={styles.container}>
                 <div className={styles.headerDiv}>
                     <h3 className="title">
-                        {t('pages.questionaireOne.firstPart')}
+                        {t('pages.questionaire.firstPart')}
                     </h3>
                     <CircleProgress />
                 </div>
                 <div className={styles.answerContainer}>
                     <div className='question'>
-                        <div><span>2. {' '}</span>
-                            {t('pages.questionaireOne.questionTwo')}
-
+                        <div>8.<span> {' '}</span>
+                            {t('pages.questionaire.questionEight')}
                         </div>
                         <div className={styles.subTextQuestion}>
-                            {t('pages.questionaireOne.noRelevant')}
+                            {t("pages.questionaire.notChosen")}
                         </div>
                     </div>
                     <div className='answer'>
-                        <RadiosAnswer
-                            handleCheck={handleCheck}
-                            selectedMembers={selectedMembers}
-                            register={register}
+                        <CustomSelect
+                            withNoHeader={true}
+                            options={selectedMembers}
                         />
                     </div>
                 </div>
                 <div className={styles.answerContainer}>
                     <div className='question'>
-                        <div><span>3. {' '} </span>
-                            {t('pages.questionaireOne.questionThree')}
+                        <div>9.<span>{' '} </span>
+                            {t('pages.questionaire.questionNine')}
                         </div>
                         <div className={styles.subTextQuestion}>
-                            {t("pages.questionaireOne.noRelevant")}
+                            {t("pages.questionaire.notChosen")}
                         </div>
                     </div>
-                    <div className={`answer ${styles.aformalDiv}`}>
-                        {t("pages.questionaireOne.nonFormal")}
-                        {selectedMembers.map((worker, index) => (
-                            <div key={index}>
-                                <Checkbox
-                                    id="questionNumberThree"
-                                    name='questionNumberThree'
-                                    label={worker.value}
-                                    refs={{ ...register(`questionNumberThree`) }}
-                                    onChange={handleCheck}
-                                    checked={arr[index].questionNumberThree}
-                                    index={index}
-                                />
-                            </div>
-                        ))}
+                    <div className='answer'>
+                        <CustomSelect
+                            withArrow={false}
+                            options={selectedMembers}
+                            placeholder={t('global.department')}
+                        />
+                        <CustomSelect
+                            withArrow={false}
+                            options={selectedMembers}
+                            placeholder={t('global.department')}
+
+                        />
+                        <CustomSelect
+                            withArrow={false}
+                            options={selectedMembers}
+                            placeholder={t('global.department')}
+                        />
                     </div>
                 </div>
             </div>
@@ -90,4 +89,4 @@ const SecondPart = ({ members, lng }) => {
     )
 }
 
-export default SecondPart
+export default FifthPart

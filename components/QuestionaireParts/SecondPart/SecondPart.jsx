@@ -2,17 +2,17 @@
 "use client";
 import Stepper from "@components/Stepper/Stepper";
 import { useDispatch, useSelector } from "react-redux";
-import styles from './FifthPart.module.css';
+import styles from './SecondPart.module.css';
 import Button from "@components/Button/Button";
-import { setNextStep, setPercentage } from "../../store/generalSlice";
+import { setNextStep, setPercentage } from "../../../store/generalSlice";
 import CircleProgress from "@components/CircleProgress/CircleProgress";
 import { useForm } from "react-hook-form";
+import Checkbox from "@components/Checkbox/Checkbox";
+import RadiosAnswer from "@components/RadiosAnswer/RadiosAnswer";
 import { useTranslation } from "@app/i18n/client";
-import RadiosAnswerRange from "@components/RadiosAnswerRange/RadiosAnswerRange";
-import CustomSelect from "@components/CustomSelect/CustomSelect";
 
 
-const FifthPart = ({ members, lng }) => {
+const SecondPart = ({ members, lng }) => {
     const { t } = useTranslation(lng);
     const { register, setValue, handleSubmit, formState: { errors } } = useForm({
         mode: 'any',
@@ -25,59 +25,60 @@ const FifthPart = ({ members, lng }) => {
         dispatch(setPercentage())
     }
     const handleCheck = (option, index, name) => {
-        arr[index] = { ...arr[index], [name]: option.target.id };
+        if (name === 'questionNumberThree') arr[index] = { ...arr[index], [name]: option.target.checked };
+        else arr[index] = { ...arr[index], [name]: option.target.id };
     }
     return (
         <>
             <div className={styles.container}>
                 <div className={styles.headerDiv}>
                     <h3 className="title">
-                        {t('pages.questionaireOne.firstPart')}
+                        {t('pages.questionaire.firstPart')}
                     </h3>
                     <CircleProgress />
                 </div>
                 <div className={styles.answerContainer}>
                     <div className='question'>
-                        <div>8.<span> {' '}</span>
-                            {t('pages.questionaireOne.questionEight')}
+                        <div><span>2. {' '}</span>
+                            {t('pages.questionaire.questionTwo')}
+
                         </div>
                         <div className={styles.subTextQuestion}>
-                            {t("pages.questionaireOne.notChosen")}
+                            {t('pages.questionaire.noRelevant')}
                         </div>
                     </div>
                     <div className='answer'>
-                        <CustomSelect
-                            withNoHeader={true}
-                            options={selectedMembers}
+                        <RadiosAnswer
+                            handleCheck={handleCheck}
+                            selectedMembers={selectedMembers}
+                            register={register}
                         />
                     </div>
                 </div>
                 <div className={styles.answerContainer}>
                     <div className='question'>
-                        <div>9.<span>{' '} </span>
-                            {t('pages.questionaireOne.questionNine')}
+                        <div><span>3. {' '} </span>
+                            {t('pages.questionaire.questionThree')}
                         </div>
                         <div className={styles.subTextQuestion}>
-                            {t("pages.questionaireOne.notChosen")}
+                            {t("pages.questionaire.noRelevant")}
                         </div>
                     </div>
-                    <div className='answer'>
-                        <CustomSelect
-                            withArrow={false}
-                            options={selectedMembers}
-                            placeholder={t('global.department')}
-                        />
-                        <CustomSelect
-                            withArrow={false}
-                            options={selectedMembers}
-                            placeholder={t('global.department')}
-
-                        />
-                        <CustomSelect
-                            withArrow={false}
-                            options={selectedMembers}
-                            placeholder={t('global.department')}
-                        />
+                    <div className={`answer ${styles.aformalDiv}`}>
+                        {t("pages.questionaire.nonFormal")}
+                        {selectedMembers.map((worker, index) => (
+                            <div key={index}>
+                                <Checkbox
+                                    id="questionNumberThree"
+                                    name='questionNumberThree'
+                                    label={worker.value}
+                                    refs={{ ...register(`questionNumberThree`) }}
+                                    onChange={handleCheck}
+                                    checked={arr[index].questionNumberThree}
+                                    index={index}
+                                />
+                            </div>
+                        ))}
                     </div>
                 </div>
             </div>
@@ -89,4 +90,4 @@ const FifthPart = ({ members, lng }) => {
     )
 }
 
-export default FifthPart
+export default SecondPart

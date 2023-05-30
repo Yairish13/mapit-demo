@@ -3,7 +3,7 @@ import Stepper from "@components/Stepper/Stepper";
 import { useDispatch, useSelector } from "react-redux";
 import styles from './FirstPart.module.css'
 import Button from "@components/Button/Button";
-import { setNextStep, setPercentage, setSelectedMembers } from "../../store/generalSlice";
+import { setNextStep, setPercentage, setSelectedMembers } from "../../../store/generalSlice";
 import CustomSelect from "@components/CustomSelect/CustomSelect";
 import CircleProgress from "@components/CircleProgress/CircleProgress";
 import { useState } from "react";
@@ -37,16 +37,16 @@ const FirstPart = ({ members, lng }) => {
       <div className={styles.container}>
         <div className={styles.headerDiv}>
           <h3 className="title">
-            {t('pages.questionaireOne.firstPart')}
+            {t('pages.questionaire.firstPart')}
           </h3>
           <CircleProgress />
         </div>
         <div className={styles.answerContainer}>
           1.
           <div className='question'>
-            {t('pages.questionaireOne.questionOne')}
+            {t('pages.questionaire.questionOne')}
             <div className={styles.subTextQuestion}>
-              {t('pages.questionaireOne.questionOneSubText')}
+              {t('pages.questionaire.questionOneSubText')}
             </div>
           </div>
           <div className={`${styles.selectDiv} answer`}>
@@ -64,7 +64,7 @@ const FirstPart = ({ members, lng }) => {
         </div>
       </div>
       <div className={styles.footer} >
-        {t('pages.questionaireOne.footerText')}
+        {t('pages.questionaire.footerText')}
         <div className={styles.stepper}><Stepper /></div>
         <Button mode="primary" onClick={handleNext}>{t('global.next')}</Button>
       </div>
