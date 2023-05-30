@@ -5,10 +5,9 @@ import { useTranslation } from '@app/i18n/client';
 import RadiosAnswerSurvey from '@components/RadiosAnswerSurvey/RadiosAnswerSurvey';
 import Button from '@components/Button/Button';
 import Stepper from '@components/Stepper/Stepper';
-import RadioRange from '@components/RadioRange/RadioRange';
 import RadiosAnswerRange from '@components/RadiosAnswerRange/RadiosAnswerRange';
-import Link from 'next/link';
 import { useRouter } from 'next/navigation';
+import QuestionText from '@components/QuestionText/QuestionText';
 
 const SeventhPart = ({
     lng
@@ -31,14 +30,11 @@ const SeventhPart = ({
                     <CircleProgress />
                 </div>
                 <div className={styles.answerContainer}>
-                    <div className='question'>
-                        <div>16.<span> {' '}</span>
-                            {t('pages.questionaire.thirdPart.believe')}
-                        </div>
-                        <div className={styles.subTextQuestion}>
-                            {t("pages.questionaire.thirdPart.rangeText")}
-                        </div>
-                    </div>
+                    <QuestionText
+                        text={t('pages.questionaire.thirdPart.believe')}
+                        subText={t("pages.questionaire.thirdPart.rangeText")}
+                        number={16}
+                    />
                     <RadiosAnswerRange
                         name="questionSixteen"
                         textOne={t("pages.questionaire.questionSixteenOne")}
@@ -46,14 +42,11 @@ const SeventhPart = ({
                     />
                 </div>
                 <div className={styles.answerContainer}>
-                    <div className='question'>
-                        <div>17.<span> {' '}</span>
-                            {t('pages.questionaire.thirdPart.believe')}
-                        </div>
-                        <div className={styles.subTextQuestion}>
-                            {t("pages.questionaire.thirdPart.rangeText")}
-                        </div>
-                    </div>
+                    <QuestionText
+                        text={t('pages.questionaire.thirdPart.believe')}
+                        subText={t("pages.questionaire.thirdPart.rangeText")}
+                        number={17}
+                    />
                     <RadiosAnswerRange
                         name='questionSeventeen'
                         textOne={t("pages.questionaire.questionSeventeenOne")}
@@ -61,14 +54,11 @@ const SeventhPart = ({
                     />
                 </div>
                 <div className={styles.answerContainer}>
-                    <div className='question'>
-                        <div>18.<span> {' '}</span>
-                            {t('pages.questionaire.thirdPart.believe')}
-                        </div>
-                        <div className={styles.subTextQuestion}>
-                            {t("pages.questionaire.thirdPart.rangeText")}
-                        </div>
-                    </div>
+                    <QuestionText
+                        text={t('pages.questionaire.thirdPart.believe')}
+                        subText={t("pages.questionaire.thirdPart.rangeText")}
+                        number={18}
+                    />
                     <RadiosAnswerRange
                         name='questionEighteen'
                         textOne={t("pages.questionaire.questionEighteenOne")}
@@ -76,12 +66,10 @@ const SeventhPart = ({
                     />
                 </div>
                 <div className={styles.answerContainer}>
-                    <div className='question'>
-                        <div>19.<span> {' '}</span>
-                            {t('pages.questionaire.questionNineteen')}
-                        </div>
-
-                    </div>
+                    <QuestionText
+                        text={t('pages.questionaire.questionNineteen')}
+                        number={19}
+                    />
                     <div className='answer'>
                         <RadiosAnswerSurvey
                         // handleCheck={handleCheck}
@@ -91,11 +79,10 @@ const SeventhPart = ({
                     </div>
                 </div>
                 <div className={styles.answerContainer}>
-                    <div className='question'>
-                        <div>20.<span> {' '}</span>
-                            {t('pages.questionaire.questionTwenty')}
-                        </div>
-                    </div>
+                    <QuestionText
+                        text={t('pages.questionaire.questionTwenty')}
+                        number={20}
+                    />
                     <RadiosAnswerRange
                         name='questionTwenty'
                         textOne={t("global.yes")}
@@ -103,11 +90,10 @@ const SeventhPart = ({
                     />
                 </div>
                 <div className={styles.answerContainer}>
-                    <div className='question'>
-                        <div>21.<span> {' '}</span>
-                            {t('pages.questionaire.questionTwentyOne')}
-                        </div>
-                    </div>
+                    <QuestionText
+                        text={t('pages.questionaire.questionTwentyOne')}
+                        number={21}
+                    />
                     <div className='answer'>
                         <RadiosAnswerSurvey
                         // handleCheck={handleCheck}

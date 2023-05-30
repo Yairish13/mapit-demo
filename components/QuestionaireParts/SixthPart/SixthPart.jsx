@@ -7,6 +7,7 @@ import Button from '@components/Button/Button';
 import Stepper from '@components/Stepper/Stepper';
 import { useDispatch } from 'react-redux';
 import { setNextStep, setPercentage } from '@store/generalSlice';
+import QuestionText from '@components/QuestionText/QuestionText';
 
 const SixthPart = ({
     lng
@@ -30,12 +31,10 @@ const SixthPart = ({
                     <CircleProgress />
                 </div>
                 <div className={styles.answerContainer}>
-                    <div className='question'>
-                        <div>10.<span> {' '}</span>
-                            {t('pages.questionaire.questionTen')}
-                        </div>
-
-                    </div>
+                    <QuestionText
+                        text={t('pages.questionaire.questionTen')}
+                        number={10}
+                    />
                     <div className='answer'>
                         <RadiosAnswerSurvey
                         // handleCheck={handleCheck}
@@ -45,12 +44,10 @@ const SixthPart = ({
                     </div>
                 </div>
                 <div className={styles.answerContainer}>
-                    <div className='question'>
-                        <div>11.<span> {' '}</span>
-                            {t('pages.questionaire.questionEleven')}
-                        </div>
-
-                    </div>
+                    <QuestionText
+                        text={t('pages.questionaire.questionEleven')}
+                        number={11}
+                    />
                     <div className='answer'>
                         <RadiosAnswerSurvey
                         // handleCheck={handleCheck}
@@ -60,12 +57,10 @@ const SixthPart = ({
                     </div>
                 </div>
                 <div className={styles.answerContainer}>
-                    <div className='question'>
-                        <div>12.<span> {' '}</span>
-                            {t('pages.questionaire.questionTwelve')}
-                        </div>
-
-                    </div>
+                    <QuestionText
+                        text={t('pages.questionaire.questionTwelve')}
+                        number={12}
+                    />
                     <div className='answer'>
                         <RadiosAnswerSurvey
                         // handleCheck={handleCheck}
@@ -75,12 +70,10 @@ const SixthPart = ({
                     </div>
                 </div>
                 <div className={styles.answerContainer}>
-                    <div className='question'>
-                        <div>13.<span> {' '}</span>
-                            {t('pages.questionaire.questionThirteen')}
-                        </div>
-
-                    </div>
+                    <QuestionText
+                        text={t('pages.questionaire.questionThirteen')}
+                        number={13}
+                    />
                     <div className='answer'>
                         <RadiosAnswerSurvey
                         // handleCheck={handleCheck}
@@ -90,12 +83,10 @@ const SixthPart = ({
                     </div>
                 </div>
                 <div className={styles.answerContainer}>
-                    <div className='question'>
-                        <div>14.<span> {' '}</span>
-                            {t('pages.questionaire.questionFourteen')}
-                        </div>
-
-                    </div>
+                    <QuestionText
+                        text={t('pages.questionaire.questionFourteen')}
+                        number={14}
+                    />
                     <div className='answer'>
                         <RadiosAnswerSurvey
                         // handleCheck={handleCheck}
@@ -105,12 +96,10 @@ const SixthPart = ({
                     </div>
                 </div>
                 <div className={styles.answerContainer}>
-                    <div className='question'>
-                        <div>15.<span> {' '}</span>
-                            {t('pages.questionaire.questionFiveteen')}
-                        </div>
-
-                    </div>
+                    <QuestionText
+                        text={t('pages.questionaire.questionFiveteen')}
+                        number={15}
+                    />
                     <div className='answer'>
                         <RadiosAnswerSurvey
                         // handleCheck={handleCheck}

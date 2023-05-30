@@ -11,6 +11,7 @@ import { useTranslation } from "@app/i18n/client";
 import RadiosAnswerSurvey from "@components/RadiosAnswerSurvey/RadiosAnswerSurvey";
 import CustomSelect from "@components/CustomSelect/CustomSelect";
 import Checkbox from "@components/Checkbox/Checkbox";
+import QuestionText from "@components/QuestionText/QuestionText";
 
 
 const FifthPart = ({ members, lng }) => {
@@ -39,14 +40,11 @@ const FifthPart = ({ members, lng }) => {
                     <CircleProgress />
                 </div>
                 <div className={styles.answerContainer}>
-                    <div className='question'>
-                        <div>8.<span> {' '}</span>
-                            {t('pages.questionaire.questionEight')}
-                        </div>
-                        <div className={styles.subTextQuestion}>
-                            {t("pages.questionaire.notChosen")}
-                        </div>
-                    </div>
+                    <QuestionText
+                        text={t('pages.questionaire.questionEight')}
+                        subText={t('pages.questionaire.noRelevant')}
+                        number={8}
+                    />
                     <div className='answer'>
                         <div className={styles.optionsContainer}>
                             {options.map((el, index) => (
@@ -61,14 +59,11 @@ const FifthPart = ({ members, lng }) => {
                     </div>
                 </div>
                 <div className={styles.answerContainer}>
-                    <div className='question'>
-                        <div>9.<span>{' '} </span>
-                            {t('pages.questionaire.questionNine')}
-                        </div>
-                        <div className={styles.subTextQuestion}>
-                            {t("pages.questionaire.notChosen")}
-                        </div>
-                    </div>
+                    <QuestionText
+                        text={t('pages.questionaire.questionNine')}
+                        subText={t("pages.questionaire.notChosen")}
+                        number={9}
+                    />
                     <div className={`${styles.selectsContainer} answer`} >
                         <CustomSelect
                             withArrow={true}

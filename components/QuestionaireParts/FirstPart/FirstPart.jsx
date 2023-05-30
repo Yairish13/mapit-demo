@@ -8,6 +8,7 @@ import CustomSelect from "@components/CustomSelect/CustomSelect";
 import CircleProgress from "@components/CircleProgress/CircleProgress";
 import { useState } from "react";
 import { useTranslation } from "@app/i18n/client";
+import QuestionText from "@components/QuestionText/QuestionText";
 
 
 const FirstPart = ({ members, lng }) => {
@@ -42,13 +43,11 @@ const FirstPart = ({ members, lng }) => {
           <CircleProgress />
         </div>
         <div className={styles.answerContainer}>
-          1.
-          <div className='question'>
-            {t('pages.questionaire.questionOne')}
-            <div className={styles.subTextQuestion}>
-              {t('pages.questionaire.questionOneSubText')}
-            </div>
-          </div>
+          <QuestionText 
+          text={t('pages.questionaire.questionOne')}
+          subText={t('pages.questionaire.questionOneSubText')}
+          number={1}
+          />
           <div className={`${styles.selectDiv} answer`}>
             {members && members[0] && members[0].departments && members[0].departments.map((department, index) => (
               <CustomSelect

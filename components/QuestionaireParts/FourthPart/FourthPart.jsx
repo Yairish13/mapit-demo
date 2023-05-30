@@ -11,6 +11,7 @@ import Checkbox from "@components/Checkbox/Checkbox";
 import RadiosAnswer from "@components/RadiosAnswer/RadiosAnswer";
 import { useTranslation } from "@app/i18n/client";
 import RadiosAnswerSurvey from "@components/RadiosAnswerSurvey/RadiosAnswerSurvey";
+import QuestionText from "@components/QuestionText/QuestionText";
 
 
 const FourthPart = ({ members, lng }) => {
@@ -38,14 +39,11 @@ const FourthPart = ({ members, lng }) => {
                     <CircleProgress />
                 </div>
                 <div className={styles.answerContainer}>
-                    <div className='question'>
-                        <div>6.<span> {' '}</span>
-                            {t('pages.questionaire.questionSix')}
-                        </div>
-                        <div className={styles.subTextQuestion}>
-                            {t('pages.questionaire.noRelevant')}
-                        </div>
-                    </div>
+                    <QuestionText
+                        text={t('pages.questionaire.questionSix')}
+                        subText={t('pages.questionaire.noRelevant')}
+                        number={6}
+                    />
                     <div className='answer'>
                         <RadiosAnswerSurvey
                             handleCheck={handleCheck}
@@ -55,14 +53,11 @@ const FourthPart = ({ members, lng }) => {
                     </div>
                 </div>
                 <div className={styles.answerContainer}>
-                    <div className='question'>
-                        <div>7.<span>{' '} </span>
-                            {t('pages.questionaire.questionSeven')}
-                        </div>
-                        <div className={styles.subTextQuestion}>
-                            {t("pages.questionaire.noRelevant")}
-                        </div>
-                    </div>
+                    <QuestionText
+                        text={t('pages.questionaire.questionSeven')}
+                        subText={t('pages.questionaire.noRelevant')}
+                        number={7}
+                    />
                     <div className='answer'>
                         <RadiosAnswerSurvey
                             handleCheck={handleCheck}
