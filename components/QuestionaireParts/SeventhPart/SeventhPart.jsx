@@ -40,6 +40,7 @@ const SeventhPart = ({
                         </div>
                     </div>
                     <RadiosAnswerRange
+                        name="questionSixteen"
                         textOne={t("pages.questionaire.questionSixteenOne")}
                         textTwo={t("pages.questionaire.questionSixteenTwo")}
                     />
@@ -54,6 +55,7 @@ const SeventhPart = ({
                         </div>
                     </div>
                     <RadiosAnswerRange
+                        name='questionSeventeen'
                         textOne={t("pages.questionaire.questionSeventeenOne")}
                         textTwo={t("pages.questionaire.questionSeventeenTwo")}
                     />
@@ -68,6 +70,7 @@ const SeventhPart = ({
                         </div>
                     </div>
                     <RadiosAnswerRange
+                        name='questionEighteen'
                         textOne={t("pages.questionaire.questionEighteenOne")}
                         textTwo={t("pages.questionaire.questionEighteenTwo")}
                     />
@@ -94,9 +97,10 @@ const SeventhPart = ({
                         </div>
                     </div>
                     <RadiosAnswerRange
-                    textOne={t("global.yes")}
-                    textTwo={t("global.no")}
-                     />
+                        name='questionTwenty'
+                        textOne={t("global.yes")}
+                        textTwo={t("global.no")}
+                    />
                 </div>
                 <div className={styles.answerContainer}>
                     <div className='question'>
