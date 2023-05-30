@@ -1,5 +1,5 @@
 .container {
-    margin: 0 8%;
+    margin: 0 1rem;
     min-height: 60vh;
     border-bottom: 1px solid #B1BEC5;
 }
@@ -34,7 +34,7 @@
     color: #969696;
 }
 .footer {
-    margin: 25px 8%;
+    margin: 25px 1rem;
     color: var(--color-secondary);
 }
 
@@ -44,4 +44,19 @@
     align-items: center;
     justify-content: flex-end;
     margin-bottom: 13px;
+}
+
+@media (max-width: 970px) {
+  .answerContainer { 
+  flex-direction: column;
+  width: 100%;
+  }
+  .stepper{
+    width: 100%;
+  } 
+  .footer  { 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  }
 }

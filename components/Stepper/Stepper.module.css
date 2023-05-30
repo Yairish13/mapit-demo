@@ -3,6 +3,7 @@
     max-width: 600px;
     /* margin: 0 auto; */
     /* padding: 0 16px; */
+     padding: 1rem 0;
  }
 .mainContainerVertically{
     /* width: 100%;
@@ -12,6 +13,12 @@
     margin: 0px auto; */
     padding: 25px 25px;
 }
+@media (min-width: 970px) {
+  .mainContainerVertically{
+    padding: 25px 0;
+   }
+}
+
 .stepContainer {
     display: flex;
     justify-content: space-between;

@@ -1,11 +1,12 @@
 .content {
   width: 100%;
   min-height: 100vh;
+  display: flex;
 }
 
 .side {
-  width: 600px;
   position: fixed;
+  width: 50%;
   top: 0;
   right: 0;
   bottom: 0;
@@ -31,14 +32,22 @@
     text-align: center;
 
   }
+  @media (max-width: 970px) {
+ display: none;
+  }
 }
 
 .main {
   margin-right: 600px;
   min-height: 100vh;
+  width: 50%;
   display: flex;
   flex-direction: column;
   padding: var(--padding-normal);
+  @media (max-width: 970px) {
+  width: 100%;
+  margin: 0;
+  }
 }
 
 .header {

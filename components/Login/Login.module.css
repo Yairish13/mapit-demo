@@ -16,7 +16,7 @@
   .textField {
     margin-bottom: 1rem;
     margin-top: 1rem;
-    /* width: 100%; */
+    width: 300px;
   }
 
   @media (max-width: 970px) {
