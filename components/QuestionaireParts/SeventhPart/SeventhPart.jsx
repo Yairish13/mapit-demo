@@ -8,6 +8,7 @@ import Stepper from '@components/Stepper/Stepper';
 import RadiosAnswerRange from '@components/RadiosAnswerRange/RadiosAnswerRange';
 import { useRouter } from 'next/navigation';
 import QuestionText from '@components/QuestionText/QuestionText';
+import { Trans } from 'react-i18next';
 
 const SeventhPart = ({
     lng
@@ -37,8 +38,8 @@ const SeventhPart = ({
                     />
                     <RadiosAnswerRange
                         name="questionSixteen"
-                        textOne={t("pages.questionaire.questionSixteenOne")}
-                        textTwo={t("pages.questionaire.questionSixteenTwo")}
+                        textOne={t("pages.questionaire.partC.questionOneTextOne")}
+                        textTwo={t("pages.questionaire.partC.questionOneTextTwo")}
                     />
                 </div>
                 <div className={styles.answerContainer}>
@@ -49,8 +50,8 @@ const SeventhPart = ({
                     />
                     <RadiosAnswerRange
                         name='questionSeventeen'
-                        textOne={t("pages.questionaire.questionSeventeenOne")}
-                        textTwo={t("pages.questionaire.questionSeventeenTwo")}
+                        textOne={t("pages.questionaire.partC.questionTwoTextOne")}
+                        textTwo={t("pages.questionaire.partC.questionTwoTextTwo")}
                     />
                 </div>
                 <div className={styles.answerContainer}>
@@ -61,14 +62,16 @@ const SeventhPart = ({
                     />
                     <RadiosAnswerRange
                         name='questionEighteen'
-                        textOne={t("pages.questionaire.questionEighteenOne")}
-                        textTwo={t("pages.questionaire.questionEighteenTwo")}
+                        textOne={t("pages.questionaire.partC.questionThreeTextOne")}
+                        textTwo={t("pages.questionaire.partC.questionThreeTextTwo")}
                     />
                 </div>
                 <div className={styles.answerContainer}>
                     <QuestionText
-                        text={t('pages.questionaire.questionNineteen')}
-                        number={19}
+                        text={<Trans i18nKey="pages.questionaire.partC.questionFour" t={t}>
+                            Switch from <strong>{{ lng }}</strong> to {''}
+                        </Trans>}
+                        number={4}
                     />
                     <div className='answer'>
                         <RadiosAnswerSurvey
@@ -80,8 +83,10 @@ const SeventhPart = ({
                 </div>
                 <div className={styles.answerContainer}>
                     <QuestionText
-                        text={t('pages.questionaire.questionTwenty')}
-                        number={20}
+                        text={<Trans i18nKey="pages.questionaire.partC.questionFive" t={t}>
+                            Switch from <strong>{{ lng }}</strong> to {''}
+                        </Trans>}
+                        number={5}
                     />
                     <RadiosAnswerRange
                         name='questionTwenty'
@@ -91,8 +96,10 @@ const SeventhPart = ({
                 </div>
                 <div className={styles.answerContainer}>
                     <QuestionText
-                        text={t('pages.questionaire.questionTwentyOne')}
-                        number={21}
+                        text={<Trans i18nKey="pages.questionaire.partC.questionSix" t={t}>
+                            Switch from <strong>{{ lng }}</strong> to {''}
+                        </Trans>}
+                        number={6}
                     />
                     <div className='answer'>
                         <RadiosAnswerSurvey

@@ -8,6 +8,7 @@ import Stepper from '@components/Stepper/Stepper';
 import { useDispatch } from 'react-redux';
 import { setNextStep, setPercentage } from '@store/generalSlice';
 import QuestionText from '@components/QuestionText/QuestionText';
+import { Trans } from 'react-i18next/TransWithoutContext';
 
 const SixthPart = ({
     lng
@@ -32,8 +33,10 @@ const SixthPart = ({
                 </div>
                 <div className={styles.answerContainer}>
                     <QuestionText
-                        text={t('pages.questionaire.questionTen')}
-                        number={10}
+                        text={<Trans i18nKey="pages.questionaire.partB.questionOne" t={t}>
+                            Switch from <strong>{{ lng }}</strong> to {''}
+                        </Trans>}
+                        number={1}
                     />
                     <div className='answer'>
                         <RadiosAnswerSurvey
@@ -45,8 +48,10 @@ const SixthPart = ({
                 </div>
                 <div className={styles.answerContainer}>
                     <QuestionText
-                        text={t('pages.questionaire.questionEleven')}
-                        number={11}
+                        text={<Trans i18nKey="pages.questionaire.partB.questionTwo" t={t}>
+                            Switch from <strong>{{ lng }}</strong> to {''}
+                        </Trans>}
+                        number={2}
                     />
                     <div className='answer'>
                         <RadiosAnswerSurvey
@@ -58,8 +63,10 @@ const SixthPart = ({
                 </div>
                 <div className={styles.answerContainer}>
                     <QuestionText
-                        text={t('pages.questionaire.questionTwelve')}
-                        number={12}
+                        text={<Trans i18nKey="pages.questionaire.partB.questionThree" t={t}>
+                            Switch from <strong>{{ lng }}</strong> to {''}
+                        </Trans>}
+                        number={3}
                     />
                     <div className='answer'>
                         <RadiosAnswerSurvey
@@ -71,8 +78,10 @@ const SixthPart = ({
                 </div>
                 <div className={styles.answerContainer}>
                     <QuestionText
-                        text={t('pages.questionaire.questionThirteen')}
-                        number={13}
+                        text={<Trans i18nKey="pages.questionaire.partB.questionFour" t={t}>
+                            Switch from <strong>{{ lng }}</strong> to {''}
+                        </Trans>}
+                        number={4}
                     />
                     <div className='answer'>
                         <RadiosAnswerSurvey
@@ -84,8 +93,10 @@ const SixthPart = ({
                 </div>
                 <div className={styles.answerContainer}>
                     <QuestionText
-                        text={t('pages.questionaire.questionFourteen')}
-                        number={14}
+                        text={<Trans i18nKey="pages.questionaire.partB.questionFive" t={t}>
+                            Switch from <strong>{{ lng }}</strong> to {''}
+                        </Trans>}
+                        number={5}
                     />
                     <div className='answer'>
                         <RadiosAnswerSurvey
@@ -97,8 +108,10 @@ const SixthPart = ({
                 </div>
                 <div className={styles.answerContainer}>
                     <QuestionText
-                        text={t('pages.questionaire.questionFiveteen')}
-                        number={15}
+                        text={<Trans i18nKey="pages.questionaire.partB.questionSix" t={t}>
+                            Switch from <strong>{{ lng }}</strong> to {''}
+                        </Trans>}
+                        number={6}
                     />
                     <div className='answer'>
                         <RadiosAnswerSurvey

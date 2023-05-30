@@ -8,10 +8,10 @@ import { setNextStep, setPercentage } from "../../../store/generalSlice";
 import CircleProgress from "@components/CircleProgress/CircleProgress";
 import { useForm } from "react-hook-form";
 import { useTranslation } from "@app/i18n/client";
-import RadiosAnswerSurvey from "@components/RadiosAnswerSurvey/RadiosAnswerSurvey";
 import CustomSelect from "@components/CustomSelect/CustomSelect";
 import Checkbox from "@components/Checkbox/Checkbox";
 import QuestionText from "@components/QuestionText/QuestionText";
+import { Trans } from "react-i18next/TransWithoutContext";
 
 
 const FifthPart = ({ members, lng }) => {
@@ -41,7 +41,9 @@ const FifthPart = ({ members, lng }) => {
                 </div>
                 <div className={styles.answerContainer}>
                     <QuestionText
-                        text={t('pages.questionaire.questionEight')}
+                        text={<Trans i18nKey="pages.questionaire.questionEight" t={t}>
+                            Switch from <strong>{{ lng }}</strong> to {''}
+                        </Trans>}
                         subText={t('pages.questionaire.noRelevant')}
                         number={8}
                     />
@@ -60,7 +62,9 @@ const FifthPart = ({ members, lng }) => {
                 </div>
                 <div className={styles.answerContainer}>
                     <QuestionText
-                        text={t('pages.questionaire.questionNine')}
+                        text={<Trans i18nKey="pages.questionaire.questionNine" t={t}>
+                            Switch from <strong>{{ lng }}</strong> to {''}
+                        </Trans>}
                         subText={t("pages.questionaire.notChosen")}
                         number={9}
                     />

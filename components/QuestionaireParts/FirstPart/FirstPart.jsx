@@ -9,6 +9,7 @@ import CircleProgress from "@components/CircleProgress/CircleProgress";
 import { useState } from "react";
 import { useTranslation } from "@app/i18n/client";
 import QuestionText from "@components/QuestionText/QuestionText";
+import { Trans } from 'react-i18next/TransWithoutContext'
 
 
 const FirstPart = ({ members, lng }) => {
@@ -43,10 +44,14 @@ const FirstPart = ({ members, lng }) => {
           <CircleProgress />
         </div>
         <div className={styles.answerContainer}>
-          <QuestionText 
-          text={t('pages.questionaire.questionOne')}
-          subText={t('pages.questionaire.questionOneSubText')}
-          number={1}
+          <QuestionText
+            text={
+              <Trans i18nKey="pages.questionaire.questionOne" t={t}>
+                Switch from <strong>{{ lng }}</strong> to {''}
+              </Trans>
+            }
+            subText={t('pages.questionaire.questionOneSubText')}
+            number={1}
           />
           <div className={`${styles.selectDiv} answer`}>
             {members && members[0] && members[0].departments && members[0].departments.map((department, index) => (

@@ -26,7 +26,7 @@ const Page = ({ params: {
                 <div className={styles.answerContainer}>
                     <div className='question'>
                         <div>10.<span> {' '}</span>
-                            {t('pages.questionaire.questionTen')}
+                            {t('pages.questionaire.partB.questionOne')}
                         </div>
 
                     </div>
@@ -41,7 +41,7 @@ const Page = ({ params: {
                 <div className={styles.answerContainer}>
                     <div className='question'>
                         <div>11.<span> {' '}</span>
-                            {t('pages.questionaire.questionEleven')}
+                            {t('pages.questionaire.partB.questionTwo')}
                         </div>
 
                     </div>
@@ -56,7 +56,7 @@ const Page = ({ params: {
                 <div className={styles.answerContainer}>
                     <div className='question'>
                         <div>12.<span> {' '}</span>
-                            {t('pages.questionaire.questionTwelve')}
+                            {t('pages.questionaire.partB.questionThree')}
                         </div>
 
                     </div>
@@ -71,7 +71,7 @@ const Page = ({ params: {
                 <div className={styles.answerContainer}>
                     <div className='question'>
                         <div>13.<span> {' '}</span>
-                            {t('pages.questionaire.questionThirteen')}
+                            {t('pages.questionaire.partB.questionFour')}
                         </div>
 
                     </div>
@@ -86,7 +86,7 @@ const Page = ({ params: {
                 <div className={styles.answerContainer}>
                     <div className='question'>
                         <div>14.<span> {' '}</span>
-                            {t('pages.questionaire.questionFourteen')}
+                            {t('pages.questionaire.partB.questionFive')}
                         </div>
 
                     </div>
@@ -101,7 +101,7 @@ const Page = ({ params: {
                 <div className={styles.answerContainer}>
                     <div className='question'>
                         <div>15.<span> {' '}</span>
-                            {t('pages.questionaire.questionFiveteen')}
+                            {t('pages.questionaire.partB.questionSix')}
                         </div>
 
                     </div>

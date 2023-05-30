@@ -10,6 +10,7 @@ import { useForm } from "react-hook-form";
 import { useTranslation } from "@app/i18n/client";
 import RadiosAnswerSurvey from "@components/RadiosAnswerSurvey/RadiosAnswerSurvey";
 import QuestionText from "@components/QuestionText/QuestionText";
+import { Trans } from "react-i18next/TransWithoutContext";
 
 
 const ThirdPart = ({ members, lng }) => {
@@ -38,7 +39,9 @@ const ThirdPart = ({ members, lng }) => {
                 </div>
                 <div className={styles.answerContainer}>
                     <QuestionText
-                        text={t('pages.questionaire.questionFour')}
+                        text={<Trans i18nKey="pages.questionaire.questionFour" t={t}>
+                            Switch from <strong>{{ lng }}</strong> to {''}
+                        </Trans>}
                         subText={t('pages.questionaire.noRelevant')}
                         number={4}
                     />
@@ -52,7 +55,9 @@ const ThirdPart = ({ members, lng }) => {
                 </div>
                 <div className={styles.answerContainer}>
                     <QuestionText
-                        text={t('pages.questionaire.questionFive')}
+                        text={<Trans i18nKey="pages.questionaire.questionFive" t={t}>
+                            Switch from <strong>{{ lng }}</strong> to {''}
+                        </Trans>}
                         subText={t('pages.questionaire.noRelevant')}
                         number={5}
                     />

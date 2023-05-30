@@ -12,11 +12,12 @@ import RadiosAnswer from "@components/RadiosAnswer/RadiosAnswer";
 import { useTranslation } from "@app/i18n/client";
 import RadiosAnswerSurvey from "@components/RadiosAnswerSurvey/RadiosAnswerSurvey";
 import QuestionText from "@components/QuestionText/QuestionText";
+import { Trans } from "react-i18next/TransWithoutContext";
 
 
 const FourthPart = ({ members, lng }) => {
     const { t } = useTranslation(lng);
-    const { register, setValue, handleSubmit, formState: { errors } } = useForm({
+    const { register, formState: { errors } } = useForm({
         mode: 'any',
     });
     const selectedMembers = useSelector((state) => state.general.selectedMembers);
@@ -40,7 +41,9 @@ const FourthPart = ({ members, lng }) => {
                 </div>
                 <div className={styles.answerContainer}>
                     <QuestionText
-                        text={t('pages.questionaire.questionSix')}
+                        text={<Trans i18nKey="pages.questionaire.questionSix" t={t}>
+                            Switch from <strong>{{ lng }}</strong> to {''}
+                        </Trans>}
                         subText={t('pages.questionaire.noRelevant')}
                         number={6}
                     />
@@ -54,7 +57,9 @@ const FourthPart = ({ members, lng }) => {
                 </div>
                 <div className={styles.answerContainer}>
                     <QuestionText
-                        text={t('pages.questionaire.questionSeven')}
+                        text={<Trans i18nKey="pages.questionaire.questionSeven" t={t}>
+                            Switch from <strong>{{ lng }}</strong> to {''}
+                        </Trans>}
                         subText={t('pages.questionaire.noRelevant')}
                         number={7}
                     />

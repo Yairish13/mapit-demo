@@ -1,8 +1,10 @@
 import RadioButton from '@components/RadioButton/RadioButton'
 import styles from './RadiosAnswer.module.css'
 import React from 'react'
+import { useTranslation } from '@app/i18n/client'
 
-const RadiosAnswer = ({handleCheck, selectedMembers,register}) => {
+const RadiosAnswer = ({ handleCheck, selectedMembers, register }) => {
+    const { t } = useTranslation();
     const arr = [...selectedMembers]
 
     return (
@@ -10,9 +12,9 @@ const RadiosAnswer = ({handleCheck, selectedMembers,register}) => {
             <thead>
                 <tr>
                     <th scope="col"></th>
-                    <th scope="col">חודשית</th>
-                    <th scope="col">שבועית</th>
-                    <th scope="col">יומית</th>
+                    <th scope="col">{t('global.monthly')}</th>
+                    <th scope="col">{t('global.weekly')}</th>
+                    <th scope="col">{t('global.daily')}</th>
                 </tr>
             </thead>
             <tbody>

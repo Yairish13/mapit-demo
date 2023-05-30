@@ -11,6 +11,7 @@ import Checkbox from "@components/Checkbox/Checkbox";
 import RadiosAnswer from "@components/RadiosAnswer/RadiosAnswer";
 import { useTranslation } from "@app/i18n/client";
 import QuestionText from "@components/QuestionText/QuestionText";
+import { Trans } from "react-i18next/TransWithoutContext";
 
 
 const SecondPart = ({ members, lng }) => {
@@ -40,7 +41,9 @@ const SecondPart = ({ members, lng }) => {
                 </div>
                 <div className={styles.answerContainer}>
                     <QuestionText
-                        text={t('pages.questionaire.questionTwo')}
+                        text={<Trans i18nKey="pages.questionaire.questionTwo" t={t}>
+                            Switch from <strong>{{ lng }}</strong> to {''}
+                        </Trans>}
                         subText={t('pages.questionaire.noRelevant')}
                         number={2}
                     />
@@ -54,7 +57,9 @@ const SecondPart = ({ members, lng }) => {
                 </div>
                 <div className={styles.answerContainer}>
                     <QuestionText
-                        text={t('pages.questionaire.questionThree')}
+                        text={<Trans i18nKey="pages.questionaire.questionThree" t={t}>
+                            Switch from <strong>{{ lng }}</strong> to {''}
+                        </Trans>}
                         subText={t('pages.questionaire.noRelevant')}
                         number={3}
                     />
