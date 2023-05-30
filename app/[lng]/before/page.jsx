@@ -14,7 +14,7 @@ const Page = async ({ params: { lng } }) => {
     const titleClasses = clsx(styles.header, 'title');
     const conatainerClasses = clsx(styles.container, 'container');
     const handleRoute = () => {
-        router.push('/partOne')
+        router.push('/questionaire')
     }
     return (
         <div className={conatainerClasses}>
