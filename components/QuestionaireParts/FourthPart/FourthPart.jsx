@@ -2,9 +2,9 @@
 "use client";
 import Stepper from "@components/Stepper/Stepper";
 import { useDispatch, useSelector } from "react-redux";
-import styles from './ThirdPart.module.css';
+import styles from './FourthPart.module.css';
 import Button from "@components/Button/Button";
-import { setNextStep, setPercentage } from "../../store/generalSlice";
+import { setNextStep, setPercentage } from "../../../store/generalSlice";
 import CircleProgress from "@components/CircleProgress/CircleProgress";
 import { useForm } from "react-hook-form";
 import Checkbox from "@components/Checkbox/Checkbox";
@@ -13,7 +13,7 @@ import { useTranslation } from "@app/i18n/client";
 import RadiosAnswerRange from "@components/RadiosAnswerRange/RadiosAnswerRange";
 
 
-const ThirdPart = ({ members, lng }) => {
+const FourthPart = ({ members, lng }) => {
     const { t } = useTranslation(lng);
     const { register, setValue, handleSubmit, formState: { errors } } = useForm({
         mode: 'any',
@@ -33,17 +33,17 @@ const ThirdPart = ({ members, lng }) => {
             <div className={styles.container}>
                 <div className={styles.headerDiv}>
                     <h3 className="title">
-                        {t('pages.questionaireOne.firstPart')}
+                        {t('pages.questionaire.firstPart')}
                     </h3>
                     <CircleProgress />
                 </div>
                 <div className={styles.answerContainer}>
                     <div className='question'>
-                        <div>4.<span> {' '}</span>
-                            {t('pages.questionaireOne.questionThree')}
+                        <div>6.<span> {' '}</span>
+                            {t('pages.questionaire.questionSix')}
                         </div>
                         <div className={styles.subTextQuestion}>
-                            {t('pages.questionaireOne.noRelevant')}
+                            {t('pages.questionaire.noRelevant')}
                         </div>
                     </div>
                     <div className='answer'>
@@ -56,11 +56,11 @@ const ThirdPart = ({ members, lng }) => {
                 </div>
                 <div className={styles.answerContainer}>
                     <div className='question'>
-                        <div>5.<span>{' '} </span>
-                            {t('pages.questionaireOne.questionFive')}
+                        <div>7.<span>{' '} </span>
+                            {t('pages.questionaire.questionSeven')}
                         </div>
                         <div className={styles.subTextQuestion}>
-                            {t("pages.questionaireOne.noRelevant")}
+                            {t("pages.questionaire.noRelevant")}
                         </div>
                     </div>
                     <div className='answer'>
@@ -80,4 +80,4 @@ const ThirdPart = ({ members, lng }) => {
     )
 }
 
-export default ThirdPart
+export default FourthPart

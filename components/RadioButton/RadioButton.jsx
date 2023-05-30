@@ -10,6 +10,7 @@ const RadioButton = ({ id,index, checked, register, onChange,name }) => {
         <input
             type='radio'
             id={id}
+            name={name}
             checked={checked}
             className={styles.radioBtn}
             onChange={(e) => handleChange(e)}
