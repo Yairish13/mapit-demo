@@ -2,7 +2,6 @@
 
 input:focus {
   border-color: inherit;
-  -webkit-box-shadow: none;
   box-shadow: none;
 }
 
@@ -22,7 +21,6 @@ input:focus {
 .inputContainer {
   display: flex;
   flex-direction: column;
-  width: 30vw;
 }
 
 .bottomText {
@@ -35,7 +33,6 @@ input:focus {
   color: #D93025;
   font-size: 12px;
   font-family: var(--font-family);
-  /* margin-top: 10px; */
 }
 .eyeSvg{
   cursor: pointer;
