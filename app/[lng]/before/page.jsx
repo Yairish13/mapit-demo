@@ -48,13 +48,13 @@ const Page = async ({ params: { lng } }) => {
             <div className={styles.manager}>
                 <div className={styles.textInput}>
                     <TextInput
-                        placeholder="כמו ג'ון סמית'"
-                        bottomText='שם'
+                        placeholder={t('pages.before.nameExp')}
+                        bottomText={t('pages.before.name')}
                         disabled
                     />
                     <TextInput
-                        placeholder="מנהל לדוגמה"
-                        bottomText='עמדה'
+                        placeholder={t('pages.before.positionExp')}
+                        bottomText={t('pages.before.position')}
                         disabled
                     />
                 </div>
