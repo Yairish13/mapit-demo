@@ -6,9 +6,9 @@ import RadiosAnswerRange from '@components/RadiosAnswerRange/RadiosAnswerRange';
 import Button from '@components/Button/Button';
 import Stepper from '@components/Stepper/Stepper';
 
-const SixthPart = ({ params: {
+const SixthPart = ({
     lng
-} }) => {
+}) => {
     const { t } = useTranslation(lng);
 
     return (

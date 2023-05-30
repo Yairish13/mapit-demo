@@ -7,9 +7,9 @@ import Button from '@components/Button/Button';
 import Stepper from '@components/Stepper/Stepper';
 import RadioRange from '@components/RadioRange/RadioRange';
 
-const SeventhPart = ({ params: {
+const SeventhPart = ({
     lng
-} }) => {
+}) => {
     const { t } = useTranslation(lng);
 
     return (
