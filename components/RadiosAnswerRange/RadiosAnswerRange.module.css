@@ -1,6 +1,12 @@
-.radioBtn{
-    text-align: center;
+.container{
+    display: flex;
+    padding: 30px 20px;
+    align-items: flex-end;
 }
-.tableHeader{
-    color: var(--color-secondary);
+.column{
+    width: 33.3333%;
+    font-size: 0.75rem;
+    text-align: center;
+    font-weight: 700;
+    margin: 0 5px;
 }

@@ -10,7 +10,7 @@ import { useForm } from "react-hook-form";
 import Checkbox from "@components/Checkbox/Checkbox";
 import RadiosAnswer from "@components/RadiosAnswer/RadiosAnswer";
 import { useTranslation } from "@app/i18n/client";
-import RadiosAnswerRange from "@components/RadiosAnswerRange/RadiosAnswerRange";
+import RadiosAnswerSurvey from "@components/RadiosAnswerSurvey/RadiosAnswerSurvey";
 
 
 const FourthPart = ({ members, lng }) => {
@@ -47,7 +47,7 @@ const FourthPart = ({ members, lng }) => {
                         </div>
                     </div>
                     <div className='answer'>
-                        <RadiosAnswerRange
+                        <RadiosAnswerSurvey
                             handleCheck={handleCheck}
                             selectedMembers={selectedMembers}
                             register={register}
@@ -64,7 +64,7 @@ const FourthPart = ({ members, lng }) => {
                         </div>
                     </div>
                     <div className='answer'>
-                        <RadiosAnswerRange
+                        <RadiosAnswerSurvey
                             handleCheck={handleCheck}
                             selectedMembers={selectedMembers}
                             register={register}

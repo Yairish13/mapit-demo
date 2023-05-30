@@ -13,7 +13,12 @@
     border-bottom: 1px solid #B1BEC5;
     min-height: 20vh;
 }
-
+@media (max-width: 1250px) {
+    .answerContainer {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
 .footer {
     margin: 3rem 0;
 }

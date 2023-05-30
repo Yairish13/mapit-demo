@@ -1,5 +1,7 @@
 {
   "global.start": "להתחיל",
+  "global.yes":"כן",
+  "global.no":"לא",
   "global.department": "מחלקה",
   "global.next": "הבא",
   "global.before_you_begin": "לפני שאתה מתחיל",

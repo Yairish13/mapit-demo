@@ -2,13 +2,13 @@
 import CircleProgress from '@components/CircleProgress/CircleProgress'
 import styles from './SixthPart.module.css'
 import { useTranslation } from '@app/i18n/client';
-import RadiosAnswerRange from '@components/RadiosAnswerRange/RadiosAnswerRange';
+import RadiosAnswerSurvey from '@components/RadiosAnswerSurvey/RadiosAnswerSurvey';
 import Button from '@components/Button/Button';
 import Stepper from '@components/Stepper/Stepper';
 
-const SixthPart = ({ params: {
+const SixthPart = ({
     lng
-} }) => {
+}) => {
     const { t } = useTranslation(lng);
 
     return (
@@ -31,7 +31,7 @@ const SixthPart = ({ params: {
 
                     </div>
                     <div className='answer'>
-                        <RadiosAnswerRange
+                        <RadiosAnswerSurvey
                         // handleCheck={handleCheck}
                         // selectedMembers={selectedMembers}
                         // register={register}
@@ -46,7 +46,7 @@ const SixthPart = ({ params: {
 
                     </div>
                     <div className='answer'>
-                        <RadiosAnswerRange
+                        <RadiosAnswerSurvey
                         // handleCheck={handleCheck}
                         // selectedMembers={selectedMembers}
                         // register={register}
@@ -61,7 +61,7 @@ const SixthPart = ({ params: {
 
                     </div>
                     <div className='answer'>
-                        <RadiosAnswerRange
+                        <RadiosAnswerSurvey
                         // handleCheck={handleCheck}
                         // selectedMembers={selectedMembers}
                         // register={register}
@@ -76,7 +76,7 @@ const SixthPart = ({ params: {
 
                     </div>
                     <div className='answer'>
-                        <RadiosAnswerRange
+                        <RadiosAnswerSurvey
                         // handleCheck={handleCheck}
                         // selectedMembers={selectedMembers}
                         // register={register}
@@ -91,7 +91,7 @@ const SixthPart = ({ params: {
 
                     </div>
                     <div className='answer'>
-                        <RadiosAnswerRange
+                        <RadiosAnswerSurvey
                         // handleCheck={handleCheck}
                         // selectedMembers={selectedMembers}
                         // register={register}
@@ -106,7 +106,7 @@ const SixthPart = ({ params: {
 
                     </div>
                     <div className='answer'>
-                        <RadiosAnswerRange
+                        <RadiosAnswerSurvey
                         // handleCheck={handleCheck}
                         // selectedMembers={selectedMembers}
                         // register={register}

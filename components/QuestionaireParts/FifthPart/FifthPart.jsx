@@ -8,7 +8,7 @@ import { setNextStep, setPercentage } from "../../../store/generalSlice";
 import CircleProgress from "@components/CircleProgress/CircleProgress";
 import { useForm } from "react-hook-form";
 import { useTranslation } from "@app/i18n/client";
-import RadiosAnswerRange from "@components/RadiosAnswerRange/RadiosAnswerRange";
+import RadiosAnswerSurvey from "@components/RadiosAnswerSurvey/RadiosAnswerSurvey";
 import CustomSelect from "@components/CustomSelect/CustomSelect";
 
 
