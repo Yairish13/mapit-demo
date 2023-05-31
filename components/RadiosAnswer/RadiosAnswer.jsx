@@ -25,7 +25,7 @@ const RadiosAnswer = ({ handleCheck, selectedMembers, register }) => {
                         <td scope="row">{worker.value}</td>
                         <td className={styles.radioBtn}>
                             <RadioButton
-                                id='חודשית'
+                                id='monthly'
                                 name={`questionNumberTwo${worker.id}`}
                                 index={index}
                                 onChange={(e) => handleChange(e)}
@@ -39,7 +39,7 @@ const RadiosAnswer = ({ handleCheck, selectedMembers, register }) => {
                         </td>
                         <td className={styles.radioBtn}>
                             <RadioButton
-                                id='שבועית'
+                                id='weekly'
                                 name={`questionNumberTwo${worker.id}`}
                                 index={index}
                                 onChange={(e) => handleChange(e)}
@@ -53,7 +53,7 @@ const RadiosAnswer = ({ handleCheck, selectedMembers, register }) => {
                         </td>
                         <td className={styles.radioBtn}>
                             <RadioButton
-                                id='יומית'
+                                id='daily'
                                 name={`questionNumberTwo${worker.id}`}
                                 index={index}
                                 onChange={(e) => handleChange(e)}

@@ -94,6 +94,7 @@ const Login = ({ lng }) => {
                             onChange={handleChange}
                             lng={lng}
                             placeholder={t('pages.login.otpExample')}
+                            maxLength={6}
                         />
                     </div>
 

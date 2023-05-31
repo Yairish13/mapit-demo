@@ -4,8 +4,8 @@ import styles from './RadiosAnswerSurvey.module.css'
 import React from 'react'
 import { useTranslation } from '@app/i18n/client'
 
-const RadiosAnswerSurvey = ({ handleCheck, selectedMembers, register,name,lng }) => {
-    const {t} = useTranslation(lng);
+const RadiosAnswerSurvey = ({ handleCheck, selectedMembers, register, name, lng }) => {
+    const { t } = useTranslation(lng);
     const arr = selectedMembers && [...selectedMembers];
 
     return (
@@ -37,7 +37,7 @@ const RadiosAnswerSurvey = ({ handleCheck, selectedMembers, register,name,lng })
                                 <td className={styles.radioBtn}>
                                     <RadioButton
                                         id='חודשית'
-                                        name='questionNumberTwo'
+                                        name={`${name}${worker.id}`}
                                         index={index}
                                         onChange={handleCheck}
                                         refs={{
@@ -51,7 +51,7 @@ const RadiosAnswerSurvey = ({ handleCheck, selectedMembers, register,name,lng })
                                 <td className={styles.radioBtn}>
                                     <RadioButton
                                         id='שבועית'
-                                        name='questionNumberTwo'
+                                        name={`${name}${worker.id}`}
                                         index={index}
                                         onChange={handleCheck}
                                         refs={{
@@ -65,7 +65,7 @@ const RadiosAnswerSurvey = ({ handleCheck, selectedMembers, register,name,lng })
                                 <td className={styles.radioBtn}>
                                     <RadioButton
                                         id='יומית'
-                                        name='questionNumberTwo'
+                                        name={`${name}${worker.id}`}
                                         index={index}
                                         onChange={handleCheck}
                                         refs={{
@@ -79,7 +79,7 @@ const RadiosAnswerSurvey = ({ handleCheck, selectedMembers, register,name,lng })
                                 <td className={styles.radioBtn}>
                                     <RadioButton
                                         id='יומית'
-                                        name='questionNumberTwo'
+                                        name={`${name}${worker.id}`}
                                         index={index}
                                         onChange={handleCheck}
                                         refs={{
@@ -93,7 +93,7 @@ const RadiosAnswerSurvey = ({ handleCheck, selectedMembers, register,name,lng })
                                 <td className={styles.radioBtn}>
                                     <RadioButton
                                         id='יומית'
-                                        name='questionNumberTwo'
+                                        name={`${name}${worker.id}`}
                                         index={index}
                                         onChange={handleCheck}
                                         refs={{
@@ -132,12 +132,12 @@ const RadiosAnswerSurvey = ({ handleCheck, selectedMembers, register,name,lng })
                                     id='שבועית'
                                     name={name}
                                     onChange={handleCheck}
-                                    // refs={{
-                                    //     ...register(`questionNumberTwo`, {
-                                    //         required: true,
-                                    //     })
-                                    // }}
-                                    // checked={arr[index].questionNumberTwo}
+                                // refs={{
+                                //     ...register(`questionNumberTwo`, {
+                                //         required: true,
+                                //     })
+                                // }}
+                                // checked={arr[index].questionNumberTwo}
                                 />
                             </td>
                             <td className={styles.radioBtn}>
@@ -145,12 +145,12 @@ const RadiosAnswerSurvey = ({ handleCheck, selectedMembers, register,name,lng })
                                     id='יומית'
                                     name={name}
                                     onChange={handleCheck}
-                                    // refs={{
-                                    //     ...register(`questionNumberTwo`, {
-                                    //         required: true,
-                                    //     })
-                                    // }}
-                                    // checked={arr[index].questionNumberTwo}
+                                // refs={{
+                                //     ...register(`questionNumberTwo`, {
+                                //         required: true,
+                                //     })
+                                // }}
+                                // checked={arr[index].questionNumberTwo}
                                 />
                             </td>
                             <td className={styles.radioBtn}>
@@ -158,12 +158,12 @@ const RadiosAnswerSurvey = ({ handleCheck, selectedMembers, register,name,lng })
                                     id='יומית'
                                     name={name}
                                     onChange={handleCheck}
-                                    // refs={{
-                                    //     ...register(`questionNumberTwo`, {
-                                    //         required: true,
-                                    //     })
-                                    // }}
-                                    // checked={arr[index].questionNumberTwo}
+                                // refs={{
+                                //     ...register(`questionNumberTwo`, {
+                                //         required: true,
+                                //     })
+                                // }}
+                                // checked={arr[index].questionNumberTwo}
                                 />
                             </td>
                             <td className={styles.radioBtn}>
@@ -171,12 +171,12 @@ const RadiosAnswerSurvey = ({ handleCheck, selectedMembers, register,name,lng })
                                     id='יומית'
                                     name={name}
                                     onChange={handleCheck}
-                                    // refs={{
-                                    //     ...register(`questionNumberTwo`, {
-                                    //         required: true,
-                                    //     })
-                                    // }}
-                                    // checked={arr[index].questionNumberTwo}
+                                // refs={{
+                                //     ...register(`questionNumberTwo`, {
+                                //         required: true,
+                                //     })
+                                // }}
+                                // checked={arr[index].questionNumberTwo}
                                 />
                             </td>
                         </tr>

@@ -40,6 +40,7 @@ const SixthPart = ({
                     />
                     <div className='answer'>
                         <RadiosAnswerSurvey
+                            name="questionOnePartB"
                         // handleCheck={handleCheck}
                         // selectedMembers={selectedMembers}
                         // register={register}
@@ -55,6 +56,7 @@ const SixthPart = ({
                     />
                     <div className='answer'>
                         <RadiosAnswerSurvey
+                            name="questionTwoPartB"
                         // handleCheck={handleCheck}
                         // selectedMembers={selectedMembers}
                         // register={register}
@@ -70,6 +72,8 @@ const SixthPart = ({
                     />
                     <div className='answer'>
                         <RadiosAnswerSurvey
+                            name="questionThreePartB"
+
                         // handleCheck={handleCheck}
                         // selectedMembers={selectedMembers}
                         // register={register}
@@ -85,6 +89,8 @@ const SixthPart = ({
                     />
                     <div className='answer'>
                         <RadiosAnswerSurvey
+                            name="questionFourPartB"
+
                         // handleCheck={handleCheck}
                         // selectedMembers={selectedMembers}
                         // register={register}
@@ -100,6 +106,8 @@ const SixthPart = ({
                     />
                     <div className='answer'>
                         <RadiosAnswerSurvey
+                            name="questionFivePartB"
+
                         // handleCheck={handleCheck}
                         // selectedMembers={selectedMembers}
                         // register={register}
@@ -115,6 +123,8 @@ const SixthPart = ({
                     />
                     <div className='answer'>
                         <RadiosAnswerSurvey
+                            name="questionSixPartB"
+
                         // handleCheck={handleCheck}
                         // selectedMembers={selectedMembers}
                         // register={register}

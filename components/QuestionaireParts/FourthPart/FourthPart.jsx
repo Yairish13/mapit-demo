@@ -52,6 +52,7 @@ const FourthPart = ({ members, lng }) => {
                             handleCheck={handleCheck}
                             selectedMembers={selectedMembers}
                             register={register}
+                            name="questionSix"
                         />
                     </div>
                 </div>
@@ -68,6 +69,7 @@ const FourthPart = ({ members, lng }) => {
                             handleCheck={handleCheck}
                             selectedMembers={selectedMembers}
                             register={register}
+                            name="questionSeven"
                         />
                     </div>
                 </div>

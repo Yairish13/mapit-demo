@@ -1,10 +1,10 @@
 "use client"
 import styles from './RadioButton.module.css'
 
-const RadioButton = ({ id,index, checked, register, onChange,name }) => {
+const RadioButton = ({ id, index, checked, register, onChange, name }) => {
     const handleChange = (e) => {
         console.log('changed')
-        onChange(e,index,name);
+        if (onChange) onChange(e, index, name);
     }
     return (
         <input

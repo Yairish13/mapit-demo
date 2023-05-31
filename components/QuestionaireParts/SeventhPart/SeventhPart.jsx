@@ -75,6 +75,7 @@ const SeventhPart = ({
                     />
                     <div className='answer'>
                         <RadiosAnswerSurvey
+                            name="questionFourPartC"
                         // handleCheck={handleCheck}
                         // selectedMembers={selectedMembers}
                         // register={register}
@@ -103,6 +104,7 @@ const SeventhPart = ({
                     />
                     <div className='answer'>
                         <RadiosAnswerSurvey
+                            name="questionSixPartC"
                         // handleCheck={handleCheck}
                         // selectedMembers={selectedMembers}
                         // register={register}
