@@ -11,3 +11,29 @@
     gap: 1rem;
     margin-bottom: 2rem;
 }
+
+.sideImage{
+    display: flex;
+    height: 220px;
+    width: 220px;
+    background-size: cover;
+    justify-content: center;
+    align-items: flex-end;
+    padding-bottom: 3rem;
+    background-image: url("../../../public/assets/images/smallGroupCircle.png");
+    border-radius: 50%;
+    position: absolute;
+    right: -16rem;
+    top: 0;
+    @media (min-width: 970px) {
+      display: none;
+    }
+}
+
+.manager{
+    @media (max-width: 970px) {
+    margin-right: 11rem;
+    position: relative;
+    padding-bottom: 2rem;
+    }
+}

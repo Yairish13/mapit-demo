@@ -14,7 +14,6 @@ const LoginLayout = ({ children, lng }) => {
                 <header className={styles.header}>
                     <Logo logo={<GilboaLogo />} lng={lng} />
                 </header>
-
                 <div className={styles.body}>
                     {children}
                 </div>
@@ -29,7 +28,7 @@ const LoginLayout = ({ children, lng }) => {
                         <MapitText />
                     </div>
                 </div>
-                <div className={styles.bgImage}>
+                <div className={styles.imageSideFooter}>
                     <p>{t('pages.login.gilboaMail')} | {t('pages.login.gilboaName')} | 050-8855300</p>
                 </div>
             </div>

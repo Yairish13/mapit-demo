@@ -38,9 +38,7 @@ const FirstPart = ({ members, lng }) => {
     <>
       <div className={styles.container}>
         <div className={styles.headerDiv}>
-          <h3 className="title">
-            {t('pages.questionaire.firstPart')}
-          </h3>
+          <h3 className="title">{t("pages.questionaire.firstPart")}</h3>
           <CircleProgress />
         </div>
         <div className={styles.answerContainer}>
@@ -54,26 +52,33 @@ const FirstPart = ({ members, lng }) => {
             number={1}
           />
           <div className={`${styles.selectDiv} answer`}>
-            {members && members[0] && members[0].departments && members[0].departments.map((department, index) => (
-              <CustomSelect
-                key={index}
-                onClick={handleCheck}
-                placeholder={t('global.department')}
-                withArrow={true}
-                options={department.workers}
-                selectedOptions={selectedOptions}
-              />
-            ))}
+            {members &&
+              members[0] &&
+              members[0].departments &&
+              members[0].departments.map((department, index) => (
+                <CustomSelect
+                  key={index}
+                  onClick={handleCheck}
+                  placeholder={t("global.department")}
+                  withArrow={true}
+                  options={department.workers}
+                  selectedOptions={selectedOptions}
+                />
+              ))}
           </div>
         </div>
       </div>
-      <div className={styles.footer} >
-        {t('pages.questionaire.footerText')}
-        <div className={styles.stepper}><Stepper /></div>
-        <Button mode="primary" onClick={handleNext}>{t('global.next')}</Button>
+      <div className={styles.footer}>
+        {t("pages.questionaire.footerText")}
+        <div className={styles.stepper}>
+          <Stepper />
+        </div>
+        <Button mode="primary" onClick={handleNext}>
+          {t("global.next")}
+        </Button>
       </div>
     </>
-  )
+  );
 }
 
 export default FirstPart
