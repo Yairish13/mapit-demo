@@ -7,6 +7,8 @@ import Button from '@components/Button/Button';
 import Stepper from '@components/Stepper/Stepper';
 import { useDispatch } from 'react-redux';
 import { setNextStep, setPercentage } from '@store/generalSlice';
+import QuestionText from '@components/QuestionText/QuestionText';
+import { Trans } from 'react-i18next/TransWithoutContext';
 
 const SixthPart = ({
     lng
@@ -30,12 +32,12 @@ const SixthPart = ({
                     <CircleProgress />
                 </div>
                 <div className={styles.answerContainer}>
-                    <div className='question'>
-                        <div>10.<span> {' '}</span>
-                            {t('pages.questionaire.questionTen')}
-                        </div>
-
-                    </div>
+                    <QuestionText
+                        text={<Trans i18nKey="pages.questionaire.partB.questionOne" t={t}>
+                            Switch from <strong>{{ lng }}</strong> to {''}
+                        </Trans>}
+                        number={1}
+                    />
                     <div className='answer'>
                         <RadiosAnswerSurvey
                         // handleCheck={handleCheck}
@@ -45,12 +47,12 @@ const SixthPart = ({
                     </div>
                 </div>
                 <div className={styles.answerContainer}>
-                    <div className='question'>
-                        <div>11.<span> {' '}</span>
-                            {t('pages.questionaire.questionEleven')}
-                        </div>
-
-                    </div>
+                    <QuestionText
+                        text={<Trans i18nKey="pages.questionaire.partB.questionTwo" t={t}>
+                            Switch from <strong>{{ lng }}</strong> to {''}
+                        </Trans>}
+                        number={2}
+                    />
                     <div className='answer'>
                         <RadiosAnswerSurvey
                         // handleCheck={handleCheck}
@@ -60,12 +62,12 @@ const SixthPart = ({
                     </div>
                 </div>
                 <div className={styles.answerContainer}>
-                    <div className='question'>
-                        <div>12.<span> {' '}</span>
-                            {t('pages.questionaire.questionTwelve')}
-                        </div>
-
-                    </div>
+                    <QuestionText
+                        text={<Trans i18nKey="pages.questionaire.partB.questionThree" t={t}>
+                            Switch from <strong>{{ lng }}</strong> to {''}
+                        </Trans>}
+                        number={3}
+                    />
                     <div className='answer'>
                         <RadiosAnswerSurvey
                         // handleCheck={handleCheck}
@@ -75,12 +77,12 @@ const SixthPart = ({
                     </div>
                 </div>
                 <div className={styles.answerContainer}>
-                    <div className='question'>
-                        <div>13.<span> {' '}</span>
-                            {t('pages.questionaire.questionThirteen')}
-                        </div>
-
-                    </div>
+                    <QuestionText
+                        text={<Trans i18nKey="pages.questionaire.partB.questionFour" t={t}>
+                            Switch from <strong>{{ lng }}</strong> to {''}
+                        </Trans>}
+                        number={4}
+                    />
                     <div className='answer'>
                         <RadiosAnswerSurvey
                         // handleCheck={handleCheck}
@@ -90,12 +92,12 @@ const SixthPart = ({
                     </div>
                 </div>
                 <div className={styles.answerContainer}>
-                    <div className='question'>
-                        <div>14.<span> {' '}</span>
-                            {t('pages.questionaire.questionFourteen')}
-                        </div>
-
-                    </div>
+                    <QuestionText
+                        text={<Trans i18nKey="pages.questionaire.partB.questionFive" t={t}>
+                            Switch from <strong>{{ lng }}</strong> to {''}
+                        </Trans>}
+                        number={5}
+                    />
                     <div className='answer'>
                         <RadiosAnswerSurvey
                         // handleCheck={handleCheck}
@@ -105,12 +107,12 @@ const SixthPart = ({
                     </div>
                 </div>
                 <div className={styles.answerContainer}>
-                    <div className='question'>
-                        <div>15.<span> {' '}</span>
-                            {t('pages.questionaire.questionFiveteen')}
-                        </div>
-
-                    </div>
+                    <QuestionText
+                        text={<Trans i18nKey="pages.questionaire.partB.questionSix" t={t}>
+                            Switch from <strong>{{ lng }}</strong> to {''}
+                        </Trans>}
+                        number={6}
+                    />
                     <div className='answer'>
                         <RadiosAnswerSurvey
                         // handleCheck={handleCheck}

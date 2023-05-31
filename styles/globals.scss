@@ -50,6 +50,8 @@ p {
 .question{
   width: 50%;
   margin-inline-end: 1rem;
+  display: flex;
+  gap: 10px;
   @media (max-width: 970px) {
   width: 100%;
   display: inline;

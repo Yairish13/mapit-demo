@@ -10,6 +10,8 @@ import { useForm } from "react-hook-form";
 import Checkbox from "@components/Checkbox/Checkbox";
 import RadiosAnswer from "@components/RadiosAnswer/RadiosAnswer";
 import { useTranslation } from "@app/i18n/client";
+import QuestionText from "@components/QuestionText/QuestionText";
+import { Trans } from "react-i18next/TransWithoutContext";
 
 
 const SecondPart = ({ members, lng }) => {
@@ -38,15 +40,13 @@ const SecondPart = ({ members, lng }) => {
                     <CircleProgress />
                 </div>
                 <div className={styles.answerContainer}>
-                    <div className='question'>
-                        <div><span>2. {' '}</span>
-                            {t('pages.questionaire.questionTwo')}
-
-                        </div>
-                        <div className={styles.subTextQuestion}>
-                            {t('pages.questionaire.noRelevant')}
-                        </div>
-                    </div>
+                    <QuestionText
+                        text={<Trans i18nKey="pages.questionaire.questionTwo" t={t}>
+                            Switch from <strong>{{ lng }}</strong> to {''}
+                        </Trans>}
+                        subText={t('pages.questionaire.noRelevant')}
+                        number={2}
+                    />
                     <div className='answer'>
                         <RadiosAnswer
                             handleCheck={handleCheck}
@@ -56,14 +56,13 @@ const SecondPart = ({ members, lng }) => {
                     </div>
                 </div>
                 <div className={styles.answerContainer}>
-                    <div className='question'>
-                        <div><span>3. {' '} </span>
-                            {t('pages.questionaire.questionThree')}
-                        </div>
-                        <div className={styles.subTextQuestion}>
-                            {t("pages.questionaire.noRelevant")}
-                        </div>
-                    </div>
+                    <QuestionText
+                        text={<Trans i18nKey="pages.questionaire.questionThree" t={t}>
+                            Switch from <strong>{{ lng }}</strong> to {''}
+                        </Trans>}
+                        subText={t('pages.questionaire.noRelevant')}
+                        number={3}
+                    />
                     <div className={`answer ${styles.aformalDiv}`}>
                         {t("pages.questionaire.nonFormal")}
                         {selectedMembers.map((worker, index) => (
@@ -81,7 +80,7 @@ const SecondPart = ({ members, lng }) => {
                         ))}
                     </div>
                 </div>
-            </div>
+            </div >
             <div className={styles.footer} >
                 <div className={styles.stepper}><Stepper /></div>
                 <Button mode="primary" onClick={handleNext}>{t('global.next')}</Button>

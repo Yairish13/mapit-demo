@@ -26,8 +26,3 @@
 .containerPartB {
     display: flex;
 }
-.subTextQuestion {
-    margin-top: 10%;
-    color: #969696;
-    margin-inline-start: 10px;
-}

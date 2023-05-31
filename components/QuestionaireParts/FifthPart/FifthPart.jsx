@@ -8,8 +8,10 @@ import { setNextStep, setPercentage } from "../../../store/generalSlice";
 import CircleProgress from "@components/CircleProgress/CircleProgress";
 import { useForm } from "react-hook-form";
 import { useTranslation } from "@app/i18n/client";
-import RadiosAnswerSurvey from "@components/RadiosAnswerSurvey/RadiosAnswerSurvey";
 import CustomSelect from "@components/CustomSelect/CustomSelect";
+import Checkbox from "@components/Checkbox/Checkbox";
+import QuestionText from "@components/QuestionText/QuestionText";
+import { Trans } from "react-i18next/TransWithoutContext";
 
 
 const FifthPart = ({ members, lng }) => {
@@ -27,6 +29,7 @@ const FifthPart = ({ members, lng }) => {
     const handleCheck = (option, index, name) => {
         arr[index] = { ...arr[index], [name]: option.target.id };
     }
+    const options = [{ "id": 13, "value": "כריסטיאנו רונאלדו" }, { "id": 14, "value": "מייקל ג'קסון" }, { "id": 15, "value": "סקוטי פיפר" }, { "id": 16, "value": "לברון ג'יימס" }, { "id": 17, "value": "שירלי כהן" }, { "id": 18, "value": "קובי ברייאנט" }]
     return (
         <>
             <div className={styles.container}>
@@ -37,50 +40,54 @@ const FifthPart = ({ members, lng }) => {
                     <CircleProgress />
                 </div>
                 <div className={styles.answerContainer}>
-                    <div className='question'>
-                        <div>8.<span> {' '}</span>
-                            {t('pages.questionaire.questionEight')}
-                        </div>
-                        <div className={styles.subTextQuestion}>
-                            {t("pages.questionaire.notChosen")}
-                        </div>
-                    </div>
+                    <QuestionText
+                        text={<Trans i18nKey="pages.questionaire.questionEight" t={t}>
+                            Switch from <strong>{{ lng }}</strong> to {''}
+                        </Trans>}
+                        subText={t('pages.questionaire.noRelevant')}
+                        number={8}
+                    />
                     <div className='answer'>
-                        <CustomSelect
-                            withNoHeader={true}
-                            options={selectedMembers}
-                        />
+                        <div className={styles.optionsContainer}>
+                            {options.map((el, index) => (
+                                <div key={index} style={{ display: 'flex', justifyContent: 'flex-start' }}>
+                                    <Checkbox
+                                        label={el.value}
+                                        onChange={console.log('e')}
+                                    />
+                                </div>
+                            ))}
+                        </div>
                     </div>
                 </div>
                 <div className={styles.answerContainer}>
-                    <div className='question'>
-                        <div>9.<span>{' '} </span>
-                            {t('pages.questionaire.questionNine')}
-                        </div>
-                        <div className={styles.subTextQuestion}>
-                            {t("pages.questionaire.notChosen")}
-                        </div>
-                    </div>
-                    <div className='answer'>
+                    <QuestionText
+                        text={<Trans i18nKey="pages.questionaire.questionNine" t={t}>
+                            Switch from <strong>{{ lng }}</strong> to {''}
+                        </Trans>}
+                        subText={t("pages.questionaire.notChosen")}
+                        number={9}
+                    />
+                    <div className={`${styles.selectsContainer} answer`} >
                         <CustomSelect
-                            withArrow={false}
-                            options={selectedMembers}
+                            withArrow={true}
+                            options={options}
                             placeholder={t('global.department')}
                         />
                         <CustomSelect
-                            withArrow={false}
-                            options={selectedMembers}
+                            withArrow={true}
+                            options={options}
                             placeholder={t('global.department')}
 
                         />
                         <CustomSelect
-                            withArrow={false}
-                            options={selectedMembers}
+                            withArrow={true}
+                            options={options}
                             placeholder={t('global.department')}
                         />
                     </div>
                 </div>
-            </div>
+            </div >
             <div className={styles.footer} >
                 <div className={styles.stepper}><Stepper /></div>
                 <Button mode="primary" onClick={handleNext}>{t('global.next')}</Button>

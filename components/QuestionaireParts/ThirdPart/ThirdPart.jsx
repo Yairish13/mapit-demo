@@ -7,10 +7,10 @@ import Button from "@components/Button/Button";
 import { setNextStep, setPercentage } from "../../../store/generalSlice";
 import CircleProgress from "@components/CircleProgress/CircleProgress";
 import { useForm } from "react-hook-form";
-import Checkbox from "@components/Checkbox/Checkbox";
-import RadiosAnswer from "@components/RadiosAnswer/RadiosAnswer";
 import { useTranslation } from "@app/i18n/client";
 import RadiosAnswerSurvey from "@components/RadiosAnswerSurvey/RadiosAnswerSurvey";
+import QuestionText from "@components/QuestionText/QuestionText";
+import { Trans } from "react-i18next/TransWithoutContext";
 
 
 const ThirdPart = ({ members, lng }) => {
@@ -38,14 +38,13 @@ const ThirdPart = ({ members, lng }) => {
                     <CircleProgress />
                 </div>
                 <div className={styles.answerContainer}>
-                    <div className='question'>
-                        <div>4.<span> {' '}</span>
-                            {t('pages.questionaire.questionThree')}
-                        </div>
-                        <div className={styles.subTextQuestion}>
-                            {t('pages.questionaire.noRelevant')}
-                        </div>
-                    </div>
+                    <QuestionText
+                        text={<Trans i18nKey="pages.questionaire.questionFour" t={t}>
+                            Switch from <strong>{{ lng }}</strong> to {''}
+                        </Trans>}
+                        subText={t('pages.questionaire.noRelevant')}
+                        number={4}
+                    />
                     <div className='answer'>
                         <RadiosAnswerSurvey
                             handleCheck={handleCheck}
@@ -55,14 +54,13 @@ const ThirdPart = ({ members, lng }) => {
                     </div>
                 </div>
                 <div className={styles.answerContainer}>
-                    <div className='question'>
-                        <div>5.<span>{' '} </span>
-                            {t('pages.questionaire.questionFive')}
-                        </div>
-                        <div className={styles.subTextQuestion}>
-                            {t("pages.questionaire.noRelevant")}
-                        </div>
-                    </div>
+                    <QuestionText
+                        text={<Trans i18nKey="pages.questionaire.questionFive" t={t}>
+                            Switch from <strong>{{ lng }}</strong> to {''}
+                        </Trans>}
+                        subText={t('pages.questionaire.noRelevant')}
+                        number={5}
+                    />
                     <div className='answer'>
                         <RadiosAnswerSurvey
                             handleCheck={handleCheck}

@@ -29,10 +29,6 @@
     justify-content: space-between;
 }
 
-.subTextQuestion {
-    margin-top: 1rem;
-    color: #969696;
-}
 .footer {
     margin: 25px 1rem;
     color: var(--color-secondary);

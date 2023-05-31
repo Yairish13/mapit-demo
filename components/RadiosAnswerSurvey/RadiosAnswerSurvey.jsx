@@ -1,8 +1,11 @@
+"use client"
 import RadioButton from '@components/RadioButton/RadioButton'
 import styles from './RadiosAnswerSurvey.module.css'
 import React from 'react'
+import { useTranslation } from '@app/i18n/client'
 
-const RadiosAnswerSurvey = ({ handleCheck, selectedMembers, register,name }) => {
+const RadiosAnswerSurvey = ({ handleCheck, selectedMembers, register,name,lng }) => {
+    const {t} = useTranslation(lng);
     const arr = selectedMembers && [...selectedMembers];
 
     return (
@@ -11,11 +14,11 @@ const RadiosAnswerSurvey = ({ handleCheck, selectedMembers, register,name }) => 
                 <thead>
                     <tr>
                         <th scope="col"></th>
-                        <th scope="col">לא רלוונטי</th>
-                        <th scope="col">בכלל לא</th>
-                        <th scope="col">במידה מועטה</th>
-                        <th scope="col">במידה רבה</th>
-                        <th scope="col">במידה רבה מאוד</th>
+                        <th scope="col">{t('global.irrelevant')}</th>
+                        <th scope="col">{t('global.notAtAll')}</th>
+                        <th scope="col">{t('global.slightly')}</th>
+                        <th scope="col">{t('global.very')}</th>
+                        <th scope="col">{t('global.veryMuch')}</th>
                     </tr>
                     <tr>
                         <th scope="col"></th>
