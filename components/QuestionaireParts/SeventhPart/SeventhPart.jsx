@@ -34,7 +34,7 @@ const SeventhPart = ({
                     <QuestionText
                         text={t('pages.questionaire.thirdPart.believe')}
                         subText={t("pages.questionaire.thirdPart.rangeText")}
-                        number={16}
+                        number={1}
                     />
                     <RadiosAnswerRange
                         name="questionSixteen"
@@ -46,7 +46,7 @@ const SeventhPart = ({
                     <QuestionText
                         text={t('pages.questionaire.thirdPart.believe')}
                         subText={t("pages.questionaire.thirdPart.rangeText")}
-                        number={17}
+                        number={2}
                     />
                     <RadiosAnswerRange
                         name='questionSeventeen'
@@ -58,7 +58,7 @@ const SeventhPart = ({
                     <QuestionText
                         text={t('pages.questionaire.thirdPart.believe')}
                         subText={t("pages.questionaire.thirdPart.rangeText")}
-                        number={18}
+                        number={3}
                     />
                     <RadiosAnswerRange
                         name='questionEighteen'
