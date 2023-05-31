@@ -3,27 +3,28 @@ import Stepper from "@components/Stepper/Stepper";
 import { useDispatch, useSelector } from "react-redux";
 import styles from './FirstPart.module.css'
 import Button from "@components/Button/Button";
-import { setNextStep, setPercentage, setSelectedMembers } from "../../../store/generalSlice";
+import { setNextStep, increasePercentage, setSelectedMembers, decreasePercentage } from "../../../store/generalSlice";
 import CustomSelect from "@components/CustomSelect/CustomSelect";
 import CircleProgress from "@components/CircleProgress/CircleProgress";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useTranslation } from "@app/i18n/client";
 import QuestionText from "@components/QuestionText/QuestionText";
 import { Trans } from 'react-i18next/TransWithoutContext'
 
 
-const FirstPart = ({ members, lng }) => {
+const FirstPart = ({ members, lng,dispatch }) => {
   const { t } = useTranslation(lng);
   const [selectedOptions, setSelectedOptions] = useState([]);
-  const dispatch = useDispatch()
+  // const dispatch = useDispatch()
   const handleNext = () => {
     dispatch(setSelectedMembers(selectedOptions))
     dispatch(setNextStep())
-    dispatch(setPercentage())
   }
   const handleCheck = (option) => {
+    if (selectedOptions.length === 0) dispatch(increasePercentage())
     const index = selectedOptions.findIndex((item) => item.id === option.id);
     if (index > -1) {
+      if (selectedOptions.length === 1) dispatch(decreasePercentage())
       setSelectedOptions((prevOptions) => {
         const updatedOptions = [...prevOptions];
         updatedOptions.splice(index, 1);

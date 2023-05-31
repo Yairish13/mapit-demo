@@ -13,7 +13,6 @@ const Page = async ({ params: { lng } }) => {
     const titleClasses = clsx(styles.header, 'title');
     const conatainerClasses = clsx(styles.container, 'container');
     const handleRoute = () => {
-        console.log('kaka');
         router.push('/questionaire')
     }
     return (

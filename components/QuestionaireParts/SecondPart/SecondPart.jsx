@@ -4,7 +4,7 @@ import Stepper from "@components/Stepper/Stepper";
 import { useDispatch, useSelector } from "react-redux";
 import styles from './SecondPart.module.css';
 import Button from "@components/Button/Button";
-import { setNextStep, setPercentage } from "../../../store/generalSlice";
+import { setNextStep, increasePercentage } from "../../../store/generalSlice";
 import CircleProgress from "@components/CircleProgress/CircleProgress";
 import { useForm } from "react-hook-form";
 import Checkbox from "@components/Checkbox/Checkbox";
@@ -24,7 +24,7 @@ const SecondPart = ({ members, lng }) => {
     const dispatch = useDispatch()
     const handleNext = () => {
         dispatch(setNextStep())
-        dispatch(setPercentage())
+        dispatch(increasePercentage())
     }
     const handleCheck = (option, index, name) => {
         if (name === 'questionNumberThree') arr[index] = { ...arr[index], [name]: option.target.checked };
@@ -48,11 +48,11 @@ const SecondPart = ({ members, lng }) => {
                         number={2}
                     />
                     <div className='answer'>
-                        <RadiosAnswer
+                    {selectedMembers && <RadiosAnswer
                             handleCheck={handleCheck}
                             selectedMembers={selectedMembers}
                             register={register}
-                        />
+                        />}
                     </div>
                 </div>
                 <div className={styles.answerContainer}>

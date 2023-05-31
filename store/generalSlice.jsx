@@ -24,9 +24,10 @@ const initialState = {
     {
         step: 7,
     },
-],
+    ],
     activeStep: 1,
-    percentage:0,
+    percentage: 0,
+    totalQuestions: 21,
 }
 
 // export const getmembers = createAsyncThunk(
@@ -38,7 +39,12 @@ const initialState = {
 //       return product;
 //     }
 //   );
-
+const scrollToTop = () => {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
+};
 const generalSlice = createSlice({
     name: "general",
     initialState,
@@ -48,14 +54,18 @@ const generalSlice = createSlice({
         },
         setNextStep: (state, action) => {
             state.activeStep += 1;
+            scrollToTop();
         },
-        setPercentage: (state, action) => {
+        increasePercentage: (state, action) => {
             state.percentage += 4;
         },
-        setSelectedMembers:(state,action) =>{
+        decreasePercentage: (state, action) => {
+            state.percentage -= 4;
+        },
+        setSelectedMembers: (state, action) => {
             state.selectedMembers = action.payload;
         }
-        
+
     },
     // extraReducers: {
     //     [counter.actions.increment]: (
@@ -66,6 +76,6 @@ const generalSlice = createSlice({
     //     },
     //   },
 })
-export const { setMembers, setNextStep, setPercentage, setSelectedMembers } = generalSlice.actions;
+export const { setMembers, setNextStep, increasePercentage, setSelectedMembers,decreasePercentage } = generalSlice.actions;
 
 export default generalSlice.reducer;

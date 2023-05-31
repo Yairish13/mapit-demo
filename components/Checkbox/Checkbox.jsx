@@ -11,7 +11,7 @@ const Checkbox = ({ id, label, checked, onChange, error, errorText, name, index 
                     className={styles.input}
                     type="checkbox"
                     id={id}
-                    
+                    checked={checked}
                     onChange={(e) => handleChange(e)}
                 />
                 {label && <label>

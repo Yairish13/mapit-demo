@@ -4,7 +4,7 @@ import Stepper from "@components/Stepper/Stepper";
 import { useDispatch, useSelector } from "react-redux";
 import styles from './ThirdPart.module.css';
 import Button from "@components/Button/Button";
-import { setNextStep, setPercentage } from "../../../store/generalSlice";
+import { setNextStep, increasePercentage } from "../../../store/generalSlice";
 import CircleProgress from "@components/CircleProgress/CircleProgress";
 import { useForm } from "react-hook-form";
 import { useTranslation } from "@app/i18n/client";
@@ -23,7 +23,7 @@ const ThirdPart = ({ members, lng }) => {
     const dispatch = useDispatch()
     const handleNext = () => {
         dispatch(setNextStep())
-        dispatch(setPercentage())
+        dispatch(increasePercentage())
     }
     const handleCheck = (option, index, name) => {
         arr[index] = { ...arr[index], [name]: option.target.id };

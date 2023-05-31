@@ -6,7 +6,7 @@ import RadiosAnswerSurvey from '@components/RadiosAnswerSurvey/RadiosAnswerSurve
 import Button from '@components/Button/Button';
 import Stepper from '@components/Stepper/Stepper';
 import { useDispatch } from 'react-redux';
-import { setNextStep, setPercentage } from '@store/generalSlice';
+import { setNextStep, increasePercentage } from '@store/generalSlice';
 import QuestionText from '@components/QuestionText/QuestionText';
 import { Trans } from 'react-i18next/TransWithoutContext';
 
@@ -17,7 +17,7 @@ const SixthPart = ({
     const dispatch = useDispatch()
     const handleNext = () => {
         dispatch(setNextStep())
-        dispatch(setPercentage())
+        dispatch(increasePercentage())
     }
     return (
         <div className={styles.containerPartB}>

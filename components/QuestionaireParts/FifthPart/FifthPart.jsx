@@ -4,7 +4,7 @@ import Stepper from "@components/Stepper/Stepper";
 import { useDispatch, useSelector } from "react-redux";
 import styles from './FifthPart.module.css';
 import Button from "@components/Button/Button";
-import { setNextStep, setPercentage } from "../../../store/generalSlice";
+import { setNextStep, increasePercentage } from "../../../store/generalSlice";
 import CircleProgress from "@components/CircleProgress/CircleProgress";
 import { useForm } from "react-hook-form";
 import { useTranslation } from "@app/i18n/client";
@@ -24,7 +24,7 @@ const FifthPart = ({ members, lng }) => {
     const dispatch = useDispatch()
     const handleNext = () => {
         dispatch(setNextStep())
-        dispatch(setPercentage())
+        dispatch(increasePercentage())
     }
     const handleCheck = (option, index, name) => {
         arr[index] = { ...arr[index], [name]: option.target.id };
@@ -71,18 +71,18 @@ const FifthPart = ({ members, lng }) => {
                     <div className={`${styles.selectsContainer} answer`} >
                         <CustomSelect
                             withArrow={true}
-                            options={options}
+                            options={selectedMembers}
                             placeholder={t('global.department')}
                         />
                         <CustomSelect
                             withArrow={true}
-                            options={options}
+                            options={selectedMembers}
                             placeholder={t('global.department')}
 
                         />
                         <CustomSelect
                             withArrow={true}
-                            options={options}
+                            options={selectedMembers}
                             placeholder={t('global.department')}
                         />
                     </div>
