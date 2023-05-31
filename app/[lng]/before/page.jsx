@@ -24,7 +24,7 @@ function DepartmentManagerDataWrapper() {
 
     });
   return (
-    <div>
+    <div className={styles.departmentManagerData}>
       <div>{`${departmentManagerData?.departmentManagerName}`}</div>
       <div>{`${departmentManagerData?.departmentManagerRole}`}</div>
     </div>
