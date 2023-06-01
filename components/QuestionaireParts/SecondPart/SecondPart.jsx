@@ -48,7 +48,7 @@ const SecondPart = ({ members, lng }) => {
                         number={2}
                     />
                     <div className='answer'>
-                    {selectedMembers && <RadiosAnswer
+                        {selectedMembers && <RadiosAnswer
                             handleCheck={handleCheck}
                             selectedMembers={selectedMembers}
                             register={register}

@@ -1,10 +1,11 @@
 import RadioButton from '@components/RadioButton/RadioButton'
 import styles from './RadiosAnswer.module.css'
 import React from 'react'
-import { useTranslation } from '@app/i18n/client'
+import { useTranslation } from 'react-i18next'
 
 const RadiosAnswer = ({ handleCheck, selectedMembers, register }) => {
-    const { t } = useTranslation();
+    const { t } = useTranslation()
+
     const arr = [...selectedMembers]
     const handleChange = (e) => {
         if (handleCheck) handleCheck(e);

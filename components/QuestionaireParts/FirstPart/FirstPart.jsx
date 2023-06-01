@@ -20,8 +20,8 @@ const FirstPart = ({ members, lng }) => {
   const dispatch = useDispatch();
   const handleNext = () => {
     console.log('aaa');
-    // dispatch(setSelectedMembers(selectedOptions))
-    // dispatch(setNextStep())
+    dispatch(setSelectedMembers(selectedOptions))
+    dispatch(setNextStep())
   }
   const handleCheck = (option) => {
     if (selectedOptions.length === 0) dispatch(increasePercentage())
@@ -81,6 +81,7 @@ const FirstPart = ({ members, lng }) => {
         </Button>
       </div> */}
       <QuestionaireFooter
+        t={t}
         handleClick={handleNext}
         firstPart={true}
       />

@@ -49,6 +49,7 @@ const FourthPart = ({ members, lng }) => {
                     />
                     <div className='answer'>
                         <RadiosAnswerSurvey
+                            t={t}
                             handleCheck={handleCheck}
                             selectedMembers={selectedMembers}
                             register={register}
@@ -66,6 +67,7 @@ const FourthPart = ({ members, lng }) => {
                     />
                     <div className='answer'>
                         <RadiosAnswerSurvey
+                            t={t}
                             handleCheck={handleCheck}
                             selectedMembers={selectedMembers}
                             register={register}

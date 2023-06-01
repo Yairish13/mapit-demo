@@ -2,10 +2,10 @@
 import RadioButton from '@components/RadioButton/RadioButton'
 import styles from './RadiosAnswerSurvey.module.css'
 import React from 'react'
-import { useTranslation } from '@app/i18n/client'
+import { useTranslation } from 'react-i18next'
 
-const RadiosAnswerSurvey = ({ handleCheck, selectedMembers, register, name, lng }) => {
-    const { t } = useTranslation(lng);
+const RadiosAnswerSurvey = ({ handleCheck, selectedMembers, register, name }) => {
+    const { t } = useTranslation();
     const arr = selectedMembers && [...selectedMembers];
 
     return (
@@ -31,7 +31,6 @@ const RadiosAnswerSurvey = ({ handleCheck, selectedMembers, register, name, lng 
                 </thead>
                 <tbody>
                     {selectedMembers.map((worker, index) => (
-                        <>
                             <tr key={index}>
                                 <td scope="row">{worker.value}</td>
                                 <td className={styles.radioBtn}>
@@ -105,7 +104,6 @@ const RadiosAnswerSurvey = ({ handleCheck, selectedMembers, register, name, lng 
                                     />
                                 </td>
                             </tr>
-                        </>
                     ))}
                 </tbody>
             </table>) : (

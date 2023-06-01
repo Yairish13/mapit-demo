@@ -1,4 +1,3 @@
-
 .tertiary {
     border: 1px solid;
     width: 100px;
@@ -22,7 +21,7 @@
     filter: none;
 }
 
-.tertiary:active:enabled {
+.tertiary:is(:active, :focus) {
     border-color: #3BBBB0;
     color: #3BBBB0;
 }
@@ -51,7 +50,7 @@
     filter: none;
 }
 
-.primary:active:enabled {
+.primary:is(:active, :enabled) {
     background-color: #3BBBB0;
     color: white;
 }
@@ -74,7 +73,7 @@
 }
 
 
-.secondary:active:enabled {
+.secondary:is(:active, :enabled) {
     border-color: #3BBBB0;
     color: #3BBBB0;
 }
