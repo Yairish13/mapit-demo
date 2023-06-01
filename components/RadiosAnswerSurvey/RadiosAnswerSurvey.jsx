@@ -112,10 +112,11 @@ const RadiosAnswerSurvey = ({ handleCheck, selectedMembers, register, name, lng 
             <table>
                 <thead>
                     <tr>
-                        <th scope="col">בכלל לא</th>
-                        <th scope="col">במידה מועטה</th>
-                        <th scope="col">במידה רבה</th>
-                        <th scope="col">במידה רבה מאוד</th>
+                        <th scope="col">{t('global.irrelevant')}</th>
+                        <th scope="col">{t('global.notAtAll')}</th>
+                        <th scope="col">{t('global.slightly')}</th>
+                        <th scope="col">{t('global.very')}</th>
+                        <th scope="col">{t('global.veryMuch')}</th>
                     </tr>
                     <tr>
                         <th className={styles.tableHeader} scope="col">1</th>

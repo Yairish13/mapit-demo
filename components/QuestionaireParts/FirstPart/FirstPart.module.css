@@ -3,13 +3,6 @@
     min-height: 60vh;
     border-bottom: 1px solid #B1BEC5;
 }
-
-.headerDiv {
-    display: flex;
-    flex-direction: row;
-    align-items: flex-end;
-    justify-content: space-between;
-}
 .selectDiv{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
@@ -28,19 +21,6 @@
     display: flex;
     align-items: flex-start;
     justify-content: space-between;
-}
-
-.footer {
-    margin: 25px 1rem;
-    color: var(--color-secondary);
-}
-
-.stepper {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: flex-end;
-    margin-bottom: 13px;
 }
 
 @media (max-width: 970px) {

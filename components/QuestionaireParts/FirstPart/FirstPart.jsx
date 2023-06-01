@@ -10,15 +10,18 @@ import { useEffect, useState } from "react";
 import { useTranslation } from "@app/i18n/client";
 import QuestionText from "@components/QuestionText/QuestionText";
 import { Trans } from 'react-i18next/TransWithoutContext'
+import QuestionaireHeader from "@components/QuestionaireHeader/QuestionaireHeader";
+import QuestionaireFooter from "@components/QuestionaireFooter/QuestionaireFooter";
 
 
-const FirstPart = ({ members, lng,dispatch }) => {
+const FirstPart = ({ members, lng }) => {
   const { t } = useTranslation(lng);
   const [selectedOptions, setSelectedOptions] = useState([]);
-  // const dispatch = useDispatch()
+  const dispatch = useDispatch();
   const handleNext = () => {
-    dispatch(setSelectedMembers(selectedOptions))
-    dispatch(setNextStep())
+    console.log('aaa');
+    // dispatch(setSelectedMembers(selectedOptions))
+    // dispatch(setNextStep())
   }
   const handleCheck = (option) => {
     if (selectedOptions.length === 0) dispatch(increasePercentage())
@@ -38,10 +41,9 @@ const FirstPart = ({ members, lng,dispatch }) => {
   return (
     <>
       <div className={styles.container}>
-        <div className={styles.headerDiv}>
-          <h3 className="title">{t("pages.questionaire.firstPart")}</h3>
-          <CircleProgress />
-        </div>
+        <QuestionaireHeader
+          title={t("pages.questionaire.firstPart")}
+        />
         <div className={styles.answerContainer}>
           <QuestionText
             text={
@@ -69,7 +71,7 @@ const FirstPart = ({ members, lng,dispatch }) => {
           </div>
         </div>
       </div>
-      <div className={styles.footer}>
+      {/* <div className={styles.footer}>
         {t("pages.questionaire.footerText")}
         <div className={styles.stepper}>
           <Stepper />
@@ -77,7 +79,11 @@ const FirstPart = ({ members, lng,dispatch }) => {
         <Button mode="primary" onClick={handleNext}>
           {t("global.next")}
         </Button>
-      </div>
+      </div> */}
+      <QuestionaireFooter
+        handleClick={handleNext}
+        firstPart={true}
+      />
     </>
   );
 }

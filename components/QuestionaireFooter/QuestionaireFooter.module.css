@@ -1,0 +1,12 @@
+.footer {
+    margin: 25px 1rem;
+    color: var(--color-secondary);
+}
+
+.stepper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+    margin-bottom: 13px;
+}
