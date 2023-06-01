@@ -1,14 +1,14 @@
 "use client"
-import CircleProgress from '@components/CircleProgress/CircleProgress'
 import styles from './SixthPart.module.css'
 import { useTranslation } from '@app/i18n/client';
 import RadiosAnswerSurvey from '@components/RadiosAnswerSurvey/RadiosAnswerSurvey';
-import Button from '@components/Button/Button';
 import Stepper from '@components/Stepper/Stepper';
 import { useDispatch } from 'react-redux';
 import { setNextStep, increasePercentage } from '@store/generalSlice';
 import QuestionText from '@components/QuestionText/QuestionText';
 import { Trans } from 'react-i18next/TransWithoutContext';
+import QuestionaireHeader from '@components/QuestionaireHeader/QuestionaireHeader';
+import QuestionaireFooter from '@components/QuestionaireFooter/QuestionaireFooter';
 
 const SixthPart = ({
     lng
@@ -25,12 +25,9 @@ const SixthPart = ({
                 <Stepper type="vertical" />
             </div>
             <div className='container'>
-                <div className={styles.headerDiv}>
-                    <h3 className="title">
-                        {t('pages.questionaire.secondPart')}
-                    </h3>
-                    <CircleProgress />
-                </div>
+                <QuestionaireHeader
+                    title={t("pages.questionaire.secondPart")}
+                />
                 <div className={styles.answerContainer}>
                     <QuestionText
                         text={<Trans i18nKey="pages.questionaire.partB.questionOne" t={t}>
@@ -131,14 +128,11 @@ const SixthPart = ({
                         />
                     </div>
                 </div>
-                <div className={styles.footer} >
-                    <Button
-                        mode="primary"
-                        onClick={handleNext}
-                    >
-                        {t('global.next')}
-                    </Button>
-                </div>
+                <QuestionaireFooter
+                    wide={true}
+                    withStepper={false}
+                    handleClick={handleNext}
+                />
             </div>
         </div>
     )

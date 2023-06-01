@@ -1,18 +1,15 @@
 /* eslint-disable react/no-unescaped-entities */
 "use client";
-import Stepper from "@components/Stepper/Stepper";
 import { useDispatch, useSelector } from "react-redux";
 import styles from './FourthPart.module.css';
-import Button from "@components/Button/Button";
 import { setNextStep, increasePercentage } from "../../../store/generalSlice";
-import CircleProgress from "@components/CircleProgress/CircleProgress";
 import { useForm } from "react-hook-form";
-import Checkbox from "@components/Checkbox/Checkbox";
-import RadiosAnswer from "@components/RadiosAnswer/RadiosAnswer";
 import { useTranslation } from "@app/i18n/client";
 import RadiosAnswerSurvey from "@components/RadiosAnswerSurvey/RadiosAnswerSurvey";
 import QuestionText from "@components/QuestionText/QuestionText";
 import { Trans } from "react-i18next/TransWithoutContext";
+import QuestionaireFooter from "@components/QuestionaireFooter/QuestionaireFooter";
+import QuestionaireHeader from "@components/QuestionaireHeader/QuestionaireHeader";
 
 
 const FourthPart = ({ members, lng }) => {
@@ -33,12 +30,9 @@ const FourthPart = ({ members, lng }) => {
     return (
         <>
             <div className={styles.container}>
-                <div className={styles.headerDiv}>
-                    <h3 className="title">
-                        {t('pages.questionaire.firstPart')}
-                    </h3>
-                    <CircleProgress />
-                </div>
+                <QuestionaireHeader
+                    title={t("pages.questionaire.firstPart")}
+                />
                 <div className={styles.answerContainer}>
                     <QuestionText
                         text={<Trans i18nKey="pages.questionaire.questionSix" t={t}>
@@ -76,10 +70,9 @@ const FourthPart = ({ members, lng }) => {
                     </div>
                 </div>
             </div>
-            <div className={styles.footer} >
-                <div className={styles.stepper}><Stepper /></div>
-                <Button mode="primary" onClick={handleNext}>{t('global.next')}</Button>
-            </div>
+            <QuestionaireFooter
+                handleClick={handleNext}
+            />
         </>
     )
 }

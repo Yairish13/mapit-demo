@@ -1,9 +1,3 @@
-.headerDiv {
-    display: flex;
-    flex-direction: row;
-    align-items: flex-end;
-    justify-content: space-between;
-}
 
 .answerContainer {
     margin-top: 50px;
@@ -18,9 +12,6 @@
         flex-direction: column;
         gap: 10px;
     }
-}
-.footer {
-    margin: 3rem 0;
 }
 
 .containerPartB {

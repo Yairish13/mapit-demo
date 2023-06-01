@@ -1,12 +1,9 @@
 "use client";
-import Stepper from "@components/Stepper/Stepper";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import styles from './FirstPart.module.css'
-import Button from "@components/Button/Button";
 import { setNextStep, increasePercentage, setSelectedMembers, decreasePercentage } from "../../../store/generalSlice";
 import CustomSelect from "@components/CustomSelect/CustomSelect";
-import CircleProgress from "@components/CircleProgress/CircleProgress";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useTranslation } from "@app/i18n/client";
 import QuestionText from "@components/QuestionText/QuestionText";
 import { Trans } from 'react-i18next/TransWithoutContext'
@@ -71,17 +68,7 @@ const FirstPart = ({ members, lng }) => {
           </div>
         </div>
       </div>
-      {/* <div className={styles.footer}>
-        {t("pages.questionaire.footerText")}
-        <div className={styles.stepper}>
-          <Stepper />
-        </div>
-        <Button mode="primary" onClick={handleNext}>
-          {t("global.next")}
-        </Button>
-      </div> */}
       <QuestionaireFooter
-        t={t}
         handleClick={handleNext}
         firstPart={true}
       />

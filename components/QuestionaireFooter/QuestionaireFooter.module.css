@@ -1,6 +1,9 @@
 .footer {
-    margin: 25px 1rem;
     color: var(--color-secondary);
+    margin: 10px 8%;
+}
+.footerWide {
+    margin: 80px 0 35px 0;
 }
 
 .stepper {

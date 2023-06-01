@@ -3,14 +3,14 @@ import styles from './QuestionaireFooter.module.css'
 import Button from '@components/Button/Button'
 import { useTranslation } from 'react-i18next'
 
-const QuestionaireFooter = ({ handleClick, firstPart }) => {
+const QuestionaireFooter = ({ handleClick, firstPart, wide, withStepper = true }) => {
     const { t } = useTranslation()
     return (
-        <div className={styles.footer}>
+        <div className={wide ? styles.footerWide : styles.footer}>
             {firstPart && t("pages.questionaire.footerText")}
-            <div className={styles.stepper}>
+            {withStepper && <div className={styles.stepper}>
                 <Stepper />
-            </div>
+            </div>}
             <Button mode="primary" onClick={(e) => handleClick(e)}>
                 {t("global.next")}
             </Button>

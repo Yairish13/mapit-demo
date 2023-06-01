@@ -121,11 +121,25 @@ const RadiosAnswerSurvey = ({ handleCheck, selectedMembers, register, name }) =>
                         <th className={styles.tableHeader} scope="col">2</th>
                         <th className={styles.tableHeader} scope="col">3</th>
                         <th className={styles.tableHeader} scope="col">4</th>
+                        <th className={styles.tableHeader} scope="col">5</th>
                     </tr>
                 </thead>
                 <tbody>
                     <>
                         <tr>
+                            <td className={styles.radioBtn}>
+                                <RadioButton
+                                    id='שבועית'
+                                    name={name}
+                                    onChange={handleCheck}
+                                // refs={{
+                                //     ...register(`questionNumberTwo`, {
+                                //         required: true,
+                                //     })
+                                // }}
+                                // checked={arr[index].questionNumberTwo}
+                                />
+                            </td>
                             <td className={styles.radioBtn}>
                                 <RadioButton
                                     id='שבועית'
