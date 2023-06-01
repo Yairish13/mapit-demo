@@ -31,9 +31,20 @@
 }
 
 .manager{
+    &>div{
+    margin: 1rem 0;
+    }
+    
     @media (max-width: 970px) {
+    margin-bottom: 4rem;
     margin-right: 11rem;
     position: relative;
     padding-bottom: 2rem;
+    }
+}
+
+.departmentManagerData{
+    &>div{
+    margin: 0.5rem 0;
     }
 }

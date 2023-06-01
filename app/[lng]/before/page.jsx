@@ -1,10 +1,35 @@
 "use client"
+import { useState } from "react";
 import Button from '@components/Button/Button';
 import styles from './page.module.scss';
 import { useTranslation } from '@app/i18n';
 import clsx from 'clsx';
 import { Trans } from 'react-i18next/TransWithoutContext'
 import { useRouter } from 'next/navigation';
+
+function DepartmentManagerDataWrapper() {
+  const [departmentManagerData, setDepartmentManagerData] = useState({
+    departmentManagerName: "",
+    departmentManagerRole: "",
+  });
+  fetch("http://localhost:1337/api/projects/1")
+    .then((response) => response.json())
+    .then((responseJSON) => {
+      setDepartmentManagerData({
+        departmentManagerName:
+          responseJSON.data?.attributes?.departmentManagerName,
+        departmentManagerRole:
+          responseJSON.data?.attributes?.departmentManagerRole,
+      });
+
+    });
+  return (
+    <div className={styles.departmentManagerData}>
+      <div>{`${departmentManagerData?.departmentManagerName}`}</div>
+      <div>{`${departmentManagerData?.departmentManagerRole}`}</div>
+    </div>
+  );
+}
 
 const Page = async ({ params: { lng } }) => {
     const router = useRouter()
@@ -46,10 +71,7 @@ const Page = async ({ params: { lng } }) => {
 
         <div className={styles.manager}>
           <div className={styles.sideImage} />
-          <div className={styles.textInput}>
-            <div>ישראל ישראלי,</div>
-            <div>מנהל</div>
-          </div>
+          <DepartmentManagerDataWrapper />
           <Button mode="tertiary" onClick={handleRoute}>
             {t("global.start")}
           </Button>

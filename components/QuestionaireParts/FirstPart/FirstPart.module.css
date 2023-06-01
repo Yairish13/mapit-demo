@@ -30,6 +30,7 @@
   }
   .stepper{
     width: 100%;
+    justify-content: center;
   } 
   .footer  { 
   display: flex;

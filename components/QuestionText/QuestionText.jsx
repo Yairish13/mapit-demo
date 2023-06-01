@@ -4,10 +4,10 @@ const QuestionText = ({ text, subText, number }) => {
     return (
         <div className='question'>
             <div className={styles.questionNumber}>
-                {number}.
             </div>
             <div>
                 <div>
+                    {number}.
                     {text}
                 </div>
                 <div className={styles.subTextQuestion}>
