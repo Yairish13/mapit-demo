@@ -2,7 +2,7 @@
 "use client";
 import { useDispatch, useSelector } from "react-redux";
 import styles from './SecondPart.module.css';
-import { setNextStep, increasePercentage } from "../../../store/generalSlice";
+import { setNextStep, increasePercentage, setSelectedMembers } from "../../../store/generalSlice";
 import { useForm } from "react-hook-form";
 import Checkbox from "@components/Checkbox/Checkbox";
 import RadiosAnswer from "@components/RadiosAnswer/RadiosAnswer";
@@ -11,24 +11,31 @@ import QuestionText from "@components/QuestionText/QuestionText";
 import { Trans } from "react-i18next/TransWithoutContext";
 import QuestionaireHeader from "@components/QuestionaireHeader/QuestionaireHeader";
 import QuestionaireFooter from "@components/QuestionaireFooter/QuestionaireFooter";
+import { useEffect } from "react";
 
 
 const SecondPart = ({ members, lng }) => {
     const { t } = useTranslation(lng);
-    const { register, setValue, handleSubmit, formState: { errors } } = useForm({
-        mode: 'any',
+    const { register, handleSubmit, setValue, formState: { errors } } = useForm({
+        mode: 'onChange',
     });
     const selectedMembers = useSelector((state) => state.general.selectedMembers);
     const arr = [...selectedMembers]
     const dispatch = useDispatch()
     const handleNext = () => {
+        dispatch(setSelectedMembers(arr))
         dispatch(setNextStep())
         dispatch(increasePercentage())
     }
     const handleCheck = (option, index, name) => {
+        console.log(option, index, name);
         if (name === 'questionNumberThree') arr[index] = { ...arr[index], [name]: option.target.checked };
         else arr[index] = { ...arr[index], [name]: option.target.id };
+        console.log(arr);
     }
+    useEffect(() => {
+        console.log(errors);
+    }, [errors])
     return (
         <>
             <div className={styles.container}>
@@ -40,15 +47,17 @@ const SecondPart = ({ members, lng }) => {
                         text={<Trans i18nKey="pages.questionaire.questionTwo" t={t}>
                             Switch from <strong>{{ lng }}</strong> to {''}
                         </Trans>}
-                        subText={t('pages.questionaire.noRelevant')}
                         number={2}
                     />
                     <div className='answer'>
-                        {selectedMembers && <RadiosAnswer
-                            handleCheck={handleCheck}
-                            selectedMembers={selectedMembers}
-                            register={register}
-                        />}
+                        {selectedMembers &&
+                            <RadiosAnswer
+                                handleCheck={handleCheck}
+                                selectedMembers={selectedMembers}
+                                setValue={setValue}
+                                register={register}
+                                name="questionNumberTwo"
+                            />}
                     </div>
                 </div>
                 <div className={styles.answerContainer}>
@@ -56,7 +65,7 @@ const SecondPart = ({ members, lng }) => {
                         text={<Trans i18nKey="pages.questionaire.questionThree" t={t}>
                             Switch from <strong>{{ lng }}</strong> to {''}
                         </Trans>}
-                        subText={t('pages.questionaire.noRelevant')}
+                        subText={t('pages.questionaire.questionThreeSubText')}
                         number={3}
                     />
                     <div className={`answer ${styles.aformalDiv}`}>
@@ -67,7 +76,6 @@ const SecondPart = ({ members, lng }) => {
                                     id="questionNumberThree"
                                     name='questionNumberThree'
                                     label={worker.value}
-                                    refs={{ ...register(`questionNumberThree`) }}
                                     onChange={handleCheck}
                                     checked={arr[index].questionNumberThree}
                                     index={index}
@@ -78,7 +86,7 @@ const SecondPart = ({ members, lng }) => {
                 </div>
             </div >
             <QuestionaireFooter
-                handleClick={handleNext}
+                handleClick={handleSubmit(() => handleNext())}
             />
         </>
     )

@@ -2,6 +2,7 @@
 import Logo from '@components/Logo'
 import GilboaLogo from '../../../public/assets/images/gilboa.svg'
 import MapitText from '../../../public/assets/images/mapitText.svg'
+import MapitTextSmall from '../../../public/assets/images/mapitTextSmall.svg'
 import styles from "./login.module.scss"
 import { useTranslation } from '@app/i18n/client'
 
@@ -25,7 +26,12 @@ const LoginLayout = ({ children, lng }) => {
             <div className={styles.side}>
                 <div className={styles.mapitBorder}>
                     <div className={styles.mapitBg}>
-                        <MapitText />
+                        <div className={styles.mapitTextDiv}>
+                            <MapitText />
+                        </div>
+                        <div className={styles.mapitTextDivSmall}>
+                            <MapitTextSmall />
+                        </div>
                     </div>
                 </div>
                 <div className={styles.imageSideFooter}>

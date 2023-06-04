@@ -6,7 +6,7 @@ import ArrowDown from '../../public/assets/icons/arrowDown.svg'
 
 const CustomSelect = ({
     options,
-    onClick,
+    onChange,
     placeholder,
     withArrow,
     withNoHeader = false,
@@ -16,7 +16,7 @@ const CustomSelect = ({
     const ref = useRef(null);
 
     const handleOptionClick = (option, e) => {
-        onClick(option, e)
+        onChange(option, e)
     };
     const isSelected = (id) => {
         if (selectedOptions) return selectedOptions.some((option) => option.id === id)
@@ -29,6 +29,9 @@ const CustomSelect = ({
             setIsOpen && setIsOpen(false);
         }
     };
+    const handleKeyDown = (e) => {
+        if (e.key === 'Enter') setIsOpen(prev => !prev)
+    }
     useEffect(() => {
         document.addEventListener('click', handleClickOutside, true);
         return () => {
@@ -39,7 +42,7 @@ const CustomSelect = ({
     return (
         <>
             {!withNoHeader ? <div className="custom-select" ref={ref}>
-                <div className={isOpen ? "selected-options open" : "selected-options"} onClick={handleClick}>
+                <div tabIndex="0" onKeyDown={(e) => handleKeyDown(e)} className={isOpen ? "selected-options open" : "selected-options"} onClick={handleClick}>
                     <div className={!withArrow ? 'headerDivNoArrow' : 'headerDivArrow'}>
                         <div>
                             {placeholder}

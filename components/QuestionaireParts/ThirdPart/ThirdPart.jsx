@@ -18,15 +18,24 @@ const ThirdPart = ({ members, lng }) => {
         mode: 'any',
     });
     const selectedMembers = useSelector((state) => state.general.selectedMembers);
+    console.log(selectedMembers,'selectedMembers');
     const arr = [...selectedMembers]
     const dispatch = useDispatch()
     const handleNext = () => {
+        console.log(arr);
         dispatch(setNextStep())
         dispatch(increasePercentage())
     }
     const handleCheck = (option, index, name) => {
+        console.log(option,index,name);
         arr[index] = { ...arr[index], [name]: option.target.id };
     }
+    // const handleCheck = (option, index, name) => {
+    //     console.log(option, index, name);
+    //     if (name === 'questionNumberThree') arr[index] = { ...arr[index], [name]: option.target.checked };
+    //     else arr[index] = { ...arr[index], [name]: option.target.id };
+    //     console.log(arr);
+    // }
     return (
         <>
             <div className={styles.container}>

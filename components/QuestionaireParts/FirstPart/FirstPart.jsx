@@ -14,14 +14,21 @@ import QuestionaireFooter from "@components/QuestionaireFooter/QuestionaireFoote
 const FirstPart = ({ members, lng }) => {
   const { t } = useTranslation(lng);
   const [selectedOptions, setSelectedOptions] = useState([]);
+  const [isError, setIsError] = useState(false);
   const dispatch = useDispatch();
   const handleNext = () => {
-    console.log('aaa');
-    dispatch(setSelectedMembers(selectedOptions))
-    dispatch(setNextStep())
+    if (selectedOptions.length === 0) {
+      setIsError(true)
+    } else {
+      dispatch(setSelectedMembers(selectedOptions))
+      dispatch(setNextStep())
+    }
   }
   const handleCheck = (option) => {
-    if (selectedOptions.length === 0) dispatch(increasePercentage())
+    if (selectedOptions.length === 0) {
+      dispatch(increasePercentage())
+      setIsError(false)
+    }
     const index = selectedOptions.findIndex((item) => item.id === option.id);
     if (index > -1) {
       if (selectedOptions.length === 1) dispatch(decreasePercentage())
@@ -33,7 +40,6 @@ const FirstPart = ({ members, lng }) => {
     } else {
       setSelectedOptions((prevOptions) => [...prevOptions, option]);
     }
-    console.log(option)
   }
   return (
     <>
@@ -51,14 +57,14 @@ const FirstPart = ({ members, lng }) => {
             subText={t('pages.questionaire.questionOneSubText')}
             number={1}
           />
-          <div className={`${styles.selectDiv} answer`}>
+          <div className={`${styles.selectDiv} ${isError ? 'error' : ''} answer`}>
             {members &&
               members[0] &&
               members[0].departments &&
               members[0].departments.map((department, index) => (
                 <CustomSelect
                   key={index}
-                  onClick={handleCheck}
+                  onChange={handleCheck}
                   placeholder={t("global.department")}
                   withArrow={true}
                   options={department.workers}

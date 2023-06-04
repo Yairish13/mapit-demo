@@ -31,79 +31,79 @@ const RadiosAnswerSurvey = ({ handleCheck, selectedMembers, register, name }) =>
                 </thead>
                 <tbody>
                     {selectedMembers.map((worker, index) => (
-                            <tr key={index}>
-                                <td scope="row">{worker.value}</td>
-                                <td className={styles.radioBtn}>
-                                    <RadioButton
-                                        id='חודשית'
-                                        name={`${name}${worker.id}`}
-                                        index={index}
-                                        onChange={handleCheck}
-                                        refs={{
-                                            ...register(`questionNumberTwo`, {
-                                                required: true,
-                                            })
-                                        }}
-                                        checked={arr[index].questionNumberTwo}
-                                    />
-                                </td>
-                                <td className={styles.radioBtn}>
-                                    <RadioButton
-                                        id='שבועית'
-                                        name={`${name}${worker.id}`}
-                                        index={index}
-                                        onChange={handleCheck}
-                                        refs={{
-                                            ...register(`questionNumberTwo`, {
-                                                required: true,
-                                            })
-                                        }}
-                                        checked={arr[index].questionNumberTwo}
-                                    />
-                                </td>
-                                <td className={styles.radioBtn}>
-                                    <RadioButton
-                                        id='יומית'
-                                        name={`${name}${worker.id}`}
-                                        index={index}
-                                        onChange={handleCheck}
-                                        refs={{
-                                            ...register(`questionNumberTwo`, {
-                                                required: true,
-                                            })
-                                        }}
-                                        checked={arr[index].questionNumberTwo}
-                                    />
-                                </td>
-                                <td className={styles.radioBtn}>
-                                    <RadioButton
-                                        id='יומית'
-                                        name={`${name}${worker.id}`}
-                                        index={index}
-                                        onChange={handleCheck}
-                                        refs={{
-                                            ...register(`questionNumberTwo`, {
-                                                required: true,
-                                            })
-                                        }}
-                                        checked={arr[index].questionNumberTwo}
-                                    />
-                                </td>
-                                <td className={styles.radioBtn}>
-                                    <RadioButton
-                                        id='יומית'
-                                        name={`${name}${worker.id}`}
-                                        index={index}
-                                        onChange={handleCheck}
-                                        refs={{
-                                            ...register(`questionNumberTwo`, {
-                                                required: true,
-                                            })
-                                        }}
-                                        checked={arr[index].questionNumberTwo}
-                                    />
-                                </td>
-                            </tr>
+                        <tr key={index}>
+                            <td scope="row">{worker.value}</td>
+                            <td className={styles.radioBtn}>
+                                <RadioButton
+                                    id='0'
+                                    name={`${name}_${worker.id}`}
+                                    index={index}
+                                    onChange={handleCheck}
+                                    refs={{
+                                        ...register(`${name}_${worker.id}`, {
+                                            required: true,
+                                        })
+                                    }}
+                                    checked={arr[index].name}
+                                />
+                            </td>
+                            <td className={styles.radioBtn}>
+                                <RadioButton
+                                    id='1'
+                                    name={`${name}_${worker.id}`}
+                                    index={index}
+                                    onChange={handleCheck}
+                                    refs={{
+                                        ...register(`${name}_${worker.id}`, {
+                                            required: true,
+                                        })
+                                    }}
+                                    checked={arr[index].name}
+                                />
+                            </td>
+                            <td className={styles.radioBtn}>
+                                <RadioButton
+                                    id='2'
+                                    name={`${name}_${worker.id}`}
+                                    index={index}
+                                    onChange={handleCheck}
+                                    refs={{
+                                        ...register(`${name}_${worker.id}`, {
+                                            required: true,
+                                        })
+                                    }}
+                                    checked={arr[index].name}
+                                />
+                            </td>
+                            <td className={styles.radioBtn}>
+                                <RadioButton
+                                    id='3'
+                                    name={`${name}_${worker.id}`}
+                                    index={index}
+                                    onChange={handleCheck}
+                                    refs={{
+                                        ...register(`${name}_${worker.id}`, {
+                                            required: true,
+                                        })
+                                    }}
+                                    checked={arr[index].name}
+                                />
+                            </td>
+                            <td className={styles.radioBtn}>
+                                <RadioButton
+                                    id='4'
+                                    name={`${name}_${worker.id}`}
+                                    index={index}
+                                    onChange={handleCheck}
+                                    refs={{
+                                        ...register(`${name}_${worker.id}`, {
+                                            required: true,
+                                        })
+                                    }}
+                                    checked={arr[index].name}
+                                />
+                            </td>
+                        </tr>
                     ))}
                 </tbody>
             </table>) : (
@@ -129,67 +129,67 @@ const RadiosAnswerSurvey = ({ handleCheck, selectedMembers, register, name }) =>
                         <tr>
                             <td className={styles.radioBtn}>
                                 <RadioButton
-                                    id='שבועית'
+                                    id='1'
                                     name={name}
                                     onChange={handleCheck}
-                                // refs={{
-                                //     ...register(`questionNumberTwo`, {
-                                //         required: true,
-                                //     })
-                                // }}
-                                // checked={arr[index].questionNumberTwo}
+                                    refs={{
+                                        ...register(`${name}_${worker.id}`, {
+                                            required: true,
+                                        })
+                                    }}
+                                    checked={arr[index].name}
                                 />
                             </td>
                             <td className={styles.radioBtn}>
                                 <RadioButton
-                                    id='שבועית'
+                                    id='2'
                                     name={name}
                                     onChange={handleCheck}
-                                // refs={{
-                                //     ...register(`questionNumberTwo`, {
-                                //         required: true,
-                                //     })
-                                // }}
-                                // checked={arr[index].questionNumberTwo}
+                                    refs={{
+                                        ...register(`${name}_${worker.id}`, {
+                                            required: true,
+                                        })
+                                    }}
+                                    checked={arr[index].name}
                                 />
                             </td>
                             <td className={styles.radioBtn}>
                                 <RadioButton
-                                    id='יומית'
+                                    id='3'
                                     name={name}
                                     onChange={handleCheck}
-                                // refs={{
-                                //     ...register(`questionNumberTwo`, {
-                                //         required: true,
-                                //     })
-                                // }}
-                                // checked={arr[index].questionNumberTwo}
+                                    refs={{
+                                        ...register(`${name}_${worker.id}`, {
+                                            required: true,
+                                        })
+                                    }}
+                                    checked={arr[index].name}
                                 />
                             </td>
                             <td className={styles.radioBtn}>
                                 <RadioButton
-                                    id='יומית'
+                                    id='4'
                                     name={name}
                                     onChange={handleCheck}
-                                // refs={{
-                                //     ...register(`questionNumberTwo`, {
-                                //         required: true,
-                                //     })
-                                // }}
-                                // checked={arr[index].questionNumberTwo}
+                                    refs={{
+                                        ...register(`${name}_${worker.id}`, {
+                                            required: true,
+                                        })
+                                    }}
+                                    checked={arr[index].name}
                                 />
                             </td>
                             <td className={styles.radioBtn}>
                                 <RadioButton
-                                    id='יומית'
+                                    id='5'
                                     name={name}
                                     onChange={handleCheck}
-                                // refs={{
-                                //     ...register(`questionNumberTwo`, {
-                                //         required: true,
-                                //     })
-                                // }}
-                                // checked={arr[index].questionNumberTwo}
+                                    refs={{
+                                        ...register(`${name}_${worker.id}`, {
+                                            required: true,
+                                        })
+                                    }}
+                                    checked={arr[index].name}
                                 />
                             </td>
                         </tr>

@@ -1,6 +1,6 @@
 import styles from './Checkbox.module.css';
 
-const Checkbox = ({ id, label, checked, onChange, error, errorText, name, index }) => {
+const Checkbox = ({ id, label, checked, onChange, error, errorText, name, index,register }) => {
     const handleChange = (e) =>{
         onChange && onChange(e, index, name);
     }
@@ -13,6 +13,7 @@ const Checkbox = ({ id, label, checked, onChange, error, errorText, name, index 
                     id={id}
                     checked={checked}
                     onChange={(e) => handleChange(e)}
+                    register={register}
                 />
                 {label && <label>
                     {label}

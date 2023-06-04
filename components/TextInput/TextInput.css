@@ -8,8 +8,7 @@ input:focus {
 input {
   width: 100%;
   outline: none;
-  border-width: 0 0 2px;
-  border-color: #B1BEC5;
+  border-width: 0 0 0;
   background-color: rgb(var(--background-general));
   padding-bottom: 8px;
 }
@@ -29,23 +28,35 @@ input:focus {
   font-family: 'Noto Sans Hebrew';
   padding-top: 5px;
 }
+
 .errDiv {
   color: #D93025;
   font-size: 12px;
   font-family: var(--font-family);
 }
-.eyeSvg{
+
+.eyeSvg {
   cursor: pointer;
   margin-top: -25px;
   position: relative;
   z-index: 2;
 }
-.he{
+
+.he {
   float: left;
 }
-.en{
+
+.en {
   float: right;
 }
-.visible{
+
+.visible {
   filter: drop-shadow(2px 4px 6px var(--color-primary))
+}
+
+.textAndArea {
+  display: flex;
+  flex-direction: row;
+  border-bottom: 2px solid #B1BEC5;
+  align-items: flex-end;
 }

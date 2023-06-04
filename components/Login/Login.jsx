@@ -14,8 +14,9 @@ const Login = ({ lng }) => {
     const router = useRouter();
     const [otpIsOn, setOtpIsOn] = useState(false);
     const [isChecked, setIsChecked] = useState(false);
+    const [areaCode,setAreaCode] = useState('972')
 
-    const { register, setValue, handleSubmit, formState: { errors } } = useForm({
+    const { register, setValue, handleSubmit,getValues, formState: { errors } } = useForm({
         mode: 'any',
     });
 
@@ -30,7 +31,11 @@ const Login = ({ lng }) => {
         }
         else setValue(e.target.id, e.target.value);
     }
+    const handleAreaCode = (areaCode) =>{
+        setAreaCode(areaCode);
+    }
     const handleBefore = () => {
+        console.log(`${areaCode}${getValues('phoneLoginInput')}`);
         router.push(`${lng}/terms`);
     }
     useEffect(() => {
@@ -60,6 +65,8 @@ const Login = ({ lng }) => {
                         onChange={handleChange}
                         maxLength="12"
                         placeholder={t('pages.login.inputExample')}
+                        areaCode={true}
+                        handleAreaCode={handleAreaCode}
                     />
                 </div>
                 <Checkbox

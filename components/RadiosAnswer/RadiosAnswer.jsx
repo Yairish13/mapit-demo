@@ -3,12 +3,13 @@ import styles from './RadiosAnswer.module.css'
 import React from 'react'
 import { useTranslation } from 'react-i18next'
 
-const RadiosAnswer = ({ handleCheck, selectedMembers, register }) => {
+const RadiosAnswer = ({ handleCheck, selectedMembers, register, name, setValue }) => {
     const { t } = useTranslation()
 
     const arr = [...selectedMembers]
-    const handleChange = (e) => {
-        if (handleCheck) handleCheck(e);
+    const handleChange = (e, index, name, workerId) => {
+        setValue(`${name}_${workerId}`, true);
+        if (handleCheck) handleCheck(e, index, name);
     }
     return (
         <table>
@@ -27,11 +28,11 @@ const RadiosAnswer = ({ handleCheck, selectedMembers, register }) => {
                         <td className={styles.radioBtn}>
                             <RadioButton
                                 id='monthly'
-                                name={`questionNumberTwo${worker.id}`}
+                                name={`${name}_${worker.id}`}
                                 index={index}
-                                onChange={(e) => handleChange(e)}
+                                onChange={(e) => { handleChange(e, index, name, worker.id) }}
                                 refs={{
-                                    ...register(`questionNumberTwo`, {
+                                    ...register(`${name}_${worker.id}`, {
                                         required: true,
                                     })
                                 }}
@@ -41,28 +42,33 @@ const RadiosAnswer = ({ handleCheck, selectedMembers, register }) => {
                         <td className={styles.radioBtn}>
                             <RadioButton
                                 id='weekly'
-                                name={`questionNumberTwo${worker.id}`}
+                                name={`${name}_${worker.id}`}
                                 index={index}
-                                onChange={(e) => handleChange(e)}
+                                // onChange={(e) => handleChange(e)}
+                                onChange={(e) => { handleChange(e, index, name, worker.id) }}
                                 refs={{
-                                    ...register(`questionNumberTwo`, {
+                                    ...register(`${name}_${worker.id}`, {
                                         required: true,
                                     })
                                 }}
+                                // register={register}
                                 checked={arr[index].questionNumberTwo}
                             />
                         </td>
                         <td className={styles.radioBtn}>
                             <RadioButton
                                 id='daily'
-                                name={`questionNumberTwo${worker.id}`}
+                                name={`${name}_${worker.id}`}
                                 index={index}
-                                onChange={(e) => handleChange(e)}
+                                // onChange={(e) => handleChange(e)}
+                                onChange={(e) => { handleChange(e, index, name, worker.id) }}
+
                                 refs={{
-                                    ...register(`questionNumberTwo`, {
+                                    ...register(`${name}_${worker.id}`, {
                                         required: true,
                                     })
                                 }}
+                                register={register}
                                 checked={arr[index].questionNumberTwo}
                             />
                         </td>

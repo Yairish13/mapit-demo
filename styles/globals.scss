@@ -52,6 +52,7 @@ p {
   margin-inline-end: 1rem;
   display: flex;
   gap: 10px;
+  margin-bottom: 25px;
   @media (max-width: 970px) {
   width: 100%;
   display: flex;
@@ -148,4 +149,7 @@ td{
 }
 th{
   font-size: 0.75rem;
+}
+.error{
+  border-color: var(--color-error);
 }

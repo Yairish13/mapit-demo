@@ -3,9 +3,9 @@
     min-height: 100vh;
     display: flex;
     flex-direction: row;
-    
+
     @media (max-width: 970px) {
-    flex-direction: column;
+        flex-direction: column;
     }
 }
 
@@ -20,14 +20,16 @@
     justify-content: flex-end;
     color: #F8F8F8;
     font-weight: 700;
+
     @media (max-width: 970px) {
-    width: 100%;
-    order: 1;
-    margin-top: 5.5rem;
-    min-height: 40vh;
+        width: 100%;
+        order: 1;
+        margin-top: 5.5rem;
+        min-height: 40vh;
     }
 }
-.mapitBg{
+
+.mapitBg {
     height: 277px;
     width: 277px;
     background-color: #EDE7E7;
@@ -37,12 +39,18 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+
     @media (max-width: 970px) {
-    height: 200px;
-    width: 200px;
+        height: 175px;
+        width: 175px;
+    }
+    @media (max-width: 500px) {
+        height: 135px;
+        width: 135px;
     }
 }
-.mapitBorder{
+
+.mapitBorder {
     border: 1px solid var(--color-primary);
     border-radius: 130px;
     margin-bottom: 2rem;
@@ -53,25 +61,28 @@
     flex-direction: column;
     padding: var(--padding-normal);
     width: 50%;
+
     @media (max-width: 970px) {
-    width: 100%;
-     order: 2;
+        width: 100%;
+        order: 2;
     }
+
 }
 
 .header {
     flex: 0 0 auto;
     text-align: var(--start-direction);
     padding: 1rem;
+
     @media (max-width: 970px) {
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 100%;
-    background-color: #fff;
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 100%;
+        background-color: #fff;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
     }
 }
 
@@ -81,9 +92,10 @@
     display: flex;
     justify-content: center;
     align-items: center;
+
     @media (max-width: 970px) {
-    width: 100%;
-    padding-inline-start: 0;
+        width: 100%;
+        padding-inline-start: 0;
     }
 }
 
@@ -92,12 +104,26 @@
     text-align: center;
     font-size: 0.8rem;
     padding-inline-start: 0.8rem;
+
     @media (max-width: 970px) {
-    padding-inline-start: 0;
+        padding-inline-start: 0;
     }
 }
+@media (max-width: 970px) {
+    .mapitTextDiv {
+        display: none;
+    }
+    
+}
+@media (min-width: 970px) {
+    .mapitTextDivSmall {
+        display: none;
+    }
+    
+}
 
-.imageSideFooter{
+
+.imageSideFooter {
     text-align: center;
     padding: 1rem;
 }

@@ -2,8 +2,9 @@
 import './TextInput.css'
 import Eye from '../../public/assets/icons/eye.svg'
 import { useEffect, useState } from 'react'
+import AreaCodeSelect from '@components/AreaCodeSelect/AreaCodeSelect'
 
-const TextInput = ({ id, type, onChange, disabled, placeholder, value, bottomText, maxLength, register, error, errorText, lng }) => {
+const TextInput = ({ id, type, onChange, disabled, placeholder, value, bottomText, maxLength, register, error, errorText, lng, areaCode, handleAreaCode }) => {
     const handleChange = (e) => {
         if (onChange) {
             onChange(e)
@@ -25,7 +26,7 @@ const TextInput = ({ id, type, onChange, disabled, placeholder, value, bottomTex
     }, [])
     return (
         <div className='inputContainer'>
-            <div>
+            <div className='textAndArea'>
                 <input
                     id={id}
                     type={passwordType ? passwordType : 'search'}
@@ -36,7 +37,8 @@ const TextInput = ({ id, type, onChange, disabled, placeholder, value, bottomTex
                     register={register}
                     value={value}
                 />
-                {type == 'password' && <Eye className={passwordType == 'password' ? `eyeSvg ${lng}` : `eyeSvg ${lng} visible`} onClick={handleShowPassword} />}
+                {areaCode && <AreaCodeSelect handleAreaCode={handleAreaCode} value={972} />}
+                {type == 'password' && <div> <Eye className={passwordType == 'password' ? `eyeSvg ${lng}` : `eyeSvg ${lng} visible`} onClick={handleShowPassword} /> </div>}
             </div>
             {bottomText && <div className='bottomText'>
                 {bottomText}
