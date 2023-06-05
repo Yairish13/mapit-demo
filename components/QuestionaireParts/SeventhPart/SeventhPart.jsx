@@ -10,9 +10,10 @@ import { Trans } from 'react-i18next';
 import QuestionaireHeader from '@components/QuestionaireHeader/QuestionaireHeader';
 import QuestionaireFooter from '@components/QuestionaireFooter/QuestionaireFooter';
 import { useForm } from 'react-hook-form';
-import { setPartC } from '@store/generalSlice';
+import { setIsFinished, setPartC } from '@store/generalSlice';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
+import { isErrored } from '@utils';
 
 const SeventhPart = ({
     lng
@@ -32,6 +33,7 @@ const SeventhPart = ({
         dispatch(setPartC(obj))
     }
     const handleNext = () => {
+        dispatch(setIsFinished())
         router.push(`${lng}/finish`)
     }
     useEffect(()=>{

@@ -1,9 +1,9 @@
 "use client";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import styles from './FirstPart.module.css'
 import { setNextStep, increasePercentage, setSelectedMembers, decreasePercentage } from "../../../store/generalSlice";
 import CustomSelect from "@components/CustomSelect/CustomSelect";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useTranslation } from "@app/i18n/client";
 import QuestionText from "@components/QuestionText/QuestionText";
 import { Trans } from 'react-i18next/TransWithoutContext'
@@ -12,6 +12,8 @@ import QuestionaireFooter from "@components/QuestionaireFooter/QuestionaireFoote
 
 
 const FirstPart = ({ members, lng }) => {
+  const isFinished = useSelector((state) => state.general.isFinished);
+
   const { t } = useTranslation(lng);
   const [selectedOptions, setSelectedOptions] = useState([]);
   const [isError, setIsError] = useState(false);
@@ -41,6 +43,9 @@ const FirstPart = ({ members, lng }) => {
       setSelectedOptions((prevOptions) => [...prevOptions, option]);
     }
   }
+  useEffect(() => {
+    if (isFinished) router.push(`${lng}/finish`)
+  }, [])
   return (
     <>
       <div className={styles.container}>

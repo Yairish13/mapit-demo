@@ -30,6 +30,7 @@ const initialState = {
     activeStep: 1,
     percentage: 0,
     totalQuestions: 21,
+    isFinished: false,
 }
 
 // export const getmembers = createAsyncThunk(
@@ -73,7 +74,9 @@ const generalSlice = createSlice({
         },
         setPartC: (state, action) => {
             state.partC = action.payload;
-
+        },
+        setIsFinished: (state, action) => {
+            state.isFinished = true;
         }
 
     },
@@ -86,6 +89,6 @@ const generalSlice = createSlice({
     //     },
     //   },
 })
-export const { setMembers, setNextStep, increasePercentage, setSelectedMembers, decreasePercentage, setPartB, setPartC } = generalSlice.actions;
+export const { setMembers, setNextStep, increasePercentage, setSelectedMembers, decreasePercentage, setPartB, setPartC,setIsFinished } = generalSlice.actions;
 
 export default generalSlice.reducer;
