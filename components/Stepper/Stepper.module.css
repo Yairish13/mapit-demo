@@ -3,20 +3,23 @@
     max-width: 600px;
     /* margin: 0 auto; */
     /* padding: 0 16px; */
-     padding: 1rem 0;
- }
-.mainContainerVertically{
+    padding: 1rem 0;
+}
+
+.mainContainerVertically {
     /* width: 100%;
     height: 100%;
     max-width: 100px;
     max-height: 600px;
     margin: 0px auto; */
-    padding: 25px 25px;
+    /* padding: 25px 25px; */
+    padding: 0px 15px;
 }
+
 @media (min-width: 970px) {
-  .mainContainerVertically{
-    padding: 25px 0;
-   }
+    .mainContainerVertically {
+        padding: 25px 0;
+    }
 }
 
 .stepContainer {
@@ -26,15 +29,17 @@
     position: relative;
     flex-direction: row-reverse;
 }
-.stepContainerVertically{
+
+.stepContainerVertically {
     display: flex;
-  flex-direction:column;
-  align-items: center;
-  justify-content: space-between;
-  margin-top: 70px;
-  position: relative;
-  height: 50vh;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 70px;
+    position: relative;
+    height: 50vh;
 }
+
 .stepContainer::before {
     content: '';
     position: absolute;
@@ -45,6 +50,7 @@
     transform: translateY(-50%);
     left: 0;
 }
+
 .stepContainer::after {
     content: '';
     position: absolute;
@@ -55,16 +61,18 @@
     transform: translateY(-50%);
     left: 0;
 }
+
 .stepContainerVertically:before {
     content: "";
     position: absolute;
-    background:var(--color-primary-disabled);
+    background: var(--color-primary-disabled);
     height: 98%;
     width: 4px;
     top: 50%;
     transform: translate(0px, -50%);
-  }
-  .stepContainerVertically:after {
+}
+
+.stepContainerVertically:after {
     content: '';
     position: absolute;
     background: var(--color-primary);
@@ -73,15 +81,16 @@
     top: 50%;
     transition: 0.4s ease;
     transform: translate(0px, -50%);
-  }
-  .stepWrapper {
+}
+
+.stepWrapper {
     position: relative;
     z-index: 1;
     background-color: white;
     border-radius: 50%;
 }
 
-.stepStyle{
+.stepStyle {
     width: 40px;
     height: 40px;
     border-radius: 50%;
@@ -91,7 +100,13 @@
     display: flex;
     justify-content: center;
     align-items: center;
+
+    @media (max-width: 500px) {
+        width: 30px;
+        height: 30px;
+    }
 }
+
 .notCheck {
     width: 10px;
     height: 10px;
@@ -100,11 +115,13 @@
     border-radius: 50%;
     background: #5E9E99;
 }
+
 .completed {
     border: 3px solid var(--color-primary);
     border: 3px solid var(--color-primary);
     background-color: var(--color-primary);
 }
+
 .incompleted {
     border: 3px solid var(--color-primary-disabled);
 }

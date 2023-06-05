@@ -9,7 +9,7 @@ const RadiosAnswer = ({ handleCheck, selectedMembers, register, name, setValue }
     const arr = [...selectedMembers]
     const handleChange = (e, index, name, workerId) => {
         setValue(`${name}_${workerId}`, true);
-        if (handleCheck) handleCheck(e, index, name);
+        if (handleCheck) handleCheck(e, name, index);
     }
     return (
         <table>
@@ -68,7 +68,7 @@ const RadiosAnswer = ({ handleCheck, selectedMembers, register, name, setValue }
                                         required: true,
                                     })
                                 }}
-                                register={register}
+                                // register={register}
                                 checked={arr[index].questionNumberTwo}
                             />
                         </td>

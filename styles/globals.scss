@@ -42,21 +42,26 @@ p {
 /* global utils */
 .container {
   max-width: var(--max-width);
-  padding-right: var(--padding-large);
-  padding-left: var(--padding-large);
+  padding-inline-start: var(--padding-large);
+  padding-inline-end: var(--padding-large);
   margin-right: auto;
   margin-left: auto;
+  @media (max-width: 500px) {
+    padding-inline-start: 8px;
+  }
 }
-.question{
+
+.question {
   width: 50%;
   margin-inline-end: 1rem;
   display: flex;
   gap: 10px;
   margin-bottom: 25px;
+
   @media (max-width: 970px) {
-  width: 100%;
-  display: flex;
-  padding: 1rem 0;
+    width: 100%;
+    display: flex;
+    padding: 1rem 0;
   }
 }
 
@@ -66,13 +71,15 @@ p {
   padding: 1rem 1rem;
   border: 1px solid #B1BEC5;
   width: 32.5rem;
+
   @media (max-width: 970px) {
-  width: 100%;
-  display: inline;
-  padding: 1rem 1rem;
-  margin: 1rem 0;
+    width: 100%;
+    display: inline;
+    padding: 1rem 1rem;
+    margin: 1rem 0;
   }
 }
+
 .container-content {
   max-width: var(--max-width-small);
   margin-right: auto;
@@ -144,12 +151,19 @@ input:focus {
 table {
   width: 100%;
 }
-td{
+
+td {
   white-space: nowrap;
 }
-th{
+
+th {
   font-size: 0.75rem;
+
+  @media (max-width: 600px) {
+    font-size: 0.5rem;
+  }
 }
-.error{
+
+.error {
   border-color: var(--color-error);
 }

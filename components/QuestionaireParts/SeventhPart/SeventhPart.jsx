@@ -9,15 +9,34 @@ import QuestionText from '@components/QuestionText/QuestionText';
 import { Trans } from 'react-i18next';
 import QuestionaireHeader from '@components/QuestionaireHeader/QuestionaireHeader';
 import QuestionaireFooter from '@components/QuestionaireFooter/QuestionaireFooter';
+import { useForm } from 'react-hook-form';
+import { setPartC } from '@store/generalSlice';
+import { useDispatch, useSelector } from 'react-redux';
+import { useEffect } from 'react';
 
 const SeventhPart = ({
     lng
 }) => {
     const router = useRouter();
+    const partC = useSelector((state) => state.general.partC);
+    const dispatch = useDispatch();
+    let obj = { ...partC };
+    const { register, handleSubmit, setValue, formState: { errors } } = useForm({
+        mode: 'onChange',
+    });
     const { t } = useTranslation(lng);
+    const handleCheck = (option, name) => {
+        if (option?.target?.id) obj = { ...obj, [name]: option.target.id };
+        else obj = { ...obj, [name]: option };
+        console.log(obj);
+        dispatch(setPartC(obj))
+    }
     const handleNext = () => {
         router.push(`${lng}/finish`)
     }
+    useEffect(()=>{
+        console.log(errors);
+    },[errors])
     return (
         <div className={styles.containerPartB}>
             <div>
@@ -34,9 +53,12 @@ const SeventhPart = ({
                         number={1}
                     />
                     <RadiosAnswerRange
-                        name="questionSixteen"
+                        name="questionOne"
                         textOne={t("pages.questionaire.partC.questionOneTextOne")}
                         textTwo={t("pages.questionaire.partC.questionOneTextTwo")}
+                        handleCheck={handleCheck}
+                        required={true}
+                        isError={isErrored(errors, 'questionOne')}
                     />
                 </div>
                 <div className={styles.answerContainer}>
@@ -46,9 +68,12 @@ const SeventhPart = ({
                         number={2}
                     />
                     <RadiosAnswerRange
-                        name='questionSeventeen'
+                        name='questionTwo'
                         textOne={t("pages.questionaire.partC.questionTwoTextOne")}
                         textTwo={t("pages.questionaire.partC.questionTwoTextTwo")}
+                        handleCheck={handleCheck}
+                        required={true}
+                        isError={isErrored(errors, 'questionTwo')}
                     />
                 </div>
                 <div className={styles.answerContainer}>
@@ -58,9 +83,12 @@ const SeventhPart = ({
                         number={3}
                     />
                     <RadiosAnswerRange
-                        name='questionEighteen'
+                        name='questionThree'
                         textOne={t("pages.questionaire.partC.questionThreeTextOne")}
                         textTwo={t("pages.questionaire.partC.questionThreeTextTwo")}
+                        handleCheck={handleCheck}
+                        required={true}
+                        isError={isErrored(errors, 'questionThree')}
                     />
                 </div>
                 <div className={styles.answerContainer}>
@@ -70,12 +98,12 @@ const SeventhPart = ({
                         </Trans>}
                         number={4}
                     />
-                    <div className='answer'>
+                    <div className={`${isErrored(errors, 'questionFour') ? 'error' : ''} answer`}>
                         <RadiosAnswerSurvey
-                            name="questionFourPartC"
-                        // handleCheck={handleCheck}
-                        // selectedMembers={selectedMembers}
-                        // register={register}
+                            name="questionFour"
+                            handleCheck={handleCheck}
+                            register={register}
+                            required={true}
                         />
                     </div>
                 </div>
@@ -87,9 +115,12 @@ const SeventhPart = ({
                         number={5}
                     />
                     <RadiosAnswerRange
-                        name='questionTwenty'
+                        name='questionFive'
                         textOne={t("global.yes")}
                         textTwo={t("global.no")}
+                        handleCheck={handleCheck}
+                        required={true}
+                        isError={isErrored(errors, 'questionFive')}
                     />
                 </div>
                 <div className={styles.answerContainer}>
@@ -99,12 +130,12 @@ const SeventhPart = ({
                         </Trans>}
                         number={6}
                     />
-                    <div className='answer'>
+                    <div className={`${isErrored(errors, 'questionSix') ? 'error' : ''} answer`}>
                         <RadiosAnswerSurvey
-                            name="questionSixPartC"
-                        // handleCheck={handleCheck}
-                        // selectedMembers={selectedMembers}
-                        // register={register}
+                            name="questionSix"
+                            handleCheck={handleCheck}
+                            register={register}
+                            required={true}
                         />
                     </div>
                 </div>

@@ -10,11 +10,13 @@ import QuestionText from "@components/QuestionText/QuestionText";
 import { Trans } from "react-i18next/TransWithoutContext";
 import QuestionaireFooter from "@components/QuestionaireFooter/QuestionaireFooter";
 import QuestionaireHeader from "@components/QuestionaireHeader/QuestionaireHeader";
+import { useEffect } from "react";
+import { isErrored } from "@utils";
 
 
-const FourthPart = ({ members, lng }) => {
+const FourthPart = ({ lng }) => {
     const { t } = useTranslation(lng);
-    const { register, formState: { errors } } = useForm({
+    const { register, formState: { errors }, setValue, handleSubmit } = useForm({
         mode: 'any',
     });
     const selectedMembers = useSelector((state) => state.general.selectedMembers);
@@ -24,9 +26,14 @@ const FourthPart = ({ members, lng }) => {
         dispatch(setNextStep())
         dispatch(increasePercentage())
     }
-    const handleCheck = (option, index, name) => {
+    const handleCheck = (option, name, index) => {
         arr[index] = { ...arr[index], [name]: option.target.id };
+        console.log(arr);
     }
+
+    useEffect(() => {
+        console.log(errors);
+    }, [errors])
     return (
         <>
             <div className={styles.container}>
@@ -41,13 +48,15 @@ const FourthPart = ({ members, lng }) => {
                         subText={t('pages.questionaire.noRelevant')}
                         number={6}
                     />
-                    <div className='answer'>
+                    <div className={`${isErrored(errors, 'questionSix') ? 'error' : ''} answer`}>
                         <RadiosAnswerSurvey
                             t={t}
                             handleCheck={handleCheck}
                             selectedMembers={selectedMembers}
                             register={register}
                             name="questionSix"
+                            setValue={setValue}
+                            required={true}
                         />
                     </div>
                 </div>
@@ -59,19 +68,21 @@ const FourthPart = ({ members, lng }) => {
                         subText={t('pages.questionaire.noRelevant')}
                         number={7}
                     />
-                    <div className='answer'>
+                    <div className={`${isErrored(errors, 'questionSeven') ? 'error' : ''} answer`}>
                         <RadiosAnswerSurvey
                             t={t}
                             handleCheck={handleCheck}
                             selectedMembers={selectedMembers}
                             register={register}
                             name="questionSeven"
+                            setValue={setValue}
+                            required={true}
                         />
                     </div>
                 </div>
             </div>
             <QuestionaireFooter
-                handleClick={handleNext}
+                handleClick={handleSubmit(() => handleNext())}
             />
         </>
     )

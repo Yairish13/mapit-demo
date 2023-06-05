@@ -20,41 +20,51 @@
     min-height: 20vh;
 }
 
-.radioBtn{
+.radioBtn {
     text-align: center;
 }
-.aformalDiv{
+
+.aformalDiv {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     justify-content: center;
 }
-.optionsContainer{
+
+.optionsContainer {
     display: grid;
 }
-.selectsContainer{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    flex-wrap: wrap;
+
+.selectsContainer {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
     gap: 10px;
+    padding: 10px;
+
+    @media (max-width: 550px) {
+        grid-template-columns: 1fr;
+    }
 }
+
 @media (min-width: 800px) {
-    .optionsContainer{
+    .optionsContainer {
         grid-template-columns: 1fr 1fr 1fr;
     }
 }
+
 @media (max-width: 970px) {
-  .answerContainer { 
-  flex-direction: column;
-  width: 100%;
-  }
-  .stepper{
-    width: 100%;
-  } 
-  .footer  { 
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  }
+    .answerContainer {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .stepper {
+        width: 100%;
+    }
+
+    .footer {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
 }

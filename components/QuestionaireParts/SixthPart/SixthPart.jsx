@@ -3,22 +3,38 @@ import styles from './SixthPart.module.css'
 import { useTranslation } from '@app/i18n/client';
 import RadiosAnswerSurvey from '@components/RadiosAnswerSurvey/RadiosAnswerSurvey';
 import Stepper from '@components/Stepper/Stepper';
-import { useDispatch } from 'react-redux';
-import { setNextStep, increasePercentage } from '@store/generalSlice';
+import { useDispatch, useSelector } from 'react-redux';
+import { setNextStep, increasePercentage, setPartB } from '@store/generalSlice';
 import QuestionText from '@components/QuestionText/QuestionText';
 import { Trans } from 'react-i18next/TransWithoutContext';
 import QuestionaireHeader from '@components/QuestionaireHeader/QuestionaireHeader';
 import QuestionaireFooter from '@components/QuestionaireFooter/QuestionaireFooter';
+import { useForm } from 'react-hook-form';
+import { useEffect } from 'react';
+import { isErrored } from '@utils';
 
 const SixthPart = ({
     lng
 }) => {
     const { t } = useTranslation(lng);
-    const dispatch = useDispatch()
+    const partB = useSelector((state) => state.general.partB);
+    let obj = { ...partB };
+    const { register, handleSubmit, setValue, formState: { errors } } = useForm({
+        mode: 'onChange',
+    });
+    const dispatch = useDispatch();
+
     const handleNext = () => {
         dispatch(setNextStep())
         dispatch(increasePercentage())
     }
+    const handleCheck = (option, name) => {
+        setValue(name,true)
+        obj = { ...obj, [name]: option.target.id };
+        dispatch(setPartB(obj))
+    }
+    useEffect(() => { console.log(errors); }
+        , [errors])
     return (
         <div className={styles.containerPartB}>
             <div>
@@ -35,12 +51,13 @@ const SixthPart = ({
                         </Trans>}
                         number={1}
                     />
-                    <div className='answer'>
+                    <div className={`${isErrored(errors, 'questionOne') ? 'error' : ''} answer`}>
                         <RadiosAnswerSurvey
-                            name="questionOnePartB"
-                        // handleCheck={handleCheck}
-                        // selectedMembers={selectedMembers}
-                        // register={register}
+                            name="questionOne"
+                            handleCheck={handleCheck}
+                            register={register}
+                            setValue={setValue}
+                            required={true}
                         />
                     </div>
                 </div>
@@ -51,12 +68,13 @@ const SixthPart = ({
                         </Trans>}
                         number={2}
                     />
-                    <div className='answer'>
+                    <div className={`${isErrored(errors, 'questionTwo') ? 'error' : ''} answer`}>
                         <RadiosAnswerSurvey
-                            name="questionTwoPartB"
-                        // handleCheck={handleCheck}
-                        // selectedMembers={selectedMembers}
-                        // register={register}
+                            name="questionTwo"
+                            handleCheck={handleCheck}
+                            register={register}
+                            setValue={setValue}
+                            required={true}
                         />
                     </div>
                 </div>
@@ -67,13 +85,13 @@ const SixthPart = ({
                         </Trans>}
                         number={3}
                     />
-                    <div className='answer'>
+                    <div className={`${isErrored(errors, 'questionThree') ? 'error' : ''} answer`}>
                         <RadiosAnswerSurvey
-                            name="questionThreePartB"
-
-                        // handleCheck={handleCheck}
-                        // selectedMembers={selectedMembers}
-                        // register={register}
+                            name="questionThree"
+                            handleCheck={handleCheck}
+                            register={register}
+                            setValue={setValue}
+                            required={true}
                         />
                     </div>
                 </div>
@@ -84,13 +102,13 @@ const SixthPart = ({
                         </Trans>}
                         number={4}
                     />
-                    <div className='answer'>
+                    <div className={`${isErrored(errors, 'questionFour') ? 'error' : ''} answer`}>
                         <RadiosAnswerSurvey
-                            name="questionFourPartB"
-
-                        // handleCheck={handleCheck}
-                        // selectedMembers={selectedMembers}
-                        // register={register}
+                            name="questionFour"
+                            handleCheck={handleCheck}
+                            register={register}
+                            setValue={setValue}
+                            required={true}
                         />
                     </div>
                 </div>
@@ -101,13 +119,13 @@ const SixthPart = ({
                         </Trans>}
                         number={5}
                     />
-                    <div className='answer'>
+                    <div className={`${isErrored(errors, 'questionFive') ? 'error' : ''} answer`}>
                         <RadiosAnswerSurvey
-                            name="questionFivePartB"
-
-                        // handleCheck={handleCheck}
-                        // selectedMembers={selectedMembers}
-                        // register={register}
+                            name="questionFive"
+                            handleCheck={handleCheck}
+                            register={register}
+                            setValue={setValue}
+                            required={true}
                         />
                     </div>
                 </div>
@@ -118,20 +136,20 @@ const SixthPart = ({
                         </Trans>}
                         number={6}
                     />
-                    <div className='answer'>
+                    <div className={`${isErrored(errors, 'questionSix') ? 'error' : ''} answer`}>
                         <RadiosAnswerSurvey
-                            name="questionSixPartB"
-
-                        // handleCheck={handleCheck}
-                        // selectedMembers={selectedMembers}
-                        // register={register}
+                            name="questionSix"
+                            handleCheck={handleCheck}
+                            register={register}
+                            setValue={setValue}
+                            required={true}
                         />
                     </div>
                 </div>
                 <QuestionaireFooter
                     wide={true}
                     withStepper={false}
-                    handleClick={handleNext}
+                    handleClick={handleSubmit(handleNext)}
                 />
             </div>
         </div>

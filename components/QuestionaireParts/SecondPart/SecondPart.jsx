@@ -12,6 +12,7 @@ import { Trans } from "react-i18next/TransWithoutContext";
 import QuestionaireHeader from "@components/QuestionaireHeader/QuestionaireHeader";
 import QuestionaireFooter from "@components/QuestionaireFooter/QuestionaireFooter";
 import { useEffect } from "react";
+import { isErrored } from "@utils";
 
 
 const SecondPart = ({ members, lng }) => {
@@ -23,15 +24,15 @@ const SecondPart = ({ members, lng }) => {
     const arr = [...selectedMembers]
     const dispatch = useDispatch()
     const handleNext = () => {
-        dispatch(setSelectedMembers(arr))
         dispatch(setNextStep())
         dispatch(increasePercentage())
     }
-    const handleCheck = (option, index, name) => {
-        console.log(option, index, name);
-        if (name === 'questionNumberThree') arr[index] = { ...arr[index], [name]: option.target.checked };
+    const handleCheck = (option, name, index) => {
+        console.log(option, name, index, 'option, name, index');
+        if (name === 'questionThree') arr[index] = { ...arr[index], [name]: option.target.checked };
         else arr[index] = { ...arr[index], [name]: option.target.id };
-        console.log(arr);
+        dispatch(setSelectedMembers(arr))
+
     }
     useEffect(() => {
         console.log(errors);
@@ -49,14 +50,14 @@ const SecondPart = ({ members, lng }) => {
                         </Trans>}
                         number={2}
                     />
-                    <div className='answer'>
+                    <div className={`${isErrored(errors, 'questionTwo') ? 'error' : ''} answer`}>
                         {selectedMembers &&
                             <RadiosAnswer
                                 handleCheck={handleCheck}
                                 selectedMembers={selectedMembers}
                                 setValue={setValue}
                                 register={register}
-                                name="questionNumberTwo"
+                                name="questionTwo"
                             />}
                     </div>
                 </div>
@@ -68,13 +69,13 @@ const SecondPart = ({ members, lng }) => {
                         subText={t('pages.questionaire.questionThreeSubText')}
                         number={3}
                     />
-                    <div className={`answer ${styles.aformalDiv}`}>
+                    <div className={`${isErrored(errors, 'questionThree') ? 'error' : ''} answer ${styles.aformalDiv}`}>
                         {t("pages.questionaire.nonFormal")}
                         {selectedMembers.map((worker, index) => (
                             <div key={index}>
                                 <Checkbox
-                                    id="questionNumberThree"
-                                    name='questionNumberThree'
+                                    id="questionThree"
+                                    name='questionThree'
                                     label={worker.value}
                                     onChange={handleCheck}
                                     checked={arr[index].questionNumberThree}
@@ -86,7 +87,7 @@ const SecondPart = ({ members, lng }) => {
                 </div>
             </div >
             <QuestionaireFooter
-                handleClick={handleSubmit(() => handleNext())}
+                handleClick={handleSubmit(handleNext)}
             />
         </>
     )

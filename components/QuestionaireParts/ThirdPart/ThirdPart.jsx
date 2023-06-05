@@ -2,7 +2,7 @@
 "use client";
 import { useDispatch, useSelector } from "react-redux";
 import styles from './ThirdPart.module.css';
-import { setNextStep, increasePercentage } from "../../../store/generalSlice";
+import { setNextStep, increasePercentage, setSelectedMembers } from "../../../store/generalSlice";
 import { useForm } from "react-hook-form";
 import { useTranslation } from "@app/i18n/client";
 import RadiosAnswerSurvey from "@components/RadiosAnswerSurvey/RadiosAnswerSurvey";
@@ -10,6 +10,7 @@ import QuestionText from "@components/QuestionText/QuestionText";
 import { Trans } from "react-i18next/TransWithoutContext";
 import QuestionaireHeader from "@components/QuestionaireHeader/QuestionaireHeader";
 import QuestionaireFooter from "@components/QuestionaireFooter/QuestionaireFooter";
+import { isErrored } from "@utils";
 
 
 const ThirdPart = ({ members, lng }) => {
@@ -18,24 +19,19 @@ const ThirdPart = ({ members, lng }) => {
         mode: 'any',
     });
     const selectedMembers = useSelector((state) => state.general.selectedMembers);
-    console.log(selectedMembers,'selectedMembers');
+    console.log(selectedMembers, 'selectedMembers');
     const arr = [...selectedMembers]
     const dispatch = useDispatch()
     const handleNext = () => {
-        console.log(arr);
         dispatch(setNextStep())
         dispatch(increasePercentage())
     }
-    const handleCheck = (option, index, name) => {
-        console.log(option,index,name);
+    const handleCheck = (option, name, index) => {
+        console.log(option, index, name);
         arr[index] = { ...arr[index], [name]: option.target.id };
+        dispatch(setSelectedMembers(arr))
     }
-    // const handleCheck = (option, index, name) => {
-    //     console.log(option, index, name);
-    //     if (name === 'questionNumberThree') arr[index] = { ...arr[index], [name]: option.target.checked };
-    //     else arr[index] = { ...arr[index], [name]: option.target.id };
-    //     console.log(arr);
-    // }
+
     return (
         <>
             <div className={styles.container}>
@@ -50,12 +46,14 @@ const ThirdPart = ({ members, lng }) => {
                         subText={t('pages.questionaire.noRelevant')}
                         number={4}
                     />
-                    <div className='answer'>
+                    <div className={`${isErrored(errors, 'questionFour') ? 'error' : ''} answer`}>
                         <RadiosAnswerSurvey
                             handleCheck={handleCheck}
                             selectedMembers={selectedMembers}
                             register={register}
+                            setValue={setValue}
                             name='questionFour'
+                            required={true}
                         />
                     </div>
                 </div>
@@ -67,18 +65,20 @@ const ThirdPart = ({ members, lng }) => {
                         subText={t('pages.questionaire.noRelevant')}
                         number={5}
                     />
-                    <div className='answer'>
+                    <div className={`${isErrored(errors, 'questionFive') ? 'error' : ''} answer`}>
                         <RadiosAnswerSurvey
                             handleCheck={handleCheck}
                             selectedMembers={selectedMembers}
                             register={register}
+                            setValue={setValue}
                             name='questionFive'
+                            required={true}
                         />
                     </div>
                 </div>
             </div>
             <QuestionaireFooter
-                handleClick={handleNext}
+                handleClick={handleSubmit(handleNext)}
             />
         </>
     )
