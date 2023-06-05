@@ -149,6 +149,7 @@ const SixthPart = ({
                 <QuestionaireFooter
                     wide={true}
                     withStepper={false}
+                    isError={Object.keys(errors).length > 0 ? true : false}
                     handleClick={handleSubmit(handleNext)}
                 />
             </div>

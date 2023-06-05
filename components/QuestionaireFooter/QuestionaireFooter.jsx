@@ -3,7 +3,7 @@ import styles from './QuestionaireFooter.module.css'
 import Button from '@components/Button/Button'
 import { useTranslation } from 'react-i18next'
 
-const QuestionaireFooter = ({ handleClick, firstPart, wide, withStepper = true }) => {
+const QuestionaireFooter = ({ handleClick, firstPart, wide, isError, withStepper = true }) => {
     const { t } = useTranslation()
     return (
         <div className={wide ? styles.footerWide : styles.footer}>
@@ -11,6 +11,7 @@ const QuestionaireFooter = ({ handleClick, firstPart, wide, withStepper = true }
             {withStepper && <div className={styles.stepper}>
                 <Stepper />
             </div>}
+            {isError && <div className='errDiv'>{t('general.pleaseFillRequired')}</div>}
             <Button mode="primary" onClick={(e) => handleClick(e)}>
                 {t("global.next")}
             </Button>

@@ -11,9 +11,9 @@ const Logo = (props) => {
 
 
   return (
-    <Link className={styles.logo} href={`/${lng}`}>
+    <div className={styles.logo} href=''>
       {logo ? logo : <SiteLogo />}
-    </Link>
+    </div>
   )
 }
 

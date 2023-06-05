@@ -81,6 +81,7 @@ const FirstPart = ({ members, lng }) => {
         </div>
       </div>
       <QuestionaireFooter
+        isError={isError}
         handleClick={handleNext}
         firstPart={true}
       />

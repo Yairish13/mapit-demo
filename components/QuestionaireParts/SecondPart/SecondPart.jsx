@@ -87,6 +87,7 @@ const SecondPart = ({ members, lng }) => {
                 </div>
             </div >
             <QuestionaireFooter
+                isError={Object.keys(errors).length > 0 ? true : false}
                 handleClick={handleSubmit(handleNext)}
             />
         </>

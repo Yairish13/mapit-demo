@@ -163,7 +163,10 @@ th {
     font-size: 0.5rem;
   }
 }
-
+.errDiv{
+  color: var(--color-error);
+  margin-bottom: 10px;
+}
 .error {
   border-color: var(--color-error);
 }
