@@ -44,6 +44,7 @@ const FirstPart = ({ members, lng }) => {
     }
   }
   useEffect(() => {
+    console.log(isFinished);
     if (isFinished) router.push(`${lng}/finish`)
   }, [])
   return (

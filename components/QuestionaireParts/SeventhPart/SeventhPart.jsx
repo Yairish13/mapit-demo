@@ -20,6 +20,8 @@ const SeventhPart = ({
 }) => {
     const router = useRouter();
     const partC = useSelector((state) => state.general.partC);
+    const isFinished = useSelector((state) => state.general.isFinished);
+
     const dispatch = useDispatch();
     let obj = { ...partC };
     const { register, handleSubmit, setValue, formState: { errors } } = useForm({
@@ -39,6 +41,10 @@ const SeventhPart = ({
     useEffect(()=>{
         console.log(errors);
     },[errors])
+    useEffect(() => {
+        console.log(isFinished);
+        if (isFinished) router.push(`${lng}/finish`)
+      }, [])
     return (
         <div className={styles.containerPartB}>
             <div>
@@ -59,6 +65,7 @@ const SeventhPart = ({
                         textOne={t("pages.questionaire.partC.questionOneTextOne")}
                         textTwo={t("pages.questionaire.partC.questionOneTextTwo")}
                         handleCheck={handleCheck}
+                        register={register}
                         required={true}
                         isError={isErrored(errors, 'questionOne')}
                     />
@@ -75,6 +82,7 @@ const SeventhPart = ({
                         textTwo={t("pages.questionaire.partC.questionTwoTextTwo")}
                         handleCheck={handleCheck}
                         required={true}
+                        register={register}
                         isError={isErrored(errors, 'questionTwo')}
                     />
                 </div>
@@ -90,6 +98,7 @@ const SeventhPart = ({
                         textTwo={t("pages.questionaire.partC.questionThreeTextTwo")}
                         handleCheck={handleCheck}
                         required={true}
+                        register={register}
                         isError={isErrored(errors, 'questionThree')}
                     />
                 </div>
@@ -121,6 +130,7 @@ const SeventhPart = ({
                         textOne={t("global.yes")}
                         textTwo={t("global.no")}
                         handleCheck={handleCheck}
+                        register={register}
                         required={true}
                         isError={isErrored(errors, 'questionFive')}
                     />
@@ -144,7 +154,7 @@ const SeventhPart = ({
                 <QuestionaireFooter
                     wide={true}
                     withStepper={false}
-                    handleClick={handleNext}
+                    handleClick={handleSubmit(handleNext)}
                 />
             </div>
         </div>
