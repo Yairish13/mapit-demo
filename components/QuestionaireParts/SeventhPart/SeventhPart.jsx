@@ -29,6 +29,7 @@ const SeventhPart = ({
     });
     const { t } = useTranslation(lng);
     const handleCheck = (option, name) => {
+        setValue(name, true)
         if (option?.target?.id) obj = { ...obj, [name]: option.target.id };
         else obj = { ...obj, [name]: option };
         console.log(obj);
@@ -38,13 +39,13 @@ const SeventhPart = ({
         dispatch(setIsFinished())
         router.push(`${lng}/finish`)
     }
-    useEffect(()=>{
+    useEffect(() => {
         console.log(errors);
-    },[errors])
+    }, [errors])
     useEffect(() => {
         console.log(isFinished);
         if (isFinished) router.push(`${lng}/finish`)
-      }, [])
+    }, [])
     return (
         <div className={styles.containerPartB}>
             <div>
