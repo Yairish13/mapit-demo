@@ -10,12 +10,12 @@ const Checkbox = ({ id, label, checked, onChange, error, errorText, name, index,
                 <input
                     className={styles.input}
                     type="checkbox"
-                    id={id}
+                    id={`${id}_${index}`}
                     checked={checked}
                     onChange={(e) => handleChange(e)}
                     register={register}
                 />
-                {label && <label className={styles.label}>
+                {label && <label htmlFor={`${id}_${index}`} className={styles.label}>
                     {label}
                 </label>}
             </div>

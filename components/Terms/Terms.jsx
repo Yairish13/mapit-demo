@@ -39,6 +39,7 @@ const Terms = ({ lng }) => {
                             {t('pages.terms.readTakanon')}
                         </span>
                     </Link>
+                    <div className={styles.checkbox}>
                     <Checkbox
                         id='readAndAcceptedTakanon'
                         refs={{
@@ -49,6 +50,7 @@ const Terms = ({ lng }) => {
                         onChange={handleChange}
                         checked={isChecked}
                     />
+                    </div>
                 </div>
                 {errors && errors.readAndAcceptedTakanon && <div className={styles.errDiv}>{t('pages.terms.checkboxErr')}</div>}
                 <div>

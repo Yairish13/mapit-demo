@@ -46,10 +46,6 @@ p {
   padding-inline-end: var(--padding-large);
   margin-right: auto;
   margin-left: auto;
-  @media (max-width: 500px) {
-    padding-inline-start: 8px;
-    padding-inline-end: 8px;
-  }
 }
 
 .question {

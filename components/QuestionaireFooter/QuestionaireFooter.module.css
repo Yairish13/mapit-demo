@@ -1,6 +1,6 @@
 .footer {
     color: var(--color-secondary);
-    margin: 10px 8%;
+    margin: 0.8rem 4rem;
 }
 .footerWide {
     margin: 80px 0 35px 0;
