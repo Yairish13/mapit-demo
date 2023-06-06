@@ -2,7 +2,7 @@
 "use client";
 import { useDispatch, useSelector } from "react-redux";
 import styles from './FifthPart.module.css';
-import { setNextStep, increasePercentage } from "../../../store/generalSlice";
+import { filterAnsweredQuestions, setAnsweredQuestions, setNextStep } from "../../../store/generalSlice";
 import { useForm } from "react-hook-form";
 import { useTranslation } from "@app/i18n/client";
 import CustomSelect from "@components/CustomSelect/CustomSelect";
@@ -11,28 +11,48 @@ import QuestionText from "@components/QuestionText/QuestionText";
 import { Trans } from "react-i18next/TransWithoutContext";
 import QuestionaireHeader from "@components/QuestionaireHeader/QuestionaireHeader";
 import QuestionaireFooter from "@components/QuestionaireFooter/QuestionaireFooter";
+import { useState } from "react";
 
 
 const FifthPart = ({ members, lng }) => {
+    const [selectedOptions, setSelectedOptions] = useState([]);
     const { t } = useTranslation(lng);
     const { register, setValue, handleSubmit, formState: { errors } } = useForm({
         mode: 'any',
     });
     const selectedMembers = useSelector((state) => state.general.selectedMembers);
-    const arr = [...selectedMembers]
+    const arr = [...selectedMembers];
+    let newArr = [];
     const dispatch = useDispatch()
     const handleNext = () => {
         dispatch(setNextStep())
-        dispatch(increasePercentage())
     }
-    const handleCheck = (option, name, index) => {
-        // console.log(m);
-        console.log(option, index, name);
-        // arr[index] = { ...arr[index], [name]: option.target.id };
-        // console.log(arr, 'arr');
-        // dispatch(setSelectedMembers(arr))
+    const handleSelect = (option) => {
+        if (selectedOptions.length === 0) {
+            dispatch(setAnsweredQuestions('questionNine'))
+            setIsError(false)
+        }
+        const index = selectedOptions.findIndex((item) => item.id === option.id);
+        if (index > -1) {
+            if (selectedOptions.length === 1) dispatch(filterAnsweredQuestions('questionNine'))
+            setSelectedOptions((prevOptions) => {
+                const updatedOptions = [...prevOptions];
+                updatedOptions.splice(index, 1);
+                return updatedOptions;
+            });
+        } else {
+            setSelectedOptions((prevOptions) => [...prevOptions, option]);
+        }
     }
-    const options = [{ "id": 13, "value": "כריסטיאנו רונאלדו" }, { "id": 14, "value": "מייקל ג'קסון" }, { "id": 15, "value": "סקוטי פיפר" }, { "id": 16, "value": "לברון ג'יימס" }, { "id": 17, "value": "שירלי כהן" }, { "id": 18, "value": "קובי ברייאנט" }]
+    const handleCheck = (e, name, index) => {
+        if (e.target.checked) {
+            newArr.length === 0 && dispatch(setAnsweredQuestions(name))
+            newArr = [...newArr, e.target.value]
+        } else {
+            newArr.length === 1 && dispatch(filterAnsweredQuestions(name));
+            newArr.filter((el) => el !== e.target.value)
+        }
+    }
     return (
         <>
             <div className={styles.container}>
@@ -49,7 +69,7 @@ const FifthPart = ({ members, lng }) => {
                     />
                     <div className='answer'>
                         <div className={styles.optionsContainer}>
-                            {options.map((el, index) => (
+                            {selectedMembers.map((el, index) => (
                                 <div key={index} style={{ display: 'flex', justifyContent: 'flex-start' }}>
                                     <Checkbox
                                         index={index}
@@ -74,21 +94,24 @@ const FifthPart = ({ members, lng }) => {
                         <CustomSelect
                             name="questionNine"
                             withArrow={true}
-                            options={options}
+                            options={members[0].departments[2].workers}
                             placeholder={t('global.department')}
+                            onChange={handleSelect}
                         />
                         <CustomSelect
                             name="questionNine"
                             withArrow={true}
-                            options={options}
+                            options={members[0].departments[1].workers}
                             placeholder={t('global.department')}
+                            onChange={handleSelect}
 
                         />
                         <CustomSelect
                             name="questionNine"
                             withArrow={true}
-                            options={options}
+                            options={members[0].departments[0].workers}
                             placeholder={t('global.department')}
+                            onChange={handleSelect}
                         />
                     </div>
                 </div>

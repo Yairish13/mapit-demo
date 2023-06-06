@@ -2,7 +2,7 @@
 "use client";
 import { useDispatch, useSelector } from "react-redux";
 import styles from './FourthPart.module.css';
-import { setNextStep, increasePercentage } from "../../../store/generalSlice";
+import { setNextStep, increasePercentage, setAnsweredQuestions } from "../../../store/generalSlice";
 import { useForm } from "react-hook-form";
 import { useTranslation } from "@app/i18n/client";
 import RadiosAnswerSurvey from "@components/RadiosAnswerSurvey/RadiosAnswerSurvey";
@@ -11,12 +11,12 @@ import { Trans } from "react-i18next/TransWithoutContext";
 import QuestionaireFooter from "@components/QuestionaireFooter/QuestionaireFooter";
 import QuestionaireHeader from "@components/QuestionaireHeader/QuestionaireHeader";
 import { useEffect } from "react";
-import { isErrored } from "@utils";
+import { isAnswered, isErrored } from "@utils";
 
 
 const FourthPart = ({ lng }) => {
     const { t } = useTranslation(lng);
-    const { register, formState: { errors }, setValue, handleSubmit } = useForm({
+    const { register, formState: { errors }, setValue, handleSubmit,getValues } = useForm({
         mode: 'any',
     });
     const selectedMembers = useSelector((state) => state.general.selectedMembers);
@@ -24,11 +24,11 @@ const FourthPart = ({ lng }) => {
     const dispatch = useDispatch()
     const handleNext = () => {
         dispatch(setNextStep())
-        dispatch(increasePercentage())
     }
     const handleCheck = (option, name, index) => {
         arr[index] = { ...arr[index], [name]: option.target.id };
-        console.log(arr);
+        const answered = isAnswered(getValues(), name)
+        if (answered) dispatch(setAnsweredQuestions(name))
     }
 
     useEffect(() => {

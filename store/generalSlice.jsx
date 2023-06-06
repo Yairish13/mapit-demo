@@ -28,8 +28,9 @@ const initialState = {
     },
     ],
     activeStep: 1,
-    percentage: 0,
+    answeredQuestions: [],
     totalQuestions: 21,
+    percentage: 0,
     isFinished: false,
 }
 
@@ -59,11 +60,18 @@ const generalSlice = createSlice({
             state.activeStep += 1;
             scrollToTop();
         },
-        increasePercentage: (state, action) => {
-            state.percentage += 4;
+        setAnsweredQuestions: (state, action) => {
+            if (state.answeredQuestions.some((el => el == action.payload))) return;
+            else state.answeredQuestions = [...state.answeredQuestions, action.payload];
+            state.percentage = Math.round((state.answeredQuestions.length * 100) / state.totalQuestions);
         },
-        decreasePercentage: (state, action) => {
-            state.percentage -= 4;
+        filterAnsweredQuestions: (state, action) => {
+            state.answeredQuestions = state.answeredQuestions.filter((el) => el !== action.payload);
+            state.percentage = Math.round((state.answeredQuestions.length * 100) / state.totalQuestions);
+        },
+        resetAnsweredQuestions: (state, action) => {
+            state.answeredQuestions = [];
+            state.percentage = Math.round((state.answeredQuestions.length * 100) / state.totalQuestions);
         },
         setSelectedMembers: (state, action) => {
             state.selectedMembers = action.payload;
@@ -85,10 +93,18 @@ const generalSlice = createSlice({
     //       state,
     //       action /* action will be inferred as "any", as the map notation does not contain type information */
     //     ) => {
-    //       state.age += 1
+    //       state.perc += 1
     //     },
     //   },
 })
-export const { setMembers, setNextStep, increasePercentage, setSelectedMembers, decreasePercentage, setPartB, setPartC,setIsFinished } = generalSlice.actions;
+export const { setMembers,
+    setNextStep,
+    setSelectedMembers,
+    setPartB,
+    setPartC,
+    setIsFinished,
+    resetAnsweredQuestions,
+    filterAnsweredQuestions,
+    setAnsweredQuestions } = generalSlice.actions;
 
 export default generalSlice.reducer;

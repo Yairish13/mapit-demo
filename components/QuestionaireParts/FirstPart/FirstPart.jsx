@@ -1,9 +1,9 @@
 "use client";
 import { useDispatch, useSelector } from "react-redux";
 import styles from './FirstPart.module.css'
-import { setNextStep, increasePercentage, setSelectedMembers, decreasePercentage } from "../../../store/generalSlice";
+import { setNextStep, setSelectedMembers, setAnsweredQuestions, resetAnsweredQuestions } from "../../../store/generalSlice";
 import CustomSelect from "@components/CustomSelect/CustomSelect";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useTranslation } from "@app/i18n/client";
 import QuestionText from "@components/QuestionText/QuestionText";
 import { Trans } from 'react-i18next/TransWithoutContext'
@@ -13,7 +13,7 @@ import QuestionaireFooter from "@components/QuestionaireFooter/QuestionaireFoote
 
 const FirstPart = ({ members, lng }) => {
   const isFinished = useSelector((state) => state.general.isFinished);
-
+  const answerContainer = useRef(null);
   const { t } = useTranslation(lng);
   const [selectedOptions, setSelectedOptions] = useState([]);
   const [isError, setIsError] = useState(false);
@@ -21,6 +21,7 @@ const FirstPart = ({ members, lng }) => {
   const handleNext = () => {
     if (selectedOptions.length === 0) {
       setIsError(true)
+      answerContainer.current.focus();
     } else {
       const selectedWithNoDuplicate = selectedOptions.filter((obj, index) => {
         return index === selectedOptions.findIndex(o => obj.id === o.id);
@@ -31,12 +32,12 @@ const FirstPart = ({ members, lng }) => {
   }
   const handleCheck = (option) => {
     if (selectedOptions.length === 0) {
-      dispatch(increasePercentage())
+      dispatch(setAnsweredQuestions('questionOne'))
       setIsError(false)
     }
     const index = selectedOptions.findIndex((item) => item.id === option.id);
     if (index > -1) {
-      if (selectedOptions.length === 1) dispatch(decreasePercentage())
+      if (selectedOptions.length === 1) dispatch(resetAnsweredQuestions())
       setSelectedOptions((prevOptions) => {
         const updatedOptions = [...prevOptions];
         updatedOptions.splice(index, 1);
@@ -66,7 +67,33 @@ const FirstPart = ({ members, lng }) => {
             subText={t('pages.questionaire.questionOneSubText')}
             number={1}
           />
-          <div className={`${styles.selectDiv} ${isError ? 'error' : ''} answer`}>
+          <div className={`${styles.selectDiv} ${isError ? 'error' : ''} answer`} ref={answerContainer}>
+            {members &&
+              members[0] &&
+              members[0].departments &&
+              members[0].departments.map((department, index) => (
+                <CustomSelect
+                  key={index}
+                  onChange={handleCheck}
+                  placeholder={t("global.department")}
+                  withArrow={true}
+                  options={department.workers}
+                  selectedOptions={selectedOptions}
+                />
+              ))}
+            {members &&
+              members[0] &&
+              members[0].departments &&
+              members[0].departments.map((department, index) => (
+                <CustomSelect
+                  key={index}
+                  onChange={handleCheck}
+                  placeholder={t("global.department")}
+                  withArrow={true}
+                  options={department.workers}
+                  selectedOptions={selectedOptions}
+                />
+              ))}
             {members &&
               members[0] &&
               members[0].departments &&

@@ -48,6 +48,7 @@ p {
   margin-left: auto;
   @media (max-width: 500px) {
     padding-inline-start: 8px;
+    padding-inline-end: 8px;
   }
 }
 
@@ -153,14 +154,14 @@ table {
 }
 
 td {
-  white-space: nowrap;
+  white-space: break-spaces;
 }
 
 th {
   font-size: 0.75rem;
 
   @media (max-width: 600px) {
-    font-size: 0.5rem;
+    font-size: 0.65rem;
   }
 }
 .errDiv{

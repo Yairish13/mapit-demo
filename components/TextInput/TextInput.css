@@ -58,5 +58,11 @@ input:focus {
   display: flex;
   flex-direction: row;
   border-bottom: 2px solid #B1BEC5;
+  align-items: center;
+}
+.password{
   align-items: flex-end;
+}
+html[dir="ltr"] .textAndArea{
+  flex-direction: row-reverse;
 }

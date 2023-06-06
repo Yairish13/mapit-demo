@@ -10,7 +10,7 @@ import { Trans } from 'react-i18next';
 import QuestionaireHeader from '@components/QuestionaireHeader/QuestionaireHeader';
 import QuestionaireFooter from '@components/QuestionaireFooter/QuestionaireFooter';
 import { useForm } from 'react-hook-form';
-import { setIsFinished, setPartC } from '@store/generalSlice';
+import { setAnsweredQuestions, setIsFinished, setPartC } from '@store/generalSlice';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { isErrored } from '@utils';
@@ -24,12 +24,13 @@ const SeventhPart = ({
 
     const dispatch = useDispatch();
     let obj = { ...partC };
-    const { register, handleSubmit, setValue, formState: { errors } } = useForm({
+    const { register, handleSubmit, setValue, formState: { errors },setFocus } = useForm({
         mode: 'onChange',
     });
     const { t } = useTranslation(lng);
     const handleCheck = (option, name) => {
         setValue(name, true)
+        dispatch(setAnsweredQuestions(name))
         if (option?.target?.id) obj = { ...obj, [name]: option.target.id };
         else obj = { ...obj, [name]: option };
         console.log(obj);
@@ -46,6 +47,16 @@ const SeventhPart = ({
         console.log(isFinished);
         if (isFinished) router.push(`${lng}/finish`)
     }, [])
+    useEffect(() => {
+        const firstError = Object.keys(errors).reduce((field, a) => {
+            return !!errors[field] ? field : a;
+        }, null);
+
+        if (firstError) {
+            console.log(firstError);
+            setFocus(firstError);
+        }
+    }, [errors, setFocus]);
     return (
         <div className={styles.containerPartB}>
             <div>
@@ -59,60 +70,60 @@ const SeventhPart = ({
                     <QuestionText
                         text={t('pages.questionaire.thirdPart.believe')}
                         subText={t("pages.questionaire.thirdPart.rangeText")}
-                        number={1}
+                        number={16}
                     />
                     <RadiosAnswerRange
-                        name="questionOne"
-                        textOne={t("pages.questionaire.partC.questionOneTextOne")}
-                        textTwo={t("pages.questionaire.partC.questionOneTextTwo")}
+                        name="questionSixteen"
+                        textOne={t("pages.questionaire.questionSixteenTextOne")}
+                        textTwo={t("pages.questionaire.questionSixteenTextTwo")}
                         handleCheck={handleCheck}
                         register={register}
                         required={true}
-                        isError={isErrored(errors, 'questionOne')}
+                        isError={isErrored(errors, 'questionSixteen')}
                     />
                 </div>
                 <div className={styles.answerContainer}>
                     <QuestionText
                         text={t('pages.questionaire.thirdPart.believe')}
                         subText={t("pages.questionaire.thirdPart.rangeText")}
-                        number={2}
+                        number={17}
                     />
                     <RadiosAnswerRange
-                        name='questionTwo'
-                        textOne={t("pages.questionaire.partC.questionTwoTextOne")}
-                        textTwo={t("pages.questionaire.partC.questionTwoTextTwo")}
+                        name='questionSeventeen'
+                        textOne={t("pages.questionaire.questionSeventeenTextOne")}
+                        textTwo={t("pages.questionaire.questionSeventeenTextTwo")}
                         handleCheck={handleCheck}
                         required={true}
                         register={register}
-                        isError={isErrored(errors, 'questionTwo')}
+                        isError={isErrored(errors, 'questionSeventeen')}
                     />
                 </div>
                 <div className={styles.answerContainer}>
                     <QuestionText
                         text={t('pages.questionaire.thirdPart.believe')}
                         subText={t("pages.questionaire.thirdPart.rangeText")}
-                        number={3}
+                        number={18}
                     />
                     <RadiosAnswerRange
-                        name='questionThree'
-                        textOne={t("pages.questionaire.partC.questionThreeTextOne")}
-                        textTwo={t("pages.questionaire.partC.questionThreeTextTwo")}
+                        name='questionEighteen'
+                        textOne={t("pages.questionaire.questionEighteenTextOne")}
+                        textTwo={t("pages.questionaire.questionEighteenTextTwo")}
                         handleCheck={handleCheck}
                         required={true}
                         register={register}
-                        isError={isErrored(errors, 'questionThree')}
+                        isError={isErrored(errors, 'questionEighteen')}
                     />
                 </div>
                 <div className={styles.answerContainer}>
                     <QuestionText
-                        text={<Trans i18nKey="pages.questionaire.partC.questionFour" t={t}>
+                        text={<Trans i18nKey="pages.questionaire.questionNineteen" t={t}>
                             Switch from <strong>{{ lng }}</strong> to {''}
                         </Trans>}
-                        number={4}
+                        number={19}
                     />
-                    <div className={`${isErrored(errors, 'questionFour') ? 'error' : ''} answer`}>
+                    <div className={`${isErrored(errors, 'questionNineteen') ? 'error' : ''} answer`}>
                         <RadiosAnswerSurvey
-                            name="questionFour"
+                            name="questionNineteen"
                             handleCheck={handleCheck}
                             register={register}
                             required={true}
@@ -121,31 +132,31 @@ const SeventhPart = ({
                 </div>
                 <div className={styles.answerContainer}>
                     <QuestionText
-                        text={<Trans i18nKey="pages.questionaire.partC.questionFive" t={t}>
+                        text={<Trans i18nKey="pages.questionaire.questionTwenty" t={t}>
                             Switch from <strong>{{ lng }}</strong> to {''}
                         </Trans>}
-                        number={5}
+                        number={20}
                     />
                     <RadiosAnswerRange
-                        name='questionFive'
+                        name='questionTwenty'
                         textOne={t("global.yes")}
                         textTwo={t("global.no")}
                         handleCheck={handleCheck}
                         register={register}
                         required={true}
-                        isError={isErrored(errors, 'questionFive')}
+                        isError={isErrored(errors, 'questionTwenty')}
                     />
                 </div>
                 <div className={styles.answerContainer}>
                     <QuestionText
-                        text={<Trans i18nKey="pages.questionaire.partC.questionSix" t={t}>
+                        text={<Trans i18nKey="pages.questionaire.questionTwentyOne" t={t}>
                             Switch from <strong>{{ lng }}</strong> to {''}
                         </Trans>}
-                        number={6}
+                        number={21}
                     />
-                    <div className={`${isErrored(errors, 'questionSix') ? 'error' : ''} answer`}>
+                    <div className={`${isErrored(errors, 'questionTwentyOne') ? 'error' : ''} answer`}>
                         <RadiosAnswerSurvey
-                            name="questionSix"
+                            name="questionTwentyOne"
                             handleCheck={handleCheck}
                             register={register}
                             required={true}

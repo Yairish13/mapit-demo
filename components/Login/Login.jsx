@@ -14,9 +14,9 @@ const Login = ({ lng }) => {
     const router = useRouter();
     const [otpIsOn, setOtpIsOn] = useState(false);
     const [isChecked, setIsChecked] = useState(false);
-    const [areaCode,setAreaCode] = useState('972')
+    const [areaCode, setAreaCode] = useState('972')
 
-    const { register, setValue, handleSubmit,getValues, formState: { errors } } = useForm({
+    const { register, setValue, handleSubmit, getValues, formState: { errors },watch } = useForm({
         mode: 'any',
     });
 
@@ -31,9 +31,10 @@ const Login = ({ lng }) => {
         }
         else setValue(e.target.id, e.target.value);
     }
-    const handleAreaCode = (areaCode) =>{
+    const handleAreaCode = (areaCode) => {
         setAreaCode(areaCode);
     }
+    const otp = watch('otpInput')
     const handleBefore = () => {
         router.push(`${lng}/terms`);
     }
@@ -60,7 +61,10 @@ const Login = ({ lng }) => {
                             })
                         }}
                         error={errors.phoneLoginInput ? errors.phoneLoginInput : false}
-                        errorText={errors.phoneLoginInput ? t('pages.login.loginErr') : ''}
+                        errorText={
+                            errors.phoneLoginInput && errors.phoneLoginInput.type === 'required' ? t('pages.login.required') :
+                                errors.phoneLoginInput && errors.phoneLoginInput.type === 'pattern' ? t('pages.login.patternErr')
+                                    : t('pages.login.loginErr')}
                         onChange={handleChange}
                         maxLength="12"
                         placeholder={t('pages.login.inputExample')}
@@ -97,6 +101,11 @@ const Login = ({ lng }) => {
                                     pattern: otpPattern,
                                 })
                             }}
+                            error={errors.otpInput ? errors.otpInput : false}
+                            errorText={
+                                errors.otpInput && errors.otpInput.type === 'required' ? t('pages.login.otpRequired') :
+                                    errors.otpInput && errors.otpInput.type === 'pattern' ? t('pages.login.otpPatternErr')
+                                        : t('pages.login.otpLoginErr')}
                             onChange={handleChange}
                             lng={lng}
                             placeholder={t('pages.login.otpExample')}
@@ -106,7 +115,7 @@ const Login = ({ lng }) => {
 
                     <Button
                         mode="secondary"
-                        onClick={handleBefore}
+                        onClick={handleSubmit(handleBefore)}
                     >
                         {t('pages.login.approve')}
                     </Button>

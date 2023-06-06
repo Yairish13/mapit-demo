@@ -5,7 +5,7 @@ const AreaCodeSelect = ({ handleAreaCode }) => {
     }
     return (
         <div>
-            <select className={styles.areaCodeSelect} onChange={(e) => handleChange(e)} name="cars" id="cars" form="carform">
+            <select className={styles.areaCodeSelect} onChange={(e) => handleChange(e)} name="area-code" id="area-code">
                 <option value="972">972</option>
                 <option value="255">255</option>
                 <option value="83">83</option>

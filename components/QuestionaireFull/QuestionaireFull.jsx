@@ -15,10 +15,10 @@ const QuestionaireFull = ({ members, lng }) => {
     return (
         <div>
             {activeStep === 1 && (<FirstPart members={members} lng={lng} dispatch={dispatch} />)}
-            {activeStep === 2 && (<SecondPart lng={lng} dispatch={dispatch}/>)}
+            {activeStep === 2 && (<SecondPart lng={lng} dispatch={dispatch} />)}
             {activeStep === 3 && (<ThirdPart lng={lng} />)}
             {activeStep === 4 && (<FourthPart lng={lng} />)}
-            {activeStep === 5 && (<FifthPart lng={lng} />)}
+            {activeStep === 5 && (<FifthPart members={members} lng={lng} />)}
             {activeStep === 6 && (<SixthPart lng={lng} />)}
             {activeStep === 7 && (<SeventhPart lng={lng} />)}
         </div>

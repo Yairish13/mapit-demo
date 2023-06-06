@@ -26,7 +26,7 @@ const TextInput = ({ id, type, onChange, disabled, placeholder, value, bottomTex
     }, [])
     return (
         <div className='inputContainer'>
-            <div className='textAndArea'>
+            <div className={type == 'password' ? 'textAndArea password' : 'textAndArea'}>
                 <input
                     id={id}
                     type={passwordType ? passwordType : 'search'}

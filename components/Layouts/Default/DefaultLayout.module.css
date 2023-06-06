@@ -8,6 +8,10 @@
 .header {
   flex: 0 0 auto;
   text-align: var(--start-direction);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .main {

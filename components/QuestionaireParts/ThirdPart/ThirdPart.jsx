@@ -2,7 +2,7 @@
 "use client";
 import { useDispatch, useSelector } from "react-redux";
 import styles from './ThirdPart.module.css';
-import { setNextStep, increasePercentage, setSelectedMembers } from "../../../store/generalSlice";
+import { setAnsweredQuestions, setNextStep, setSelectedMembers } from "../../../store/generalSlice";
 import { useForm } from "react-hook-form";
 import { useTranslation } from "@app/i18n/client";
 import RadiosAnswerSurvey from "@components/RadiosAnswerSurvey/RadiosAnswerSurvey";
@@ -10,25 +10,25 @@ import QuestionText from "@components/QuestionText/QuestionText";
 import { Trans } from "react-i18next/TransWithoutContext";
 import QuestionaireHeader from "@components/QuestionaireHeader/QuestionaireHeader";
 import QuestionaireFooter from "@components/QuestionaireFooter/QuestionaireFooter";
-import { isErrored } from "@utils";
+import { isAnswered, isErrored } from "@utils";
 
 
 const ThirdPart = ({ members, lng }) => {
     const { t } = useTranslation(lng);
-    const { register, setValue, handleSubmit, formState: { errors } } = useForm({
+    const { register, setValue, handleSubmit, formState: { errors },getValues } = useForm({
         mode: 'any',
     });
     const selectedMembers = useSelector((state) => state.general.selectedMembers);
-    console.log(selectedMembers, 'selectedMembers');
     const arr = [...selectedMembers]
     const dispatch = useDispatch()
     const handleNext = () => {
         dispatch(setNextStep())
-        dispatch(increasePercentage())
     }
+
     const handleCheck = (option, name, index) => {
-        console.log(option, index, name);
         arr[index] = { ...arr[index], [name]: option.target.id };
+        const answered = isAnswered(getValues(), name)
+        if (answered) dispatch(setAnsweredQuestions(name))
         dispatch(setSelectedMembers(arr))
     }
 

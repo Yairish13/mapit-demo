@@ -4,7 +4,7 @@ import { useTranslation } from '@app/i18n/client';
 import RadiosAnswerSurvey from '@components/RadiosAnswerSurvey/RadiosAnswerSurvey';
 import Stepper from '@components/Stepper/Stepper';
 import { useDispatch, useSelector } from 'react-redux';
-import { setNextStep, increasePercentage, setPartB } from '@store/generalSlice';
+import { setAnsweredQuestions, setNextStep, setPartB } from '@store/generalSlice';
 import QuestionText from '@components/QuestionText/QuestionText';
 import { Trans } from 'react-i18next/TransWithoutContext';
 import QuestionaireHeader from '@components/QuestionaireHeader/QuestionaireHeader';
@@ -19,22 +19,30 @@ const SixthPart = ({
     const { t } = useTranslation(lng);
     const partB = useSelector((state) => state.general.partB);
     let obj = { ...partB };
-    const { register, handleSubmit, setValue, formState: { errors } } = useForm({
+    const { register, handleSubmit, setValue, formState: { errors },setFocus } = useForm({
         mode: 'onChange',
     });
     const dispatch = useDispatch();
 
     const handleNext = () => {
         dispatch(setNextStep())
-        dispatch(increasePercentage())
     }
     const handleCheck = (option, name) => {
         setValue(name,true)
+        dispatch(setAnsweredQuestions(name))
         obj = { ...obj, [name]: option.target.id };
         dispatch(setPartB(obj))
     }
-    useEffect(() => { console.log(errors); }
-        , [errors])
+    useEffect(() => {
+        const firstError = Object.keys(errors).reduce((field, a) => {
+            return !!errors[field] ? field : a;
+        }, null);
+
+        if (firstError) {
+            console.log(firstError);
+            setFocus(firstError);
+        }
+    }, [errors, setFocus]);
     return (
         <div className={styles.containerPartB}>
             <div>
@@ -46,14 +54,14 @@ const SixthPart = ({
                 />
                 <div className={styles.answerContainer}>
                     <QuestionText
-                        text={<Trans i18nKey="pages.questionaire.partB.questionOne" t={t}>
+                        text={<Trans i18nKey="pages.questionaire.questionTen" t={t}>
                             Switch from <strong>{{ lng }}</strong> to {''}
                         </Trans>}
-                        number={1}
+                        number={10}
                     />
-                    <div className={`${isErrored(errors, 'questionOne') ? 'error' : ''} answer`}>
+                    <div className={`${isErrored(errors, 'questionTen') ? 'error' : ''} answer`}>
                         <RadiosAnswerSurvey
-                            name="questionOne"
+                            name="questionTen"
                             handleCheck={handleCheck}
                             register={register}
                             setValue={setValue}
@@ -63,14 +71,14 @@ const SixthPart = ({
                 </div>
                 <div className={styles.answerContainer}>
                     <QuestionText
-                        text={<Trans i18nKey="pages.questionaire.partB.questionTwo" t={t}>
+                        text={<Trans i18nKey="pages.questionaire.questionEleven" t={t}>
                             Switch from <strong>{{ lng }}</strong> to {''}
                         </Trans>}
-                        number={2}
+                        number={11}
                     />
-                    <div className={`${isErrored(errors, 'questionTwo') ? 'error' : ''} answer`}>
+                    <div className={`${isErrored(errors, 'questionEleven') ? 'error' : ''} answer`}>
                         <RadiosAnswerSurvey
-                            name="questionTwo"
+                            name="questionEleven"
                             handleCheck={handleCheck}
                             register={register}
                             setValue={setValue}
@@ -80,14 +88,14 @@ const SixthPart = ({
                 </div>
                 <div className={styles.answerContainer}>
                     <QuestionText
-                        text={<Trans i18nKey="pages.questionaire.partB.questionThree" t={t}>
+                        text={<Trans i18nKey="pages.questionaire.questionTwelve" t={t}>
                             Switch from <strong>{{ lng }}</strong> to {''}
                         </Trans>}
-                        number={3}
+                        number={12}
                     />
-                    <div className={`${isErrored(errors, 'questionThree') ? 'error' : ''} answer`}>
+                    <div className={`${isErrored(errors, 'questionTwelve') ? 'error' : ''} answer`}>
                         <RadiosAnswerSurvey
-                            name="questionThree"
+                            name="questionTwelve"
                             handleCheck={handleCheck}
                             register={register}
                             setValue={setValue}
@@ -97,14 +105,14 @@ const SixthPart = ({
                 </div>
                 <div className={styles.answerContainer}>
                     <QuestionText
-                        text={<Trans i18nKey="pages.questionaire.partB.questionFour" t={t}>
+                        text={<Trans i18nKey="pages.questionaire.questionThirteen" t={t}>
                             Switch from <strong>{{ lng }}</strong> to {''}
                         </Trans>}
-                        number={4}
+                        number={13}
                     />
-                    <div className={`${isErrored(errors, 'questionFour') ? 'error' : ''} answer`}>
+                    <div className={`${isErrored(errors, 'questionThirteen') ? 'error' : ''} answer`}>
                         <RadiosAnswerSurvey
-                            name="questionFour"
+                            name="questionThirteen"
                             handleCheck={handleCheck}
                             register={register}
                             setValue={setValue}
@@ -114,14 +122,14 @@ const SixthPart = ({
                 </div>
                 <div className={styles.answerContainer}>
                     <QuestionText
-                        text={<Trans i18nKey="pages.questionaire.partB.questionFive" t={t}>
+                        text={<Trans i18nKey="pages.questionaire.questionFourteen" t={t}>
                             Switch from <strong>{{ lng }}</strong> to {''}
                         </Trans>}
-                        number={5}
+                        number={14}
                     />
-                    <div className={`${isErrored(errors, 'questionFive') ? 'error' : ''} answer`}>
+                    <div className={`${isErrored(errors, 'questionFourteen') ? 'error' : ''} answer`}>
                         <RadiosAnswerSurvey
-                            name="questionFive"
+                            name="questionFourteen"
                             handleCheck={handleCheck}
                             register={register}
                             setValue={setValue}
@@ -131,14 +139,14 @@ const SixthPart = ({
                 </div>
                 <div className={styles.answerContainer}>
                     <QuestionText
-                        text={<Trans i18nKey="pages.questionaire.partB.questionSix" t={t}>
+                        text={<Trans i18nKey="pages.questionaire.questionFiveteen" t={t}>
                             Switch from <strong>{{ lng }}</strong> to {''}
                         </Trans>}
-                        number={6}
+                        number={15}
                     />
-                    <div className={`${isErrored(errors, 'questionSix') ? 'error' : ''} answer`}>
+                    <div className={`${isErrored(errors, 'questionFiveteen') ? 'error' : ''} answer`}>
                         <RadiosAnswerSurvey
-                            name="questionSix"
+                            name="questionFiveteen"
                             handleCheck={handleCheck}
                             register={register}
                             setValue={setValue}

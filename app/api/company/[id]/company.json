@@ -6,7 +6,7 @@
             {
                 "departmentId":"1",
                 "departmentName":"AWS",
-                "workers":[ {"id":1,"value":"משה דוד"},{"id":2,"value":"לוי אשכול"} ,{"id":3,"value":"ליאו מסי"},{"id":4,"value":"יוסי חתוכה"},{"id":5,"value":"יוחאי לוי"}, {"id":6,"value":"אייל לוי"}]
+                "workers":[ {"id":1,"value":"יוסי מנחם"},{"id":2,"value":"לוי אשכול"} ,{"id":3,"value":"ליאו מסי"},{"id":4,"value":"יוסי חתוכה"},{"id":5,"value":"יוחאי לוי"}, {"id":6,"value":"אייל לוי"}]
             },
             {
                 "departmentId":"2",
