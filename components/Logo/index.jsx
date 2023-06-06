@@ -7,11 +7,12 @@ const Logo = (props) => {
   const {
     lng,
     logo,
+    t,
   } = props;
 
 
   return (
-    <div className={styles.logo} href=''>
+    <div className={styles.logo} href='' alt={logo ? t('general.logoGilboa') : t('general.logoMapit')}>
       {logo ? logo : <SiteLogo />}
     </div>
   )

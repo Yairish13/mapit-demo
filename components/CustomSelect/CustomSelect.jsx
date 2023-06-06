@@ -53,13 +53,13 @@ const CustomSelect = ({
                 {(isOpen || !withArrow) &&
                     <div className={!withArrow ? 'options smallWindow' : "options"} >
                         {options.map((option, index) => (
-                            <div key={option.id} className={isSelected(option.id) ? "option selected" : 'option'}>
+                            <label key={option.id} className={isSelected(option.id) ? "option selected" : 'option'} >
                                 {option.value}
                                 <Checkbox
                                     onChange={(e) => handleOptionClick(option, e)}
                                     checked={isSelected(option.id)}
                                 />
-                            </div>
+                            </label>
                         ))}
                     </div>
                 }

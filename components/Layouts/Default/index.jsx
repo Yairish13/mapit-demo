@@ -12,7 +12,7 @@ export default async function DefaultLayout({
     <div className="container">
       <div className={styles.layout}>
         <header className={styles.header}>
-          <Logo />
+          <Logo t={t} />
         </header>
         
         <main className={styles.main}>

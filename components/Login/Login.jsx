@@ -35,7 +35,6 @@ const Login = ({ lng }) => {
         setAreaCode(areaCode);
     }
     const handleBefore = () => {
-        console.log(`${areaCode}${getValues('phoneLoginInput')}`);
         router.push(`${lng}/terms`);
     }
     useEffect(() => {

@@ -22,7 +22,10 @@ const FirstPart = ({ members, lng }) => {
     if (selectedOptions.length === 0) {
       setIsError(true)
     } else {
-      dispatch(setSelectedMembers(selectedOptions))
+      const selectedWithNoDuplicate = selectedOptions.filter((obj, index) => {
+        return index === selectedOptions.findIndex(o => obj.id === o.id);
+      });
+      dispatch(setSelectedMembers(selectedWithNoDuplicate))
       dispatch(setNextStep())
     }
   }

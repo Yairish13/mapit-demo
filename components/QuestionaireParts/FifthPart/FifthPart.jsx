@@ -25,8 +25,11 @@ const FifthPart = ({ members, lng }) => {
         dispatch(setNextStep())
         dispatch(increasePercentage())
     }
-    const handleCheck = (option, index, name) => {
-        arr[index] = { ...arr[index], [name]: option.target.id };
+    const handleCheck = (option, name, index) => {
+        console.log(option, index, name);
+        // arr[index] = { ...arr[index], [name]: option.target.id };
+        // console.log(arr, 'arr');
+        // dispatch(setSelectedMembers(arr))
     }
     const options = [{ "id": 13, "value": "כריסטיאנו רונאלדו" }, { "id": 14, "value": "מייקל ג'קסון" }, { "id": 15, "value": "סקוטי פיפר" }, { "id": 16, "value": "לברון ג'יימס" }, { "id": 17, "value": "שירלי כהן" }, { "id": 18, "value": "קובי ברייאנט" }]
     return (
@@ -48,8 +51,10 @@ const FifthPart = ({ members, lng }) => {
                             {options.map((el, index) => (
                                 <div key={index} style={{ display: 'flex', justifyContent: 'flex-start' }}>
                                     <Checkbox
+                                        index={index}
+                                        name="questionEight"
                                         label={el.value}
-                                        onChange={console.log('e')}
+                                        onChange={handleCheck}
                                     />
                                 </div>
                             ))}
@@ -66,19 +71,22 @@ const FifthPart = ({ members, lng }) => {
                     />
                     <div className={`${styles.selectsContainer} answer`} >
                         <CustomSelect
+                            name="questionNine"
                             withArrow={true}
-                            options={selectedMembers}
+                            options={options}
                             placeholder={t('global.department')}
                         />
                         <CustomSelect
+                            name="questionNine"
                             withArrow={true}
-                            options={selectedMembers}
+                            options={options}
                             placeholder={t('global.department')}
 
                         />
                         <CustomSelect
+                            name="questionNine"
                             withArrow={true}
-                            options={selectedMembers}
+                            options={options}
                             placeholder={t('global.department')}
                         />
                     </div>
