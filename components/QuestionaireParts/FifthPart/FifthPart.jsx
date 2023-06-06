@@ -16,6 +16,7 @@ import { useState } from "react";
 
 const FifthPart = ({ members, lng }) => {
     const [selectedOptions, setSelectedOptions] = useState([]);
+
     const { t } = useTranslation(lng);
     const { register, setValue, handleSubmit, formState: { errors } } = useForm({
         mode: 'any',
@@ -30,7 +31,6 @@ const FifthPart = ({ members, lng }) => {
     const handleSelect = (option) => {
         if (selectedOptions.length === 0) {
             dispatch(setAnsweredQuestions('questionNine'))
-            setIsError(false)
         }
         const index = selectedOptions.findIndex((item) => item.id === option.id);
         if (index > -1) {
@@ -97,6 +97,7 @@ const FifthPart = ({ members, lng }) => {
                             options={members[0].departments[2].workers}
                             placeholder={t('global.department')}
                             onChange={handleSelect}
+                            selectedOptions={selectedOptions}
                         />
                         <CustomSelect
                             name="questionNine"
@@ -104,6 +105,7 @@ const FifthPart = ({ members, lng }) => {
                             options={members[0].departments[1].workers}
                             placeholder={t('global.department')}
                             onChange={handleSelect}
+                            selectedOptions={selectedOptions}
 
                         />
                         <CustomSelect
@@ -112,6 +114,7 @@ const FifthPart = ({ members, lng }) => {
                             options={members[0].departments[0].workers}
                             placeholder={t('global.department')}
                             onChange={handleSelect}
+                            selectedOptions={selectedOptions}
                         />
                     </div>
                 </div>

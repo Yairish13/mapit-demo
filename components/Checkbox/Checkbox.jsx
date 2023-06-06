@@ -10,7 +10,7 @@ const Checkbox = ({ id, label, checked, onChange, error, errorText, name, index,
                 <input
                     className={styles.input}
                     type="checkbox"
-                    id={`${id}_${index}`}
+                    id={index ? `${id}_${index}` : id}
                     checked={checked}
                     onChange={(e) => handleChange(e)}
                     register={register}

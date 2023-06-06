@@ -1,4 +1,4 @@
-    .loader {
+    /* .loader {
         border: 16px solid #f3f3f3;
         border-top: 16px solid #3498db;
         border-radius: 50%;
@@ -16,4 +16,24 @@
         100% {
             transform: rotate(360deg);
         }
-    }
+    } */
+    /* body {
+        background-color: #fafafa;
+      } */
+      
+      @keyframes taadaa { 
+        0% {
+          opacity: 0;
+        }
+      
+        100% {
+          opacity: 1;
+        }
+      }
+      
+      .loader {
+        height: 50px;
+        width: 50px;
+        margin: 50px auto 0;
+        animation: taadaa 2s infinite;
+      }
