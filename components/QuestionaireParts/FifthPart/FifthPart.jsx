@@ -26,6 +26,7 @@ const FifthPart = ({ members, lng }) => {
         dispatch(increasePercentage())
     }
     const handleCheck = (option, name, index) => {
+        // console.log(m);
         console.log(option, index, name);
         // arr[index] = { ...arr[index], [name]: option.target.id };
         // console.log(arr, 'arr');
