@@ -1,20 +1,3 @@
-
-
-.answerContainer {
-    margin-top: 1rem;
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
-    border-bottom: 1px solid #B1BEC5;
-    min-height: 20vh;
-}
-@media (max-width: 1000px) {
-    .answerContainer {
-        flex-direction: column;
-        gap: 10px;
-    }
-}
-
 .containerPartB {
     display: flex;
 }

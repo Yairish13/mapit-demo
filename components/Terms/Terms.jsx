@@ -19,7 +19,6 @@ const Terms = ({ lng }) => {
         router.push('/before')
     }
     const handleChange = (e) => {
-        console.log(e,'e');
         setValue(e.target.id, !isChecked);
         setIsChecked((prev) => !prev)
     }

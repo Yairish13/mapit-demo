@@ -33,7 +33,6 @@ const SeventhPart = ({
         dispatch(setAnsweredQuestions(name))
         if (option?.target?.id) obj = { ...obj, [name]: option.target.id };
         else obj = { ...obj, [name]: option };
-        console.log(obj);
         dispatch(setPartC(obj))
     }
     const handleNext = () => {
@@ -44,7 +43,6 @@ const SeventhPart = ({
         console.log(errors);
     }, [errors])
     useEffect(() => {
-        console.log(isFinished);
         if (isFinished) router.push(`${lng}/finish`)
     }, [])
     useEffect(() => {
@@ -66,7 +64,7 @@ const SeventhPart = ({
                 <QuestionaireHeader
                     title={t("pages.questionaire.thirdPart")}
                 />
-                <div className={styles.answerContainer}>
+                <div className='answerContainer'>
                     <QuestionText
                         text={t('pages.questionaire.thirdPart.believe')}
                         subText={t("pages.questionaire.thirdPart.rangeText")}
@@ -82,7 +80,7 @@ const SeventhPart = ({
                         isError={isErrored(errors, 'questionSixteen')}
                     />
                 </div>
-                <div className={styles.answerContainer}>
+                <div className='answerContainer'>
                     <QuestionText
                         text={t('pages.questionaire.thirdPart.believe')}
                         subText={t("pages.questionaire.thirdPart.rangeText")}
@@ -98,7 +96,7 @@ const SeventhPart = ({
                         isError={isErrored(errors, 'questionSeventeen')}
                     />
                 </div>
-                <div className={styles.answerContainer}>
+                <div className='answerContainer'>
                     <QuestionText
                         text={t('pages.questionaire.thirdPart.believe')}
                         subText={t("pages.questionaire.thirdPart.rangeText")}
@@ -114,7 +112,7 @@ const SeventhPart = ({
                         isError={isErrored(errors, 'questionEighteen')}
                     />
                 </div>
-                <div className={styles.answerContainer}>
+                <div className='answerContainer'>
                     <QuestionText
                         text={<Trans i18nKey="pages.questionaire.questionNineteen" t={t}>
                             Switch from <strong>{{ lng }}</strong> to {''}
@@ -130,7 +128,7 @@ const SeventhPart = ({
                         />
                     </div>
                 </div>
-                <div className={styles.answerContainer}>
+                <div className='answerContainer'>
                     <QuestionText
                         text={<Trans i18nKey="pages.questionaire.questionTwenty" t={t}>
                             Switch from <strong>{{ lng }}</strong> to {''}
@@ -147,7 +145,7 @@ const SeventhPart = ({
                         isError={isErrored(errors, 'questionTwenty')}
                     />
                 </div>
-                <div className={styles.answerContainer}>
+                <div className='answerContainer'>
                     <QuestionText
                         text={<Trans i18nKey="pages.questionaire.questionTwentyOne" t={t}>
                             Switch from <strong>{{ lng }}</strong> to {''}

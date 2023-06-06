@@ -40,7 +40,7 @@ const FourthPart = ({ lng }) => {
                 <QuestionaireHeader
                     title={t("pages.questionaire.firstPart")}
                 />
-                <div className={styles.answerContainer}>
+                <div className='answerContainer'>
                     <QuestionText
                         text={<Trans i18nKey="pages.questionaire.questionSix" t={t}>
                             Switch from <strong>{{ lng }}</strong> to {''}
@@ -60,7 +60,7 @@ const FourthPart = ({ lng }) => {
                         />
                     </div>
                 </div>
-                <div className={styles.answerContainer}>
+                <div className='answerContainer'>
                     <QuestionText
                         text={<Trans i18nKey="pages.questionaire.questionSeven" t={t}>
                             Switch from <strong>{{ lng }}</strong> to {''}

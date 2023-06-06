@@ -52,7 +52,7 @@ const SixthPart = ({
                 <QuestionaireHeader
                     title={t("pages.questionaire.secondPart")}
                 />
-                <div className={styles.answerContainer}>
+                <div className='answerContainer'>
                     <QuestionText
                         text={<Trans i18nKey="pages.questionaire.questionTen" t={t}>
                             Switch from <strong>{{ lng }}</strong> to {''}
@@ -69,7 +69,7 @@ const SixthPart = ({
                         />
                     </div>
                 </div>
-                <div className={styles.answerContainer}>
+                <div className='answerContainer'>
                     <QuestionText
                         text={<Trans i18nKey="pages.questionaire.questionEleven" t={t}>
                             Switch from <strong>{{ lng }}</strong> to {''}
@@ -86,7 +86,7 @@ const SixthPart = ({
                         />
                     </div>
                 </div>
-                <div className={styles.answerContainer}>
+                <div className='answerContainer'>
                     <QuestionText
                         text={<Trans i18nKey="pages.questionaire.questionTwelve" t={t}>
                             Switch from <strong>{{ lng }}</strong> to {''}
@@ -103,7 +103,7 @@ const SixthPart = ({
                         />
                     </div>
                 </div>
-                <div className={styles.answerContainer}>
+                <div className='answerContainer'>
                     <QuestionText
                         text={<Trans i18nKey="pages.questionaire.questionThirteen" t={t}>
                             Switch from <strong>{{ lng }}</strong> to {''}
@@ -120,7 +120,7 @@ const SixthPart = ({
                         />
                     </div>
                 </div>
-                <div className={styles.answerContainer}>
+                <div className='answerContainer'>
                     <QuestionText
                         text={<Trans i18nKey="pages.questionaire.questionFourteen" t={t}>
                             Switch from <strong>{{ lng }}</strong> to {''}
@@ -137,7 +137,7 @@ const SixthPart = ({
                         />
                     </div>
                 </div>
-                <div className={styles.answerContainer}>
+                <div className='answerContainer'>
                     <QuestionText
                         text={<Trans i18nKey="pages.questionaire.questionFiveteen" t={t}>
                             Switch from <strong>{{ lng }}</strong> to {''}

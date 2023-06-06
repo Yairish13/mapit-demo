@@ -91,7 +91,8 @@
     padding-inline-start: 0.8rem;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
+    margin-top: 5rem;
 
     @media (max-width: 970px) {
         width: 100%;

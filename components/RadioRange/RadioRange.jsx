@@ -7,7 +7,6 @@ const RadioRange = ({ name, onChange, register, required }) => {
         setSelected(e.target.id)
         onChange(e.target.id)
     }
-    console.log(selected);
     return (
         <div className={styles.container}>
             <div className={styles.rightContainer}>
