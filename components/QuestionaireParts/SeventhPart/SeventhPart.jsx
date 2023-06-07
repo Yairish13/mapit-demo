@@ -24,7 +24,7 @@ const SeventhPart = ({
 
     const dispatch = useDispatch();
     let obj = { ...partC };
-    const { register, handleSubmit, setValue, formState: { errors },setFocus } = useForm({
+    const { register, handleSubmit, setValue, formState: { errors }, setFocus } = useForm({
         mode: 'onChange',
     });
     const { t } = useTranslation(lng);
@@ -40,21 +40,13 @@ const SeventhPart = ({
         router.push(`${lng}/finish`)
     }
     useEffect(() => {
-        console.log(errors);
-    }, [errors])
-    useEffect(() => {
         if (isFinished) router.push(`${lng}/finish`)
     }, [])
-    useEffect(() => {
-        const firstError = Object.keys(errors).reduce((field, a) => {
-            return !!errors[field] ? field : a;
-        }, null);
 
-        if (firstError) {
-            console.log(firstError);
-            setFocus(firstError);
-        }
-    }, [errors, setFocus]);
+    const focusedInput = getErrored(errors);
+    if (focusedInput) {
+        focusedInput.focus();
+    }
     return (
         <div className={styles.containerPartB}>
             <div>

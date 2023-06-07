@@ -19,7 +19,7 @@ const SixthPart = ({
     const { t } = useTranslation(lng);
     const partB = useSelector((state) => state.general.partB);
     let obj = { ...partB };
-    const { register, handleSubmit, setValue, formState: { errors },setFocus } = useForm({
+    const { register, handleSubmit, setValue, formState: { errors },setFocus, onError } = useForm({
         mode: 'onChange',
     });
     const dispatch = useDispatch();
@@ -33,16 +33,11 @@ const SixthPart = ({
         obj = { ...obj, [name]: option.target.id };
         dispatch(setPartB(obj))
     }
-    useEffect(() => {
-        const firstError = Object.keys(errors).reduce((field, a) => {
-            return !!errors[field] ? field : a;
-        }, null);
 
-        if (firstError) {
-            console.log(firstError);
-            setFocus(firstError);
-        }
-    }, [errors, setFocus]);
+    const focusedInput = getErrored(errors);
+    if (focusedInput) {
+        focusedInput.focus();
+    }
     return (
         <div className={styles.containerPartB}>
             <div>
@@ -158,7 +153,7 @@ const SixthPart = ({
                     wide={true}
                     withStepper={false}
                     isError={Object.keys(errors).length > 0 ? true : false}
-                    handleClick={handleSubmit(handleNext)}
+                    handleClick={handleSubmit(handleNext, onError)}
                 />
             </div>
         </div>

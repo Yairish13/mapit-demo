@@ -12,7 +12,7 @@ import { Trans } from "react-i18next/TransWithoutContext";
 import QuestionaireHeader from "@components/QuestionaireHeader/QuestionaireHeader";
 import QuestionaireFooter from "@components/QuestionaireFooter/QuestionaireFooter";
 import { useEffect } from "react";
-import { isAnswered, isErrored } from "@utils";
+import { getErrored, isAnswered, isErrored } from "@utils";
 
 
 const SecondPart = ({ members, lng }) => {
@@ -42,16 +42,11 @@ const SecondPart = ({ members, lng }) => {
         dispatch(setSelectedMembers(arr))
     }
 
-    useEffect(() => {
-        const firstError = Object.keys(errors).reduce((field, a) => {
-            return !!errors[field] ? field : a;
-        }, null);
 
-        if (firstError) {
-            console.log(firstError);
-            setFocus(firstError);
-        }
-    }, [errors, setFocus]);
+    const focusedInput = getErrored(errors);
+    if (focusedInput) {
+        focusedInput.focus();
+    }
     return (
         <>
             <div className={styles.container}>

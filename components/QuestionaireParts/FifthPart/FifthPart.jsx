@@ -53,6 +53,10 @@ const FifthPart = ({ members, lng }) => {
             newArr.filter((el) => el !== e.target.value)
         }
     }
+    const focusedInput = getErrored(errors);
+    if (focusedInput) {
+        focusedInput.focus();
+    }
     return (
         <>
             <div className={styles.container}>

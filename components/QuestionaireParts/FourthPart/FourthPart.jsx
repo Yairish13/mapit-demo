@@ -31,9 +31,10 @@ const FourthPart = ({ lng }) => {
         if (answered) dispatch(setAnsweredQuestions(name))
     }
 
-    useEffect(() => {
-        console.log(errors);
-    }, [errors])
+    const focusedInput = getErrored(errors);
+    if (focusedInput) {
+        focusedInput.focus();
+    }
     return (
         <>
             <div className={styles.container}>

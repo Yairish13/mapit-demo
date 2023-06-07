@@ -15,7 +15,7 @@ import { isAnswered, isErrored } from "@utils";
 
 const ThirdPart = ({ members, lng }) => {
     const { t } = useTranslation(lng);
-    const { register, setValue, handleSubmit, formState: { errors },getValues } = useForm({
+    const { register, setValue, handleSubmit, formState: { errors }, getValues } = useForm({
         mode: 'any',
     });
     const selectedMembers = useSelector((state) => state.general.selectedMembers);
@@ -31,7 +31,10 @@ const ThirdPart = ({ members, lng }) => {
         if (answered) dispatch(setAnsweredQuestions(name))
         dispatch(setSelectedMembers(arr))
     }
-
+    const focusedInput = getErrored(errors);
+    if (focusedInput) {
+        focusedInput.focus();
+    }
     return (
         <>
             <div className={styles.container}>

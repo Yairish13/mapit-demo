@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import styles from './FirstPart.module.css'
 import { setNextStep, setSelectedMembers, setAnsweredQuestions, resetAnsweredQuestions } from "../../../store/generalSlice";
 import CustomSelect from "@components/CustomSelect/CustomSelect";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import { useTranslation } from "@app/i18n/client";
 import QuestionText from "@components/QuestionText/QuestionText";
 import { Trans } from 'react-i18next/TransWithoutContext'
@@ -13,7 +13,6 @@ import QuestionaireFooter from "@components/QuestionaireFooter/QuestionaireFoote
 
 const FirstPart = ({ members, lng }) => {
   const isFinished = useSelector((state) => state.general.isFinished);
-  const answerContainer = useRef(null);
   const { t } = useTranslation(lng);
   const [selectedOptions, setSelectedOptions] = useState([]);
   const [isError, setIsError] = useState(false);
@@ -21,7 +20,6 @@ const FirstPart = ({ members, lng }) => {
   const handleNext = () => {
     if (selectedOptions.length === 0) {
       setIsError(true)
-      answerContainer.current.focus();
     } else {
       const selectedWithNoDuplicate = selectedOptions.filter((obj, index) => {
         return index === selectedOptions.findIndex(o => obj.id === o.id);
@@ -66,7 +64,7 @@ const FirstPart = ({ members, lng }) => {
             subText={t('pages.questionaire.questionOneSubText')}
             number={1}
           />
-          <div className={`${styles.selectDiv} ${isError ? 'error' : ''} answer`} ref={answerContainer}>
+          <div className={`${styles.selectDiv} ${isError ? 'error' : ''} answer`}>
             {members &&
               members[0] &&
               members[0].departments &&
