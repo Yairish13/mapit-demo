@@ -13,7 +13,7 @@ import { useForm } from 'react-hook-form';
 import { setAnsweredQuestions, setIsFinished, setPartC } from '@store/generalSlice';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
-import { isErrored } from '@utils';
+import { getErrored, isErrored } from '@utils';
 
 const SeventhPart = ({
     lng

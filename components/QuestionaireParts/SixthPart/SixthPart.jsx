@@ -11,7 +11,7 @@ import QuestionaireHeader from '@components/QuestionaireHeader/QuestionaireHeade
 import QuestionaireFooter from '@components/QuestionaireFooter/QuestionaireFooter';
 import { useForm } from 'react-hook-form';
 import { useEffect } from 'react';
-import { isErrored } from '@utils';
+import { getErrored, isErrored } from '@utils';
 
 const SixthPart = ({
     lng

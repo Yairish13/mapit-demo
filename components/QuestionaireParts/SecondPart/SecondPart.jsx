@@ -11,7 +11,6 @@ import QuestionText from "@components/QuestionText/QuestionText";
 import { Trans } from "react-i18next/TransWithoutContext";
 import QuestionaireHeader from "@components/QuestionaireHeader/QuestionaireHeader";
 import QuestionaireFooter from "@components/QuestionaireFooter/QuestionaireFooter";
-import { useEffect } from "react";
 import { getErrored, isAnswered, isErrored } from "@utils";
 
 

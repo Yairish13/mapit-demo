@@ -11,7 +11,7 @@ import { Trans } from "react-i18next/TransWithoutContext";
 import QuestionaireFooter from "@components/QuestionaireFooter/QuestionaireFooter";
 import QuestionaireHeader from "@components/QuestionaireHeader/QuestionaireHeader";
 import { useEffect } from "react";
-import { isAnswered, isErrored } from "@utils";
+import { getErrored, isAnswered, isErrored } from "@utils";
 
 
 const FourthPart = ({ lng }) => {
