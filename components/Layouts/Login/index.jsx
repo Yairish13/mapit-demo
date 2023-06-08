@@ -5,7 +5,6 @@ import MapitText from '../../../public/assets/images/mapitText.svg'
 import MapitTextSmall from '../../../public/assets/images/mapitTextSmall.svg'
 import styles from "./login.module.scss"
 import { useTranslation } from '@app/i18n/client'
-import LanguageSelect from '@components/LanguageSelect/LanguageSelect'
 
 
 const LoginLayout = ({ children, lng }) => {

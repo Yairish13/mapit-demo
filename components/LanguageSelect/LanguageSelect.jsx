@@ -1,11 +1,11 @@
 "use client"
 import styles from './LanguageSelect.module.css';
 import { languages } from '../../app/i18n/settings'
-import Link, { usePathname, useRouter } from 'next/navigation';
-import { useTranslation } from '@app/i18n/client';
+import { usePathname, useRouter } from 'next/navigation';
+import { useTranslation } from 'react-i18next';
 
 const LanguageSelect = ({ lng }) => {
-    const { t } = useTranslation(lng);
+    const {t} = useTranslation(lng);
     const router = useRouter()
     const pathname = usePathname();
     const handleChange = (e) => {
@@ -16,7 +16,6 @@ const LanguageSelect = ({ lng }) => {
         else path = `/${e.target.value}/${splitted[splitted.length - 1]}`;
         router.push(path)
     }
-    console.log(lng, 'select');
     let arr = lng === 'en' ? ['en', 'he'] : languages;
     return (
         <div>
