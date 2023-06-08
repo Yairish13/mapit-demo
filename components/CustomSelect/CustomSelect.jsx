@@ -13,9 +13,13 @@ const CustomSelect = ({
     selectedOptions,
 }) => {
     const [isOpen, setIsOpen] = useState(false);
+    const [selected, setSelected] = useState([]);
     const ref = useRef(null);
 
     const handleOptionClick = (option, e) => {
+        if (selected.some((select) => select.id === option.id)) {
+            setSelected(prev => prev.filter((el) => el.id !== option.id))
+        } else setSelected(prev => [...prev, option])
         onChange(option, e)
     };
     const isSelected = (id) => {
@@ -24,6 +28,7 @@ const CustomSelect = ({
     const handleClick = () => {
         setIsOpen(prev => !prev)
     }
+    
     const handleClickOutside = (event) => {
         if (ref.current && !ref.current.contains(event.target)) {
             setIsOpen && setIsOpen(false);
@@ -42,7 +47,7 @@ const CustomSelect = ({
     return (
         <>
             {!withNoHeader ? <div className="custom-select" ref={ref}>
-                <div tabIndex="0" onKeyDown={(e) => handleKeyDown(e)} className={isOpen ? "selected-options open" : "selected-options"} onClick={handleClick}>
+                <div tabIndex="0" onKeyDown={(e) => handleKeyDown(e)} className={isOpen ? "selected-options open" : selected.length > 0 ? "selected-options used" : "selected-options"} onClick={handleClick}>
                     <div className={!withArrow ? 'headerDivNoArrow' : 'headerDivArrow'}>
                         <div>
                             {placeholder}

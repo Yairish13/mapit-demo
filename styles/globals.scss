@@ -58,7 +58,7 @@ p {
   @media (max-width: 970px) {
     width: 100%;
     display: flex;
-    padding: 1rem 0;
+    padding: 1rem 0 0rem 0;
   }
 }
 
@@ -169,6 +169,7 @@ td {
 
 th {
   font-size: 0.75rem;
+  line-height: 1;
 
   @media (max-width: 600px) {
     font-size: 0.65rem;

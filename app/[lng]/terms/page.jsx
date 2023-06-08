@@ -1,7 +1,10 @@
-import Terms from '@components/Terms/Terms'
 import { Suspense } from 'react'
 import Loader from '@components/Loader/Loader'
-
+import dynamic from 'next/dynamic'
+const Terms = dynamic(
+    () => import('../../../components/Terms/Terms'),
+    { ssr: false }
+  )
 const Page = ({ params: { lng } }) => {
 
     return (

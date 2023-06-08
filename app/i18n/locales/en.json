@@ -1,4 +1,6 @@
 {
+    "global.hebrew":"Hebrew",
+    "global.english":"English",
     "global.start": "Start",
     "global.yes": "Yes",
     "global.no": "No",

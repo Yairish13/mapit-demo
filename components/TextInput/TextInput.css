@@ -66,3 +66,6 @@ input:focus {
 html[dir="ltr"] .textAndArea{
   flex-direction: row-reverse;
 }
+html[dir="ltr"] .password{
+  flex-direction: row;
+}

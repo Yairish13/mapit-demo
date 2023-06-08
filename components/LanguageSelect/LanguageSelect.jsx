@@ -7,10 +7,14 @@ const LanguageSelect = ({ lng }) => {
     const router = useRouter()
     const pathname = usePathname();
     const handleChange = (e) => {
+        console.log(lng, 'lng');
         let splitted = pathname.split('/');
-        const path = `/${e.target.value}/${splitted[splitted.length - 1]}`;
+        let path;
+        if (splitted[splitted.length - 1] === 'he' || splitted[splitted.length - 1] === 'en') path = `/${e.target.value}/`
+        else path = `/${e.target.value}/${splitted[splitted.length - 1]}`;
         router.push(path)
     }
+    console.log(lng,'select');
     let arr = lng === 'en' ? ['en', 'he'] : languages;
     return (
         <div>

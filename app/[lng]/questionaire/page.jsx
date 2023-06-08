@@ -1,7 +1,10 @@
 import Loader from '@components/Loader/Loader';
-import QuestionaireFull from '@components/QuestionaireFull/QuestionaireFull';
+import dynamic from 'next/dynamic';
 import { Suspense } from 'react';
-
+const QuestionaireFull = dynamic(
+  () => import('../../../components/QuestionaireFull/QuestionaireFull'),
+  { ssr: false }
+)
 const Page = async ({ params: {
   lng
 } }) => {

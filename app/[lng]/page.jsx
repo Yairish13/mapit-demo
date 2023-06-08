@@ -1,5 +1,4 @@
 import dynamic from 'next/dynamic';
-import { useTranslation } from '@app/i18n';
 import Preloader from '@store/Preloader';
 import { store } from '@store';
 import { setMembers } from '@store/generalSlice';
@@ -16,7 +15,6 @@ const LoginLayout = dynamic(
 
 
 export default async function Home({ params: { lng } }) {
-  const { t } = await useTranslation(lng, 'translation');
   const req = await fetch('http://localhost:3000/api/company/1');
   const data = await req.json();
   store.dispatch(setMembers(data))

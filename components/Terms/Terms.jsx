@@ -1,9 +1,9 @@
 "use client"
+import { useTranslation } from '@app/i18n/client';
 import Checkbox from '@components/Checkbox/Checkbox'
 import styles from './Terms.module.css'
 import Button from '@components/Button/Button'
 import Link from 'next/link';
-import { useTranslation } from '@app/i18n/client';
 import { useRouter } from 'next/navigation';
 import { useForm } from 'react-hook-form';
 import { useEffect, useState } from 'react';
@@ -11,7 +11,7 @@ import { useEffect, useState } from 'react';
 const Terms = ({ lng }) => {
     const [isChecked,setIsChecked] = useState(false);
     const router = useRouter()
-    const { t } = useTranslation(lng)
+    const { t } = useTranslation(lng);
     const { register, setValue, handleSubmit, formState: { errors } } = useForm({
         mode: 'onChange',
     });
