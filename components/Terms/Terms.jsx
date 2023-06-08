@@ -16,7 +16,7 @@ const Terms = ({ lng }) => {
         mode: 'onChange',
     });
     const handleRoute = () => {
-        router.push('/before')
+        router.push(`${lng}/before`)
     }
     const handleChange = (e) => {
         setValue(e.target.id, !isChecked);

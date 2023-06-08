@@ -16,7 +16,6 @@ const LoginLayout = ({ children, lng }) => {
             <main className={styles.main}>
                 <header className={styles.header}>
                     <Logo logo={<GilboaLogo />} lng={lng} />
-                    <LanguageSelect lng={lng} />
                 </header>
                 <div className={styles.body}>
                     {children}
