@@ -78,32 +78,6 @@ const FirstPart = ({ members, lng }) => {
                   selectedOptions={selectedOptions}
                 />
               ))}
-            {members &&
-              members[0] &&
-              members[0].departments &&
-              members[0].departments.map((department, index) => (
-                <CustomSelect
-                  key={index}
-                  onChange={handleCheck}
-                  placeholder={t("global.department")}
-                  withArrow={true}
-                  options={department.workers}
-                  selectedOptions={selectedOptions}
-                />
-              ))}
-            {members &&
-              members[0] &&
-              members[0].departments &&
-              members[0].departments.map((department, index) => (
-                <CustomSelect
-                  key={index}
-                  onChange={handleCheck}
-                  placeholder={t("global.department")}
-                  withArrow={true}
-                  options={department.workers}
-                  selectedOptions={selectedOptions}
-                />
-              ))}
           </div>
         </div>
       </div>
