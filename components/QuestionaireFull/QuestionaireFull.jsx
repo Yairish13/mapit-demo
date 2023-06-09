@@ -14,7 +14,7 @@ const QuestionaireFull = ({ lng }) => {
     const activeStep = useSelector((state) => state.general.activeStep);
     const dispatch = useDispatch()
     const handleFetch = async () => {
-        const req = await fetch('http://localhost:3000/api/company/1');
+        const req = await fetch('https://localhost:3000/api/company/1');
         const data = await req.json();
         setMembers(data);
     }
