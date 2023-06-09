@@ -1,4 +1,4 @@
-import Vector from '../../public/assets/icons/Vector.svg'
+import Vector from '../../public/assets/icons/vector.svg'
 import styles from './Checkmark.module.css';
 
 const Checkmark = () => {
