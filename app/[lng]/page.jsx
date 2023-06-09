@@ -3,7 +3,6 @@ import Preloader from '@store/Preloader';
 import { store } from '@store';
 import { setMembers } from '@store/generalSlice';
 import Providers from '@store/Providers';
-
 const Login = dynamic(
   () => import('../../components/Login/Login'),
   { ssr: false }
@@ -15,14 +14,11 @@ const LoginLayout = dynamic(
 
 
 export default async function Home({ params: { lng } }) {
-  const req = await fetch('http://localhost:3000/api/company/1');
-  const data = await req.json();
-  store.dispatch(setMembers(data))
   return (
     <>
-      <Preloader members={data} />
+      <Preloader/>
       <Providers>
-        <LoginLayout>
+        <LoginLayout lng={lng}>
           <Login lng={lng} />
         </LoginLayout>
       </Providers>

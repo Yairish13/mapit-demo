@@ -1,9 +1,9 @@
 import { Trans } from 'react-i18next/TransWithoutContext'
 import styles from './page.module.css'
-import { useTranslation } from '@app/i18n';
+import { useTranslation } from '@app/i18n'
 
 const Page = async({ params: { lng } }) => {
-    const { t } = await useTranslation(lng)
+    const { t } =  await useTranslation(lng)
 
     return (
         <div className={styles.container}>

@@ -9,6 +9,7 @@
     border-radius: 8px;
     color: #B1BEC5;
     font-size: 0.85rem;
-    padding: 1px 8px;
     margin-bottom: 8px;
+    text-align: inherit;
+    padding: 1px 0px 1px 4px;
   }

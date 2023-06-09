@@ -5,17 +5,15 @@ import { usePathname, useRouter } from 'next/navigation';
 import { useTranslation } from 'react-i18next';
 
 const LanguageSelect = ({ lng }) => {
-    const {t} = useTranslation(lng);
+    const { t } = useTranslation(lng);
     const router = useRouter()
     const pathname = usePathname();
     const handleChange = (e) => {
-        console.log(lng, 'lng');
         let splitted = pathname.split('/');
-        let path;
-        if (splitted[splitted.length - 1] === 'he' || splitted[splitted.length - 1] === 'en') path = `/${e.target.value}/`
-        else path = `/${e.target.value}/${splitted[splitted.length - 1]}`;
-        router.push(path)
+        const restPath = splitted.slice(2, splitted.length).join('/')
+        router.push(`${e.target.value}/${restPath}`);
     }
+    console.log(lng, 'lng');
     let arr = lng === 'en' ? ['en', 'he'] : languages;
     return (
         <div>

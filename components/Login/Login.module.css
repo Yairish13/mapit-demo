@@ -5,6 +5,9 @@
     align-items: flex-start;
     gap: 1rem;
     padding-bottom: 2rem;
+    width: 100%;
+    padding-inline-start: 5rem;
+    padding-inline-end: 3rem;
   }
 
   .loginHeader {
@@ -16,7 +19,7 @@
   .textField {
     margin-bottom: 1rem;
     margin-top: 1rem;
-    width: 300px;
+    /* width: 300px; */
   }
 
   @media (max-width: 970px) {

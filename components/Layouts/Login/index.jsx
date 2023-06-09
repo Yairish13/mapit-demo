@@ -1,20 +1,22 @@
 "use client"
+import { useTranslation } from '@app/i18n/client'
 import Logo from '@components/Logo'
 import GilboaLogo from '../../../public/assets/images/gilboa.svg'
 import MapitText from '../../../public/assets/images/mapitText.svg'
 import MapitTextSmall from '../../../public/assets/images/mapitTextSmall.svg'
 import styles from "./login.module.scss"
-import { useTranslation } from '@app/i18n/client'
+import LanguageSelect from '@components/LanguageSelect/LanguageSelect'
 
 
 const LoginLayout = ({ children, lng }) => {
-    const { t } = useTranslation(lng);
+    const { t } = useTranslation();
     console.log(lng,'lng');
     return (
         <div className={styles.content}>
             <main className={styles.main}>
                 <header className={styles.header}>
                     <Logo logo={<GilboaLogo />} lng={lng} />
+                    <LanguageSelect lng={lng} />
                 </header>
                 <div className={styles.body}>
                     {children}

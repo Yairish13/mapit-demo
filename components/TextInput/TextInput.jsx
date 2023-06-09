@@ -37,7 +37,7 @@ const TextInput = ({ id, type, onChange, disabled, placeholder, value, bottomTex
                     register={register}
                     value={value}
                 />
-                {areaCode && <AreaCodeSelect handleAreaCode={handleAreaCode} value={972} />}
+                {areaCode && <AreaCodeSelect defaultValue="+972" handleAreaCode={handleAreaCode} value={972} />}
                 {type == 'password' && <div> <Eye className={passwordType == 'password' ? `eyeSvg ${lng}` : `eyeSvg ${lng} visible`} onClick={handleShowPassword} /> </div>}
             </div>
             {bottomText && <div className='bottomText'>

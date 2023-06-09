@@ -1,4 +1,5 @@
 'use client';
+import { useTranslation } from '@app/i18n/client';
 import { useEffect, useState } from 'react'
 import styles from './Login.module.css';
 import Button from '@components/Button/Button';
@@ -7,7 +8,7 @@ import TextInput from '@components/TextInput/TextInput'
 import { cellphonePattern, otpPattern } from '@utils';
 import { useForm } from 'react-hook-form';
 import { useRouter } from "next/navigation";
-import { useTranslation } from '@app/i18n/client';
+
 
 const Login = ({ lng }) => {
     const { t } = useTranslation(lng);
@@ -15,8 +16,7 @@ const Login = ({ lng }) => {
     const [otpIsOn, setOtpIsOn] = useState(false);
     const [isChecked, setIsChecked] = useState(false);
     const [areaCode, setAreaCode] = useState('972')
-
-    const { register, setValue, handleSubmit, getValues, formState: { errors },watch } = useForm({
+    const { register, setValue, handleSubmit, getValues, formState: { errors }, watch } = useForm({
         mode: 'any',
     });
 
