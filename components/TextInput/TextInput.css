@@ -23,7 +23,7 @@ input:focus {
 .bottomText {
   text-align: start;
   font-size: 12px;
-  font-family: 'Noto Sans Hebrew';
+  font-family: var(--font-family);
   padding-top: 5px;
 }
 
