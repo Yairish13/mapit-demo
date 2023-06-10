@@ -1,0 +1,24 @@
+[
+    {
+        "id": "1",
+        "companyName": "Amazon",
+        "departments": [
+            {
+                "departmentId":"1",
+                "departmentName":"AWS",
+                "workers":[ {"id":1,"value":"יוסי מנחם"},{"id":2,"value":"לוי אשכול"} ,{"id":3,"value":"ליאו מסי"},{"id":4,"value":"יוסי חתוכה"},{"id":5,"value":"יוחאי לוי"}, {"id":6,"value":"אייל לוי"}]
+            },
+            {
+                "departmentId":"2",
+                "departmentName":"Front End",
+                "workers":[{"id":7,"value":"יפית גילו"},{"id":8,"value":"רונה אשכול"},{"id":9,"value":"אנטונלה מסי"},{"id":10,"value":"אליזבת בר"},{"id":11,"value":"לוי אשכול"},{"id":12,"value":"תומר גוטמן"}]
+            },
+            {
+                "departmentId":"3",
+                "departmentName":"Back End",
+                "workers":[{"id":13,"value":"כריסטיאנו רונאלדו"},{"id":14,"value":"מייקל ג'קסון"},{"id":15,"value":"סקוטי פיפר"},{"id":16,"value":"לברון ג'יימס"},{"id":17,"value":"שירלי כהן"},{"id":18,"value":"קובי ברייאנט"}]
+
+            }
+        ]
+    }
+]
