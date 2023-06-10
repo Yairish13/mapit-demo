@@ -48,7 +48,7 @@ const SecondPart = ({ members, lng }) => {
     }
     return (
         <>
-            <div className={styles.container}>
+            <div className='divContainer'>
                 <QuestionaireHeader
                     title={t("pages.questionaire.firstPart")}
                 />

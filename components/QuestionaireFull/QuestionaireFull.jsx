@@ -13,23 +13,23 @@ const QuestionaireFull = ({ lng }) => {
     const [members, setMembers] = useState(null);
     const activeStep = useSelector((state) => state.general.activeStep);
     const dispatch = useDispatch()
-    const handleFetch = async () => {
-        const req = await fetch('https://localhost:3000/api/company/1');
-        const data = await req.json();
-        setMembers(data);
-    }
-    useEffect(() => {
-        handleFetch()
-        // store.dispatch(setMembers(data))
-    }, [])
+    // const handleFetch = async () => {
+    //     const req = await fetch('https://localhost:3000/api/company/1');
+    //     const data = await req.json();
+    //     setMembers(data);
+    // }
+    // useEffect(() => {
+    //     handleFetch()
+    //     // store.dispatch(setMembers(data))
+    // }, [])
     return (
         <div>
-            {activeStep === 1 && (<FirstPart members={members && members} lng={lng} dispatch={dispatch} />)}
+            {/* {activeStep === 1 && (<FirstPart lng={lng} dispatch={dispatch} />)}
             {activeStep === 2 && (<SecondPart lng={lng} dispatch={dispatch} />)}
             {activeStep === 3 && (<ThirdPart lng={lng} />)}
             {activeStep === 4 && (<FourthPart lng={lng} />)}
-            {activeStep === 5 && (<FifthPart members={members && members} lng={lng} />)}
-            {activeStep === 6 && (<SixthPart lng={lng} />)}
+            {activeStep === 5 && (<FifthPart lng={lng} />)} */}
+            {activeStep === 1 && (<SixthPart lng={lng} />)}
             {activeStep === 7 && (<SeventhPart lng={lng} />)}
         </div>
     )

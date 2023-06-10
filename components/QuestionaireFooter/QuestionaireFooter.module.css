@@ -13,3 +13,8 @@
     justify-content: flex-end;
     margin-bottom: 13px;
 }
+@media (max-width: 970px) {
+    .footer {
+        margin: 0;
+    }
+}

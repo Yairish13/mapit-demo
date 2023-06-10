@@ -13,6 +13,8 @@ import QuestionaireHeader from "@components/QuestionaireHeader/QuestionaireHeade
 import QuestionaireFooter from "@components/QuestionaireFooter/QuestionaireFooter";
 import { useState } from "react";
 import { getErrored } from "@utils";
+import members from '../../../app/api/utils/company.json'
+
 
 
 const FifthPart = ({ members, lng }) => {
@@ -62,7 +64,7 @@ const FifthPart = ({ members, lng }) => {
     }
     return (
         <>
-            <div className={styles.container}>
+            <div className='divContainer'>
                 <QuestionaireHeader
                     title={t("pages.questionaire.firstPart")}
                 />

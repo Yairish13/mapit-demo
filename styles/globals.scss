@@ -46,6 +46,11 @@ p {
   padding-inline-end: var(--padding-large);
   margin-right: auto;
   margin-left: auto;
+
+  @media (max-width: 970px) {
+    padding-inline-start: 0.5rem;
+    padding-inline-end: 1rem;
+  }
 }
 
 .question {
@@ -85,9 +90,18 @@ p {
   border-bottom: 1px solid #B1BEC5;
 
   @media (max-width: 970px) {
-      margin-top: 1rem;
-      flex-direction: column;
-      width: 100%;
+    margin-top: 1rem;
+    flex-direction: column;
+    width: 100%;
+  }
+}
+
+.divContainer {
+  margin: 0 4rem;
+  min-height: 55vh;
+
+  @media (max-width: 970px) {
+    margin: 0;
   }
 }
 
