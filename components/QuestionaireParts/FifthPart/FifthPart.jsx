@@ -17,7 +17,7 @@ import members from '../../../app/api/utils/company.json'
 
 
 
-const FifthPart = ({ members, lng }) => {
+const FifthPart = ({ lng }) => {
     const [selectedOptions, setSelectedOptions] = useState([]);
 
     const { t } = useTranslation(lng);
