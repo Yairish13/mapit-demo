@@ -52,7 +52,7 @@ const SeventhPart = ({
             <div>
                 <Stepper type="vertical" />
             </div>
-            <div className='divContainer'>
+            <div className='container'>
                 <QuestionaireHeader
                     title={t("pages.questionaire.thirdPart")}
                 />
