@@ -15,14 +15,14 @@
   justify-content: flex-start;
 
   &__hero {
-    height: 500px;
-    width: 500px;
+    height: 600px;
+    width: 580px;
     background-size: cover;
     display: flex;
     justify-content: center;
     align-items: flex-end;
     padding-bottom: 3rem;
-    background-image: url("../../../public/assets/images/groupCircle.png");
+    background-image: url("../../../public/assets/images/groupCircleWhiteLine.png");
   }
 
   p {

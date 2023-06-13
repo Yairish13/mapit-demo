@@ -1,8 +1,11 @@
 import styles from './DefaultLayout.module.css';
+import dynamic from 'next/dynamic';
+const LanguageSelect = dynamic(
+  () => import('../../LanguageSelect/LanguageSelect'),
+  { ssr: false }
+)
 import { useTranslation } from '@app/i18n';
-import LanguageSelect from '@components/LanguageSelect/LanguageSelect';
 import Logo from '@components/Logo';
-import { store } from '@store';
 
 export default async function DefaultLayout({
   children,

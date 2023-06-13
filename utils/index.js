@@ -25,3 +25,7 @@ export const getErrored = (errors) => {
     }
     return false;
 }
+export const handleQuestionNine = (arrayOne, arrayTwo, arrayThree) => {
+    const newArray = arrayOne.filter(obj => !arrayTwo.some(item => item.id === obj.id));
+    return [...newArray, ...arrayThree]
+}

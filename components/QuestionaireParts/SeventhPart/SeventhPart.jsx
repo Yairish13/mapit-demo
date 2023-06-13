@@ -9,24 +9,18 @@ import QuestionText from '@components/QuestionText/QuestionText';
 import { Trans } from 'react-i18next';
 import QuestionaireHeader from '@components/QuestionaireHeader/QuestionaireHeader';
 import QuestionaireFooter from '@components/QuestionaireFooter/QuestionaireFooter';
-import { useForm } from 'react-hook-form';
 import { setAnsweredQuestions, setIsFinished, setPartC } from '@store/generalSlice';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { getErrored, isErrored } from '@utils';
 
 const SeventhPart = ({
-    lng
+    lng, register, handleSubmit, setValue, errors, dispatch
 }) => {
     const router = useRouter();
     const partC = useSelector((state) => state.general.partC);
     const isFinished = useSelector((state) => state.general.isFinished);
-
-    const dispatch = useDispatch();
     let obj = { ...partC };
-    const { register, handleSubmit, setValue, formState: { errors }, setFocus } = useForm({
-        mode: 'onChange',
-    });
     const { t } = useTranslation(lng);
     const handleCheck = (option, name) => {
         setValue(name, true)

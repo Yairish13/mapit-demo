@@ -22,14 +22,14 @@ input:focus {
 
 .bottomText {
   text-align: start;
-  font-size: 12px;
+  font-size: 0.8rem;
   font-family: var(--font-family);
   padding-top: 5px;
 }
 
 .errDiv {
   color: #D93025;
-  font-size: 12px;
+  font-size: 0.8rem;
   font-family: var(--font-family);
 }
 

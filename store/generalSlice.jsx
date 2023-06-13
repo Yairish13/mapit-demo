@@ -2,8 +2,9 @@ import { createSlice } from "@reduxjs/toolkit";
 import { PayloadAction } from "@reduxjs/toolkit";
 
 const initialState = {
-    members: {},
+    members: [],
     selectedMembers: [],
+    questionNine: [],
     partB: {},
     partC: {},
     steps: [{
@@ -56,6 +57,9 @@ const generalSlice = createSlice({
         setMembers: (state, action) => {
             state.members = action.payload;
         },
+        setQuestionNine: (state, action) => {
+            state.questionNine = action.payload;
+        },
         setNextStep: (state, action) => {
             state.activeStep += 1;
             scrollToTop();
@@ -105,6 +109,7 @@ export const { setMembers,
     setIsFinished,
     resetAnsweredQuestions,
     filterAnsweredQuestions,
-    setAnsweredQuestions } = generalSlice.actions;
+    setAnsweredQuestions,
+    setQuestionNine } = generalSlice.actions;
 
 export default generalSlice.reducer;

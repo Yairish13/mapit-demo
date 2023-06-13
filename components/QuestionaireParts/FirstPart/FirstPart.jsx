@@ -9,9 +9,9 @@ import QuestionText from "@components/QuestionText/QuestionText";
 import { Trans } from 'react-i18next/TransWithoutContext'
 import QuestionaireHeader from "@components/QuestionaireHeader/QuestionaireHeader";
 import QuestionaireFooter from "@components/QuestionaireFooter/QuestionaireFooter";
-import members from '../../../app/api/utils/company.json'
 
-const FirstPart = ({ lng }) => {
+
+const FirstPart = ({ members, lng }) => {
   const isFinished = useSelector((state) => state.general.isFinished);
   const { t } = useTranslation(lng);
   const [selectedOptions, setSelectedOptions] = useState([]);

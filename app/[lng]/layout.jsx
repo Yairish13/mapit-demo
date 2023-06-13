@@ -18,11 +18,13 @@ export default function RootLayout({
 }) {
   return (
     <html lang={lng} dir={dir(lng)}>
-      <head />
+      <head>
+        <script src="https://www.google.com/recaptcha/enterprise.js?render=6Lcrk5ImAAAAAGdxcLEpwRCyqk3rpbfIGPKplfl8" async></script>
+      </head>
       <body suppressHydrationWarning={true}>
         <Providers>
           <main>
-          {children}
+            {children}
           </main>
         </Providers>
       </body>

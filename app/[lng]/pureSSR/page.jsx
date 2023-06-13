@@ -13,11 +13,6 @@ export default async function Page({ params: { lng } }) {
   // console.log(data)
   return (
     <>
-      {/* <Stepper />
-      <CircleProgress
-        // percentage={35}
-        circleWidth="200"
-      /> */}
       <PureSSR />
     </>
   )

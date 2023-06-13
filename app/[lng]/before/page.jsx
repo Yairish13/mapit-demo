@@ -68,8 +68,6 @@ const Page = async ({ params: { lng } }) => {
           </div>
 
           <div className={styles.end}>
-            <p>{t("pages.before.textFive")}</p>
-            <p>{t("pages.before.textSix")}</p>
             <p>{t("pages.before.textEight")}</p>
           </div>
 

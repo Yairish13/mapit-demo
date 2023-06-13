@@ -4,6 +4,7 @@
 .container{
     margin-bottom: var(--padding-large);
     padding-bottom: var(--padding-large);
+    margin-inline-end: 7rem;
 }
 .textInput{
     display: flex;
@@ -23,7 +24,7 @@
     background-image: url("../../../public/assets/images/smallGroupCircle.png");
     border-radius: 50%;
     position: absolute;
-    right: -16rem;
+    right: -14rem;
     top: 0;
     @media (min-width: 970px) {
       display: none;

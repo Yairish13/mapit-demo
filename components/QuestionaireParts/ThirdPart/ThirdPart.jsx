@@ -1,9 +1,8 @@
 /* eslint-disable react/no-unescaped-entities */
 "use client";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import styles from './ThirdPart.module.css';
 import { setAnsweredQuestions, setNextStep, setSelectedMembers } from "../../../store/generalSlice";
-import { useForm } from "react-hook-form";
 import { useTranslation } from "@app/i18n/client";
 import RadiosAnswerSurvey from "@components/RadiosAnswerSurvey/RadiosAnswerSurvey";
 import QuestionText from "@components/QuestionText/QuestionText";
@@ -13,14 +12,10 @@ import QuestionaireFooter from "@components/QuestionaireFooter/QuestionaireFoote
 import { getErrored, isAnswered, isErrored } from "@utils";
 
 
-const ThirdPart = ({ members, lng }) => {
+const ThirdPart = ({  lng, register, handleSubmit, setValue, errors, getValues, dispatch }) => {
     const { t } = useTranslation(lng);
-    const { register, setValue, handleSubmit, formState: { errors }, getValues } = useForm({
-        mode: 'any',
-    });
     const selectedMembers = useSelector((state) => state.general.selectedMembers);
     const arr = [...selectedMembers]
-    const dispatch = useDispatch()
     const handleNext = () => {
         dispatch(setNextStep())
     }

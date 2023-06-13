@@ -5,7 +5,6 @@ const Checkbox = ({ id, label, checked, onChange, error, errorText, name, index,
         onChange && onChange(e, name, index);
     }
     return (
-        <div>
             <div className={styles.container}>
                 <input
                     className={styles.input}
@@ -19,8 +18,6 @@ const Checkbox = ({ id, label, checked, onChange, error, errorText, name, index,
                     {label}
                 </label>}
             </div>
-        </div>
-
     );
 };
 

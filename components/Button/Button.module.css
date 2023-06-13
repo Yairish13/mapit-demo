@@ -1,7 +1,7 @@
 .tertiary {
     border: 1px solid;
-    width: 100px;
-    height: 30px;
+    width: 125px;
+    height: 35px;
     background-color: var(--background-general);
     border-color: var(--color-primary);
     color: var(--color-primary);
@@ -23,14 +23,14 @@
 }
 
 .tertiary:is(:active, :focus) {
-    border-color: #3BBBB0;
-    color: #3BBBB0;
+    border-color: var(--color-primary);;
+    color: var(--color-primary);;
 }
 
 .primary {
     border: 2px solid;
-    width: 150px;
-    height: 35px;
+    width: 178px;
+    height: 38px;
     background-color: var(--color-primary);
     border-color: var(--color-primary);
     border-radius: 15px;
@@ -53,7 +53,7 @@
 }
 
 .primary:is(:active, :enabled) {
-    background-color: #3BBBB0;
+    background-color: var(--color-primary);
     color: white;
 }
 
@@ -77,8 +77,8 @@
 
 
 .secondary:is(:active, :enabled) {
-    border-color: #3BBBB0;
-    color: #3BBBB0;
+    border-color: var(--color-primary);;
+    color: var(--color-primary);;
 }
 
 .secondary:disabled {

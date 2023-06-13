@@ -9,32 +9,27 @@ import QuestionText from '@components/QuestionText/QuestionText';
 import { Trans } from 'react-i18next/TransWithoutContext';
 import QuestionaireHeader from '@components/QuestionaireHeader/QuestionaireHeader';
 import QuestionaireFooter from '@components/QuestionaireFooter/QuestionaireFooter';
-import { useForm } from 'react-hook-form';
-import { useEffect } from 'react';
 import { getErrored, isErrored } from '@utils';
 
 const SixthPart = ({
-    lng
+    lng, register, handleSubmit, setValue, errors, dispatch
 }) => {
     const { t } = useTranslation(lng);
     const partB = useSelector((state) => state.general.partB);
     let obj = { ...partB };
-    const { register, handleSubmit, setValue, formState: { errors },setFocus, onError } = useForm({
-        mode: 'onChange',
-    });
-    const dispatch = useDispatch();
 
     const handleNext = () => {
         dispatch(setNextStep())
     }
     const handleCheck = (option, name) => {
-        setValue(name,true)
+        setValue(name, true)
         dispatch(setAnsweredQuestions(name))
         obj = { ...obj, [name]: option.target.id };
         dispatch(setPartB(obj))
     }
 
     const focusedInput = getErrored(errors);
+    console.log(focusedInput, 'focusedInput');
     if (focusedInput) {
         focusedInput.focus();
     }
@@ -153,7 +148,7 @@ const SixthPart = ({
                     wide={true}
                     withStepper={false}
                     isError={Object.keys(errors).length > 0 ? true : false}
-                    handleClick={handleSubmit(handleNext, onError)}
+                    handleClick={handleSubmit(handleNext)}
                 />
             </div>
         </div>

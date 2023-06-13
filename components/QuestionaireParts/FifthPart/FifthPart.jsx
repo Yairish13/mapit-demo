@@ -3,7 +3,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import styles from './FifthPart.module.css';
 import { filterAnsweredQuestions, setAnsweredQuestions, setNextStep } from "../../../store/generalSlice";
-import { useForm } from "react-hook-form";
 import { useTranslation } from "@app/i18n/client";
 import CustomSelect from "@components/CustomSelect/CustomSelect";
 import Checkbox from "@components/Checkbox/Checkbox";
@@ -12,22 +11,13 @@ import { Trans } from "react-i18next/TransWithoutContext";
 import QuestionaireHeader from "@components/QuestionaireHeader/QuestionaireHeader";
 import QuestionaireFooter from "@components/QuestionaireFooter/QuestionaireFooter";
 import { useState } from "react";
-import { getErrored } from "@utils";
-import members from '../../../app/api/utils/company.json'
 
-
-
-const FifthPart = ({ lng }) => {
+const FifthPart = ({ members, lng, dispatch }) => {
     const [selectedOptions, setSelectedOptions] = useState([]);
-
     const { t } = useTranslation(lng);
-    const { register, setValue, handleSubmit, formState: { errors } } = useForm({
-        mode: 'any',
-    });
     const selectedMembers = useSelector((state) => state.general.selectedMembers);
     const arr = [...selectedMembers];
     let newArr = [];
-    const dispatch = useDispatch()
     const handleNext = () => {
         dispatch(setAnsweredQuestions('questionNine'))
         dispatch(filterAnsweredQuestions('questionNine'))
@@ -57,10 +47,6 @@ const FifthPart = ({ lng }) => {
             newArr.length === 1 && dispatch(filterAnsweredQuestions(name));
             newArr.filter((el) => el !== e.target.value)
         }
-    }
-    const focusedInput = getErrored(errors);
-    if (focusedInput) {
-        focusedInput.focus();
     }
     return (
         <>
@@ -129,7 +115,6 @@ const FifthPart = ({ lng }) => {
                 </div>
             </div >
             <QuestionaireFooter
-                isError={Object.keys(errors).length > 0 ? true : false}
                 handleClick={handleNext}
             />
         </>

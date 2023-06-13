@@ -2,7 +2,7 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    margin: 0% 15%;
+    margin: 3rem 15rem;
     font-size: 16px;
     overflow-y: hidden;
     margin-bottom: 5%;
@@ -13,6 +13,7 @@
     font-family: 'gveretLevin';
     text-decoration: underline;
     color: var(--color-secondary);
+    font-weight: 100;
 }
 
 .headers {
@@ -30,6 +31,6 @@
 .subRow {
     display: flex;
     flex-direction: row;
-    padding-inline-start: 25px;
+    padding-inline-start: 2.2rem;
     gap: 10px;
 }

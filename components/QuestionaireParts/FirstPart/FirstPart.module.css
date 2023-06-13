@@ -1,6 +1,6 @@
 .container {
   border-bottom: 1px solid #B1BEC5;
-  margin: 0 4rem;
+  /* margin: 0 4rem; */
   min-height: 55vh;
 }
 .selectDiv{

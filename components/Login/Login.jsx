@@ -15,13 +15,25 @@ const Login = ({ lng }) => {
     const router = useRouter();
     const [otpIsOn, setOtpIsOn] = useState(false);
     const [isChecked, setIsChecked] = useState(false);
-    const [areaCode, setAreaCode] = useState('972')
-    const { register, setValue, handleSubmit, getValues, formState: { errors }, watch } = useForm({
+    const [areaCode, setAreaCode] = useState('+972')
+    const { register, setValue, handleSubmit, setError, formState: { errors }, watch } = useForm({
         mode: 'any',
     });
 
-    const onSubmitPhone = (aa) => {
+    const onSubmitPhone = (data) => {
+        const { phoneLoginInput } = data;
+        console.log(phoneLoginInput,'phoneLoginInput');
         setOtpIsOn(true)
+        // fetch(`http://localhost:1337/api/auth/phone/callback?phoneNumber=${areaCode}${phoneLoginInput}&project=1`)
+        //     .then((response) => response.json())
+        //     .then((responseJSON) => {
+        //         console.log(responseJSON.success, 'responseJason');
+        //         if (responseJSON.success) setOtpIsOn(true)
+        //         else setError('phoneLoginInput', { type: 'custom' });
+        //     }).catch(err => {
+        //         setError('phoneLoginInput', { type: 'custom' });
+        //         console.log(err, 'error')
+        //     });
     }
 
     const handleChange = (e) => {
@@ -35,7 +47,18 @@ const Login = ({ lng }) => {
         setAreaCode(areaCode);
     }
     const otp = watch('otpInput')
-    const handleBefore = () => {
+    const handleBefore = (data) => {
+        // fetch(`http://localhost:1337/api/auth/phone/callback?phoneNumber=${phoneLoginInput}&project=1&code=${}`)
+        // .then((response) => response.json())
+        // .then((responseJSON) => {
+        //     console.log(responseJSON.success, 'responseJason');
+        //     if (responseJSON.success) setOtpIsOn(true)
+        //     else setError('phoneLoginInput', { type: 'custom' });
+        // }).catch(err => {
+        //     setError('phoneLoginInput', { type: 'custom' });
+        //     console.log(err, 'error')
+        // });
+        console.log(data);
         router.push(`${lng}/terms`);
     }
     useEffect(() => {

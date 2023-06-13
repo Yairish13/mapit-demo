@@ -5,7 +5,7 @@ import { usePathname, useRouter } from 'next/navigation';
 import { useTranslation } from 'react-i18next';
 
 const LanguageSelect = ({ lng }) => {
-    const { t } = useTranslation(lng);
+    const { t } = useTranslation();
     const router = useRouter()
     const pathname = usePathname();
     const handleChange = (e) => {

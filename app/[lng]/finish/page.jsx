@@ -1,4 +1,5 @@
-import Checkmark from '@components/Checkmark/Checkmark'
+import Checkmark from '@components/Checkmark/Checkmark';
+import { Trans } from 'react-i18next/TransWithoutContext'
 import styles from './page.module.css';
 import { useTranslation } from '@app/i18n';
 
@@ -10,7 +11,9 @@ const Page = async ({ params: { lng } }) => {
                 <Checkmark />
             </div>
             <h2 className={styles.finishHeader}>
-                {t('pages.finish.youFinished')}
+            <Trans i18nKey="pages.finish.youFinished" t={t}>
+                Switch from <strong>{{ lng }}</strong> to {""}
+              </Trans>
             </h2>
             <div>
                 {t('pages.finish.thanks')}

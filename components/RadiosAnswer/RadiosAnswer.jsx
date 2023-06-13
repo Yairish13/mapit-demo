@@ -25,53 +25,53 @@ const RadiosAnswer = ({ handleCheck, selectedMembers, register, name, setValue }
                 {selectedMembers.map((worker, index) => (
                     <tr key={index}>
                         <td scope="row">{worker.value}</td>
-                        <td className={styles.radioBtn}>
-                            <RadioButton
-                                id='monthly'
-                                name={`${name}_${worker.id}`}
-                                index={index}
-                                onChange={(e) => { handleChange(e, index, name, worker.id) }}
-                                refs={{
-                                    ...register(`${name}_${worker.id}`, {
-                                        required: true,
-                                    })
-                                }}
-                                checked={arr[index].questionNumberTwo}
-                            />
-                        </td>
-                        <td className={styles.radioBtn}>
-                            <RadioButton
-                                id='weekly'
-                                name={`${name}_${worker.id}`}
-                                index={index}
-                                // onChange={(e) => handleChange(e)}
-                                onChange={(e) => { handleChange(e, index, name, worker.id) }}
-                                refs={{
-                                    ...register(`${name}_${worker.id}`, {
-                                        required: true,
-                                    })
-                                }}
-                                // register={register}
-                                checked={arr[index].questionNumberTwo}
-                            />
-                        </td>
-                        <td className={styles.radioBtn}>
-                            <RadioButton
-                                id='daily'
-                                name={`${name}_${worker.id}`}
-                                index={index}
-                                // onChange={(e) => handleChange(e)}
-                                onChange={(e) => { handleChange(e, index, name, worker.id) }}
+                            <td className={styles.radioBtn}>
+                                <RadioButton
+                                    id='monthly'
+                                    name={`${name}_${worker.id}`}
+                                    index={index}
+                                    onChange={(e) => { handleChange(e, index, name, worker.id) }}
+                                    refs={{
+                                        ...register(`${name}_${worker.id}`, {
+                                            required: true,
+                                        })
+                                    }}
+                                    checked={arr[index].questionNumberTwo}
+                                />
+                            </td>
+                            <td className={styles.radioBtn}>
+                                <RadioButton
+                                    id='weekly'
+                                    name={`${name}_${worker.id}`}
+                                    index={index}
+                                    // onChange={(e) => handleChange(e)}
+                                    onChange={(e) => { handleChange(e, index, name, worker.id) }}
+                                    refs={{
+                                        ...register(`${name}_${worker.id}`, {
+                                            required: true,
+                                        })
+                                    }}
+                                    // register={register}
+                                    checked={arr[index].questionNumberTwo}
+                                />
+                            </td>
+                            <td className={styles.radioBtn}>
+                                <RadioButton
+                                    id='daily'
+                                    name={`${name}_${worker.id}`}
+                                    index={index}
+                                    // onChange={(e) => handleChange(e)}
+                                    onChange={(e) => { handleChange(e, index, name, worker.id) }}
 
-                                refs={{
-                                    ...register(`${name}_${worker.id}`, {
-                                        required: true,
-                                    })
-                                }}
-                                // register={register}
-                                checked={arr[index].questionNumberTwo}
-                            />
-                        </td>
+                                    refs={{
+                                        ...register(`${name}_${worker.id}`, {
+                                            required: true,
+                                        })
+                                    }}
+                                    // register={register}
+                                    checked={arr[index].questionNumberTwo}
+                                />
+                            </td>
                     </tr>
                 ))}
             </tbody>

@@ -4,3 +4,10 @@
     align-items: flex-end;
     justify-content: space-between;
 }
+.progress{
+    display: flex;
+    align-items: baseline;
+    color: var(--color-secondary);
+    font-weight: 600;
+    font-size: 0.8rem;
+}

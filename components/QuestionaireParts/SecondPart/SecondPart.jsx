@@ -1,9 +1,8 @@
 /* eslint-disable react/no-unescaped-entities */
 "use client";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import styles from './SecondPart.module.css';
-import { setNextStep, setSelectedMembers, setAnsweredQuestions, filterAnsweredQuestions } from "../../../store/generalSlice";
-import { useForm } from "react-hook-form";
+import { setNextStep, setSelectedMembers, setAnsweredQuestions, filterAnsweredQuestions, setQuestionNine } from "../../../store/generalSlice";
 import Checkbox from "@components/Checkbox/Checkbox";
 import RadiosAnswer from "@components/RadiosAnswer/RadiosAnswer";
 import { useTranslation } from "@app/i18n/client";
@@ -11,24 +10,31 @@ import QuestionText from "@components/QuestionText/QuestionText";
 import { Trans } from "react-i18next/TransWithoutContext";
 import QuestionaireHeader from "@components/QuestionaireHeader/QuestionaireHeader";
 import QuestionaireFooter from "@components/QuestionaireFooter/QuestionaireFooter";
-import { getErrored, isAnswered, isErrored } from "@utils";
+import { getErrored, handleQuestionNine, isAnswered, isErrored } from "@utils";
+import { useState } from "react";
+import members from '@utils/workers.json';
 
-
-const SecondPart = ({ members, lng }) => {
+const SecondPart = ({ lng, register, handleSubmit, setValue, errors, getValues, dispatch }) => {
+    const [questionThreeArr, setQuestionThreeArr] = useState([]);
     const { t } = useTranslation(lng);
-    const { register, handleSubmit, setValue, formState: { errors }, setFocus, getValues } = useForm({
-        mode: 'all',
-    });
     const selectedMembers = useSelector((state) => state.general.selectedMembers);
     const arr = [...selectedMembers]
-    const dispatch = useDispatch();
 
     const handleNext = () => {
+        const nineArr = handleQuestionNine(members, selectedMembers, questionThreeArr);
+        console.log(nineArr, 'nineArr');
+        dispatch(setQuestionNine(nineArr))
         dispatch(setAnsweredQuestions('questionThree'));
         dispatch(setNextStep())
     }
     const handleCheck = (option, name, index) => {
         if (name === 'questionThree') {
+            const member = arr[index];
+            if (questionThreeArr.some((el) => el.id === member.id)) {
+                const arr = questionThreeArr.filter((el) => el.id !== member.id);
+                setQuestionThreeArr(arr)
+            }
+            else { setQuestionThreeArr((prev => [...prev, member])) }
             arr[index] = { ...arr[index], [name]: option.target.checked };
             if (arr.some(el => el.questionThree)) dispatch(setAnsweredQuestions(name))
             else dispatch(filterAnsweredQuestions(name))
@@ -79,7 +85,7 @@ const SecondPart = ({ members, lng }) => {
                         number={3}
                     />
                     <div className={`${isErrored(errors, 'questionThree') ? 'error' : ''} answer ${styles.aformalDiv}`}>
-                        {t("pages.questionaire.nonFormal")}
+                        <span className={styles.nonFormal}>{t("pages.questionaire.nonFormal")}</span>
                         {selectedMembers.map((worker, index) => (
                             <div key={index}>
                                 <Checkbox
