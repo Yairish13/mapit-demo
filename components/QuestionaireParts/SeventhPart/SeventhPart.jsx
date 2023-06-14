@@ -37,10 +37,13 @@ const SeventhPart = ({
         if (isFinished) router.push(`${lng}/finish`)
     }, [])
 
-    const focusedInput = getErrored(errors);
-    if (focusedInput) {
-        focusedInput.focus();
-    }
+    useEffect(() => {
+        const focusedInput = getErrored(errors);
+        console.log(focusedInput, 'focusedInput');
+        if (focusedInput) {
+            focusedInput.focus();
+        }
+    }, [errors])
     return (
         <div className={styles.containerPartB}>
             <div>
@@ -128,6 +131,7 @@ const SeventhPart = ({
                         handleCheck={handleCheck}
                         register={register}
                         required={true}
+                        shortText={true}
                         isError={isErrored(errors, 'questionTwenty')}
                     />
                 </div>

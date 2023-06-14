@@ -4,3 +4,11 @@
 .tableHeader{
     color: var(--color-secondary);
 }
+.thText{
+    width: 3.5rem;
+    display: -webkit-inline-box;
+}
+.thTextNot{
+    width: 2rem;
+    display: -webkit-inline-box;
+}

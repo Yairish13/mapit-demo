@@ -10,6 +10,7 @@ import { Trans } from "react-i18next/TransWithoutContext";
 import QuestionaireFooter from "@components/QuestionaireFooter/QuestionaireFooter";
 import QuestionaireHeader from "@components/QuestionaireHeader/QuestionaireHeader";
 import { getErrored, isAnswered, isErrored } from "@utils";
+import { useEffect } from "react";
 
 
 const FourthPart = ({ lng, register, handleSubmit, setValue, errors, getValues, dispatch }) => {
@@ -25,10 +26,13 @@ const FourthPart = ({ lng, register, handleSubmit, setValue, errors, getValues, 
         if (answered) dispatch(setAnsweredQuestions(name))
     }
 
-    const focusedInput = getErrored(errors);
-    if (focusedInput) {
-        focusedInput.focus();
-    }
+    useEffect(() => {
+        const focusedInput = getErrored(errors);
+        console.log(focusedInput, 'focusedInput');
+        if (focusedInput) {
+            focusedInput.focus();
+        }
+    }, [errors])
     return (
         <>
             <div className='divContainer'>

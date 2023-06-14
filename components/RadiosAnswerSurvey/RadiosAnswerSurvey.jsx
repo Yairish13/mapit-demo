@@ -20,11 +20,21 @@ const RadiosAnswerSurvey = ({ handleCheck, selectedMembers, register, name, setV
                 <thead>
                     <tr>
                         <th scope="col"></th>
-                        <th scope="col">{t('global.irrelevant')}</th>
-                        <th scope="col">{t('global.notAtAll')}</th>
-                        <th scope="col">{t('global.slightly')}</th>
-                        <th scope="col">{t('global.very')}</th>
-                        <th scope="col">{t('global.veryMuch')}</th>
+                        <th scope="col">
+                            <div className={styles.thTextNot}>{t('global.irrelevant')}</div>
+                        </th>
+                        <th scope="col">
+                            <div className={styles.thTextNot}>{t('global.notAtAll')}</div>
+                        </th>
+                        <th scope="col">
+                            <div className={styles.thText}>{t('global.slightly')}</div>
+                        </th>
+                        <th scope="col">
+                            <div className={styles.thText}>{t('global.very')}</div>
+                        </th>
+                        <th scope="col">
+                            <div className={styles.thText}>{t('global.veryMuch')}</div>
+                        </th>
                     </tr>
                     <tr>
                         <th scope="col"></th>
@@ -116,18 +126,24 @@ const RadiosAnswerSurvey = ({ handleCheck, selectedMembers, register, name, setV
             <table>
                 <thead>
                     <tr>
-                        <th scope="col">{t('global.irrelevant')}</th>
-                        <th scope="col">{t('global.notAtAll')}</th>
-                        <th scope="col">{t('global.slightly')}</th>
-                        <th scope="col">{t('global.very')}</th>
-                        <th scope="col">{t('global.veryMuch')}</th>
+                        <th scope="col">
+                            <div className={styles.thTextNot}>{t('global.notAtAll')}</div>
+                        </th>
+                        <th scope="col">
+                            <div className={styles.thText}>{t('global.slightly')}</div>
+                        </th>
+                        <th scope="col">
+                            <div className={styles.thText}>{t('global.very')}</div>
+                        </th>
+                        <th scope="col">
+                            <div className={styles.thText}>{t('global.veryMuch')}</div>
+                        </th>
                     </tr>
                     <tr>
                         <th className={styles.tableHeader} scope="col">1</th>
                         <th className={styles.tableHeader} scope="col">2</th>
                         <th className={styles.tableHeader} scope="col">3</th>
                         <th className={styles.tableHeader} scope="col">4</th>
-                        <th className={styles.tableHeader} scope="col">5</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -175,19 +191,6 @@ const RadiosAnswerSurvey = ({ handleCheck, selectedMembers, register, name, setV
                             <td className={styles.radioBtn}>
                                 <RadioButton
                                     id='4'
-                                    name={name}
-                                    onChange={(e) => handleChange(e, name)}
-                                    refs={{
-                                        ...register(`${name}`, {
-                                            required,
-                                        })
-                                    }}
-                                // checked={arr[index].name}
-                                />
-                            </td>
-                            <td className={styles.radioBtn}>
-                                <RadioButton
-                                    id='5'
                                     name={name}
                                     onChange={(e) => handleChange(e, name)}
                                     refs={{

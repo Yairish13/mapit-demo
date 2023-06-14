@@ -10,6 +10,7 @@ import { Trans } from 'react-i18next/TransWithoutContext';
 import QuestionaireHeader from '@components/QuestionaireHeader/QuestionaireHeader';
 import QuestionaireFooter from '@components/QuestionaireFooter/QuestionaireFooter';
 import { getErrored, isErrored } from '@utils';
+import { useEffect } from 'react';
 
 const SixthPart = ({
     lng, register, handleSubmit, setValue, errors, dispatch
@@ -27,12 +28,14 @@ const SixthPart = ({
         obj = { ...obj, [name]: option.target.id };
         dispatch(setPartB(obj))
     }
+    useEffect(() => {
+        const focusedInput = getErrored(errors);
+        console.log(focusedInput, 'focusedInput');
+        if (focusedInput) {
+            focusedInput.focus();
+        }
+    }, [errors])
 
-    const focusedInput = getErrored(errors);
-    console.log(focusedInput, 'focusedInput');
-    if (focusedInput) {
-        focusedInput.focus();
-    }
     return (
         <div className={styles.containerPartB}>
             <div>

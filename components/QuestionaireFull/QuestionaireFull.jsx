@@ -16,7 +16,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useForm } from 'react-hook-form';
 import members from '../../app/api/utils/company.json'
 
-
 const QuestionaireFull = ({ lng }) => {
     // const [members, setMembers] = useState(null);
     const activeStep = useSelector((state) => state.general.activeStep);
@@ -25,10 +24,10 @@ const QuestionaireFull = ({ lng }) => {
         mode: 'all',
     });
     const handleFetch = async () => {
-        // const req = await fetch('https://localhost:3000/api/company/1');
+        // const req = await fetch('http://localhost:3000/api/company/1');
         // const data = await req.json();
         // console.log(data);
-        // dispatch(setMembers(data))
+        // // dispatch(setMembers(data))
         // setMembers(data);
     }
     useEffect(() => {
@@ -76,6 +75,7 @@ const QuestionaireFull = ({ lng }) => {
             {activeStep === 5 && (
                 <FifthPart
                     lng={lng}
+                    members={members}
                     dispatch={dispatch} />)}
             {activeStep === 6 && (
                 <SixthPart

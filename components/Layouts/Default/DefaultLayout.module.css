@@ -22,4 +22,12 @@
   flex: 0 0 auto;
   text-align: center;
   font-size: 0.8rem;
+  margin: 0 8rem;
+  margin-top: 1rem;
+}
+
+@media (max-width: 1200px) {
+  .footer {
+    margin: 1rem 1rem;
+  }
 }

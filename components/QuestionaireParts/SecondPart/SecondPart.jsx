@@ -11,7 +11,7 @@ import { Trans } from "react-i18next/TransWithoutContext";
 import QuestionaireHeader from "@components/QuestionaireHeader/QuestionaireHeader";
 import QuestionaireFooter from "@components/QuestionaireFooter/QuestionaireFooter";
 import { getErrored, handleQuestionNine, isAnswered, isErrored } from "@utils";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import members from '@utils/workers.json';
 
 const SecondPart = ({ lng, register, handleSubmit, setValue, errors, getValues, dispatch }) => {
@@ -48,10 +48,13 @@ const SecondPart = ({ lng, register, handleSubmit, setValue, errors, getValues, 
     }
 
 
-    const focusedInput = getErrored(errors);
-    if (focusedInput) {
-        focusedInput.focus();
-    }
+    useEffect(() => {
+        const focusedInput = getErrored(errors);
+        console.log(focusedInput, 'focusedInput');
+        if (focusedInput) {
+            focusedInput.focus();
+        }
+    }, [errors])
     return (
         <>
             <div className='divContainer'>
