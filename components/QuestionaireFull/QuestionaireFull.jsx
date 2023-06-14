@@ -14,20 +14,22 @@ import ThirdPart from '@components/QuestionaireParts/ThirdPart/ThirdPart';
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useForm } from 'react-hook-form';
+import members from '../../app/api/utils/company.json'
+
 
 const QuestionaireFull = ({ lng }) => {
-    const [members, setMembers] = useState(null);
+    // const [members, setMembers] = useState(null);
     const activeStep = useSelector((state) => state.general.activeStep);
     const dispatch = useDispatch()
     const { register, handleSubmit, setValue, formState: { errors }, getValues } = useForm({
         mode: 'all',
     });
     const handleFetch = async () => {
-        const req = await fetch('https://localhost:3000/api/company/1');
-        const data = await req.json();
-        console.log(data);
+        // const req = await fetch('https://localhost:3000/api/company/1');
+        // const data = await req.json();
+        // console.log(data);
         // dispatch(setMembers(data))
-        setMembers(data);
+        // setMembers(data);
     }
     useEffect(() => {
         handleFetch()
