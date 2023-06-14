@@ -23,7 +23,7 @@ const QuestionaireFull = ({ lng }) => {
         mode: 'all',
     });
     const handleFetch = async () => {
-        const req = await fetch('http://localhost:3000/api/company/1');
+        const req = await fetch('https://localhost:3000/api/company/1');
         const data = await req.json();
         console.log(data);
         // dispatch(setMembers(data))
