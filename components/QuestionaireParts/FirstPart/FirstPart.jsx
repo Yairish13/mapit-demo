@@ -1,7 +1,7 @@
 "use client";
 import { useDispatch, useSelector } from "react-redux";
 import styles from './FirstPart.module.css'
-import { setNextStep, setSelectedMembers, setAnsweredQuestions, resetAnsweredQuestions } from "../../../store/generalSlice";
+import { setNextStep, setSelectedMembers, setAnsweredQuestions, resetAnsweredQuestions, setAnswers } from "../../../store/generalSlice";
 import CustomSelect from "@components/CustomSelect/CustomSelect";
 import { useEffect, useState } from "react";
 import { useTranslation } from "@app/i18n/client";
@@ -18,6 +18,7 @@ const FirstPart = ({ members, lng }) => {
   const [isError, setIsError] = useState(false);
   const dispatch = useDispatch();
   const handleNext = () => {
+    console.log(selectedOptions, 'selectedOptions');
     if (selectedOptions.length === 0) {
       setIsError(true)
     } else {
@@ -25,6 +26,7 @@ const FirstPart = ({ members, lng }) => {
         return index === selectedOptions.findIndex(o => obj.id === o.id);
       });
       dispatch(setSelectedMembers(selectedWithNoDuplicate))
+      dispatch(setAnswers({ questionOne: selectedWithNoDuplicate }))
       dispatch(setNextStep())
     }
   }

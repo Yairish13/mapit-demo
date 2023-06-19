@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@google-cloud/recaptcha-enterprise": "^3.4.1",
     "@reduxjs/toolkit": "^1.9.5",
     "accept-language": "^3.0.18",
     "clsx": "^1.2.1",

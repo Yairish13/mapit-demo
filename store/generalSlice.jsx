@@ -5,6 +5,7 @@ const initialState = {
     members: [],
     selectedMembers: [],
     questionNine: [],
+    answers:{},
     partB: {},
     partC: {},
     steps: [{
@@ -87,6 +88,9 @@ const generalSlice = createSlice({
         setPartC: (state, action) => {
             state.partC = action.payload;
         },
+        setAnswers: (state, action) => {
+            state.answers = action.payload;
+        },
         setIsFinished: (state, action) => {
             state.isFinished = true;
         }
@@ -110,6 +114,7 @@ export const { setMembers,
     resetAnsweredQuestions,
     filterAnsweredQuestions,
     setAnsweredQuestions,
-    setQuestionNine } = generalSlice.actions;
+    setQuestionNine,
+    setAnswers } = generalSlice.actions;
 
 export default generalSlice.reducer;

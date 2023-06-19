@@ -2,7 +2,7 @@
 "use client";
 import { useSelector } from "react-redux";
 import styles from './SecondPart.module.css';
-import { setNextStep, setSelectedMembers, setAnsweredQuestions, filterAnsweredQuestions, setQuestionNine } from "../../../store/generalSlice";
+import { setNextStep, setSelectedMembers, setAnsweredQuestions, filterAnsweredQuestions, setQuestionNine, setAnswers } from "../../../store/generalSlice";
 import Checkbox from "@components/Checkbox/Checkbox";
 import RadiosAnswer from "@components/RadiosAnswer/RadiosAnswer";
 import { useTranslation } from "@app/i18n/client";
@@ -15,17 +15,22 @@ import { useEffect, useState } from "react";
 import members from '@utils/workers.json';
 
 const SecondPart = ({ lng, register, handleSubmit, setValue, errors, getValues, dispatch }) => {
+    const [answersObj, setAnswersObj] = useState({});
     const [questionThreeArr, setQuestionThreeArr] = useState([]);
     const { t } = useTranslation(lng);
     const selectedMembers = useSelector((state) => state.general.selectedMembers);
+    const answers = useSelector((state) => state.general.answers);
+    console.log(answers, 'answeers');
     const arr = [...selectedMembers]
 
     const handleNext = () => {
         const nineArr = handleQuestionNine(members, selectedMembers, questionThreeArr);
         console.log(nineArr, 'nineArr');
-        dispatch(setQuestionNine(nineArr))
+        dispatch(setQuestionNine(nineArr));
         dispatch(setAnsweredQuestions('questionThree'));
-        dispatch(setNextStep())
+        dispatch(setNextStep());
+        dispatch(setAnswers({ ...answers, ...answersObj, questionThree: questionThreeArr }))
+
     }
     const handleCheck = (option, name, index) => {
         if (name === 'questionThree') {
@@ -41,8 +46,12 @@ const SecondPart = ({ lng, register, handleSubmit, setValue, errors, getValues, 
         }
         else {
             arr[index] = { ...arr[index], [name]: option.target.id };
-            const answered = isAnswered(getValues(), name)
-            if (answered) dispatch(setAnsweredQuestions(name))
+            const answered = isAnswered(getValues(), name);
+            if (answered) dispatch(setAnsweredQuestions(name));
+
+            let temp = answersObj[name] || [];
+            if (temp.some((el) => el.id === arr[index].id)) { temp = temp.filter((el) => el.id !== arr[index].id) }
+            setAnswersObj((prev) => ({ ...prev, [name]: [...temp, { id: arr[index].id, value: option.target.id }] }))
         }
         dispatch(setSelectedMembers(arr))
     }

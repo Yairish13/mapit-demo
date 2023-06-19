@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-sync-scripts */
 import '@styles/variables.css';
 import '@styles/fonts.css';
 import '@styles/globals.scss';
@@ -19,7 +20,7 @@ export default function RootLayout({
   return (
     <html lang={lng} dir={dir(lng)}>
       <head>
-        <script src="https://www.google.com/recaptcha/enterprise.js?render=6Lcrk5ImAAAAAGdxcLEpwRCyqk3rpbfIGPKplfl8" async></script>
+      <script src={`${process.env.RECAPTCHA_URL}${process.env.NEXT_PUBLIC_RECAPTCHA_KEY}`}></script>
       </head>
       <body suppressHydrationWarning={true}>
         <Providers>

@@ -21,19 +21,29 @@ const RadiosAnswerSurvey = ({ handleCheck, selectedMembers, register, name, setV
                     <tr>
                         <th scope="col"></th>
                         <th scope="col">
-                            <div className={styles.thTextNot}>{t('global.irrelevant')}</div>
+                            <div className={styles.thTextNot}>
+                                {t('global.irrelevant')}
+                            </div>
                         </th>
                         <th scope="col">
-                            <div className={styles.thTextNot}>{t('global.notAtAll')}</div>
+                            <div className={styles.thTextNot}>
+                                {t('global.notAtAll')}
+                            </div>
                         </th>
                         <th scope="col">
-                            <div className={styles.thText}>{t('global.slightly')}</div>
+                            <div className={styles.thText}>
+                                {t('global.slightly')}
+                            </div>
                         </th>
                         <th scope="col">
-                            <div className={styles.thText}>{t('global.very')}</div>
+                            <div className={styles.thText}>
+                                {t('global.very')}
+                            </div>
                         </th>
                         <th scope="col">
-                            <div className={styles.thText}>{t('global.veryMuch')}</div>
+                            <div className={styles.thText}>
+                                {t('global.veryMuch')}
+                            </div>
                         </th>
                     </tr>
                     <tr>
@@ -127,16 +137,24 @@ const RadiosAnswerSurvey = ({ handleCheck, selectedMembers, register, name, setV
                 <thead>
                     <tr>
                         <th scope="col">
-                            <div className={styles.thTextNot}>{t('global.notAtAll')}</div>
+                            <div className={styles.thTextNot}>
+                                {t('global.notAtAll')}
+                            </div>
                         </th>
                         <th scope="col">
-                            <div className={styles.thText}>{t('global.slightly')}</div>
+                            <div className={styles.thText}>
+                                {t('global.slightly')}
+                            </div>
                         </th>
                         <th scope="col">
-                            <div className={styles.thText}>{t('global.very')}</div>
+                            <div className={styles.thText}>
+                                {t('global.very')}
+                            </div>
                         </th>
                         <th scope="col">
-                            <div className={styles.thText}>{t('global.veryMuch')}</div>
+                            <div className={styles.thText}>
+                                {t('global.veryMuch')}
+                            </div>
                         </th>
                     </tr>
                     <tr>

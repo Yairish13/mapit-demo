@@ -12,13 +12,13 @@ const RadiosAnswer = ({ handleCheck, selectedMembers, register, name, setValue }
         if (handleCheck) handleCheck(e, name, index);
     }
     return (
-        <table>
+        <table className={styles.table}>
             <thead>
                 <tr>
                     <th scope="col"></th>
-                    <th scope="col">{t('global.monthly')}</th>
-                    <th scope="col">{t('global.weekly')}</th>
-                    <th scope="col">{t('global.daily')}</th>
+                    <th scope="col" className={styles.th}>{t('global.monthly')}</th>
+                    <th scope="col" className={styles.th}>{t('global.weekly')}</th>
+                    <th scope="col" className={styles.th}>{t('global.daily')}</th>
                 </tr>
             </thead>
             <tbody>

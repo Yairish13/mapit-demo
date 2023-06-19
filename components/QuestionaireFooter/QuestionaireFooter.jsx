@@ -11,7 +11,7 @@ const QuestionaireFooter = ({ handleClick, firstPart, wide, isError, withStepper
             {withStepper && <div className={styles.stepper}>
                 <Stepper />
             </div>}
-            {isError && <div className='errDiv'>{t('general.pleaseFillRequired')}</div>}
+            {isError && <div className='errDiv'>{firstPart ? t('general.RequiredAtLeastOne') : t('general.pleaseFillRequired')}</div>}
             <Button mode="primary" onClick={(e) => handleClick(e)}>
                 {t("global.next")}
             </Button>

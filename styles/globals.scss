@@ -71,7 +71,7 @@ p {
   margin-bottom: 2rem;
   box-sizing: border-box;
   padding: 1rem 1rem;
-  border: 1px solid #B1BEC5;
+  border: 1px solid #969696;
   width: 38rem;
 
   @media (max-width: 970px) {
@@ -182,7 +182,7 @@ table {
 
 td {
   white-space: break-spaces;
-  padding: 0.6rem 0;
+  padding: 0.25rem 0;
 }
 
 th {
@@ -190,6 +190,7 @@ th {
   line-height: 1;
   padding-bottom: 0.5rem;
   width: 3.5rem;
+
   @media (max-width: 600px) {
     font-size: 0.65rem;
   }

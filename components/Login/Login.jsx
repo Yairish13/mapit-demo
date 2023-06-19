@@ -5,36 +5,34 @@ import styles from './Login.module.css';
 import Button from '@components/Button/Button';
 import Checkbox from '@components/Checkbox/Checkbox';
 import TextInput from '@components/TextInput/TextInput'
-import { cellphonePattern, otpPattern } from '@utils';
+import { cellphonePattern, handleRecaptcha, otpPattern, recaptchaAction } from '@utils';
 import { useForm } from 'react-hook-form';
 import { useRouter } from "next/navigation";
-
+import { useFetch } from '@hooks/useFetch';
 
 const Login = ({ lng }) => {
     const { t } = useTranslation(lng);
     const router = useRouter();
     const [otpIsOn, setOtpIsOn] = useState(false);
     const [isChecked, setIsChecked] = useState(false);
-    const [areaCode, setAreaCode] = useState('+972')
-    const { register, setValue, handleSubmit, setError, formState: { errors }, watch } = useForm({
+    const [areaCode, setAreaCode] = useState('972')
+    const { register, setValue, handleSubmit, setError, formState: { errors } } = useForm({
         mode: 'any',
     });
-
-    const onSubmitPhone = (data) => {
+    const { isLoading, data, fetchData } = useFetch();
+    const onSubmitPhone = async (data) => {
         const { phoneLoginInput } = data;
-        console.log(phoneLoginInput,'phoneLoginInput');
-        setOtpIsOn(true)
-        // fetch(`http://localhost:1337/api/auth/phone/callback?phoneNumber=${areaCode}${phoneLoginInput}&project=1`)
-        //     .then((response) => response.json())
-        //     .then((responseJSON) => {
-        //         console.log(responseJSON.success, 'responseJason');
-        //         if (responseJSON.success) setOtpIsOn(true)
-        //         else setError('phoneLoginInput', { type: 'custom' });
-        //     }).catch(err => {
-        //         setError('phoneLoginInput', { type: 'custom' });
-        //         console.log(err, 'error')
-        //     });
-    }
+        const isRecaptchaPass = await handleRecaptcha(
+            recaptchaAction,
+            process.env.NEXT_PUBLIC_RECAPTCHA_KEY
+        );
+        console.log(isRecaptchaPass,'isRecaptchaPass');
+        if (isRecaptchaPass) {
+            await fetchData(`http://localhost:1337/api/auth/phone/callback?phoneNumber=${phoneLoginInput}&project=1`);
+        } else {
+            alert("Recaptcha verification fail");
+        }
+    };
 
     const handleChange = (e) => {
         if (e.target.id === 'rememberMeCheckbox') {
@@ -46,25 +44,17 @@ const Login = ({ lng }) => {
     const handleAreaCode = (areaCode) => {
         setAreaCode(areaCode);
     }
-    const otp = watch('otpInput')
-    const handleBefore = (data) => {
-        // fetch(`http://localhost:1337/api/auth/phone/callback?phoneNumber=${phoneLoginInput}&project=1&code=${}`)
-        // .then((response) => response.json())
-        // .then((responseJSON) => {
-        //     console.log(responseJSON.success, 'responseJason');
-        //     if (responseJSON.success) setOtpIsOn(true)
-        //     else setError('phoneLoginInput', { type: 'custom' });
-        // }).catch(err => {
-        //     setError('phoneLoginInput', { type: 'custom' });
-        //     console.log(err, 'error')
-        // });
-        console.log(data);
+    const handleBefore = async (data) => {
+        // const { otpInput } = data;
+        // await fetchData(`${process.env.LOGIN_URL}${phoneLoginInput}&project=1&code=${otpInput}`);
         router.push(`${lng}/terms`);
     }
-    useEffect(() => {
-        console.log(errors)
-    }, [errors])
 
+    useEffect(() => {
+        console.log(data);
+        if (data?.success) setOtpIsOn(true)
+        else if (data?.error) setError('phoneLoginInput', { type: 'custom' });
+    }, [data])
     return (
         <div className={styles.centeredLogin}>
             <h2 className={`${styles.loginHeader} title`}>
@@ -106,6 +96,7 @@ const Login = ({ lng }) => {
                     mode="primary"
                     type="submit"
                     id='submitPhone'
+                    loading={isLoading}
                     onClick={handleSubmit(onSubmitPhone)}
                 >
                     {t('pages.login.send')}
