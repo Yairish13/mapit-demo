@@ -5,7 +5,7 @@ import styles from './Login.module.css';
 import Button from '@components/Button/Button';
 import Checkbox from '@components/Checkbox/Checkbox';
 import TextInput from '@components/TextInput/TextInput'
-import { cellphonePattern, handleRecaptcha, otpPattern, recaptchaAction } from '@utils';
+import { cellphonePattern, otpPattern } from '@utils';
 import { useForm } from 'react-hook-form';
 import { useRouter } from "next/navigation";
 import { useFetch } from '@hooks/useFetch';
