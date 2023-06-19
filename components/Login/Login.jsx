@@ -21,17 +21,18 @@ const Login = ({ lng }) => {
     });
     const { isLoading, data, fetchData } = useFetch();
     const onSubmitPhone = async (data) => {
-        const { phoneLoginInput } = data;
-        const isRecaptchaPass = await handleRecaptcha(
-            recaptchaAction,
-            process.env.NEXT_PUBLIC_RECAPTCHA_KEY
-        );
-        console.log(isRecaptchaPass,'isRecaptchaPass');
-        if (isRecaptchaPass) {
-            await fetchData(`http://localhost:1337/api/auth/phone/callback?phoneNumber=${phoneLoginInput}&project=1`);
-        } else {
-            alert("Recaptcha verification fail");
-        }
+        setOtpIsOn(true)
+        // const { phoneLoginInput } = data;
+        // const isRecaptchaPass = await handleRecaptcha(
+        //     recaptchaAction,
+        //     process.env.NEXT_PUBLIC_RECAPTCHA_KEY
+        // );
+        // console.log(isRecaptchaPass,'isRecaptchaPass');
+        // if (isRecaptchaPass) {
+        //     await fetchData(`http://localhost:1337/api/auth/phone/callback?phoneNumber=${phoneLoginInput}&project=1`);
+        // } else {
+        //     alert("Recaptcha verification fail");
+        // }
     };
 
     const handleChange = (e) => {
