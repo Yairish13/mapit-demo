@@ -23,8 +23,8 @@ const FifthPart = ({ members, lng, dispatch }) => {
     let newArr = [];
     const handleNext = () => {
         dispatch(setAnswers({ ...answers, ...answersObj }))
+        dispatch(setAnsweredQuestions('questionEight'))
         dispatch(setAnsweredQuestions('questionNine'))
-        dispatch(filterAnsweredQuestions('questionNine'))
         dispatch(setNextStep())
     }
     const handleSelect = (option) => {
