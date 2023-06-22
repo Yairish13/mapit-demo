@@ -21,18 +21,19 @@ const Login = ({ lng }) => {
     });
     const { isLoading, data, fetchData,setIsLoading } = useFetch();
     const onSubmitPhone = async (data) => {
-        const { phoneLoginInput } = data;
-        setIsLoading(true)
-        const isRecaptchaPass = await handleRecaptcha(
-            recaptchaAction,
-            process.env.NEXT_PUBLIC_RECAPTCHA_KEY
-        );
-        console.log(isRecaptchaPass,'isRecaptchaPass');
-        if (isRecaptchaPass) {
-            await fetchData(`http://localhost:1337/api/auth/phone/callback?phoneNumber=${phoneLoginInput}&project=1`);
-        } else {
-            setError('phoneLoginInput', { type: 'custom' });
-        }
+        setOtpIsOn(true)
+        // const { phoneLoginInput } = data;
+        // setIsLoading(true)
+        // const isRecaptchaPass = await handleRecaptcha(
+        //     recaptchaAction,
+        //     process.env.NEXT_PUBLIC_RECAPTCHA_KEY
+        // );
+        // console.log(isRecaptchaPass,'isRecaptchaPass');
+        // if (isRecaptchaPass) {
+        //     await fetchData(`http://localhost:1337/api/auth/phone/callback?phoneNumber=${phoneLoginInput}&project=1`);
+        // } else {
+        //     setError('phoneLoginInput', { type: 'custom' });
+        // }
     };
 
     const handleChange = (e) => {
