@@ -5,7 +5,7 @@ import styles from './Login.module.css';
 import Button from '@components/Button/Button';
 import Checkbox from '@components/Checkbox/Checkbox';
 import TextInput from '@components/TextInput/TextInput'
-import { cellphonePattern, otpPattern } from '@utils';
+import { cellphonePattern, handleRecaptcha, otpPattern, recaptchaAction } from '@utils';
 import { useForm } from 'react-hook-form';
 import { useRouter } from "next/navigation";
 import { useFetch } from '@hooks/useFetch';
@@ -19,20 +19,20 @@ const Login = ({ lng }) => {
     const { register, setValue, handleSubmit, setError, formState: { errors } } = useForm({
         mode: 'any',
     });
-    const { isLoading, data, fetchData } = useFetch();
+    const { isLoading, data, fetchData,setIsLoading } = useFetch();
     const onSubmitPhone = async (data) => {
-        setOtpIsOn(true)
-        // const { phoneLoginInput } = data;
-        // const isRecaptchaPass = await handleRecaptcha(
-        //     recaptchaAction,
-        //     process.env.NEXT_PUBLIC_RECAPTCHA_KEY
-        // );
-        // console.log(isRecaptchaPass,'isRecaptchaPass');
-        // if (isRecaptchaPass) {
-        //     await fetchData(`http://localhost:1337/api/auth/phone/callback?phoneNumber=${phoneLoginInput}&project=1`);
-        // } else {
-        //     alert("Recaptcha verification fail");
-        // }
+        const { phoneLoginInput } = data;
+        setIsLoading(true)
+        const isRecaptchaPass = await handleRecaptcha(
+            recaptchaAction,
+            process.env.NEXT_PUBLIC_RECAPTCHA_KEY
+        );
+        console.log(isRecaptchaPass,'isRecaptchaPass');
+        if (isRecaptchaPass) {
+            await fetchData(`http://localhost:1337/api/auth/phone/callback?phoneNumber=${phoneLoginInput}&project=1`);
+        } else {
+            setError('phoneLoginInput', { type: 'custom' });
+        }
     };
 
     const handleChange = (e) => {

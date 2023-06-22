@@ -9,41 +9,49 @@ import QuestionText from '@components/QuestionText/QuestionText';
 import { Trans } from 'react-i18next';
 import QuestionaireHeader from '@components/QuestionaireHeader/QuestionaireHeader';
 import QuestionaireFooter from '@components/QuestionaireFooter/QuestionaireFooter';
-import { setAnsweredQuestions, setIsFinished, setPartC } from '@store/generalSlice';
+import { setAnsweredQuestions, setAnswers, setIsFinished, setPartC } from '@store/generalSlice';
 import { useSelector } from 'react-redux';
-import { useEffect } from 'react';
-import { getErrored, isErrored } from '@utils';
+import { useEffect, useState } from 'react';
+import { getFocus, isErrored } from '@utils';
 
 const SeventhPart = ({
-    lng, register, handleSubmit, setValue, errors, dispatch
+    lng, register, handleSubmit, setValue, errors, dispatch, clearErrors
 }) => {
+    const [answersObj, setAnswersObj] = useState({});
+
     const router = useRouter();
     const partC = useSelector((state) => state.general.partC);
+    const answers = useSelector((state) => state.general.answers);
     const isFinished = useSelector((state) => state.general.isFinished);
     let obj = { ...partC };
     const { t } = useTranslation(lng);
     const handleCheck = (option, name) => {
-        setValue(name, true)
+        setValue(name, true);
+        clearErrors(`${name}`);
         dispatch(setAnsweredQuestions(name))
         if (option?.target?.id) obj = { ...obj, [name]: option.target.id };
         else obj = { ...obj, [name]: option };
         dispatch(setPartC(obj))
+        setAnswersObj(obj)
     }
     const handleNext = () => {
+        console.log({ ...answers, ...answersObj }, 'lalalal')
+        dispatch(setAnswers({ ...answers, ...answersObj }))
         dispatch(setIsFinished())
         router.push(`${lng}/finish`)
     }
+    const onSubmit = () => {
+        if (Object.keys(errors).length > 0) {
+            getFocus(errors)
+        }
+        handleSubmit(handleNext)();
+    }
+    useEffect(() => {
+        getFocus(errors)
+    }, [errors])
     useEffect(() => {
         if (isFinished) router.push(`${lng}/finish`)
     }, [])
-
-    useEffect(() => {
-        const focusedInput = getErrored(errors);
-        console.log(focusedInput, 'focusedInput');
-        if (focusedInput) {
-            focusedInput.focus();
-        }
-    }, [errors])
     return (
         <div className={styles.containerPartB}>
             <div>
@@ -155,7 +163,7 @@ const SeventhPart = ({
                     wide={true}
                     withStepper={false}
                     isError={Object.keys(errors).length > 0 ? true : false}
-                    handleClick={handleSubmit(handleNext)}
+                    handleClick={onSubmit}
                 />
             </div>
         </div>

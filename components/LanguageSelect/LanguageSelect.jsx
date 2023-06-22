@@ -13,7 +13,6 @@ const LanguageSelect = ({ lng }) => {
         const restPath = splitted.slice(2, splitted.length).join('/')
         router.push(`${e.target.value}/${restPath}`);
     }
-    console.log(lng, 'lng');
     let arr = lng === 'en' ? ['en', 'he'] : languages;
     return (
         <div>

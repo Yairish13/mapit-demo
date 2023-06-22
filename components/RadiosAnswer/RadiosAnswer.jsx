@@ -60,9 +60,7 @@ const RadiosAnswer = ({ handleCheck, selectedMembers, register, name, setValue }
                                     id='daily'
                                     name={`${name}_${worker.id}`}
                                     index={index}
-                                    // onChange={(e) => handleChange(e)}
                                     onChange={(e) => { handleChange(e, index, name, worker.id) }}
-
                                     refs={{
                                         ...register(`${name}_${worker.id}`, {
                                             required: true,

@@ -10,7 +10,7 @@ import { Trans } from "react-i18next/TransWithoutContext";
 import QuestionaireHeader from "@components/QuestionaireHeader/QuestionaireHeader";
 import QuestionaireFooter from "@components/QuestionaireFooter/QuestionaireFooter";
 import { getErrored, isAnswered, isErrored } from "@utils";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 
 const ThirdPart = ({ lng, register, handleSubmit, setValue, errors, getValues, dispatch }) => {

@@ -28,8 +28,8 @@ const SecondPart = ({ lng, register, handleSubmit, setValue, errors, getValues, 
         console.log(nineArr, 'nineArr');
         dispatch(setQuestionNine(nineArr));
         dispatch(setAnsweredQuestions('questionThree'));
-        dispatch(setNextStep());
         dispatch(setAnswers({ ...answers, ...answersObj, questionThree: questionThreeArr }))
+        dispatch(setNextStep());
 
     }
     const handleCheck = (option, name, index) => {
@@ -39,7 +39,7 @@ const SecondPart = ({ lng, register, handleSubmit, setValue, errors, getValues, 
                 const arr = questionThreeArr.filter((el) => el.id !== member.id);
                 setQuestionThreeArr(arr)
             }
-            else { setQuestionThreeArr((prev => [...prev, member])) }
+            else { setQuestionThreeArr((prev => [...prev, { id: member.id, value: member.value }])) }
             arr[index] = { ...arr[index], [name]: option.target.checked };
             if (arr.some(el => el.questionThree)) dispatch(setAnsweredQuestions(name))
             else dispatch(filterAnsweredQuestions(name))

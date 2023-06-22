@@ -3,37 +3,45 @@ import styles from './SixthPart.module.css'
 import { useTranslation } from '@app/i18n/client';
 import RadiosAnswerSurvey from '@components/RadiosAnswerSurvey/RadiosAnswerSurvey';
 import Stepper from '@components/Stepper/Stepper';
-import { useDispatch, useSelector } from 'react-redux';
-import { setAnsweredQuestions, setNextStep, setPartB } from '@store/generalSlice';
+import { useSelector } from 'react-redux';
+import { setAnsweredQuestions, setAnswers, setNextStep, setPartB } from '@store/generalSlice';
 import QuestionText from '@components/QuestionText/QuestionText';
 import { Trans } from 'react-i18next/TransWithoutContext';
 import QuestionaireHeader from '@components/QuestionaireHeader/QuestionaireHeader';
 import QuestionaireFooter from '@components/QuestionaireFooter/QuestionaireFooter';
-import { getErrored, isErrored } from '@utils';
-import { useEffect } from 'react';
+import { getFocus, isErrored } from '@utils';
+import { useEffect, useState } from 'react';
 
 const SixthPart = ({
-    lng, register, handleSubmit, setValue, errors, dispatch
+    lng, register, handleSubmit, setValue, errors, dispatch, clearErrors
 }) => {
+    const [answersObj, setAnswersObj] = useState({});
     const { t } = useTranslation(lng);
     const partB = useSelector((state) => state.general.partB);
+    const answers = useSelector((state) => state.general.answers);
     let obj = { ...partB };
 
     const handleNext = () => {
+        dispatch(setAnswers({ ...answers, ...answersObj }))
         dispatch(setNextStep())
     }
     const handleCheck = (option, name) => {
-        setValue(name, true)
+        setValue(name, true);
+        clearErrors(`${name}`);
         dispatch(setAnsweredQuestions(name))
         obj = { ...obj, [name]: option.target.id };
         dispatch(setPartB(obj))
+        setAnswersObj(obj)
+    }
+
+    const onSubmit = () => {
+        if (Object.keys(errors).length > 0) {
+            getFocus(errors)
+        }
+        handleSubmit(handleNext)();
     }
     useEffect(() => {
-        const focusedInput = getErrored(errors);
-        console.log(focusedInput, 'focusedInput');
-        if (focusedInput) {
-            focusedInput.focus();
-        }
+        getFocus(errors)
     }, [errors])
 
     return (
@@ -151,7 +159,7 @@ const SixthPart = ({
                     wide={true}
                     withStepper={false}
                     isError={Object.keys(errors).length > 0 ? true : false}
-                    handleClick={handleSubmit(handleNext)}
+                    handleClick={onSubmit}
                 />
             </div>
         </div>

@@ -10,8 +10,16 @@ export const isAnswered = (objOfValues, name) => {
   const newArr = Object.keys(objOfValues).filter((el) => el.split('_')[0] === name).map(key => objOfValues[key]);
   return newArr.every(el => el === true)
 };
-
+export const getFocus = (errors) => {
+  const focusedInput = getErrored(errors);
+  console.log(focusedInput, 'focusedInput');
+  if (focusedInput) {
+    focusedInput.focus();
+    // focusedInput.scrollIntoView();
+  }
+}
 export const getErrored = (errors) => {
+  console.log(errors);
   const firstError = Object.keys(errors).reduce((field, a) => {
     return !!errors[field] ? field : a;
   }, null);
@@ -39,7 +47,7 @@ export const handleRecaptcha = async (action, key) => {
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify({ token:token, action: action }),
+    body: JSON.stringify({ token: token, action: action }),
   };
   let res = await fetch("/api/recaptcha", options);
   const resJson = await res.json();
