@@ -1,7 +1,7 @@
 import dynamic from 'next/dynamic'
 const FullTerms = dynamic(
     () => import('../../../../components/FullTerms/FullTerms'),
-    { ssr: false }
+    { ssr: true }
   )
 const Page = async ({ params: { lng } }) => {
 
