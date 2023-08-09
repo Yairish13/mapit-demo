@@ -9,7 +9,9 @@ import FullTerms from "@components/FullTerms/FullTerms"
 const Page = async ({ params: { lng } }) => {
 
     return (
-        <FullTerms lng={lng} />
+        <>
+            {lng && <FullTerms lng={lng} />}
+        </>
     )
 }
 
